@@ -1,28 +1,86 @@
 \documentclass{amsart}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
 
-\newtheorem{statement}{Statement}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{statement}[theorem]{Statement}
 
-\newcommand{\im}{\mathrm{im}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\dprime}{{\prime\prime}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\interior}{int}
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-1.6in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-1.8in}
+\calclayout
 
 \begin{document}
 	\begin{statement}
 		Let $Y \subseteq X$ be a pair of compact Hausdorff spaces such that for any $p \in Y$ and any open neighborhood $V$ of $p$ in $X$ there exists an open neighborhood $U \subset V$ of $p$ such that $\im \big(\widetilde H_\bullet(U \cap Y) \to \widetilde H_\bullet(V)\big) = 0$. Then, $\im \big(H_d(Y) \to H_d(X)\big)$ is finitely generated for every $d$.
 	\end{statement}
-	\paragraph{\textit{Counterexample}} Let $Z = \left\{\left(0, 2^{-n}\right)\ |\ n \geq 0\right\} \cup \{(0, 0)\} \subset \R^2$. Let $X$ be a model of the suspension of $Z$ embedded in $\R^2$. The space $X$ is path-connected, Hausdorff, compact, and with infinite first homology. Furthermore, locally $H_1 = 0$. Taking $Y = X$ gives a counterexample.
-	
-	\begin{equation*}
-		\begin{tikzpicture}[scale=5]
-		\foreach \i in {0,1,2,...,12}{
-			\draw[line width=0.05mm] (-1,1) .. controls (0,1/2^\i) .. (1,1);
-		}
-		\end{tikzpicture}
-	\end{equation*}
+
+	\begin{theorem}
+		Let $X$ be locally compact and Hausdorff and $Y \subseteq X$ (compact? check where used).
+		\begin{itemize}
+			\item[$(r^n)$] If $K$ and $M$ are compact subsets of $X$ with $\widetilde K = K \cap Y \subset \interior M$, then $\im r^n_{\widetilde K, M}$ is finite.
+			\item[$(r^n_\bullet)$] If $V$ is a neighborhood in $X$ of $y \in Y$ there exist another such neighborhood $U \subseteq V$ such that $\im r^n_{U \cap Y, V}$ is finite.
+		\end{itemize}
+		Then, ($r^{n-1}$) together with ($r^n_\bullet$) imply ($r^n$).
+	\end{theorem}
+
+	\begin{proof}
+		Let $M$ be fixed and let $\sigma$ be the set of compact subsets $K$ of $\interior M$ such that $K$ has a neighborhood $U_K$ such that $\im r^n_{U_K \cap Y, M}$ is finite.
+		
+		Notice that $\sigma$ contains a compact neighborhood of each $y \in Y$ because of $(r^n_\bullet)$. This because locally compact together with Hausdorff imply that for any element $y$ and open $U_y$ there exist $K_y$ compact with $y \in K_y \subseteq U_y$.
+		
+		Let $K_1, K_2 \in \sigma$ and let $K_i^\prime$ be a compact neighborhood of $K_i$ such that $\im r^n_{K^\prime_i \cap Y, M}$ is finite. Such $K^\prime_i$ since (fill details using compactness of $K_i$ and the above property of locally compact Hausdorff spaces).
+		
+		Let $K_i^{\dprime}$ be a compact neighborhood of $K_i$ with $K_i^{\dprime} \subseteq \interior K_i^\prime$. (Fill in the details again.)
+		
+		Use $\widetilde{K}$ to denote $K \cap Y$ we have the commutative diagram
+		\begin{equation*}
+		\begin{tikzcd}
+		& \arrow[r] \arrow[d] H^n(M) & H^n(M) \oplus H^n(M) \arrow[d] \\
+		H^{n-1}(\widetilde K_1^\prime \cap \widetilde K_2^\prime) \arrow[r] \arrow[d] & 
+		H^{n}(\widetilde K_1^\prime \cup \widetilde K_2^\prime) \arrow[r] \arrow[d] &
+		H^{n}(\widetilde K_1^\prime) \oplus H^n(\widetilde K_2^\prime) \\
+		H^{n-1}(\widetilde K_1^\dprime \cap \widetilde K_2^\dprime) \arrow[r] & 
+		H^{n}(\widetilde K_1^\dprime \cup \widetilde K_2^\dprime). &
+		\end{tikzcd}
+		\end{equation*}
+		The upper right square has a finite image because $\im r^n_{\widetilde K^\prime_i, M}$ is. The bottom left square has a finite image using property $(r^n)$ with $K = K_1^\dprime \cap K_2^\dprime$ and $M = \widetilde K_1^\prime \cap \widetilde K_2^\prime$. And checking that $\interior(K_i^\prime) \cap Y \subseteq \interior(K_i^\prime \cap Y)$ and $\interior(K_1^\prime) \cap \interior(K_2^\prime) \subseteq \interior(K_1^\prime \cap K_2^\prime)$ (verify this.)		
+	\end{proof}
+
+	\begin{lemma}
+		Let $Y \subseteq X$ be a pair of compact Hausdorff spaces, then $(r^0)$ above holds. 
+	\end{lemma}
+
+	\begin{proof}
+		Let $K$ and $M$ be compact subsets of $X$ with $\widetilde K = K \cap Y \subset \interior M$. For every $y \in \widetilde K$, considering the open neighborhood $\interior M$, let $U_y$ be the open set such that $\im r_{U_y \cap Y, M}$ is finite. Cover $\widetilde K$ with a finite number of such open sets $\{v_1, \dots v_n\}$. The beginning of the Mayer-Vietoris sequence gives us
+		\begin{equation*}
+		\begin{tikzcd}
+		\bigoplus_i^n H_0(\widetilde{U_i}) \arrow[r] \arrow[d, "0"] & H_0(\widetilde{K}) \arrow[d] \arrow[r] & 0 \\
+		\bigoplus_i^n H_0(M) \arrow[r] & H_0(M). &
+		\end{tikzcd}
+		\end{equation*}
+	\end{proof}
 \end{document}
+
+\paragraph{NOT \textit{Counterexample}} Let $Z = \left\{\left(0, 2^{-n}\right)\ |\ n \geq 0\right\} \cup \{(0, 0)\} \subset \R^2$. Let $X$ be a model of the suspension of $Z$ embedded in $\R^2$. The space $X$ is path-connected, Hausdorff, compact, and with infinite first homology. Furthermore, locally $H_1 = 0$. Taking $Y = X$ gives a counterexample.
+
+\begin{equation*}
+\begin{tikzpicture}[scale=5]
+\foreach \i in {0,1,2,...,12}{
+	\draw[line width=0.05mm] (-1,1) .. controls (0,1/2^\i) .. (1,1);
+}
+\end{tikzpicture}
+\end{equation*}
 
 A diagram to keep in mind
 \begin{equation}
