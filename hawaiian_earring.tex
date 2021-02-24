@@ -1,0 +1,10 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+	\begin{tikzpicture}[scale=2]
+	\foreach \i in {1,...,100}{
+		\draw[line width=0.5/\i mm] (0, 1/\i^2) circle (1/\i^2);
+	}
+	\end{tikzpicture}
+\end{document}
