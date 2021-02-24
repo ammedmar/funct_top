@@ -6,7 +6,6 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{statement}[theorem]{Statement}
 
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\R}{\mathbb{R}}
@@ -20,27 +19,27 @@
 \addtolength{\textheight}{-1.8in}
 \calclayout
 
-\begin{document}
-	\begin{statement}
-		Let $Y \subseteq X$ be a pair of compact Hausdorff spaces such that for any $p \in Y$ and any open neighborhood $V$ of $p$ in $X$ there exists an open neighborhood $U \subset V$ of $p$ such that $\im \big(\widetilde H_\bullet(U \cap Y) \to \widetilde H_\bullet(V)\big) = 0$. Then, $\im \big(H_d(Y) \to H_d(X)\big)$ is finitely generated for every $d$.
-	\end{statement}
-	
+\begin{document}	
 	\paragraph{Terminology} A \textit{neighborhood} of a point is a set containing an open neighborhood of it.
 	
-	\begin{theorem}
-		Let $X$ be locally compact and Hausdorff and $Y \subseteq X$ compact.
+	\begin{lemma} \label{l: wilder}
+		Let $X$ be locally compact and Hausdorff and $Y \subseteq X$ compact. Define the following properties:
 		\begin{itemize}
-			\item[$(r^n)$] If $K$ and $M$ are compact subsets of $X$ with $\widetilde K = K \cap Y \subset \interior M$, then $\im r^n_{\widetilde K, M}$ is finite.
-			\item[$(r^n_\bullet)$] If $V$ is an open neighborhood in $X$ of $y \in Y$ there exist another such neighborhood $U \subseteq V$ such that $\im r^n_{U \cap Y, V}$ is finite.
+			\item[$(r^n)$] If $K$ and $M$ are compact subsets of $X$ with $\widetilde K = K \cap Y \subset \interior_Y(M \cap Y)$, then $\im r^n_{\widetilde K, M}$ is finite.
+			\item[$(r^n_\bullet)$] If $V$ is an open neighborhood of $y \in Y$ there exist another such neighborhood $U \subseteq V$ such that $\im r^n_{U \cap Y, V}$ is finite.
 		\end{itemize}
 		Then, $(r^{n-1})$ together with $(r^n_\bullet)$ imply $(r^n)$.
-	\end{theorem}
+	\end{lemma}
 	
 	\begin{proof}
-		Let $M$ be fixed and let $\sigma$ be the set of compact subsets $K$ with $K \cap Y \subseteq \interior M$ such that $K$ has a neighborhood $U_K$ such that $\im r^n_{U_K \cap Y, M}$ is finite.
+		Let $M$ be fixed and let $\sigma$ be the set of compact subsets $K$ with $K \cap Y \subseteq \interior_Y(M \cap Y)$ such that $K$ has a neighborhood $U_K$ in $X$ such that $\im r^n_{U_K \cap Y, M}$ is finite.
 		
 		Recall the following fact:
 		$(\ast)$ A space $S$ if locally compact and Hausdorff if and only if for every point $p$ of $S$, any neighborhood of $p$ contains a compact neighborhood of $p$.
+		
+		The collection $\sigma$ is not empty, in fact, it contains a compact neighborhood of any $y \in Y$. This follows from taking $V = X$ in $(r_\bullet^n)$ and using $(\ast)$ on the resulting open neighborhood.
+		
+		Notice that the collection $\sigma$ is closed under intersections. In fact, a stronger statement holds: if $K_1$ is compact and $K_2 \in \sigma$ then $K_1 \cap K_2 \in \sigma$. This is a consequence of the fact that the image of a map is finite can be deduced from that property holding for any map that factors it. We will next show that $\sigma$ is also closed under finite unions.
 		
 		For $i \in \{1, 2\}$ consider $K_i \in \sigma$ and let $K_i^\prime$ and $K_i^\dprime$ be compact neighborhoods of $K_i$ such that
 		\begin{equation*}
@@ -49,9 +48,9 @@
 		where $\im r^n_{U_i \cap Y, M}$ is finite. 
 		We can construct such compact neighborhoods using $(\ast)$ as follows:
 		
-		Consider for each $p \in K_i$ a compact neighborhood $K^\prime_i(p) \subseteq U_i$ and let $K_i^\dprime(p) \subseteq \interior K_i^\prime(p)$ be another compact neighborhood of $p$. The collection of open sets $\interior K_i^\dprime(p)$ covers the compact $K_i$, and a finite union of the corresponding compact neighborhoods form the desired $K_i^\prime, K_i^\dprime$.
+		Consider for each $p \in K_i$ a compact neighborhood $K^\prime_i(p) \subseteq U_i$ and let $K_i^\dprime(p) \subseteq \interior K_i^\prime(p)$ be another compact neighborhood of $p$. The collection of open sets $\interior K_i^\dprime(p)$ covers the compact $K_i$. Let $\{p_i^{1}, \dots, p^{n}_i\} \subseteq K_i$ be such that $K_i \subseteq \bigcup_{j=1}^n \interior K^\dprime_i(p^j_i)$. Define $K_i^\dag = \bigcup_{j=1}^n K^\dag_i(p^j_i)$ for $i \in \{1,2\}$ and $\dag \in \{\prime, \dprime\}$.
 		
-		Furthermore, we have $K^\dprime_1 \cap K^\dprime_2 \cap Y \subseteq \interior(K_1^\prime \cap K_2^\prime \cap Y)$. To see this (if not immediately), take $p \in K^\dprime_1 \cap K^\dprime_2 \cap Y$, since by assumption there exist open sets $V_i$ in $X$ such that $p \in V_i \cap K_i^\prime$. Letting $V = V_1 \cap V_2$ we have $p \in V \cap (K^\prime_1 \cap K^\prime_2)$ and, since $p \in Y$, $p \in V \cap (K^\prime_1 \cap K^\prime_2 \cap Y)$ implying the claim.
+		Furthermore, we have $K^\dprime_1 \cap K^\dprime_2 \cap Y \subseteq \interior_Y(K_1^\prime \cap K_2^\prime \cap Y)$. To see this consider $p \in K^\dprime_1 \cap K^\dprime_2 \cap Y$. By construction for $i \in \{1, 2\}$ there exist open sets $V_i \subseteq K_i^\prime$ such that $p \in V_i$. Letting $V = V_1 \cap V_2$ we have $p \in V \cap Y \subseteq K^\dprime_1 \cap K^\dprime_2 \cap Y$ implying $p \in \interior_Y(K^\dprime_1 \cap K^\dprime_2 \cap Y)$.
 		
 		Using $\widetilde{K}$ to denote $K \cap Y$ we have the commutative diagram
 		\begin{equation*}
@@ -64,11 +63,20 @@
 		H^{n}(\widetilde K_1^\dprime \cup \widetilde K_2^\dprime). &
 		\end{tikzcd}
 		\end{equation*}
-		The upper right square has finite image because $\im r^n_{\widetilde K^\prime_i, M}$ is finite. The bottom left square has a finite image using property $(r^{n-1})$. From standard homological algebra using that the middle row is exact we conclude that $K_1 \cup K_2 \in \sigma$.
+		The upper right square has finite image because $\im r^n_{\widetilde K^\prime_i, M}$ is finite. The bottom left square has a finite image using property $(r^{n-1})$. From standard homological algebra using that the middle row is exact, part of the Mayer-Vietoris sequence for the space $\widetilde K_1^\prime \cup \widetilde K_2^\prime$, we conclude that $K = K_1 \cup K_2 \in \sigma$ with open neighborhood $U_K = \interior K^\dprime_1 \cup \interior K^\dprime_2$.
 		
-		Notice that because of $(r_\bullet^n)$ and $(\ast)$, the collection $\sigma$ contains a compact neighborhood of each $y \in Y$.
-		
-		Let $K$ compact such that $\widetilde K = K \cap Y \subset \interior M$. We can cover $\widetilde{K}$ with finitely many sets in $\sigma$ and conclude that $K$ is itself in $\sigma$.
+		Let $K$ compact such that $\widetilde K = K \cap Y \subset \interior_Y(M \cap Y)$.
+		Consider a finite subset $\{C_1, \dots, C_m\}$ of $\sigma$ such that $Y = \bigcup_{i=1}^m C_i \cap Y$. Here we are using that $Y$ is compact and that any $y \in Y$ has a neighborhood in $\sigma$. Denoting $C = \bigcup_{i=1}^m C_i$ and $D = X \setminus \interior(C)$ we have $K = K \cap C \cup K \cap D$ which imply $K \in \sigma$ since $D \cap Y = \emptyset$ so $D \in \sigma$ trivially.
+	\end{proof}
+	
+	We can now immediately prove the following result.
+	
+	\begin{theorem}
+		Let $Y \subseteq X$ be a pair of compact Hausdorff spaces such that for any $p \in Y$ and any open neighborhood $V$ of $p$ in $X$ there exists an open neighborhood $U \subset V$ of $p$ such that $\im \big(\widetilde H_\bullet(U \cap Y) \to \widetilde H_\bullet(V)\big) = 0$. Then, $\im \big(H_d(Y) \to H_d(X)\big)$ is finitely generated for every $d$.
+	\end{theorem}
+
+	\begin{proof}
+		Using the notation of Lemma \ref{l: wilder}, this would follow from $(r_n)$ applied to the case $K = Y$ and $M = X$. To show $(r_n)$ holds for every $n \geq 0$ we proceed by induction noticing that by assumption we have $(r^n_\bullet)$ for every $n$. 
 	\end{proof}
 \end{document}
 
