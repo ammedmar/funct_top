@@ -1,135 +1,308 @@
+\immediate\write18{bibtex \jobname}
 \documentclass{amsart}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{amsmath}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
 \usepackage{tikz-cd}
+%\usepackage{newtxtext,newtxmath}
+\usepackage[numbers,sort,compress]{natbib}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{lemma}[theorem]{Lemma}
+\usepackage[marginpar]{todo}
+\makeatletter
+\renewcommand{\@tododisplay}[1]{%
+%\marginpar{#1}%
+\textsuperscript{#1}%
+}
+%
+\renewcommand\@displaytodo[2][\todomark]{%
+\@tododisplay{{\todoformat [#1~\ref{todolbl:\thetodo}]}}%
+\footnotetext[\thetodo]{\todoformat #1:~#2}%
+\global\@todotoks\expandafter{\the\@todotoks\todoitem{#1}{#2}}%
+\@todotrue%
+}%
+\renewcommand\todomark{todo}
+\makeatother
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\Crefname{thm}{Theorem}{Theorems}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\Crefname{prop}{Proposition}{Propositions}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{conj}[thm]{Conjecture}
+\Crefname{conj}{Conjecture}{Conjectures}
+
+
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
 
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\HS}{\mathrm{HS}}
-\newcommand{\dprime}{{\prime\prime}}
 \DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\interior}{int}
 
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-1.4in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-1.8in}
-\calclayout
+\newcommand\CH{\check{H}}
 
-\newcommand{\p}{\mathrm{p}}
-\newcommand{\q}{\mathrm{q}}
+\title{Persistence in Functional Topology and a Correction to a Theorem by Morse}
+\author{}
+\date{\today}
+
+
 
 \begin{document}
+\maketitle
+\begin{abstract}
+With applications to the study of minimal surfaces in mind, Marston Morse wrote a series of papers developing versions of his famous inequalities for a broad class of real-valued functions on metric spaces. His work is remarkable in so far as it likely represents the first use of something that can be called persistent homology in the mathematical literature. From the modern point of view, it is particularly interesting that he uses Vietoris homology in order to enforce semi-continuity of persistent homology and that he states two topological conditions that supposedly ensure q-tameness. However, he is partly incorrect: We present a filtration that satisfies one of his conditions but has non-q-tame persistent homology. We also conjecture that his other condition, for which he provides no proof, is correct and discuss possible proof strategies.
+\end{abstract}
 
-\begin{definition}
-	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} ---denoted $\HS_n$--- if the image of the map induced by $H_n(-)$ is finitely generated, and we say it is \textit{homologically small}, denoted $\HS$, if it is $\HS_n$ for every~$n$.
-\end{definition}
+\section{Introduction}
+Nowadays, when thinking of Marston Morse's work, the first thing that comes to mind is the theory of critical points of his eponymous Morse functions, as presented e.g.\@ in Milnor's famous book \cite{MR0163331}, with a key result being the Morse inequalities for the number of critical points of a function. In the 1930s, however, Morse published a series of papers \cite{Morse.1937, Morse.1938, Morse.1940, MR9102} in which he established a much more general theory of critical points and Morse inequalities for not even necessarily continuous functions on metric spaces. He termed this general theory Functional Topology because his goal was to use it to study critical points of functionals by topological means. In particular, he was interested in existence results for unstable minimal surfaces, i.e., critical points of the area functional for a given boundary curve that are not minimizers of area \cite{Morse.1939,Morse.1941}. This work with Tompkins was building on the work of Douglas who solved the general version of Plateau's Problem \cite{Douglas.1931}.
 
-\begin{definition}
-	Let $X$ be a space and $f \colon X \to \R$ a function. For any $t \in \R$, the \textit{$t$-sublevel set of $f$} is defined by 
-	\begin{equation*}
-	X_{\leq t} = f^{-1}((-\infty, t]).
-	\end{equation*}
-\end{definition}
+The approach of Morse and Tompkins in \cite{Morse.1939} was to give a topological definition of critical points in the general setting, prove existence of these via Morse inequalities for the so-called Douglas functional, and then to prove that these topological critical points correspond to minimal surfaces. For a more detailed review of their work we refer to \cite{Struwe.1988}. In the minimal surface community, these methods do not seem to be deemed very helpful, as is reflected e.g.\@ in \cite[p.472]{MR2566897}, where the authors state that Morse's "...general Morse-theoretic statements are more or less useless as they are based on topological assumptions which cannot be verified in a concrete situation." More comments on the perceived unsuitability of the theory of Functional Topology for minimal surfaces are made by Struwe in \cite{MR850612}. 
 
-\begin{definition}
-	Let $M$ be a metric space. For any $p \in M$ and $\epsilon \geq 0$ denote
-	\begin{equation*}
-	B_\epsilon(p) = \{q \in M\ |\ d(p,q) < \epsilon\}, \qquad
-	\overline B_\epsilon(p) = \{q \in M\ |\ d(p,q) \leq \epsilon\}.
-	\end{equation*}
-\end{definition}
+By now, however, Morse's ideas from Functional Topology, and in particular from \cite{Morse.1940}, have been rediscovered in a different context, namely topological data analysis. More specifically, Morse studies how the homology of the sublevel sets of a function change as the level changes. He defines spaces that encode the same information as the modern persistent homology groups, as well as quantities that correspond to the modern notions of birth and death. Eventhough he did not have a structure theory of persistence modules via barcodes, he emphasized many points that are now known to be connected to this theory: The use of field coefficients, as well as ensuring that the occuring persistence modules are upper semi-continuous and q-tame (which implies the existence of interval decompositions \cite{schmahl2020structure}).
 
-\begin{definition}
-	Let $M$ be a metric space and $f \colon M \to \R$ a function.
-	The space $M$ is said to be \textit{strongly locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the image of the map induced by $H_n(-)$ on $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $0$.
-\end{definition}
+To achieve semi-continuity, Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, given e.g.\@ in \cite{Morse.1940}.
 
-\begin{theorem} \label{t:strong local connectenss implies q-tameness}
-	Let $M$ be a metric space and $f \colon M \to \R$ a function. If $M$ is strongly locally-$f$-connected and all level sets are compact, then, for any $s < t$ the inclusion $M_s \to M_t$ is $\HS$.
-\end{theorem}
+\begin{defi}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that the map 
+\[
+\tilde{H}_d(f_{\leq f(p)+\delta}\cap B_{\delta}(p)\hookrightarrow f_{\leq f(p)+e}\cap B_e(p);\mathbb{Z})
+\]
+is 0.
+\end{defi}
 
-\begin{lemma} \label{l:commutative algebra}
-	Given a commutative diagram of modules over a principal ideal domain
-	\begin{equation*}
-	\begin{tikzcd}
-	A_{1,1} \arrow[r] & A_{1,2} & \\
-	A_{2,1} \arrow[r] \arrow[u] & A_{2,2} \arrow[r] \arrow[u] & A_{2,3} \\
-	& A_{3,2} \arrow[r] \arrow[u] & A_{3,3} \arrow[u]
-	\end{tikzcd}
-	\end{equation*}
-	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then $A_{3,2} \to A_{1,2}$ does as well.
-\end{lemma}
+Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\mathbb{R}$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$. Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
 
-\begin{lemma} \label{l:neighborhood third}
-	Let $M$ be a metric space. For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
-	\begin{equation*}
-	K \subseteq \interior(K^\prime) \subseteq K^\prime \subseteq U.
-	\end{equation*}
-\end{lemma}
+\begin{claim}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+\end{claim}
 
+Here, $\CH_{d}$ denotes $d$-dimensional Vietoris or \v{C}ech homology and $f_{\leq\bullet}$ denotes the sublevel set filtration of $f$. He does not prove the statement in the above reference, but cites \cite[Theorem 6.1]{Morse.1938}. There, Morse presents a supposed proof of the claim by constructing finite bases for the sets $\im \CH_d(f_{\leq s}\hookrightarrow f_{\leq t};\mathbb{F})$. As it turns out, the proof is not correct: We present a counterexample to the claim.
+
+\begin{thm}\label{thm:counterexample}
+For any $d$, there exists a funtion $F\colon \mathbb{H}^{d}\to\mathbb{R}$ on the $d$-dimensional Hawaiian earring $\mathbb{H}^{d}$ such that $\mathbb{H}^{d}$ is locally-$F$-connected, all sublevel sets are compact and $\CH_d(F_{\leq\bullet};\mathbb{F})$ is not q-tame for any field $\mathbb{F}$.
+\end{thm}
+
+Recall that the $d$-dimensional Hawaiian earring is defined as the subspace
+\[
+\mathbb{H}^{d}=\bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}
+\]
+of $d+1$-dimensional Euclidean space.
+
+In \cite{Morse.1937}, Morse gives a slightly stronger definition of local-$f$-connectedness, which we will define under a different name to distinguish it from the weaker notion.
+
+\begin{defi}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{strongly locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that for all $c\geq f(p)$ the map 
+\[
+\tilde{H}_d(f_{\leq c+\delta}\cap B_{\delta}(p)\hookrightarrow f_{\leq c+e}\cap B_e(p);\mathbb{Z})
+\]
+is 0.
+\end{defi}
+
+Clearly, strong local-$f$-connectedness implies local-$f$-connectedness. Morse also presents the following claim as \cite[Theorem 9.2]{Morse.1937}, but states immediately thereafter that the proof "while not difficult involves too great detail to be presented here".
+
+\begin{claim}\label{con:q-tame_pers_cech_hom}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is strongly locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+\end{claim}
+
+While we are currently unable to present a proof, we conjecture the claim to be true. 
+
+\todo{what does the story look like for cohomology?}
+
+\subsection*{Notation and Conventions}
+For the rest of the paper, we let $\mathbb{F}$ be a field and whenever we write homology without explicit mention of coefficients, we mean homology with coefficients in $\mathbb{F}$.
+
+\section{Proof of the Main Theorem}
+
+\begin{proof}[Proof of \cref{thm:counterexample}]
+Define $F\colon\mathbb{H}^{d}\to\mathbb{R}$ as $0$ at the origin and $1$ everywhere else. All sublevel sets are either singletons or the whole space $\mathbb{H}^{d}$ and consequently compact. Moreover, $\mathbb{H}^{d}$ is locally-$F$-connected: 
+
+Let $e>0$ and $p\in M$. If $p$ is the origin, we choose $\delta$ between 0 and $\min\{e,1\}$. Then $F_{\leq F(p)+\delta}=F_{\leq\delta}=\{p\}$, so we have 
+\[
+\tilde{H}_n(F_{\leq F(p)+\delta}\cap B_{\delta}(p)\hookrightarrow F_{\leq F(p)+e}\cap B_e(p);\mathbb{Z})=\tilde{H}_n(\{p\}\hookrightarrow F_{\leq F(p)+e}\cap B_e(p);\mathbb{Z})=0,
+\]
+where the last map is trivial because $\tilde{H}_{n}(\{p\};\mathbb{Z})$ is trivial for any $n$. For $p$ not the origin, there is a unique $d$-sphere in $\mathbb{H}^{d}$ that $p$ lies on. Clearly, we may choose $\delta$ so small that $B_{\delta}(p)$ is a disc on this circle, so that $B_{\delta}(p)$ is in particular contractible. We have $F_{\leq F(p)+\delta}=F_{\leq F(p)+e}=\mathbb{H}^{d}$, so 
+\[
+\tilde{H}_n(F_{\leq F(p)+\delta}\cap B_{\delta}(p)\hookrightarrow F_{\leq F(p)+e}\cap B_e(p);\mathbb{Z})=\tilde{H}_n(B_{\delta}(p)\hookrightarrow B_e(p);\mathbb{Z})=0,
+\]
+where the last map is trivial for any $n$ because we chose $\delta$ such that $B_{\delta}(p)$ is contractible.
+
+What remains to be shown is that $\CH_d(F_{\leq\bullet})$ is not q-tame. Note that $\CH_d(F_{\leq\bullet})$ is constant with value $\CH_{d}(\mathbb{H}^{d})$ from some index onward, so it suffices to show that this vector space is infinite dimensional. This can be computed by using the fact that \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces: 
+
+Define 
+\begin{align*}
+\mathbb{H}^{d}_k&=\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{k}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{k}\right)^2\right\}\\
+&\cup\bigcup_{n=1}^{k-1}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\},
+\end{align*}
+i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled. We have $\lim_{k}\mathbb{H}^{d}_{k}=\bigcap_{k}\mathbb{H}^{d}_{k}=\mathbb{H}^{d}$, and hence $\CH_{d}(\mathbb{H}^{d})=\lim_{k}\CH_{d}(\mathbb{H}^{d}_{k})$. One can easily check that each $\mathbb{H}^{d}_{k}$ satisfies the assumptions for \cref{prop:cech_sing_hom_hlc}, which implies $\lim_{k}\CH_{d}(\mathbb{H}^{d}_{k})=\lim_{k}H_{d}(\mathbb{H}^{d}_{k})$. We compute
+\[
+\lim_{k}H_{d}(\mathbb{H}^{d}_{k})=\lim\left(\dots\to \prod_{n=1}^2\mathbb{F}\to \prod_{n=1}^1\mathbb{F}\to \prod_{n=1}^0\mathbb{F}\right)=\prod_{n\in\mathbb{N}}\mathbb{F},
+\]
+which is infiite-dimensional over $\mathbb{F}$. This finishes the proof.
+\end{proof}
+
+\begin{rem}
+Note that the singular persistent homology of the sublevel set filtration of $F$ above is also not q-tame because the $d$-dimensional Hawaiian earring has infinite-dimensional $d$-th singular homology \cite{Barratt.1962}. 
+\end{rem}
+
+\begin{rem}
+The construction above does not yield a counterexample to \cref{con:q-tame_pers_cech_hom} because $\mathbb{H}^{d}$ is not strongly locally-$F$-connected at the origin.
+\end{rem}
+
+\section{Towards a Proof of the Main Conjecture}
+\subsection{Local Connectedness}
+To tackle our conjecture, we want to start by reviewing local connectedness conditions in a broader context.
+
+\begin{defi}\label{defi:local_connectedness}
+Let $\mathcal{C}$ be a category with $0$ object and let $A\colon\mathbf{Top}\to\mathcal{C}$ be a functor. We say that a topological space $X$ is \emph{locally connected with respect to $A$} if for each point $p\in X$ and every open neighborhood $V$ of $p$ there is an open neighborhood $U\subseteq V$ of $p$ such that the map $A(U\hookrightarrow V)$ factors through 0.
+
+$X$ is called an \emph{$HLC^{\infty}$-space} if it is locally connected with respect to $\tilde{H}_*(-;\mathbb{Z})$. Other choices $G$ of coefficient groups will be denoted by a subscript, i.e., we say that $X$ is an \emph{$HLC^{\infty}_G$-space} if it is locally connected with respect to $\tilde{H}_*(-;G)$.
+\end{defi}
+
+\begin{ex}
+For any $d$, the $d$-dimensional Hawaiian earring is not $HLC^{\infty}$. However, if we consider $\mathbb{H}^{d}$ as a subspace of $\mathbb{H}^{d'}$ via the obvious embedding for $d<d'$, then $\mathbb{H}^{d}$ is $HLC^{\infty}$ in $\mathbb{H}^{d'}$.
+\end{ex}
+
+Local connectedness assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples. For us, the following is relevant.
+
+\begin{prop}[{\cite{MR105677, MR1481706}}]\label{prop:cech_sing_hom_hlc}
+On the category of paracompact $HLC^{\infty}$ Hausdorff spaces, \v{C}ech and singular homology with arbitrary coefficients coincide.
+\end{prop}
+
+We also get a persistent version by applying the above pointwise.
+
+\begin{cor}\label{cor:cech_sing_persistent_iso}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $f_{\leq c}$ is a paracompact $HLC^\infty$-space for each $c\in\mathbb{R}$. Then $\CH_d(f_{\leq\bullet})\cong H_d(f_{\leq\bullet})$ for any $d$.
+\end{cor}
+
+For more results of this type, we refer to \cite{MR1481706}. There, the above result \cite[Corollary VI.12.6]{MR1481706} and many similar ones are shown using sheaf theoretic methods. For example, Bredon also discusses cohomology local connectedness \cite[Section II.17]{MR1481706} and various other comparison results, e.g.\@ between singular and Borel-Moore homology \cite[Corollary V.12.15]{MR1481706} in the presence of homology local connectedness, as well as examples such as spaces that are sheaf cohomology locally connected but not homology locally connected \cite[Example II.17.12]{MR1481706}. Using Bredon's results, we also get the following.
+
+\begin{prop}\label{prop:fin_dim_sing_hom}
+Let $X$ be compact Hausdorff and $HLC^{\infty}$. Then $H_d(X;\mathbb{F})$ is finite-dimensional for all $d$ and any field $\mathbb{F}$.
+\end{prop}
 \begin{proof}
-	For any $x \in K$ choose $\epsilon(x)$ such that $B_{\epsilon(x)}(x) \subseteq U$. We have
-	\begin{equation*}
-	B_{\frac{\epsilon(x)}{3}}(x) \subseteq \overline B_{\frac{\epsilon(x)}{2}}(x) \subseteq B_{\epsilon(x)}(x).
-	\end{equation*}
-	Since $K$ is compact, there exists a finite set $\{x_\lambda \in K\}_{\Lambda}$ such that $K \subseteq \bigcup_{\Lambda} B_{\frac{\epsilon(x_\lambda)}{3}}(x_\lambda)$. Defining $K^\prime = \bigcup_{\Lambda} \overline B_{\frac{\epsilon(x_\lambda)}{2}}(x_\lambda)$ finishes the proof.
+By the universal coefficient theorem for homology, trivial singular homology with integer coefficients also implies trivial singular homology for any other coefficient group. In particular, this means that $X$ being $HLC^{\infty}$ also implies that $X$ is $HLC^{\infty}_{\mathbb{F}}$. By the universal coefficient theorem for cohomology, the singular cohomology with coefficients in $\mathbb{F}$ is naturally isomorphic to the dual space of the singular homology with coefficients in $\mathbb{F}$. This means that being $HLC^{\infty}_{\mathbb{F}}$ implies being locally connected with respect to singular cohomology in all degrees with coefficients in $\mathbb{F}$. Since we assume $X$ to be $HLC^{\infty}$, \cite[Theorem III.1.1]{MR1481706} now implies that $X$ is locally connected with respect to sheaf cohomology with coefficients in the locally constant sheaf with value $\mathbb{F}$. \cite[Corollary II.17.7]{MR1481706} implies that the sheaf cohomology of the whole space with coefficients in this sheaf is finite-dimensional, so again by \cite[Theorem III.1.1]{MR1481706} the same holds for singular cohomology with coefficients in $\mathbb{F}$. Applying the universal coefficient theorem once more proves the claim.
 \end{proof}
 
-\begin{lemma} \label{l:key lemma for q-tameness}
-	Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
-	For compact sets $K, L \subseteq M$ with $K \subseteq \interior(L)$ and $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
-\end{lemma}
+Again, we get a persistent version.
 
+\begin{cor}
+Let $M$ be a topological space and $f\colon M\to\mathbb{R}$ a function such that $f_{\leq c}$ is a compact Hausdorff $HLC^\infty$-space for each $c\in\mathbb{R}$. Then $H_d(f_{\leq\bullet})$ is p.f.d. for any $d$.
+\end{cor}
+
+\subsection{Two Alternative Conjectures}
+In order to relate Morse's conditions to the above, we need a relative version of the $HLC^{\infty}$ condition.
+
+\begin{defi}\label{defi:hlc}
+Let $\mathcal{C}$ be a category with $0$ object and let $A\colon\mathbf{Top}\to\mathcal{C}$ be a functor. If $Y\subseteq X$ is a pair of topological spaces, we say that $Y$ is \emph{locally connected with respect to $A$ in $X$} if for each point $p\in Y$ and any open neighborhood $V$ of $p$ in $X$ there is an open neighborhood $U\subseteq V$ of $p$ such that $A(U\cap Y\hookrightarrow V)$ factors through 0.
+
+We say that $Y$ is \emph{$HLC^{\infty}$ in $X$} if it is locally connected with respect to $\tilde{H}_*(-;\mathbb{Z})$ in $X$.
+\end{defi}
+
+We get the following rephrasing of strong local-$f$-connectedness.
+
+\begin{prop}
+Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. Then $M$ is strongly locally-$f$-connected if and only if $f_{\leq s}$ is $HLC^{\infty}$ in $f_{\leq t}$ whenever $s<t$.
+\end{prop}
 \begin{proof}
-	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $H_{n-1}(-)$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
-	
-	Given a compact set $L \subseteq M$ and $s < t$ let $\Sigma_{s, t}$ be the collection of all compact subsets $K$ of $\interior(L)$ for which there exists $\delta_K > 0$ and an open neighborhood $U_K$ of $K$ such that $U_K \cap M_{s+\delta_K} \to L \cap M_{t}$ is $\HS_n$.
-	
-	We start by showing that any point in $\interior(L) \cap M_s$ has a neighborhood in $\Sigma_{s, t}$.
-	Let $x \in \interior(L) \cap M_{s}$ and take $e > 0$ such that $s + e < t$ and $B_e(x) \subseteq \interior(L)$.
-	By the strong local-$f$-connectivity of $M$, there exists $\delta \in (0, e)$ such that for $c = s - f(x)$ the following composition is $\HS$:
-	\begin{equation*}
-	\overline B_{\delta/2}(x) \cap M_{s + \delta} \to
-	B_\delta(x) \cap M_{s + \delta} =
-	B_\delta(x) \cap M_{f(x) + c + \delta} \to
-	B_e(x) \cap M_{f(x) + c + e} \to
-	L \cap M_{t}.
-	\end{equation*}  
-	
-	We will now show that the class $\Sigma_{s,t}$ is closed under finite unions.
-	For $i \in \{1, 2\}$ let $K_i$ be in $\Sigma_{s,t}$ with $\delta_i > 0$ and $K_i \subseteq U_i$ open such that $U_{i} \cap M_{s+\delta_i} \to L \cap M_{t}$ is $\HS_n$.
-	We Use Lemma \ref{l:neighborhood third} to construct sets $K_i^\prime$ such that
-	\begin{equation*}
-	K_i \subseteq \interior(K_i^\prime) \subseteq K_i^\prime \subseteq U_i.
-	\end{equation*}
-	Notice that for $\delta = \min(\delta_i)$ we have $K_i^\prime \cap M_{s+\delta} \to L \cap M_t$ is $\HS_n$.
-	Additionally, the induction hypothesis implies that $K_1 \cap K_2 \cap M_s \to K_1^\prime \cap K_2^\prime \cap M_{s+\delta}$ is $\HS_{(n-1)}$.
-	We therefore have the following commutative diagram satisfying the assumptions of Lemma~\ref{l:commutative algebra}:
-	\begin{equation*}
-	\begin{tikzcd}
-	H_n(L \cap M_t) \oplus H_n(L \cap M_t) \arrow[r] &
-	H_n(L \cap M_t) & \\
-	H_{n}(K_1^\prime \cap M_{s+\delta}) \oplus H_n(K_2^\prime \cap M_{s+\delta}) \arrow[r] \arrow[u] & 
-	H_{n}((K_1^\prime \cap M_{s+\delta}) \cup (K_2^\prime \cap M_{s+\delta})) \arrow[r] \arrow[u] &
-	H_{n-1}(K_1^\prime \cap K_2^\prime \cap M_{s+\delta}) \\ & 
-	H_{n}((K_1 \cup K_2) \cap M_s) \arrow[r] \arrow[u] &
-	H_{n-1}(K_1 \cap K_2 \cap M_s). \arrow[u]
-	\end{tikzcd}
-	\end{equation*}
-	We conclude that $K_1 \cup K_2 \in \Sigma_{s, t}$.
-	Since any $K \subseteq \interior(L)$ can be expressed as a finite union of sets in $\Sigma_{s,t}$ the induction step and the lemma are proven.
+If each sublevel set is $HLC^{\infty}$ in larger sublevel sets, $M$ is clearly strongly locally-$f$-connected. For the converse direction, fix $s<t$ and choose some point $p\in f_{\leq s}$ with a neighborhood $V$ of $p$ in $f_{\leq t}$. We may choose $e\in(0, t-s)$ such that $B_e(p)\cap f_{\leq t}\subseteq V$. By strong local-$f$-connectedness, for each $d$ there is some $\delta\in(0,e)$ such that the map in reduced $d$-dimensional homology induced by $B_{\delta}(p)\cap f_{\leq s}\hookrightarrow B_e(p)\cap f_{\leq t}$ is trivial. The map $B_{\delta}(p)\cap f_{\leq s}\hookrightarrow V$ factors through the aforementioned map, so it is trivial in reduced homology, too. Thus, $f_{\leq s}$ is $HLC^{\infty}$ in $f_{\leq t}$.
 \end{proof}
 
-\begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
-	Given $s < t$ consider the compact metric space $N = M_{\leq t}$ and apply Lemma~\ref{l:key lemma for q-tameness} inside $N$ to $L = N$ and $K = M_{\leq s}$ deducing the desired conclusion.
+Note that the proposition gives a purely topological description of strong local-$f$-connectedness, so we can also use it to define strong local-$f$-connectedness for spaces that are not metrizable. It also yields the following corollary.
+
+\begin{cor}
+Let $M$ be a topological space and $f\colon M\to\mathbb{R}$ a function. If all sublevel sets are $HLC^{\infty}$, then $M$ is strongly locally-$f$-connected.
+\end{cor}
+
+We now propose the following generalization of \cref{prop:fin_dim_sing_hom}.
+
+\begin{conj}\label{conj:q-tame_singular}
+Let $Y\subseteq X$ be compact Hausdorff spaces such that $Y$ is $HLC^{\infty}$ in $X$. Then $\im H_d(Y\hookrightarrow X)$ is finite-dimensional for all $d$.
+\end{conj}
+
+As a persistent version, we have the following obvious consequence.
+
+\begin{prop}\label{prop:q-tame_singular}
+Let $M$ be a topological space and $f\colon M\to\mathbb{R}$ a function such that $M$ is strongly locally-$f$-connected, i.e., each sublevel set is $HLC^{\infty}$ in all larger sublevel sets. If \cref{conj:q-tame_singular} is true, then $H_{d}(f_{\leq\bullet})$ is q-tame for all $d$.
+\end{prop}
+
+In a similar spirit, we also propose the following conjecture as an analogue to \cref{cor:cech_sing_persistent_iso}.
+
+\begin{conj}\label{con:d_I_0_sing_cech}
+Let $M$ be a topological space and $f\colon M\to\mathbb{R}$ a function such that all sublevel sets are paracompact Hausdorff. If $M$ is strongly locally-$f$-connected, i.e., each sublevel set is $HLC^{\infty}$ in all larger sublevel sets, then 
+\[
+d_I(H_d(f_{\leq\bullet}),\CH_d(f_{\leq\bullet}))=0
+\]
+for all $d$.
+\end{conj}
+
+Here, $d_{I}$ denotes the interleaving distance between persistence modules. The conjecture is relevant because of the following criterion for q-tameness.
+
+\begin{prop}
+Let $M$ and $N$ be persistence modules such that $M$ is q-tame and assume $d_I(M,N)=0$. Then $N$ is q-tame.
+\end{prop}
+\begin{proof}
+Pick indices $s<t$. Because $d_I(M,N)=0$, we may choose a $\delta$-interleaving with $\delta\in\left(0,\frac{t-s}{2}\right)$. Then we have a commutative diagram 
+
+\[
+\begin{tikzcd}
+N_s\arrow[rrr]\arrow[rd]&&&N_{t}\\
+&M_{s+\delta}\arrow[r]&M_{t-\delta}\arrow[ru]&
+\end{tikzcd}
+\]
+so that the rank of $N_s\to N_t$ is bounded above by the rank of $M_{s+\delta}\to M_{t-\delta}$. The rank of $M_{s+\delta}\to M_{t-\delta}$ is finite by assumption, so $N$ is q-tame.
 \end{proof}
 
+Combining the previous result with \cref{prop:q-tame_singular}, we get the following.
+
+\begin{cor}
+If \cref{conj:q-tame_singular,con:d_I_0_sing_cech} are true, then so is \cref{con:q-tame_pers_cech_hom}.
+\end{cor}
+
+Thus, we have reduced our main conjecture to two smaller ones.
+
+A possible proof strategy for \cref{conj:q-tame_singular} might be to adapt the proof strategy of Wilder's Finiteness Theorem, which is an analogue of \cref{prop:fin_dim_sing_hom} for sheaf cohomology, from \cite[Section II.17]{MR1481706}. Essentially the same proof also appears in \cite[Section III.10]{MR842190}.
+
+A possible proof strategy for \cref{con:d_I_0_sing_cech} might be to adapt Bredon's proof of \cref{prop:cech_sing_hom_hlc} using his spectral sequence that relates \v{C}ech and singular homology.
+
+\subsection{Q-Tameness of Persistent \v{C}ech Homology via Cosheaf Homology}\label{sec:cosheaf}
+Note that what follows is rather informal and speculative.
+
+When working with cohomology, the usual modern way to relate the singular and the \v{C}ech theory is via an intermediate step in the form of sheaf cohomology and then use the Leray and Grothendieck spectral sequences \cite[Chapter III]{MR1481706}. One might hope to use similar cosheaf theoretic methods, such as a possible theory of cosheaf homology, to obtain similar results for homology. So far, treatments of cosheaf homology are sparse. Among them are \cite{Andreotti.1973}, \cite{Schneiders.1987} and \cite{prasolov2018cosheaves}, but we are presently unable to determine whether the techniques in these texts can be adapted to our problems. Bredon, in \cite{Bredon.1968} and \cite[Chapter VI]{MR1481706}, also defines \v{C}ech homology with coefficients in a precosheaf and compares it to the singular theory for paracompact $HLC^{\infty}$-spaces \cite[Section VI.4 and Theorem VI.12.6]{MR1481706} using cosheaf theoretic methods. All of his results are still absolute comparison and finiteness results, i.e., they work for a single space $X$, so another obstacle, besides cosheaf homology being underdeveloped, is our desired generalization to subspaces $Y\subseteq X$ that are only $HLC^{\infty}$ in $X$ but not in themselves. That cosheaves might also help in overcoming this problem is suggested by the very nice formulation of the $HLC^{\infty}$ property in terms of precosheaves. The following definition appears in \cite{MR1481706}.
+
+\begin{defi}
+Let $\mathfrak{A}$ be a precosheaf on a space $X$ with values in a category with 0 object, i.e., a covariant functor on the poset category of open sets in $X$. We call $\mathfrak{A}$ \emph{locally trivial} if for all points $x\in X$ and all open neighborhoods $V$ of $x$ there is another open neighborhood $U\subseteq V$ of $x$ such that $\mathfrak{A}(U)\to\mathfrak{A}(V)$ factors through 0.
+\end{defi}
+
+The following definition is, up to our use of reduced homology, taken from \cite{Curry.2015}.
+
+\begin{defi}
+For any topological space $X$, we define the \emph{reduced Leray precosheaf} $\mathfrak{L}_X$ on $X$ as the precosheaf mapping $U\mapsto \tilde{H}_*(U;\mathbb{Z})$.
+\end{defi}
+
+\begin{defi}
+If $f\colon Y\to X$ is a continuous map between topological spaces and $\mathfrak{A}$ is a precosheaf on $Y$, we define the \emph{pushforward of $\mathfrak{A}$ along $f$} as the precosheaf on $X$ mapping $U\mapsto\mathfrak{A}(f^{-1}(U))$. We denote it by $f_*\mathfrak{A}$.
+\end{defi}
+
+Now if $Y\subseteq X$ are topological spaces, we get an obvious morphism $i_*\mathfrak{L}_Y\to\mathfrak{L}_X$ of precosheaves on $X$, where $i\colon Y\hookrightarrow X$ is the inclusion, given by $\tilde{H}_*(U\cap Y\hookrightarrow U;\mathbb{Z})$. Note that the category of precosheaves with values in abelian groups is just a functor category from a small category to an abelian category. In particular, it has images given "pointwise". We get the following rephrasing of the relative $HLC^{\infty}$ property.
+
+\begin{prop}
+Let $Y\subseteq X$ be topological spaces. Then $Y$ is $HLC^{\infty}$ in $X$ if and only if $\im(i_*\mathfrak{L}_Y\to\mathfrak{L}_X)$ is locally trivial.
+\end{prop}
+
+Our hope is that one might be able to use this characterization in the future to prove the previously made conjectures.
+
+\todo{Given $f\colon M\to\mathbb{R}$, is there a way of finding a single space (e.g. M itself, disjoint union of sublevel sets, colim of sublevel sets, hocolim of sublevel sets, continuously indexed mapping telescope (how to construct this?) of inclusions of sublevel sets, etc.) and a precosheaf with values in a category of persistence module (maybe the observable category) on that space such that $M$ is locally-$f$-connected iff that precosheaf is locally trivial?} 
+
+
+\section*{Acknowledgements}
+This research has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}, the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
+
+\bibliographystyle{abbrvnaturl}
+\bibliography{biblio}
+
+\todos
 \end{document}

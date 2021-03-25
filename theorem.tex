@@ -1,0 +1,135 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\dprime}{{\prime\prime}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\interior}{int}
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-1.4in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-1.8in}
+\calclayout
+
+\newcommand{\p}{\mathrm{p}}
+\newcommand{\q}{\mathrm{q}}
+
+\begin{document}
+
+\begin{definition}
+	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} ---denoted $\HS_n$--- if the image of the map induced by $H_n(-)$ is finitely generated, and we say it is \textit{homologically small}, denoted $\HS$, if it is $\HS_n$ for every~$n$.
+\end{definition}
+
+\begin{definition}
+	Let $X$ be a space and $f \colon X \to \R$ a function. For any $t \in \R$, the \textit{$t$-sublevel set of $f$} is defined by 
+	\begin{equation*}
+	X_{\leq t} = f^{-1}((-\infty, t]).
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Let $M$ be a metric space. For any $p \in M$ and $\epsilon \geq 0$ denote
+	\begin{equation*}
+	B_\epsilon(p) = \{q \in M\ |\ d(p,q) < \epsilon\}, \qquad
+	\overline B_\epsilon(p) = \{q \in M\ |\ d(p,q) \leq \epsilon\}.
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Let $M$ be a metric space and $f \colon M \to \R$ a function.
+	The space $M$ is said to be \textit{strongly locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the image of the map induced by $H_n(-)$ on $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $0$.
+\end{definition}
+
+\begin{theorem} \label{t:strong local connectenss implies q-tameness}
+	Let $M$ be a metric space and $f \colon M \to \R$ a function. If $M$ is strongly locally-$f$-connected and all level sets are compact, then, for any $s < t$ the inclusion $M_s \to M_t$ is $\HS$.
+\end{theorem}
+
+\begin{lemma} \label{l:commutative algebra}
+	Given a commutative diagram of modules over a principal ideal domain
+	\begin{equation*}
+	\begin{tikzcd}
+	A_{1,1} \arrow[r] & A_{1,2} & \\
+	A_{2,1} \arrow[r] \arrow[u] & A_{2,2} \arrow[r] \arrow[u] & A_{2,3} \\
+	& A_{3,2} \arrow[r] \arrow[u] & A_{3,3} \arrow[u]
+	\end{tikzcd}
+	\end{equation*}
+	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then $A_{3,2} \to A_{1,2}$ does as well.
+\end{lemma}
+
+\begin{lemma} \label{l:neighborhood third}
+	Let $M$ be a metric space. For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
+	\begin{equation*}
+	K \subseteq \interior(K^\prime) \subseteq K^\prime \subseteq U.
+	\end{equation*}
+\end{lemma}
+
+\begin{proof}
+	For any $x \in K$ choose $\epsilon(x)$ such that $B_{\epsilon(x)}(x) \subseteq U$. We have
+	\begin{equation*}
+	B_{\frac{\epsilon(x)}{3}}(x) \subseteq \overline B_{\frac{\epsilon(x)}{2}}(x) \subseteq B_{\epsilon(x)}(x).
+	\end{equation*}
+	Since $K$ is compact, there exists a finite set $\{x_\lambda \in K\}_{\Lambda}$ such that $K \subseteq \bigcup_{\Lambda} B_{\frac{\epsilon(x_\lambda)}{3}}(x_\lambda)$. Defining $K^\prime = \bigcup_{\Lambda} \overline B_{\frac{\epsilon(x_\lambda)}{2}}(x_\lambda)$ finishes the proof.
+\end{proof}
+
+\begin{lemma} \label{l:key lemma for q-tameness}
+	Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
+	For compact sets $K, L \subseteq M$ with $K \subseteq \interior(L)$ and $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
+\end{lemma}
+
+\begin{proof}
+	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $H_{n-1}(-)$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
+	
+	Given a compact set $L \subseteq M$ and $s < t$ let $\Sigma_{s, t}$ be the collection of all compact subsets $K$ of $\interior(L)$ for which there exists $\delta_K > 0$ and an open neighborhood $U_K$ of $K$ such that $U_K \cap M_{s+\delta_K} \to L \cap M_{t}$ is $\HS_n$.
+	
+	We start by showing that any point in $\interior(L) \cap M_s$ has a neighborhood in $\Sigma_{s, t}$.
+	Let $x \in \interior(L) \cap M_{s}$ and take $e > 0$ such that $s + e < t$ and $B_e(x) \subseteq \interior(L)$.
+	By the strong local-$f$-connectivity of $M$, there exists $\delta \in (0, e)$ such that for $c = s - f(x)$ the following composition is $\HS$:
+	\begin{equation*}
+	\overline B_{\delta/2}(x) \cap M_{s + \delta} \to
+	B_\delta(x) \cap M_{s + \delta} =
+	B_\delta(x) \cap M_{f(x) + c + \delta} \to
+	B_e(x) \cap M_{f(x) + c + e} \to
+	L \cap M_{t}.
+	\end{equation*}  
+	
+	We will now show that the class $\Sigma_{s,t}$ is closed under finite unions.
+	For $i \in \{1, 2\}$ let $K_i$ be in $\Sigma_{s,t}$ with $\delta_i > 0$ and $K_i \subseteq U_i$ open such that $U_{i} \cap M_{s+\delta_i} \to L \cap M_{t}$ is $\HS_n$.
+	We Use Lemma \ref{l:neighborhood third} to construct sets $K_i^\prime$ such that
+	\begin{equation*}
+	K_i \subseteq \interior(K_i^\prime) \subseteq K_i^\prime \subseteq U_i.
+	\end{equation*}
+	Notice that for $\delta = \min(\delta_i)$ we have $K_i^\prime \cap M_{s+\delta} \to L \cap M_t$ is $\HS_n$.
+	Additionally, the induction hypothesis implies that $K_1 \cap K_2 \cap M_s \to K_1^\prime \cap K_2^\prime \cap M_{s+\delta}$ is $\HS_{(n-1)}$.
+	We therefore have the following commutative diagram satisfying the assumptions of Lemma~\ref{l:commutative algebra}:
+	\begin{equation*}
+	\begin{tikzcd}
+	H_n(L \cap M_t) \oplus H_n(L \cap M_t) \arrow[r] &
+	H_n(L \cap M_t) & \\
+	H_{n}(K_1^\prime \cap M_{s+\delta}) \oplus H_n(K_2^\prime \cap M_{s+\delta}) \arrow[r] \arrow[u] & 
+	H_{n}((K_1^\prime \cap M_{s+\delta}) \cup (K_2^\prime \cap M_{s+\delta})) \arrow[r] \arrow[u] &
+	H_{n-1}(K_1^\prime \cap K_2^\prime \cap M_{s+\delta}) \\ & 
+	H_{n}((K_1 \cup K_2) \cap M_s) \arrow[r] \arrow[u] &
+	H_{n-1}(K_1 \cap K_2 \cap M_s). \arrow[u]
+	\end{tikzcd}
+	\end{equation*}
+	We conclude that $K_1 \cup K_2 \in \Sigma_{s, t}$.
+	Since any $K \subseteq \interior(L)$ can be expressed as a finite union of sets in $\Sigma_{s,t}$ the induction step and the lemma are proven.
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
+	Given $s < t$ consider the compact metric space $N = M_{\leq t}$ and apply Lemma~\ref{l:key lemma for q-tameness} inside $N$ to $L = N$ and $K = M_{\leq s}$ deducing the desired conclusion.
+\end{proof}
+
+\end{document}
