@@ -85,7 +85,7 @@
 
 \begin{lemma} \label{l:key lemma for q-tameness}
 	Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
-	For compact sets $K, L \subseteq M$ with $K \subseteq \interior(L)$ and $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
+	Consider sets $K, L \subseteq M$ with $K$ compact and $K \subseteq \interior(L)$. For any $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
 \end{lemma}
 
 \begin{proof}
@@ -125,11 +125,11 @@
 	\end{tikzcd}
 	\end{equation*}
 	We conclude that $K_1 \cup K_2 \in \Sigma_{s, t}$.
-	Since any $K \subseteq \interior(L)$ can be expressed as a finite union of sets in $\Sigma_{s,t}$ the induction step and the lemma are proven.
+	Since any compact $K \subseteq \interior(L)$ can be expressed as a finite union of sets in $\Sigma_{s,t}$ the induction step and the lemma are proven.
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
-	Given $s < t$ consider the compact metric space $N = M_{\leq t}$ and apply Lemma~\ref{l:key lemma for q-tameness} inside $N$ to $L = N$ and $K = M_{\leq s}$ deducing the desired conclusion.
+	 It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = M_{\leq s}$ and $L = M$.
 \end{proof}
 
 \end{document}
