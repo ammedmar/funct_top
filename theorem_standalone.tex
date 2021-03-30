@@ -1,10 +1,62 @@
-\section{Theorem}
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
 
-\begin{thm} \label{t:strong local connectenss implies q-tameness}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\dprime}{{\prime\prime}}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\interior}{int}
+
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-1.4in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-1.8in}
+\calclayout
+
+\newcommand{\p}{\mathrm{p}}
+\newcommand{\q}{\mathrm{q}}
+
+\begin{document}
+
+\begin{definition}
+	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} ---denoted $\HS_n$--- if the image of the map induced by $H_n(-)$ is finitely generated, and we say it is \textit{homologically small}, denoted $\HS$, if it is $\HS_n$ for every~$n$.
+\end{definition}
+
+\begin{definition}
+	Let $X$ be a space and $f \colon X \to \R$ a function. For any $t \in \R$, the \textit{$t$-sublevel set of $f$} is defined by 
+	\begin{equation*}
+	X_{\leq t} = f^{-1}((-\infty, t]).
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Let $M$ be a metric space. For any $p \in M$ and $\epsilon \geq 0$ denote
+	\begin{equation*}
+	B_\epsilon(p) = \{q \in M\ |\ d(p,q) < \epsilon\}, \qquad
+	\overline B_\epsilon(p) = \{q \in M\ |\ d(p,q) \leq \epsilon\}.
+	\end{equation*}
+\end{definition}
+
+\begin{definition}
+	Let $M$ be a metric space and $f \colon M \to \R$ a function.
+	The space $M$ is said to be \textit{strongly locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the image of the map induced by $H_n(-)$ on $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $0$.
+\end{definition}
+
+\begin{theorem} \label{t:strong local connectenss implies q-tameness}
 	Let $M$ be a metric space and $f \colon M \to \R$ a function. If $M$ is strongly locally-$f$-connected and all level sets are compact, then, for any $s < t$ the inclusion $M_s \to M_t$ is $\HS$.
-\end{thm}
+\end{theorem}
 
-\begin{lem} \label{l:commutative algebra}
+\begin{lemma} \label{l:commutative algebra}
 	Given a commutative diagram of modules over a principal ideal domain
 	\begin{equation*}
 	\begin{tikzcd}
@@ -14,14 +66,14 @@
 	\end{tikzcd}
 	\end{equation*}
 	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then $A_{3,2} \to A_{1,2}$ does as well.
-\end{lem}
+\end{lemma}
 
-\begin{lem} \label{l:neighborhood third}
+\begin{lemma} \label{l:neighborhood third}
 	Let $M$ be a metric space. For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
 	\begin{equation*}
 	K \subseteq \interior(K^\prime) \subseteq K^\prime \subseteq U.
 	\end{equation*}
-\end{lem}
+\end{lemma}
 
 \begin{proof}
 	For any $x \in K$ choose $\epsilon(x)$ such that $B_{\epsilon(x)}(x) \subseteq U$. We have
@@ -31,10 +83,10 @@
 	Since $K$ is compact, there exists a finite set $\{x_\lambda \in K\}_{\Lambda}$ such that $K \subseteq \bigcup_{\Lambda} B_{\frac{\epsilon(x_\lambda)}{3}}(x_\lambda)$. Defining $K^\prime = \bigcup_{\Lambda} \overline B_{\frac{\epsilon(x_\lambda)}{2}}(x_\lambda)$ finishes the proof.
 \end{proof}
 
-\begin{lem} \label{l:key lemma for q-tameness}
+\begin{lemma} \label{l:key lemma for q-tameness}
 	Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
 	Consider sets $K, L \subseteq M$ with $K$ compact and $K \subseteq \interior(L)$. For any $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
-\end{lem}
+\end{lemma}
 
 \begin{proof}
 	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $H_{n-1}(-)$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
@@ -79,3 +131,5 @@
 \begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
 	 It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = M_{\leq s}$ and $L = M$.
 \end{proof}
+
+\end{document}

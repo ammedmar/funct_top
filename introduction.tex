@@ -1,0 +1,69 @@
+
+\section{Introduction}
+
+\begin{itemize}
+	\item Persistence homology, 
+	\item applications in applied topology, application in theoretical topology, 
+	\item barcode, stability, existence of barcode motivates q-tameness. 
+	\item When can we ensure this condition? 
+	\item Morse as a precursor. Geodesic study, natural next context: minimal surfaces, \item proposed condition for q-tameness, it's wrong, 
+	\item a similar condition, assumed equivalent, we prove this implies it.
+	\item We expect this paper to help the ongoing development of persistence methods in geometry.
+\end{itemize}
+
+Nowadays, when thinking of Marston Morse's work, the first thing that comes to mind is the theory of critical points of his eponymous Morse functions, as presented e.g.\@ in Milnor's famous book \cite{MR0163331}, with a key result being the Morse inequalities for the number of critical points of a function. In the 1930s, however, Morse published a series of papers \cite{Morse.1937, Morse.1938, Morse.1940, MR9102} in which he established a much more general theory of critical points and Morse inequalities for not even necessarily continuous functions on metric spaces. He termed this general theory Functional Topology because his goal was to use it to study critical points of functionals by topological means. In particular, he was interested in existence results for unstable minimal surfaces, i.e., critical points of the area functional for a given boundary curve that are not minimizers of area \cite{Morse.1939,Morse.1941}. This work with Tompkins was building on the work of Douglas who solved the general version of Plateau's Problem \cite{Douglas.1931}.
+
+The approach of Morse and Tompkins in \cite{Morse.1939} was to give a topological definition of critical points in the general setting, prove existence of these via Morse inequalities for the so-called Douglas functional, and then to prove that these topological critical points correspond to minimal surfaces. For a more detailed review of their work we refer to \cite{Struwe.1988}. In the minimal surface community, these methods do not seem to be deemed very helpful, as is reflected e.gchoosing.\@ in \cite[p.472]{MR2566897}, where the authors state that Morse's "...general Morse-theoretic statements are more or less useless as they are based on topological assumptions which cannot be verified in a concrete situation." More comments on the perceived unsuitability of the theory of Functional Topology for minimal surfaces are made by Struwe in \cite{MR850612}. 
+
+By now, however, Morse's ideas from Functional Topology, and in particular from \cite{Morse.1940}, have been rediscovered in a different context, namely topological data analysis. More specifically, Morse studies how the homology of the sublevel sets of a function change as the level changes. He defines spaces that encode the same information as the modern persistent homology groups, as well as quantities that correspond to the modern notions of birth and death. Even though he did not have a structure theory of persistence modules via barcodes, he emphasized many points that are now known to be connected to this theory: The use of field coefficients, as well as ensuring that the occuring persistence modules are upper semi-continuous and q-tame (which implies the existence of interval decompositions \cite{schmahl2020structure}).
+
+To achieve semi-continuity, Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, given e.g.\@ in \cite{Morse.1940}.
+
+\begin{defi}
+	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that the map 
+	\[
+	\tilde{H}_d(f_{\leq f(p)+\delta}\cap B_{\delta}(p)\hookrightarrow f_{\leq f(p)+e}\cap B_e(p);\mathbb{Z})
+	\]
+	is 0.
+\end{defi}
+
+Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\mathbb{R}$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$. Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
+
+\begin{claim}
+	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+\end{claim}
+
+Here, $\CH_{d}$ denotes $d$-dimensional Vietoris or \v{C}ech homology and $f_{\leq\bullet}$ denotes the sublevel set filtration of $f$. He does not prove the statement in the above reference, but cites \cite[Theorem 6.1]{Morse.1938}. There, Morse presents a supposed proof of the claim by constructing finite bases for the sets $\im \CH_d(f_{\leq s}\hookrightarrow f_{\leq t};\mathbb{F})$. As it turns out, the proof is not correct: We present a counterexample to the claim.
+
+\begin{thm}\label{thm:counterexample}
+	For any $d$, there exists a funtion $F\colon \mathbb{H}^{d}\to\mathbb{R}$ on the $d$-dimensional Hawaiian earring $\mathbb{H}^{d}$ such that $\mathbb{H}^{d}$ is locally-$F$-connected, all sublevel sets are compact and $\CH_d(F_{\leq\bullet};\mathbb{F})$ is not q-tame for any field $\mathbb{F}$.
+\end{thm}
+
+Recall that the $d$-dimensional Hawaiian earring is defined as the subspace
+\[
+\mathbb{H}^{d}=\bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}
+\]
+of $d+1$-dimensional Euclidean space.
+
+In \cite{Morse.1937}, Morse gives a slightly stronger definition of local-$f$-connectedness, which we will define under a different name to distinguish it from the weaker notion.
+
+\begin{defi} 
+	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p \in M$, $e > 0$ and $d \in \mathbb{N}_0$ there exists $\delta \in (0,e)$ such that for all $c \geq f(p)$ the map 
+	\[
+	\tilde{H}_d(f_{\leq c+\delta} \cap B_{\delta}(p) \hookrightarrow f_{\leq c+e} \cap B_e(p); \mathbb{Z})
+	\]
+	is 0.
+\end{defi}
+
+Clearly, strong local-$f$-connectedness implies local-$f$-connectedness. Morse also presents the following claim as \cite[Theorem 9.2]{Morse.1937}, but states immediately thereafter that the proof "while not difficult involves too great detail to be presented here".
+
+\begin{claim}\label{con:q-tame_pers_cech_hom}
+	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is strongly locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+\end{claim}
+
+While we are currently unable to present a proof, we conjecture the claim to be true. 
+
+\todo{what does the story look like for cohomology?}
+
+\subsection*{Notation and Conventions}
+For the rest of the paper, we let $\mathbb{F}$ be a field and whenever we write homology without explicit mention of coefficients, we mean homology with coefficients in $\mathbb{F}$.
