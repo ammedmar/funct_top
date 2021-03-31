@@ -20,50 +20,37 @@ By now, however, Morse's ideas from Functional Topology, and in particular from 
 To achieve semi-continuity, Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, given e.g.\@ in \cite{Morse.1940}.
 
 \begin{defi}
-	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that the map 
+	Let $M$ be a metric space and $f \colon M \to \R$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that the map 
 	\[
 	\tilde{H}_d(f_{\leq f(p)+\delta}\cap B_{\delta}(p)\hookrightarrow f_{\leq f(p)+e}\cap B_e(p);\mathbb{Z})
 	\]
 	is 0.
 \end{defi}
 
-Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\mathbb{R}$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$. Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
+Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\R$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$. Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
 
 \begin{claim}
-	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+	Let $M$ be a metric space and $f\colon M\to\R$ a function such that $M$ is locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
 \end{claim}
 
-Here, $\CH_{d}$ denotes $d$-dimensional Vietoris or \v{C}ech homology and $f_{\leq\bullet}$ denotes the sublevel set filtration of $f$. He does not prove the statement in the above reference, but cites \cite[Theorem 6.1]{Morse.1938}. There, Morse presents a supposed proof of the claim by constructing finite bases for the sets $\im \CH_d(f_{\leq s}\hookrightarrow f_{\leq t};\mathbb{F})$. As it turns out, the proof is not correct: We present a counterexample to the claim.
-
-\begin{thm}\label{thm:counterexample}
-	For any $d$, there exists a funtion $F\colon \mathbb{H}^{d}\to\mathbb{R}$ on the $d$-dimensional Hawaiian earring $\mathbb{H}^{d}$ such that $\mathbb{H}^{d}$ is locally-$F$-connected, all sublevel sets are compact and $\CH_d(F_{\leq\bullet};\mathbb{F})$ is not q-tame for any field $\mathbb{F}$.
-\end{thm}
-
-Recall that the $d$-dimensional Hawaiian earring is defined as the subspace
-\[
-\mathbb{H}^{d}=\bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}
-\]
-of $d+1$-dimensional Euclidean space.
+Here, $\CH_{d}$ denotes $d$-dimensional Vietoris or \v{C}ech homology and $f_{\leq\bullet}$ denotes the sublevel set filtration of $f$. He does not prove the statement in the above reference, but cites \cite[Theorem 6.1]{Morse.1938}. There, Morse presents a supposed proof of the claim by constructing finite bases for the sets $\im \CH_d(f_{\leq s}\hookrightarrow f_{\leq t};\mathbb{F})$. As it turns out, the proof is not correct: We use the Hawaiian earring to construct a counterexample to this claim in Section \ref{sec:counterexample}. 
 
 In \cite{Morse.1937}, Morse gives a slightly stronger definition of local-$f$-connectedness, which we will define under a different name to distinguish it from the weaker notion.
 
 \begin{defi} 
-	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p \in M$, $e > 0$ and $d \in \mathbb{N}_0$ there exists $\delta \in (0,e)$ such that for all $c \geq f(p)$ the map 
+	Let $M$ be a metric space and $f\colon M\to\R$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p \in M$, $e > 0$ and $d \in \mathbb{N}_0$ there exists $\delta \in (0,e)$ such that for all $c \geq f(p)$ the map 
 	\[
 	\tilde{H}_d(f_{\leq c+\delta} \cap B_{\delta}(p) \hookrightarrow f_{\leq c+e} \cap B_e(p); \mathbb{Z})
 	\]
 	is 0.
 \end{defi}
 
-Clearly, strong local-$f$-connectedness implies local-$f$-connectedness. Morse also presents the following claim as \cite[Theorem 9.2]{Morse.1937}, but states immediately thereafter that the proof "while not difficult involves too great detail to be presented here".
+Clearly, strong local-$f$-connectedness implies local-$f$-connectedness.
+Morse also presents the following claim as \cite[Theorem 9.2]{Morse.1937}, but states immediately thereafter that the proof "while not difficult involves too great detail to be presented here".
 
-\begin{claim}\label{con:q-tame_pers_cech_hom}
-	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $M$ is strongly locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
+\begin{claim}
+	Let $M$ be a metric space and $f \colon M \to \R$ a function such that $M$ is strongly locally-$f$-connected and all sublevel sets are compact.
+	Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
 \end{claim}
 
-While we are currently unable to present a proof, we conjecture the claim to be true. 
-
-\todo{what does the story look like for cohomology?}
-
-\subsection*{Notation and Conventions}
-For the rest of the paper, we let $\mathbb{F}$ be a field and whenever we write homology without explicit mention of coefficients, we mean homology with coefficients in $\mathbb{F}$.
+We devote Section \ref{sec:theorem} to its proof.

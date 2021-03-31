@@ -9,15 +9,10 @@
 
 \anibal{Use a different example, $\H$ not yet defined.}
 \begin{ex}
-	For any $d$, the $d$-dimensional Hawaiian earring is not $\HLC$. However, if we consider $\H$ as a subspace of $\mathbb{H}^{d'}$ via the obvious embedding for $d < d'$, then $\H$ is $\HLC$ in $\mathbb{H}^{d'}$.
+	The $d$-dimensional Hawaiian earring $\H$ is not $\HLC$. However, if we consider $\H$ as a subspace of $\mathbb{H}^{d'}$ via the obvious embedding for $d < d'$, then $\H$ is $\HLC$ in $\mathbb{H}^{d'}$.
 \end{ex}
 
-\begin{defi}
-	Let $M$ be a metric space and $f \colon M \to \R$ a function.
-	The space $M$ is said to be \textit{locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the inclusion $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $\HT$.
-\end{defi}
-
-Local connectedness assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples. For us, the following is relevant.
+Local connectivity assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples. For us, the following is relevant.
 
 \begin{prop}[{\cite{MR105677, MR1481706}}]\label{prop:cech_sing_hom_hlc}
 	On the category of paracompact Hausdorff $\HLC$ spaces, \v{C}ech and singular homology with arbitrary coefficients coincide.
@@ -26,13 +21,16 @@ Local connectedness assumptions have a long history of being used to ensure that
 We also get a persistent version by applying the above pointwise.
 
 \begin{cor}\label{cor:cech_sing_persistent_iso}
-	Let $M$ be a metric space and $f\colon M\to\mathbb{R}$ a function such that $f_{\leq c}$ is a paracompact $HLC^\infty$-space for each $c\in\mathbb{R}$. Then $\CH_d(f_{\leq\bullet})\cong H_d(f_{\leq\bullet})$ for any $d$.
+	Let $M$ be a metric space and $f \colon M \to \mathbb{R}$ a function such that $M_{\leq c}$ is a paracompact $\HLC$-space for each $c \in \mathbb{R}$.
+	Then $\CH_n(M_{\leq \bullet}) \cong H_n(M_{\leq\bullet})$ for any integer $n$.
 \end{cor}
 
 For more results of this type, we refer to \cite{MR1481706}. There, the above result \cite[Corollary VI.12.6]{MR1481706} and many similar ones are shown using sheaf theoretic methods. For example, Bredon also discusses cohomology local connectedness \cite[Section II.17]{MR1481706} and various other comparison results, e.g.\@ between singular and Borel-Moore homology \cite[Corollary V.12.15]{MR1481706} in the presence of homology local connectedness, as well as examples such as spaces that are sheaf cohomology locally connected but not homology locally connected \cite[Example II.17.12]{MR1481706}. Using Bredon's results, we also get the following.
 
-\begin{prop}\label{prop:fin_dim_sing_hom}
-	Let $X$ be compact Hausdorff and $HLC^{\infty}$. Then $H_d(X;\mathbb{F})$ is finite-dimensional for all $d$ and any field $\mathbb{F}$.
+\anibal{Does this needs field coefficients? (}
+\begin{prop} \label{prop:fin_dim_sing_hom}
+	Let $X$ be compact Hausdorff and $\HLC$.
+	Then $H_n(X; \mathbb{F})$ is finite-dimensional for all $n$ and any field $\mathbb{F}$.
 \end{prop}
  
 \begin{proof}
@@ -42,5 +40,11 @@ For more results of this type, we refer to \cite{MR1481706}. There, the above re
 Again, we get a persistent version.
 
 \begin{cor}
-	Let $M$ be a topological space and $f\colon M\to\mathbb{R}$ a function such that $f_{\leq c}$ is a compact Hausdorff $HLC^\infty$-space for each $c\in\mathbb{R}$. Then $H_d(f_{\leq\bullet})$ is p.f.d. for any $d$.
+	Let $X$ be a topological space and $f \colon X \to \R$ a function such that $f_{\leq c}$ is a compact Hausdorff $\HLC$-space for each $c \in \R$.
+	Then $H_d(f_{\leq\bullet})$ is p.f.d. for any $d$.
 \end{cor}
+
+\begin{defi}
+	Let $M$ be a metric space and $f \colon M \to \R$ a function.
+	The space $M$ is said to be \textit{locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the inclusion $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $\HT$.
+\end{defi}

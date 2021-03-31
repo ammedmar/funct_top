@@ -1,9 +1,9 @@
 
-\section{Counterexample}
+\section{Counterexample} \label{sec:counterexample}
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=.77\textheight]{hawaiian_earring}
+	\includegraphics[width=.78\textheight]{hawaiian_earring}
 	\hfill
 	\caption{TBW}
 	\label{fig:earrings}
@@ -13,10 +13,10 @@ In this section we show that weak local-$f$-connectivity is not sufficient to en
 
 The $d$-dimensional Hawaiian earring is defined as the subspace
 \begin{equation*}
-\H = \bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}
+\H = \bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\R^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}
 \end{equation*}
 of $d+1$-dimensional Euclidean space.
-Let $f \colon \mathbb{H}^{d}\to\mathbb{R}$ as $0$ at the origin $\vec{0}$ and $1$ everywhere else.
+Let $f \colon \mathbb{H}^{d}\to\R$ as $0$ at the origin $\vec{0}$ and $1$ everywhere else.
 All sublevel sets $\H_{\leq t}$ are either the singleton $\{\vec{0}\}$ or the whole space $\H$, and therefore compact.
 Moreover, $\mathbb{H}^{d}$ is locally-$f$-connected as we prove now. 
 
@@ -32,8 +32,8 @@ The case of singular homology is well know.
 For \v{C}ech homology we use the fact that it commutes with inverse limits for compact Hausdorff spaces.
 Define 
 \begin{align*}
-\mathbb{H}^{d}_k&=\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{k}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{k}\right)^2\right\}\\
-&\cup\bigcup_{n=1}^{k-1}\left\{(x_0,\dots,x_d)\in\mathbb{R}^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\},
+\mathbb{H}^{d}_k&=\left\{(x_0,\dots,x_d)\in\R^{d+1}\mid \left(x_0-\frac{1}{k}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{k}\right)^2\right\}\\
+&\cup\bigcup_{n=1}^{k-1}\left\{(x_0,\dots,x_d)\in\R^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\},
 \end{align*}
 i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled.
 We have $\lim_{k}\mathbb{H}^{d}_{k}=\bigcap_{k}\mathbb{H}^{d}_{k}=\mathbb{H}^{d}$, and hence $\CH_{d}(\mathbb{H}^{d}) = \lim_{k}\CH_{d}(\mathbb{H}^{d}_{k})$.
