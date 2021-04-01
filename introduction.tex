@@ -19,6 +19,7 @@ By now, however, Morse's ideas from Functional Topology, and in particular from 
 
 To achieve semi-continuity, Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, given e.g.\@ in \cite{Morse.1940}.
 
+\anibal{I would quote the original verbatim}
 \begin{defi}
 	Let $M$ be a metric space and $f \colon M \to \R$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p\in M$, $e>0$ and $d\in\mathbb{N}_0$ there exists $\delta\in(0,e)$ such that the map 
 	\[
@@ -27,7 +28,8 @@ To achieve semi-continuity, Morse assumes all spaces in his filtrations to be co
 	is 0.
 \end{defi}
 
-Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\R$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$. Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
+Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\leq t}$ denotes the sublevel set of $f$ at $t\in\R$, and $B_{\delta}(p)$ denotes the open ball with radius $\delta$ around the point $p$.
+Morse then states the claim below as \cite[Theorem 6.3]{Morse.1940}.
 
 \begin{claim}
 	Let $M$ be a metric space and $f\colon M\to\R$ a function such that $M$ is locally-$f$-connected and all sublevel sets are compact. Then $\CH_d(f_{\leq\bullet};\mathbb{F})$ is q-tame for any $d$ and any field $\mathbb{F}$.
@@ -36,6 +38,10 @@ Here, $\tilde{H}_{d}$ denotes reduced $d$-dimensional singular homology, $f_{\le
 Here, $\CH_{d}$ denotes $d$-dimensional Vietoris or \v{C}ech homology and $f_{\leq\bullet}$ denotes the sublevel set filtration of $f$. He does not prove the statement in the above reference, but cites \cite[Theorem 6.1]{Morse.1938}. There, Morse presents a supposed proof of the claim by constructing finite bases for the sets $\im \CH_d(f_{\leq s}\hookrightarrow f_{\leq t};\mathbb{F})$. As it turns out, the proof is not correct: We use the Hawaiian earring to construct a counterexample to this claim in Section \ref{sec:counterexample}. 
 
 In \cite{Morse.1937}, Morse gives a slightly stronger definition of local-$f$-connectedness, which we will define under a different name to distinguish it from the weaker notion.
+
+\anibal{recall that this is not equivalent to Morse's condition.
+	I would not write down the condition below but refer to the definition in the theorem section.
+	Here I think is better to explain in words sating that we were inspired a condition stronger than the one above that is stable under forward translation.}
 
 \begin{defi}
 	Let $M$ be a metric space and $f\colon M\to\R$ a function. The space $M$ is called \emph{locally-$f$-connected} if for each $p \in M$, $e > 0$ and $d \in \mathbb{N}_0$ there exists $\delta \in (0,e)$ such that for all $c \geq f(p)$ the map 

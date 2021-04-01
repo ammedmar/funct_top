@@ -1,7 +1,7 @@
 
 \section{Theorem} \label{sec:theorem}
 
-In this section we introduce a stronger version of $\HLC$ for sublevel filtrations, and we show that Morse filtrations with this property are q-tame.
+In this section we introduce a stronger version of $\HLC$ for sublevel filtrations and show that Morse filtrations with this property are q-tame.
 
 \begin{defi}
 	A sublevel filtration $(X,f)$ is said to be \textit{strongly} $\HLC$ if for any $\epsilon > 0$, $x \in X$, and $V$ an open neighborhood of $x$, there is a $\delta \in (0, \epsilon)$ and a neighborhood $U$ of $x$ such that $U \subseteq V$ and
@@ -12,7 +12,7 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 \end{defi}
 
 \begin{thm} \label{t:strong local connectenss implies q-tameness}
-	Any be a strongly $\HLC$ Morse filtration $(X,f)$ is q-tame, i.e., for every $s < t$ the inclusion $X_s \to X_t$ is $\HS$.
+	Strongly $\HLC$ Morse filtrations are q-tame for any homology theory.
 \end{thm}
 
 \begin{lem} \label{l:commutative algebra}
@@ -24,11 +24,11 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 	& A_{3,2} \arrow[r] \arrow[u] & A_{3,3} \arrow[u]
 	\end{tikzcd}
 	\end{equation*}
-	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then $A_{3,2} \to A_{1,2}$ does as well.
+	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then so does $A_{3,2} \to A_{1,2}$.
 \end{lem}
 
 \begin{proof}
-	This is proven via a straightforward diagram chase. For complete details see Lemma 17.3 in \cite{Bredon.1968}.
+	This is proven via a straightforward diagram chase. For more details see Lemma 17.3 in \cite{Bredon.1968}.
 \end{proof}
 
 \begin{lem} \label{l:neighborhood third}
@@ -55,6 +55,8 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 \end{lem}
 
 \begin{proof}
+	We need to prove that the inclusion $X_s \to X_t$ is $\HS$ for every $s < t$.
+	
 	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $\H_{n-1}$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
 	
 	Given a compact set $L \subseteq X$ and $s < t$ let $\Sigma_{s, t}$ be the collection of all compact subsets $K$ of $\interior(L)$ for which there exists $\delta_K > 0$ and an open neighborhood $U(K)$ of $K$ such that $U(K) \cap X_{s+\delta_K} \to L \cap X_{t}$ is $\HS_n$.
