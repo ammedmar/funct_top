@@ -1,4 +1,15 @@
+
 \section{Theorem} \label{sec:theorem}
+
+In this section we introduce a stronger version of $\HLC$ for sublevel filtrations, and we show that Morse filtrations with this property are q-tame.
+
+\begin{defi}
+	A sublevel filtration $(X,f)$ is said to be \textit{strongly} $\HLC$ if for each $x \in X$, neighborhood $V$ of $x$ and $\epsilon > 0$ there exists $U$ a neighborhood of $x$ with $U \subseteq V$ and $\delta \in (0, \epsilon)$ such that
+	\begin{equation*}
+	X_{\leq f(x) + \delta + c} \cap U \to X_{f(x) + \epsilon + c} \cap V
+	\end{equation*}
+	is $\HT$ for every $c \geq 0$.
+\end{defi}
 
 \begin{thm} \label{t:strong local connectenss implies q-tameness}
 	Let $M$ be a metric space and $f \colon M \to \R$ a function. If $M$ is strongly locally-$f$-connected and all level sets are compact, then, for any $s < t$ the inclusion $M_s \to M_t$ is $\HS$.
@@ -32,7 +43,7 @@
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-	Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
+	Fix a homology theory. Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
 	Consider sets $K, L \subseteq M$ with $K$ compact and $K \subseteq \interior(L)$. For any $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
 \end{lem}
 
@@ -63,13 +74,13 @@
 	We therefore have the following commutative diagram satisfying the assumptions of Lemma~\ref{l:commutative algebra}:
 	\begin{equation*}
 	\begin{tikzcd}
-	H_n(L \cap M_t) \oplus H_n(L \cap M_t) \arrow[r] &
-	H_n(L \cap M_t) & \\
-	H_{n}(K_1^\prime \cap M_{s+\delta}) \oplus H_n(K_2^\prime \cap M_{s+\delta}) \arrow[r] \arrow[u] & 
-	H_{n}((K_1^\prime \cap M_{s+\delta}) \cup (K_2^\prime \cap M_{s+\delta})) \arrow[r] \arrow[u] &
-	H_{n-1}(K_1^\prime \cap K_2^\prime \cap M_{s+\delta}) \\ & 
-	H_{n}((K_1 \cup K_2) \cap M_s) \arrow[r] \arrow[u] &
-	H_{n-1}(K_1 \cap K_2 \cap M_s). \arrow[u]
+	\H_n(L \cap M_t) \oplus \H_n(L \cap M_t) \arrow[r] &
+	\H_n(L \cap M_t) & \\
+	\H_{n}(K_1^\prime \cap M_{s+\delta}) \oplus \H_n(K_2^\prime \cap M_{s+\delta}) \arrow[r] \arrow[u] & 
+	\H_{n}((K_1^\prime \cap M_{s+\delta}) \cup (K_2^\prime \cap M_{s+\delta})) \arrow[r] \arrow[u] &
+	\H_{n-1}(K_1^\prime \cap K_2^\prime \cap M_{s+\delta}) \\ & 
+	\H_{n}((K_1 \cup K_2) \cap M_s) \arrow[r] \arrow[u] &
+	\H_{n-1}(K_1 \cap K_2 \cap M_s). \arrow[u]
 	\end{tikzcd}
 	\end{equation*}
 	We conclude that $K_1 \cup K_2 \in \Sigma_{s, t}$.
@@ -77,5 +88,5 @@
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
-	 It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = M_{\leq s}$ and $L = M$.
+	It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = M_{\leq s}$ and $L = M$.
 \end{proof}

@@ -1,18 +1,30 @@
 
 \section{Local connectivity}
 
+Let $\H$ be a fixed homology theory.
+
 \begin{defi} \label{defi:local_connectedness}
-	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} or \textit{trivial}, denoted $\HS_n$ and $\HT_n$ respectively, if the image of the map induced by $\tilde H_n(-)$ is finitely generated or 0, and we say it is \textit{homologically small} or \textit{trivial}, denoted respectively $\HS$ and $\HT$, if it is $\HS_n$ or $\HT_n$ for every~$n$.
-	
-	A space $X$ is said to be \emph{homologically locally connected}, denoted $\HLC$, if for each $x \in X$ any neighborhood $V$ of $x$ contains a neighborhood $U$ of $x$ such that the inclusion $U \to V$ is $\HT$.
+	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} or \textit{trivial}, denoted $\HS_n$ and $\HT_n$ respectively, if the image of the map induced by $\H_n$ is finitely generated or 0, and we say it is \textit{homologically small} or \textit{trivial}, denoted respectively $\HS$ and $\HT$, if it is $\HS_n$ or $\HT_n$ for every~$n$.
 \end{defi}
 
-\anibal{Use a different example, $\H$ not yet defined.}
-\begin{ex}
-	The $d$-dimensional Hawaiian earring $\H$ is not $\HLC$. However, if we consider $\H$ as a subspace of $\mathbb{H}^{d'}$ via the obvious embedding for $d < d'$, then $\H$ is $\HLC$ in $\mathbb{H}^{d'}$.
-\end{ex}
+\begin{defi}
+	A space $X$ is said to be \emph{homologically locally connected}, denoted $\HLC$, if for each $x \in X$ any neighborhood $V$ of $x$ contains a neighborhood $U$ of $x$ such that the inclusion $U \to V$ is $\HT$.
+	
+	A sublevel filtration $(X,f)$ is said to be $\emph{homologically locally connected}$, denoted $\HLC$, if for each $x \in X$, neighborhood $V$ of $x$ and $\epsilon > 0$ there exists $U$ a neighborhood of $x$ with $U \subseteq V$ and $\delta \in (0, \epsilon)$ such that
+	\begin{equation*}
+	X_{\leq f(x) + \delta} \cap U \to X_{f(x) + \epsilon} \cap V
+	\end{equation*}
+	is $\HT$.
+\end{defi}
 
-Local connectivity assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples. For us, the following is relevant.
+%\anibal{Use a different example, $\HE$ not yet defined.}
+%\begin{ex}
+%	The $d$-dimensional Hawaiian earring $\HE$ is not $\HLC$. However, if we consider $\HE$ as a subspace of $\mathbb{H}^{d'}$ via the obvious embedding for $d < d'$, then $\HE$ is $\HLC$ in $\mathbb{H}^{d'}$.
+%\end{ex}
+
+Local connectivity assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples.
+For us, the following is relevant.
+Recall that a space is said to be \textit{paracompact} if every open cover has a locally finite open refinement, i.e., every point has a neighborhood intersecting finitely many sets in the refinement.
 
 \begin{prop}[{\cite{MR105677, MR1481706}}]\label{prop:cech_sing_hom_hlc}
 	On the category of paracompact Hausdorff $\HLC$ spaces, \v{C}ech and singular homology with arbitrary coefficients coincide.
@@ -21,18 +33,18 @@ Local connectivity assumptions have a long history of being used to ensure that 
 We also get a persistent version by applying the above pointwise.
 
 \begin{cor}\label{cor:cech_sing_persistent_iso}
-	Let $M$ be a metric space and $f \colon M \to \mathbb{R}$ a function such that $M_{\leq c}$ is a paracompact $\HLC$-space for each $c \in \mathbb{R}$.
-	Then $\CH_n(M_{\leq \bullet}) \cong H_n(M_{\leq\bullet})$ for any integer $n$.
+	Let $(X, f)$ be a sublevel filtration. If each sublevel set is paracompact and $\HLC$, then its singular and \v{C}ech persistence modules coincide.
 \end{cor}
 
-For more results of this type, we refer to \cite{MR1481706}. There, the above result \cite[Corollary VI.12.6]{MR1481706} and many similar ones are shown using sheaf theoretic methods. For example, Bredon also discusses cohomology local connectedness \cite[Section II.17]{MR1481706} and various other comparison results, e.g.\@ between singular and Borel-Moore homology \cite[Corollary V.12.15]{MR1481706} in the presence of homology local connectedness, as well as examples such as spaces that are sheaf cohomology locally connected but not homology locally connected \cite[Example II.17.12]{MR1481706}. Using Bredon's results, we also get the following.
+For more results of this type, we refer to \cite{MR1481706}. There, the above proposition \cite[Corollary VI.12.6]{MR1481706} and many similar ones are proven using sheaf theoretic methods.
+For example, Bredon also discusses cohomology local connectedness \cite[Section II.17]{MR1481706} and various other comparison results, e.g.\@ between singular and Borel-Moore homology \cite[Corollary V.12.15]{MR1481706} in the presence of homology local connectedness, as well as examples such as spaces that are sheaf cohomology locally connected but not homology locally connected \cite[Example II.17.12]{MR1481706}.
+Using Bredon's results, we also get the following.
 
-\anibal{Does this needs field coefficients? (}
 \begin{prop} \label{prop:fin_dim_sing_hom}
-	Let $X$ be compact Hausdorff and $\HLC$.
-	Then $H_n(X; \mathbb{F})$ is finite-dimensional for all $n$ and any field $\mathbb{F}$.
+	Let $X$ be a compact Hausdorff $\HLC$ space.
+	Then the singular homology of $X$ with field coefficients is finite-dimensional in every degree.
 \end{prop}
- 
+\anibal{Does this really needs field coefficients?} 
 \begin{proof}
 	By the universal coefficient theorem for homology, trivial singular homology with integer coefficients also implies trivial singular homology for any other coefficient group. In particular, this means that $X$ being $HLC^{\infty}$ also implies that $X$ is $HLC^{\infty}_{\mathbb{F}}$. By the universal coefficient theorem for cohomology, the singular cohomology with coefficients in $\mathbb{F}$ is naturally isomorphic to the dual space of the singular homology with coefficients in $\mathbb{F}$. This means that being $HLC^{\infty}_{\mathbb{F}}$ implies being locally connected with respect to singular cohomology in all degrees with coefficients in $\mathbb{F}$. Since we assume $X$ to be $HLC^{\infty}$, \cite[Theorem III.1.1]{MR1481706} now implies that $X$ is locally connected with respect to sheaf cohomology with coefficients in the locally constant sheaf with value $\mathbb{F}$. \cite[Corollary II.17.7]{MR1481706} implies that the sheaf cohomology of the whole space with coefficients in this sheaf is finite-dimensional, so again by \cite[Theorem III.1.1]{MR1481706} the same holds for singular cohomology with coefficients in $\mathbb{F}$. Applying the universal coefficient theorem once more proves the claim.
 \end{proof}
@@ -40,11 +52,6 @@ For more results of this type, we refer to \cite{MR1481706}. There, the above re
 Again, we get a persistent version.
 
 \begin{cor}
-	Let $X$ be a topological space and $f \colon X \to \R$ a function such that $f_{\leq c}$ is a compact Hausdorff $\HLC$-space for each $c \in \R$.
-	Then $H_d(f_{\leq\bullet})$ is p.f.d. for any $d$.
+	Let $(X, f)$ be a sublevel filtration. If each sublevel set is compact and $\HLC$
+	Then its singular persistence module is p.f.d. in every degree.
 \end{cor}
-
-\begin{defi}
-	Let $M$ be a metric space and $f \colon M \to \R$ a function.
-	The space $M$ is said to be \textit{locally-$f$-connected} if for each $p \in M$, $e > 0$, and $n \in \N$ there exists $\delta \in (0, e)$ such that for every $c \geq 0$ the inclusion $B_\delta(p) \cap M_{\leq f(p)+\delta+c} \to B_e(p) \cap M_{\leq f(p)+e+c}$ is $\HT$.
-\end{defi}

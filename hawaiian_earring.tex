@@ -1,12 +1,8 @@
-\documentclass{standalone}
-\usepackage{tikz}
 
-\begin{document}
-	\begin{tikzpicture}[scale=20]
-	\draw (-.1,0) rectangle (.1,.05);
-	\clip (-.1,0) rectangle (.1,.05); % remove for all circles
-	\foreach \i in {1,...,100}{
-		\draw[line width=0.1/\i mm] (0, 1/\i^2) circle (1/\i^2);
-	}
-	\end{tikzpicture}
-\end{document}
+\begin{tikzpicture}[scale=200]
+\draw (-.1,0) rectangle (.1,.05);
+\clip (-.1,0) rectangle (.1,.05); % remove for all circles
+\foreach \i in {1,...,100}{
+	\draw[line width=0.1/\i mm] (0, 1/\i^2) circle (1/\i^2);
+}
+\end{tikzpicture}

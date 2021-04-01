@@ -1,39 +1,6 @@
 
 \section{Preliminaries}
 
-\subsection*{Notation and Conventions}
-For the rest of the paper, we let $\mathbb{F}$ be a field and whenever we write homology without explicit mention of coefficients, we mean homology with coefficients in $\mathbb{F}$.
-
-\subsection{Sublevel set filtrations}
-
-Treat in parallel the case of spaces $X$ and the case of sublevel filtrations $(X, f)$. Leads nicely to different connectivities.
-\begin{itemize}
-	\item metric space
-	\item upper semi-continuous function
-	\item sublevel set filtrations
-\end{itemize}
-
-\begin{defi}
-	Let $M$ be a metric space. For any $p \in M$ and $\epsilon \geq 0$ denote
-	\begin{equation*}
-	B_\epsilon(p) = \{q \in M\ |\ d(p,q) < \epsilon\}, \qquad
-	\overline B_\epsilon(p) = \{q \in M\ |\ d(p,q) \leq \epsilon\}.
-	\end{equation*}
-\end{defi}
-
-\begin{defi}
-	Let $X$ be a space and $f \colon X \to \R$ a function. For any $t \in \R$, the \textit{$t$-sublevel set of $f$} is defined by 
-	\begin{equation*}
-	X_{\leq t} = f^{-1}((-\infty, t]).
-	\end{equation*}
-\end{defi}
-
-\subsection{Persistence homology}
-
-\begin{itemize}
-	\item Persistence module
-	\item q-tameness
-	\item Barcode
-	\item bottleneck
-	\item stability
-\end{itemize}
+\input{filtrations}
+\input{homology}
+\input{persistence}
