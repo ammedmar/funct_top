@@ -4,7 +4,7 @@
 In this section we introduce a stronger version of $\HLC$ for sublevel filtrations, and we show that Morse filtrations with this property are q-tame.
 
 \begin{defi}
-	A sublevel filtration $(X,f)$ is said to be \textit{strongly} $\HLC$ if for each $x \in X$, neighborhood $V$ of $x$ and $\epsilon > 0$ there exists $U$ a neighborhood of $x$ with $U \subseteq V$ and $\delta \in (0, \epsilon)$ such that
+	A sublevel filtration $(X,f)$ is said to be \textit{strongly} $\HLC$ if for any $\epsilon > 0$, $x \in X$, and $V$ an open neighborhood of $x$, there is a $\delta \in (0, \epsilon)$ and a neighborhood $U$ of $x$ such that $U \subseteq V$ and
 	\begin{equation*}
 	X_{\leq f(x) + \delta + c} \cap U \to X_{f(x) + \epsilon + c} \cap V
 	\end{equation*}
@@ -50,44 +50,45 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-	Fix a homology theory. Let $M$ and $f$ be as in Theorem \ref{t:strong local connectenss implies q-tameness}.
-	Consider sets $K, L \subseteq M$ with $K$ compact and $K \subseteq \interior(L)$. For any $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap M_{s+\delta} \to L \cap M_{t}$ is $\HS$.
+	Fix a homology theory. Let $(X,f)$ be a strongly $\HLC$ Morse filtration.
+	Consider sets $K, L \subseteq X$ with $K$ compact and $K \subseteq \interior(L)$. For any $s < t$ there is $\delta \in (0,\, t-s)$ such that $K \cap X_{s+\delta} \to L \cap X_{t}$ is $\HS$.
 \end{lem}
 
 \begin{proof}
-	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $H_{n-1}(-)$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
+	The lemma holds for $\HS$ replaced by $\HS_{(n-1)}$ for any $n \leq 0$ since $\H_{n-1}$ induces the zero map. We will proceed by induction on $n$ assuming the lemma for $\HS_{(n-1)}$. 
 	
-	Given a compact set $L \subseteq M$ and $s < t$ let $\Sigma_{s, t}$ be the collection of all compact subsets $K$ of $\interior(L)$ for which there exists $\delta_K > 0$ and an open neighborhood $U_K$ of $K$ such that $U_K \cap M_{s+\delta_K} \to L \cap M_{t}$ is $\HS_n$.
+	Given a compact set $L \subseteq X$ and $s < t$ let $\Sigma_{s, t}$ be the collection of all compact subsets $K$ of $\interior(L)$ for which there exists $\delta_K > 0$ and an open neighborhood $U(K)$ of $K$ such that $U(K) \cap X_{s+\delta_K} \to L \cap X_{t}$ is $\HS_n$.
 	
-	We start by showing that any point in $\interior(L) \cap M_s$ has a neighborhood in $\Sigma_{s, t}$.
-	Let $x \in \interior(L) \cap M_{s}$ and take $e > 0$ such that $s + e < t$ and $B_e(x) \subseteq \interior(L)$.
-	By the strong local-$f$-connectivity of $M$, there exists $\delta \in (0, e)$ such that for $c = s - f(x)$ the following composition is $\HS$:
+	We start by showing that any element of $\interior(L) \cap X_s$ has a neighborhood in $\Sigma_{s, t}$.
+	Let $x \in \interior(L) \cap X_{s}$.
+	Consider an open neighborhood $U(x)$ of $x$ contained in $\interior(L)$, and take $\epsilon > 0$ such that $s + \epsilon < t$.
+	By the strong $\HLC$ of $(X,f)$ there is a $\delta \in (0, \epsilon)$ and an open neighborhood $W(x) \subseteq U(x)$ such that for $c = s - f(x)$ the following composition is $\HS$:
 	\begin{equation*}
-	\overline B_{\delta/2}(x) \cap M_{s + \delta} \to
-	B_\delta(x) \cap M_{s + \delta} =
-	B_\delta(x) \cap M_{f(x) + c + \delta} \to
-	B_e(x) \cap M_{f(x) + c + e} \to
-	L \cap M_{t}.
-	\end{equation*}  
+	W(x) \cap X_{f(x) + c + \delta} \to
+	U(x) \cap X_{f(x) + c + e} \to
+	L \cap X_{t}.
+	\end{equation*}
+	By local connectivity we can choose a compact neighborhood of $x$ contained in $W(x)$.
+	This proves the claim.
 	
 	We will now show that the class $\Sigma_{s,t}$ is closed under finite unions.
-	For $i \in \{1, 2\}$ let $K_i$ be in $\Sigma_{s,t}$ with $\delta_i > 0$ and $K_i \subseteq U_i$ open such that $U_{i} \cap M_{s+\delta_i} \to L \cap M_{t}$ is $\HS_n$.
+	For $i \in \{1, 2\}$ let $K_i$ be in $\Sigma_{s,t}$ with $\delta_i > 0$ and $K_i \subseteq U_i$ open such that $U_{i} \cap X_{s+\delta_i} \to L \cap X_{t}$ is $\HS_n$.
 	We Use Lemma \ref{l:neighborhood third} to construct sets $K_i^\prime$ such that
 	\begin{equation*}
 	K_i \subseteq \interior(K_i^\prime) \subseteq K_i^\prime \subseteq U_i.
 	\end{equation*}
-	Notice that for $\delta = \min(\delta_i)$ we have $K_i^\prime \cap M_{s+\delta} \to L \cap M_t$ is $\HS_n$.
-	Additionally, the induction hypothesis implies that $K_1 \cap K_2 \cap M_s \to K_1^\prime \cap K_2^\prime \cap M_{s+\delta}$ is $\HS_{(n-1)}$.
+	Notice that for $\delta = \min(\delta_i)$ we have $K_i^\prime \cap X_{s+\delta} \to L \cap X_t$ is $\HS_n$.
+	Additionally, the induction hypothesis implies that $K_1 \cap K_2 \cap X_s \to K_1^\prime \cap K_2^\prime \cap X_{s+\delta}$ is $\HS_{(n-1)}$.
 	We therefore have the following commutative diagram satisfying the assumptions of Lemma~\ref{l:commutative algebra}:
 	\begin{equation*}
 	\begin{tikzcd}
-	\H_n(L \cap M_t) \oplus \H_n(L \cap M_t) \arrow[r] &
-	\H_n(L \cap M_t) & \\
-	\H_{n}(K_1^\prime \cap M_{s+\delta}) \oplus \H_n(K_2^\prime \cap M_{s+\delta}) \arrow[r] \arrow[u] & 
-	\H_{n}((K_1^\prime \cap M_{s+\delta}) \cup (K_2^\prime \cap M_{s+\delta})) \arrow[r] \arrow[u] &
-	\H_{n-1}(K_1^\prime \cap K_2^\prime \cap M_{s+\delta}) \\ & 
-	\H_{n}((K_1 \cup K_2) \cap M_s) \arrow[r] \arrow[u] &
-	\H_{n-1}(K_1 \cap K_2 \cap M_s). \arrow[u]
+	\H_n(L \cap X_t) \oplus \H_n(L \cap X_t) \arrow[r] &
+	\H_n(L \cap X_t) & \\
+	\H_{n}(K_1^\prime \cap X_{s+\delta}) \oplus \H_n(K_2^\prime \cap X_{s+\delta}) \arrow[r] \arrow[u] & 
+	\H_{n}((K_1^\prime \cap X_{s+\delta}) \cup (K_2^\prime \cap X_{s+\delta})) \arrow[r] \arrow[u] &
+	\H_{n-1}(K_1^\prime \cap K_2^\prime \cap X_{s+\delta}) \\ & 
+	\H_{n}((K_1 \cup K_2) \cap X_s) \arrow[r] \arrow[u] &
+	\H_{n-1}(K_1 \cap K_2 \cap X_s). \arrow[u]
 	\end{tikzcd}
 	\end{equation*}
 	We conclude that $K_1 \cup K_2 \in \Sigma_{s, t}$.
@@ -95,5 +96,5 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 \end{proof}
 
 \begin{proof}[Proof of Theorem \ref{t:strong local connectenss implies q-tameness}]
-	It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = M_{\leq s}$ and $L = M$.
+	It follows from applying Lemma~\ref{l:key lemma for q-tameness} to $K = X_{\leq s}$ and $L = X$.
 \end{proof}
