@@ -12,7 +12,7 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 \end{defi}
 
 \begin{thm} \label{t:strong local connectenss implies q-tameness}
-	Let $M$ be a metric space and $f \colon M \to \R$ a function. If $M$ is strongly locally-$f$-connected and all level sets are compact, then, for any $s < t$ the inclusion $M_s \to M_t$ is $\HS$.
+	Any be a strongly $\HLC$ Morse filtration $(X,f)$ is q-tame, i.e., for every $s < t$ the inclusion $X_s \to X_t$ is $\HS$.
 \end{thm}
 
 \begin{lem} \label{l:commutative algebra}
@@ -27,19 +27,26 @@ In this section we introduce a stronger version of $\HLC$ for sublevel filtratio
 	where the middle row is exact and both $A_{2,1} \to A_{1,1}$ and $A_{3,3} \to A_{2,3}$ have finitely generated images, then $A_{3,2} \to A_{1,2}$ does as well.
 \end{lem}
 
+\begin{proof}
+	This is proven via a straightforward diagram chase. For complete details see Lemma 17.3 in \cite{Bredon.1968}.
+\end{proof}
+
 \begin{lem} \label{l:neighborhood third}
-	Let $M$ be a metric space. For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
+	Let $X$ be locally compact space.
+	For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
 	\begin{equation*}
 	K \subseteq \interior(K^\prime) \subseteq K^\prime \subseteq U.
 	\end{equation*}
 \end{lem}
 
 \begin{proof}
-	For any $x \in K$ choose $\epsilon(x)$ such that $B_{\epsilon(x)}(x) \subseteq U$. We have
+	For any $x \in K$ choose a compact neighborhood $C(x) \subseteq U$.
+	We have
 	\begin{equation*}
-	B_{\frac{\epsilon(x)}{3}}(x) \subseteq \overline B_{\frac{\epsilon(x)}{2}}(x) \subseteq B_{\epsilon(x)}(x).
+	K \subseteq \bigcup_K \interior(C(x)) \subseteq \interior\left(\bigcup_K C(x)\right) \subseteq \bigcup_K C(x) \subseteq U
 	\end{equation*}
-	Since $K$ is compact, there exists a finite set $\{x_\lambda \in K\}_{\Lambda}$ such that $K \subseteq \bigcup_{\Lambda} B_{\frac{\epsilon(x_\lambda)}{3}}(x_\lambda)$. Defining $K^\prime = \bigcup_{\Lambda} \overline B_{\frac{\epsilon(x_\lambda)}{2}}(x_\lambda)$ finishes the proof.
+	Since $K$ is compact, the first inclusion above is achieved over a finite subset $\{x_1, \dots, x_m\}$ of elements in $K$.
+	Defining $K^\prime = \bigcup_{i=1}^m C(x_i)$ finishes the proof.
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
