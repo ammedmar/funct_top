@@ -1,0 +1,24 @@
+
+\section{Historical remarks}
+
+Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, which he refers to as \textit{local $F$-connectivity}. 
+\begin{displaycquote}[p.431]{Morse.1940}
+	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
+\end{displaycquote}
+Morse then states that as consequence of bounded compactness and local $F$-connectivity the rank of the persistence Vietoris homology module associated to $(M, F)$ is q-tame.
+In the original it reads:
+\begin{displaycquote}[Theorem 6.3, p.432]{Morse.1940}
+	Let $a$ and $c$ be positive constants such that $a < c < 1$.
+	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
+\end{displaycquote}
+The proof Morse cites, found in \cite[Theorem 6.1]{Morse.1938}, is not correct; neither is the statement.
+A stronger notion of local connectivity for the pair $(M, F)$ is needed to prove q-tameness.
+Such condition had already appeared in print, introduced by Morse himself, three years earlier.
+\begin{displaycquote}[p.421-422]{Morse.1937}
+	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property. For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
+\end{displaycquote}
+This notion of local-$f$-connectedness is stronger than the one first quoted, with the key difference being the freedom granted by the constant $c \geq F(p)$.
+Following the introduction of this stronger definition Morse states as \cite[Theorem~9.2, p.422]{Morse.1937} that q-tameness follows from this form of local $F$-connectivity and bounded compactness, adding that the proof ``while not difficult involves too great detail to be presented here".
+
+%From our current viewpoint it is simple to identify an important problem with both of these definitions of local $F$-connectivity, since they seem to assume that all singular homology classes can be represented by spheres, a fact that the fundamental class of a torus disproves.
+%Nonetheless, the distinction between the two teach us valuable lessons: q-tameness follows from bounded compactness and a modern interpretation of the second but not the first.\footnote{These are presented as Definitions \ref{defi:local_connectedness} and \ref{defi:strong_local_connectedness}}
