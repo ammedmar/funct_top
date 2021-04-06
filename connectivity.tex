@@ -76,12 +76,14 @@ To do so let us consider the \textit{$d$-dimensional Hawaiian earring}
 		\draw[line width=0.1/\i mm] (0, 1/\i^2) circle (1/\i^2);
 	}
 	\end{tikzpicture}
-	\caption{A closeup of the Hawaiian hearing $\mathbb{H}^1$.}
+	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
 	\label{fig:earrings}
 \end{figure}
 
 \begin{thm} \label{thm:counterexample}
-	Let $\H$ be a homology theory such that its value on a point is finitely generated for every degree and on $\HE$ is not finitely generated for some degree. Then, the function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a $\HLC$ Morse filtration that is not q-tame.
+	Let $\H$ be a homology theory such that its value on a point is finitely generated for every degree and on $\HE$ is not finitely generated for some degree. Then, the function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a $\HLC$ Morse filtration
+	\todo{weakly?}
+	that is not q-tame.
 \end{thm}
 
 \begin{proof}
@@ -112,6 +114,7 @@ The theories that we are most interested in do satisfy these conditions.
 	&\cup\bigcup_{n=1}^{k-1}\left\{(x_0,\dots,x_d)\in\R^{d+1}\mid \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\},
 	\end{align*}
 	i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled.
+	\todo{inequality?}
 	We have $\lim_{k}\HE_{k} = \bigcap_{k}\mathbb{H}^{d}_{k}=\mathbb{H}^{d}$, and hence $\CH_{d}(\HE) = \lim_{k}\CH_{d}(\mathbb{H}^{d}_{k})$.
 	One can easily check that each $\mathbb{H}^{d}_{k}$ satisfies the assumptions for \cref{prop:cech_sing_hom_hlc}, which implies $\lim_{k}\CH_{d}(\mathbb{H}^{d}_{k})=\lim_{k}H_{d}(\mathbb{H}^{d}_{k})$.
 	We compute
