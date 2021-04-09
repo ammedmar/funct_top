@@ -2,38 +2,40 @@
 \section{Introduction}
 
 The interplay between the critical set of a function and the topology of its domain is a cornerstone of modern mathematics.
-When thinking about the work of Morse, a smooth function on a closed differential manifold is possibly our first association, but it should not be our last.
-This finite dimensional context was masterfully summarized in Milnor's famous book on the subject \cite{MR0163331}, where he also developed an application beyond that setting, giving a new proof of Bott's periodicity by applying Morse theory to the energy functional of paths in a Riemannian manifold.
-Another example of the importance of Morse's insights in infinite dimensional settings is Floer's work on the Arnold conjecture.
-Morse himself worked in a significantly less constraint context, publishing in the 1930s a series of papers \cite{Morse.1937, Morse.1938, Morse.1940, MR9102} in which he established a broad theory for functionals on metric spaces which are only semi-continuous, naming it Functional Topology.
+Now a days, when thinking about Morse's work a smooth function on a closed differential manifold is possibly our first association, but it need not be our last.
+Morse Theory in this \textit{finite} context was masterfully presented in Milnor's famous book on the subject \cite{MR0163331}; where he also move beyond it to give a new proof of Bott's periodicity, applying Morse theory to the energy functional of paths in a Riemannian manifold.
+Another example of the importance of Morse's insights in infinite settings is Floer's work on the Arnold conjecture.
+Morse himself worked in a significantly less constraint context, publishing in the 1930s a series of papers \cite{Morse.1937, Morse.1938, Morse.1940, MR9102} in which he established the key results of Morse theory in the broad context of semi-continuous functionals on metric spaces.
+He name this body of work \textit{functional topology}.
 A motivating problem for him came from the study of minimal surfaces.
 In 1931, Jesse Douglas solved Plateau’s Problem \cite{Douglas.1931} for which he received the fields medal in 1936.
-The problem amounts to finding for a given admissible boundary curve $\Gamma$ embedded in euclidean space an area-minimizing embedded surface $\Sigma$ with $\partial \Sigma = \Gamma$.
-In \cite{Morse.1939, Morse.1941}, Morse and Tompkins used Functional Topology to give conditions for the existence of unstable minimal surfaces, i.e., critical points of the area functional that do not locally minimize area.
+The problem amounts to finding for a given admissible boundary curve $\Gamma$ an area-minimizing embedded surface $\Sigma$ with $\partial \Sigma = \Gamma$.
+In \cite{Morse.1939, Morse.1941}, Morse and Tompkins used functional topology to give conditions for the existence of unstable minimal surfaces, i.e., critical points of the area functional that do not locally minimize area.
 
-Some of Morse's ideas from Functional Topology, and in particular from \cite{Morse.1940}, have been rediscovered in Topological Data Analysis.
+Some of Morse's ideas from functional topology, and in particular from \cite{Morse.1940}, have been rediscovered in topological data analysis.
 Morse studied the topology of a sublevel filtration and he introduced invariants that encode the same information as the modern persistent homology groups.
-%as well as quantities that correspond to the modern notions of birth and death of a feature.
-Even though Morse did not have a structure theory of persistence modules via barcodes, he emphasized many points that are crucial for this point of view: The use of homology with field coefficients and the restriction to functionals giving rise to persistence modules with interval decompositions.
+Even though Morse did not have a structure theory of persistence modules via barcodes, he emphasized many points that are crucial for this point of view:
+The use of homology with field coefficients and the restriction to functionals giving rise to persistence modules with interval decompositions.
 
 In modern applications of the theory of persistence to problems in geometry, the existence of an interval decomposition allows the use of the bottleneck and other metrics on the space of barcodes.
 Rendering a finite metric model on which geometric problems can be recasted.
 
-Given the semi-continuity of a functional, it was shown in \cite{schmahl2020structure} that the key condition needed for the existence of such decomposition is the q-tameness of the associated persistence module.
-This condition simply states that the inclusion of \textit{distinct} sublevel sets induces a linear map with finite dimensional rank.
+The spaces to which functional topology can be applied to are not necessarily of the homotopy type of CW-complexes, which makes the choice of homology construction an important element of the discussion.
+For many constructions ---including the preferred theory of Morse: \v{C}ech homology--- it was shown in \cite{schmahl2020structure} that the key condition needed for the existence of an interval decomposition of the persistence module associated to a semi-continuous sublevel set filtration is its \textit{q-tameness}.
+This condition simply states that the inclusion of distinct sublevel sets induces a linear map with finite dimensional rank.
 
-The most delicate of the conditions on a sublevel filtration used by Morse and others to obtained q-tameness is a form of local-connectivity.
-In their study of minimal surfaces, Morse and Tompkins stated that the form of local connectivity presented there is enough to imply q-tameness, but neither the proof nor the statement is correct, please see Theorem~\ref{thm:counterexample}.
-In earlier writings, a stronger version was given by Morse and assumed to imply q-tameness. This claim is correct and we provide a proof for as Theorem~\ref{t:strong local connectenss implies q-tameness}.
-Please see Section~\ref{sec:historical} for the history of this issue.
+To obtain q-tameness of the associated persistence module, the most delicate of the conditions imposed on a sublevel filtration are forms of local-connectivity.
+In their development of functional topology and its applications to minimal surface theory, Morse and Tompkins presented certain forms of local-connectivity claimed to imply q-tameness; unfortunately, neither the proofs nor the statements are correct.
+Please consult Section~\ref{s:historical} for more details on this problem and its history.
 
-The relationship between q-tameness and different forms of local connectivity is the focus of this paper.
-With future applications to geometry in mind, we provide a detailed analysis of q-tameness and two modern versions of Morse's local connectivity assumptions.
+In this paper we analyze in great detail the relationship between different forms of local-connectivity and q-tameness.
+In particular, we show how to strengthen Morse's notion so that the parts of his groundbreaking work depending on q-tameness stand, including the aforementioned critical surface theorem.
 
-In Section 2 ...
+By resurfacing the work of Morse in the novel context of persistence theory, we aim at increasing the number and depth of interactions between this rapidly developing field and geometry, topology, and functional analysis.
 
-
-
-
-
-
+An overview of this article follows.
+In Section~\ref{s:homology} we review different constructions of ordinary homology theory including: \v{C}ech, Vietoris and singular.
+In section~\ref{s:persistence} we recall the basics of persistence theory where, for us, the persistence homology of a sublevel set filtration is the key example.
+Section~\ref{s:connectivity} is the core of this work.
+We define two natural notions of local-connectivity for a sublevel set filtration and show under what circumstances they imply the associated persistence module is q-tame.
+We close with a historical overview of Morse's functional topology in Section~\ref{s:homology}.
