@@ -11,62 +11,44 @@ Let $\H$ be a fixed homology theory.
 	A space $X$ is said to be \emph{homologically locally connected}, denoted $\HLC$, if for each $x \in X$ any neighborhood $V$ of $x$ contains a neighborhood $U$ of $x$ such that the inclusion $U \to V$ is $\HT$.
 \end{defi}
 
-Local connectivity assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional, see \cite{MR0007094} for early examples.
-For us, the following is relevant.
+Local connectivity assumptions have a long history of being used to ensure that different homology theories agree and to ensure that homology is finite dimensional.
+We mention the following examples.
+
 Recall that a space is said to be \textit{paracompact} if every open cover has a locally finite open refinement, i.e., every point has a neighborhood intersecting finitely many sets in the refinement.
-
-\begin{prop}[{\cite{MR105677, MR1481706}}] \label{prop:cech_sing_hom_hlc}
-	On the category of paracompact Hausdorff $\HLC$ spaces, \v{C}ech and singular homology with arbitrary coefficients coincide.
+\begin{prop}[\cite{MR105677}] \label{prop:cech_sing_hom_hlc}
+	\v{C}ech and singular homology with arbitrary coefficients coincide on the category of paracompact Hausdorff spaces which are $\HLC$ with respect to integral singular homology.
 \end{prop}
-
-For more results of this type, we refer to \cite{MR1481706}. There, the above proposition \cite[Corollary VI.12.6]{MR1481706} and many similar ones are proven using sheaf theoretic methods.
-For example, Bredon also discusses cohomology local connectedness \cite[Section II.17]{MR1481706} and various other comparison results, e.g.\@ between singular and Borel--Moore homology \cite[Corollary V.12.15]{MR1481706} in the presence of homology local connectedness, as well as examples such as spaces that are sheaf cohomology locally connected but not homology locally connected \cite[Example II.17.12]{MR1481706}.
-
-For sublevel filtrations we obtain the following persistence version of Proposition~\ref{prop:cech_sing_hom_hlc} obtained by applying it pointwise.
-
-\begin{cor}\label{cor:cech_sing_persistent_iso}
-	Let $(X, f)$ be a sublevel filtration. If each sublevel set is paracompact and $\HLC$, then its singular and \v{C}ech persistence modules coincide.
-\end{cor}
-
-We are interested in statements that bound the dimension of homology with field coefficients.
-In the non-filtered context one has the following result.
 
 \begin{prop} \label{prop:fin_dim_sing_hom}
-	Let $X$ be a compact Hausdorff $\HLC$ space.
-	Then the singular homology of $X$ with field coefficients is finite-dimensional in every degree.
+	Let $X$ be a compact Hausdorff space.
+	If $X$ is $\HLC$ with respect to integral singular homology, then the singular homology of $X$ with arbitrary coefficients is finite-dimensional in every degree.
 \end{prop}
 
-\begin{proof}
-	By the universal coefficient theorem for homology, trivial singular homology with integer coefficients also implies trivial singular homology for any other coefficient group. In particular, this means that $X$ being $HLC^{\infty}$ also implies that $X$ is $HLC^{\infty}_{\mathbb{F}}$. By the universal coefficient theorem for cohomology, the singular cohomology with coefficients in $\mathbb{F}$ is naturally isomorphic to the dual space of the singular homology with coefficients in $\mathbb{F}$. This means that being $HLC^{\infty}_{\mathbb{F}}$ implies being locally connected with respect to singular cohomology in all degrees with coefficients in $\mathbb{F}$. Since we assume $X$ to be $HLC^{\infty}$, \cite[Theorem III.1.1]{MR1481706} now implies that $X$ is locally connected with respect to sheaf cohomology with coefficients in the locally constant sheaf with value $\mathbb{F}$. \cite[Corollary II.17.7]{MR1481706} implies that the sheaf cohomology of the whole space with coefficients in this sheaf is finite-dimensional, so again by \cite[Theorem III.1.1]{MR1481706} the same holds for singular cohomology with coefficients in $\mathbb{F}$. Applying the universal coefficient theorem once more proves the claim.
-\end{proof}
+We will deduce the previous finiteness result from our main contribution, Theorem~\ref{t:strong local connectenss implies q-tameness}.
+To motivate the statement of our theorem let us record a direct consequence of the previous proposition.
 
-Again, there is a persistent version for sublevel filtrations.
+\begin{prop}
+	Let $(X, f)$ be a sublevel filtration. If each sublevel set is compact and $\HLC$ with respect to integral singular homology, then its singular persistence module is p.f.d. in every degree, in particular q-tame.
+\end{prop}
 
-\begin{cor}
-	Let $(X, f)$ be a sublevel filtration. If each sublevel set is compact and $\HLC$, then its singular persistence module is p.f.d. in every degree, in particular q-tame.
-\end{cor}
-
-Having each space in a sublevel filtration being $\HLC$ is in many cases too restrictive.
+Having each sublevel set being $\HLC$ is in many cases too restrictive.
 We would like a relative condition for sublevel filtrations to be sufficient to ensure the q-tameness of the associated persistence module.
+The following definitions are motivated by Morse's work, please consult Section~\ref{s:historical} for their relation to his original statements. 
 
 \begin{defi} \label{defi:local_connectedness_filtrations}
 	For a fix homology theory $\H$. A sublevel filtration $(X,f)$ is said to be $\HLC$ if for any $\epsilon > 0$, $x \in X$, and $V$ an open neighborhood of $x$, there is a $\delta \in (0, \epsilon)$ and a neighborhood $U$ of $x$ such that $U \subseteq V$ and
 	\begin{equation*}
-	X_{\leq f(x) + \delta + c} \cap U \to X_{f(x) + \epsilon + c} \cap V
+	X_{\leq f(x) + \delta + c} \cap U \to X_{\leq f(x) + \epsilon + c} \cap V
 	\end{equation*}
 	is $\HT$ for every $c \geq 0$.
 	We also consider a weaker version, referred to as \textit{weakly} $\HLC$, defined as above with $c = 0$.
 \end{defi}
-
-We remark that if $\H$ is singular homology, both conditions of $\HLC$ for a Morse filtration $(M,f)$ are respectively equivalent to Morse's definitions of locally $f$-connectedness when $M$ is a metric space.
-Please consult the historical recount presented in Section~\ref{sec:historical}.
 
 We will now show that the weak notion does not imply q-tameness in general.
 To do so let us consider the \textit{$d$-dimensional Hawaiian earring}
 \begin{equation*}
 \HE = \bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\R^{d+1} \ \middle | \ \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\}.
 \end{equation*}
-\todo{credit to Milnor}
 
 \begin{figure}[t]
 	\centering
@@ -101,7 +83,7 @@ To do so let us consider the \textit{$d$-dimensional Hawaiian earring}
 The theories that we are most interested in do satisfy these conditions.
 
 \begin{prop}
-	The assumptions of Theorem~\ref{thm:counterexample} are satisfied by singular homology with any coefficients and \v{Cech} homology with field coefficients.
+	The assumptions of Theorem~\ref{thm:counterexample} are satisfied by singular homology with arbitrary coefficients and \v{Cech} homology with field coefficients.
 \end{prop}
 
 \begin{proof}
