@@ -27,3 +27,33 @@ Following the introduction of this stronger definition Morse states as \cite[The
 
 
 %By now, however, Morse's ideas from Functional Topology, and in particular from \cite{Morse.1940}, have been rediscovered in a different context, namely topological data analysis. More specifically, Morse studies how the homology of the sublevel sets of a function change as the level changes. He defines spaces that encode the same information as the modern persistent homology groups, as well as quantities that correspond to the modern notions of birth and death. Even though he did not have a structure theory of persistence modules via barcodes, he emphasized many points that are now known to be connected to this theory: The use of field coefficients, as well as ensuring that the occuring persistence modules are upper semi-continuous and q-tame (which implies the existence of interval decompositions \cite{schmahl2020structure}).
+
+\todo{Max: the following subsections are taken verbatim from my thesis and not adapted to this paper yet} 
+\subsection{Critical Points}
+So far, we have mostly talked about changes in the homology of sublevel sets at certain \emph{values} since this is what is studied in persistent homology. The original motivation to study Functional Topology was, however, the study of critical \emph{points}, which we briefly touched upon in section \ref{sec:morse}.
+
+In \cite{Morse.1939}, Morse and Tompkins make the following definition.
+
+\begin{defi}
+Let $(M,d)$ be a metric space and $f\colon M\to\mathbb{R}$ a function. We say $p\in M$ is a \emph{homotopically ordinary point of $f$} if there is a neighborhood $U$ of $p$ in $f_{\leq f(p)}$ and a continuous map $H\colon U\times[0,1]\to M$ such that
+\begin{itemize}
+\item $H(q,0)=q$ for all $q$,
+\item $H(p,1)\neq p$ and
+\item for any $e>0$ there exists $\delta>0$ with the property that whenever $s<s'$ and $d(H(q,s),H(q,s'))>e$ hold, we have $f(H(q,s))-f(H(q,s'))>\delta$.
+\end{itemize}
+We say that $p$ is a \emph{homotopically critical point of $f$} if it is not homotopically ordinary.
+\end{defi}
+
+Roughly, one can think of homotopically critical points of $f$ as points $p$ that have no neighborhood in $f_{\leq f(p)}$ that can be mapped by a homotopy into $f_{\leq t}$ for some $t<f(p)$.
+
+In the case of isolated critical points, one can then choose a neighborhood $U$ of a homotopically critical point $p$ not containing any other critical point and define the \emph{cap type numbers of $p$} as the cap type numbers of the relative homology lattice associated to the restriction of $f$ to this neighborhood. The total cap type numbers are then defined as the sums of all of these cap type numbers. Assuming a finite number of critical points, Morse and Tompkins then proceed to state Morse inequalities for these total cap type numbers, referring to \cite{Morse.1940}, which was still in preparation at that time, for proof. 
+
+More generally, in the non-isolated case, they consider closed sets of critical points possessing a neighborhood that does not contain any other critical points and call these \emph{critical sets}. Again, one can then define the cap type numbers of such sets as the cap type numbers of $f$ restricted to the corresponding neighborhood. In order to get Morse inequalities in this setting, without assuming that the critical points are finite in number, Morse and Tompkins additionally assume local-$f$-connectedness and again refer to \cite{Morse.1940} for proof. However, the proofs that Morse presents there repeatedly make use of his erroneous claim that local-$f$-connectedness implies q-tameness, so they cannot be seen as valid.
+
+
+\subsection{The Douglas Functional}
+After the previously described general statements on critical points, Morse and Tompkins then consider the following setting introduced in even greater generality by Douglas: Let $g=(g_i)\colon\mathbb{R}\to\mathbb{R}^n$ be a simple closed curve such that $g$ is differentiable and such that each $g'_i$ is Lipschitz. Assume that $g$ is $2\pi$-periodic. Let $\tilde{\Omega}$ be the space of continuous functions $\varphi\colon\mathbb{R}\to\mathbb{R}$ with $\varphi((t)+2\pi)=\varphi(t)+2\pi$ for all $t$ and such that there are three distinct points $\alpha_i\in[0,2\pi)$ with $\varphi(\alpha_i)=\alpha_i$. We define the \emph{Douglas-functional} associated to the curve $g$ on $\tilde{\Omega}$ by $$A_g(\varphi)=\frac{1}{16}\int_0^{2\pi}\int_0^{2\pi}\sin\left(\frac{\alpha-\beta}{2}\right)^{-2}\lVert g(\varphi(\alpha))-g(\varphi(\beta)) \rVert_2^2\mathrm{d}\alpha\mathrm{d}\beta$$ and set $$\Omega_g=\{\varphi\in\tilde\Omega\mid A_g(\varphi)<\infty\}.$$ Douglas proved that, for even more general $g$ than above, $\Omega_g$ is non-empty and that sublevel sets of $A_g$ on $\Omega_g$ are compact. Since $A_g$ is clearly bounded below by $0$, this implies that $A_g$ has a unique global minimizer. Douglas then used harmonic analysis to show that this minimizer of $A_g$ corresponds to a solution of Plateau's Problem. More generally, each critical point of this functional $A_g$ corresponds to a critical point of the area functional. 
+
+Now, Morse and Tompkins first assume that $A_g$ has finitely many homotopically critical points. They show that any homotopically critical point of $A_g$ is also a critical point in the classical sense. They verify the other assumptions they make for the Morse inequalities and then conclude via these inequalities that if $A_g$ has two distinct minimizers, it must also have a critical point of index 1, i.e. with non-zero first cap type number. This type of result is often called a Mountain Pass Lemma. 
+
+In order to remove the finiteness assumptions, they go on to prove local-$A_g$-connectedness for $\Omega_g$ and require that the two minimizers are contained in disjoint critical sets. Again using the Morse inequalities, they infer the existence of an unstable minimal surface. As we have mentioned before, Morse's proof in \cite{Morse.1940} of the Morse inequalities in this general case is faulty since local-$A_g$-connectedness is not enough to imply the necessary q-tameness. However, the proof of local-$A_g$-connectedness in \cite{Morse.1939} actually shows that $\Omega_g$ is strongly locally-$A_g$-connected. In fact, Morse and Tompkins even show that each sublevel set of $A_g$ is locally contractible in all larger sublevel sets. So if our previous conjectures are true, the general theory can be applied and their approach still works.
