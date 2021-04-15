@@ -3,7 +3,9 @@
 
 The approach of Morse and Tompkins in \cite{Morse.1939} was to give a topological definition of critical points in the general setting, prove existence of these via Morse inequalities for the so-called Douglas functional, and then to prove that these topological critical points correspond to minimal surfaces. For a more detailed review of their work we refer to \cite{Struwe.1988}. In the minimal surface community, these methods do not seem to be deemed very helpful, as is reflected e.gchoosing.\@ in \cite[p.472]{MR2566897}, where the authors state that Morse's "...general Morse-theoretic statements are more or less useless as they are based on topological assumptions which cannot be verified in a concrete situation." More comments on the perceived unsuitability of the theory of Functional Topology for minimal surfaces are made by Struwe in \cite{MR850612}. 
 
-Morse assumes all spaces in his filtrations to be compact and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}. This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}. To achieve q-tameness, Morse wants to use the following condition, which he refers to as \textit{local $F$-connectivity}. 
+Morse assumes the spaces under consideration are equipped with a metric -- in particular are locally compact -- and uses Vietoris homology, which agrees with \v{C}ech homology by Dowker's Theorem \cite{Dowker.1952}.
+This implies semi-continuity by a general result stating that, for field coefficients, \v{C}ech homology commutes with inverse limits for compact Hausdorff spaces \cite[Theorem VIII.3.6 and Theorem X.3.1]{MR0050886}.
+To achieve q-tameness, Morse wants to use the following condition, which he refers to as \textit{local $F$-connectivity}. 
 \begin{displaycquote}[p.431]{Morse.1940}
 	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
 \end{displaycquote}
@@ -14,13 +16,14 @@ In the original it reads:
 	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
 \end{displaycquote}
 The proof Morse cites, found in \cite[Theorem 6.1]{Morse.1938}, is not correct; neither is the statement.
-A stronger notion of local connectivity for the pair $(M, F)$ is needed to prove q-tameness.
-Such condition had already appeared in print, introduced by Morse himself, three years earlier.
+A stronger notion of local connectivity for the pair $(M, F)$ appeared in print, introduced by Morse himself three years earlier.
 \begin{displaycquote}[p.421-422]{Morse.1937}
 	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property. For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
 \end{displaycquote}
-This notion of local-$F$-connectedness is stronger than the one first quoted, with the key difference being the freedom granted by the constant $c \geq F(p)$.
+This notion of local-$F$-connectedness is stronger than the one first quoted, with the key difference being the freedom granted by the constant $c \geq F(p)$, just as in our definition of $\HLC$ and weakly $\HLC$ presented in Definition~\ref{defi:local_connectedness_filtrations}.
 Following the introduction of this stronger definition Morse states as \cite[Theorem~9.2, p.422]{Morse.1937} that q-tameness follows from this form of local $F$-connectivity and bounded compactness, adding that the proof ``while not difficult involves too great detail to be presented here".
+This claim is not true since not all singular homology classes can be represented by the pushing forward the fundamental class of spheres.
+We could use a version of the Hawaiian earring made out of tori instead of spheres to construct a counterexample.
 
 %From our current viewpoint it is simple to identify an important problem with both of these definitions of local $F$-connectivity, since they seem to assume that all singular homology classes can be represented by spheres, a fact that the fundamental class of a torus disproves.
 %Nonetheless, the distinction between the two teach us valuable lessons: q-tameness follows from bounded compactness and a modern interpretation of the second but not the first.\footnote{These are presented as Definitions \ref{defi:local_connectedness} and \ref{defi:strong_local_connectedness}}
