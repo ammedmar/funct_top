@@ -82,7 +82,7 @@ d_{b}(B,B')= d_{I}(M,M').
 
 The most commonly studied example of a persistence module is \emph{persistent homology}, i.e., the persistence module obtained by applying homology to an $\mathbb{R}$-indexed diagram of spaces. In what follows, we will study the persistent homology of certain classes of such diagrams, namely filtrations.
 
-A \textit{sublevel filtration} is a pair $(X, f)$ with $X$ a Hausdorff space and $f$ a real-valued function on $X$.
+A \textit{sublevel set filtration} is a pair $(X, f)$ with $X$ a Hausdorff space and $f$ a real-valued function on $X$.
 For any $t \in \R$, the \textit{$t$-sublevel set} is defined by 
 \begin{equation*}
 X_{\leq t} = f^{-1}((-\infty, t]).
@@ -90,5 +90,5 @@ X_{\leq t} = f^{-1}((-\infty, t]).
 
 Recall that a subset $N$ of a space $X$ is said to be a \textit{neighborhood} of $x$ in $X$ if there is an open set $U$ with $x \in U \subseteq N$, and that a Hausdorff space is \textit{locally compact} if for every $x$ in $X$, every neighborhood of $x$ contains a compact neighborhood of $x$.
 
-A sublevel filtration $(X, f)$ is said to be a \textit{Morse filtration} if $X$ is a locally compact space and $X_{\leq t}$ is compact for every $t \in \R$.
+A sublevel set filtration $(X, f)$ is said to be a \textit{Morse filtration} if $X$ is a locally compact space and $X_{\leq t}$ is compact for every $t \in \R$.
 Notice that this condition implies, since $X$ is Hausdorff, that $f$ is \textit{lower semi-continuous}, i.e, the preimage of open sets of the form $(t, +\infty)$ is open.
