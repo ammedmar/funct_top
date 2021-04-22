@@ -11,20 +11,20 @@
 
 %To-do
 \usepackage[marginpar]{todo}
-\makeatletter
-\renewcommand{\@tododisplay}[1]{%
-%\marginpar{#1}%
-\textsuperscript{#1}%
-}
-%
-\renewcommand\@displaytodo[2][\todomark]{%
-\@tododisplay{{\todoformat [#1~\ref{todolbl:\thetodo}]}}%
-\footnotetext[\thetodo]{\todoformat #1:~#2}%
-\global\@todotoks\expandafter{\the\@todotoks\todoitem{#1}{#2}}%
-\@todotrue%
-}%
-\renewcommand\todomark{todo}
-\makeatother
+%\makeatletter
+%\renewcommand{\@tododisplay}[1]{%
+%%\marginpar{#1}%
+%\textsuperscript{#1}%
+%}
+%%
+%\renewcommand\@displaytodo[2][\todomark]{%
+%\@tododisplay{{\todoformat [#1~\ref{todolbl:\thetodo}]}}%
+%\footnotetext[\thetodo]{\todoformat #1:~#2}%
+%\global\@todotoks\expandafter{\the\@todotoks\todoitem{#1}{#2}}%
+%\@todotrue%
+%}%
+%\renewcommand\todomark{todo}
+%\makeatother
 
 % theorems
 \theoremstyle{plain}
@@ -55,6 +55,16 @@
 \DeclareMathOperator{\im}{im}
 \newcommand\CH{\check{H}}
 \newcommand{\Mod}[1]{#1-\mathbf{Mod}}
+\newcommand{\PFD}{\mathrm{PFD}}
+\newcommand{\PFG}{\mathrm{PFG}}
+\DeclareMathOperator{\Nrv}{Nrv}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Vietoris}{Vietoris}
+\DeclareMathOperator{\Balls}{Balls}
+\newcommand\MCH{M\check{H}}
+\newcommand\VH{VH}
+\newcommand\MVH{MVH}
+
 
 
 % margins
