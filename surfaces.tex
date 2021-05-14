@@ -1,19 +1,4 @@
 
-Throughout his work on functional topology, to obtain q-tameness Morse assumed slightly varying forms of local-connectivity on the resulting sublevel set filtrations.
-In particular, Morse and Tompkins use in their applications to minimal surface theory the following version:
-\begin{displaycquote}[p.431]{Morse.1940}
-	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
-\end{displaycquote}
-Here, $M$ is a metric space and $F$ a real-valued function on $M$ whose sublevel sets $F_{t}$ are all compact.
-Morse then states that as consequence of these assumptions the persistent \v{C}ech homology of this sublevel set filtration is q-tame.
-In the original it reads:
-\begin{displaycquote}[Theorem 6.3, p.432]{Morse.1940}
-	Let $a$ and $c$ be positive constants such that $a < c < 1$.
-	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
-\end{displaycquote}
-Morse does not prove this statement in the given reference, but rather refers to \cite[Theorem 6.1]{Morse.1938}.
-Unfortunately, the claim as stated is not correct and in this work we provide a counterexample as a consequence of \cref{thm:counterexample}.
-
 \section{Minimal surfaces and functional topology} \label{s:surfaces}
 
 Morse and Tompkins considered the following setting introduced by Douglas.
@@ -32,29 +17,25 @@ In \cite[p.445]{Morse.1939}, Morse and Tompkins introduce for any metric space $
 Intuitively, a point $p$ is \textit{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
 
 Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, i.e., a minimal surface.
-They then use a form of Morse inequalities for homotopically critical points
-% , or, more generally, critical sets
-to infer their Unstable Minimal Surface Theorem:
+They then use a form of Morse inequalities for homotopically critical points to infer their Unstable Minimal Surface Theorem:
 \begin{itemize}
     \item[($\ast$)] If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely a critical point of index 1.
 \end{itemize}
 
-In \cref{s:inequalities} we review Morse's topological inequalities using the language of barcodes.
-In order to apply these inequalities and deduce their theorem, Morse and Tompkins need to prove the \mbox{q-tameness} of $(\Omega_g, A_g)$. 
-For this they want to use that $(\Omega_g, A_g)$ is weakly $\piLC$ \cite[p.431]{Morse.1940}. This property is not sufficient to ensure q-tameness as \cref{thm:counterexample} demonstrates.
+In order to apply these inequalities and deduce their theorem, Morse and Tompkins need to prove the \mbox{q-tameness} of $(\Omega_g, A_g)$.
+Throughout his work on functional topology, to obtain q-tameness Morse assumed slightly varying forms of local-connectivity on the resulting sublevel set filtrations.
+In particular, Morse and Tompkins use in their applications to minimal surface theory the following version equivalent to $\piLC$:
+\begin{displaycquote}[p.431]{Morse.1940}
+	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
+\end{displaycquote}
+They then state that as a consequence of these assumptions the persistent \v{C}ech homology of this sublevel set filtration is q-tame.
+In the original it reads:
+\begin{displaycquote}[Theorem 6.3, p.432]{Morse.1940}
+	Let $a$ and $c$ be positive constants such that $a < c < 1$.
+	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
+\end{displaycquote}
+Morse does not prove this statement in the given reference, but rather refers to \cite[Theorem~6.1]{Morse.1938}.
+Unfortunately, this argument is not in general sound as \cref{thm:counterexample} shows.
 However, the proof given in \cite[p.464]{Morse.1939} establishes that $(\Omega_g, A_g)$ is $\LC$, implying that it is also $\HLC$ for any homology theory.
 Therefore, from \cref{t:strong local connectedness implies q-tameness} we can conclude that $(\Omega_g, A_g)$ is q-tame as claimed.
-This implies that Morse inequalities hold as does the unstable minimal surfaces theorem of Morse.
-
-% We also mention that in \cite[p.421]{Morse.1937} appearing three years before the work of Morse-Tompkins on minimal surfaces, Morse considered the notion of $\piLC$ and claiming it to be sufficient to ensure q-tameness of compact sublevel set filtrations.
-
-% We anticipate that the stronger version of local $F$-connectivity introduced by Morse, and inspiring our $\HLC$ notion, is also sufficient to obtain q-tameness, but we do not provide a proof.
-
-% A stronger notion of local connectivity for the pair $(M, F)$ appeared in print, introduced by Morse himself three years earlier, and claimed sufficient for q-tameness although no proof was given.
-% \begin{displaycquote}[p.421]{Morse.1937}
-% 	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property. For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
-% \end{displaycquote}
-% This is precisely the notions of $\piLC$ \cref{defi:local_connectedness_filtrations}.
-
-% As is, the argument given by Morse and Tompkins to establish $(\ast)$ is not strictly valid, however, the proof of the local $A_g$-connectivity of $\Omega_g$ given in \cite[p.?]{Morse.1939} establishes th stronger statement implying, in our terminology, that $(\Omega_g, A_g)$ is $\HLC$ for any homology theory, and \cref{t:strong local connectedness implies q-tameness} fixes this gap.
-% We anticipate that the stronger version of local $F$-connectivity introduced by Morse, and inspiring our $\HLC$ notion, is also sufficient to obtain q-tameness, but we do not provide a proof.
+This implies that Morse inequalities hold, and hence so does the unstable minimal surfaces theorem of Morse.
