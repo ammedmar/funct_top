@@ -1,0 +1,57 @@
+
+\section{Morse Inequalities} \label{s:inequalities}
+
+We now present a description of Morse inequalities from the viewpoint of persistence theory which, when applied in the context of Functional Topology, agrees with Morse's original definitions.
+
+Let $M$ be a graded q-tame persistence module, and let $\mathfrak{m}_d$ be the multiplicity function of the barcode of the $d$-dimensional part of $M$, having values in the extended natural numbers.
+
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$, Morse defined the $(d, t, e)$-\textit{cap numbers}, which, when the associated persistence module has a barcode and is upper semi-continuous\footnote{A persistence module $M$ is \emph{upper semi-continuous} if $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$.}, correspond to the number of bars with length greater than $e$ in the $d$-dimensional barcode with left endpoint $t$, plus the number of bars with length greater than $e$ in the $(d-1)$-dimensional barcode with right endpoint $t$ (killed by something $d$-dimensional).
+Explicitly,
+\[
+    m_{d}^{> e}(t) =
+    \sum_{\substack{p \in \R \\ t-p>e}} \mathfrak{m}_{d-1}(p, t) +
+    \sum_{\substack{q \in \R \\ q-t>e}} \mathfrak{m}_d(t, q).
+\]
+
+If $m_{d}^{> e}(t)$ is non-zero for only finitely many $t$, we obtain the $(d,e)$-cap numbers 
+\[
+m_{d}^{> e } = \sum_{t} m_{d}^{> e}(t) = \sum_{\substack{(p,q)\\q-p>e\\q\neq\infty}}\mathfrak{m}_{d-1}(p,q)+\sum_{\substack{(p,q)\\q-p>e\\p\neq-\infty}}\mathfrak{m}_d(p,q).
+\] 
+One can show that this finiteness assumption is satisfied if $M$ is initially and eventually constant, i.e., if there exist $t_0$ and $t_1$ with $M_s = M_{t_0}$ for all $s \leq t_0$ and $M_u = M_{t_1}$ for all $u \geq t_1$. In particular, this is the case for the persistent homology of the sublevel set filtration of a bounded function.
+
+If $X$ is a closed manifold and $F$ is a Morse function, then the cap numbers $m_{d}^{> e}(F)$ associated to the persistent homology of the sublevel set filtration of $F$ agree with the number of critical points of $F$ with index $d$ for all sufficiently small $e > 0$. As an analogue to the Betti numbers of $X$ appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$, which, under the same assumptions as before, can be expressed in the language of persistence as
+\[
+p_{d} = \sum_{p} \mathfrak{m}_d(p,\infty).
+\]
+
+Provided that $\mathfrak{m}_d(-\infty, p) = 0$ for all $p$, an easy calculation shows that in this language we have Morse inequalities for any graded q-tame persistence module given by
+\begin{equation*}
+    \sum_{i=1}^d (-1)^i (m^{>e}_{d-i} - p_{d-i}) \ \geq\  0
+\end{equation*}
+for any dimension $d$. As a special case, this yields Morse inequalities for any bounded real-valued function $F$ whose sublevel set filtration has q-tame and upper semi-continuous persistent homology. As we have discussed previously, these algebraic conditions are satisfied in the setting of Functional Topology, where \v{C}ech homology is used and the sublevel set filtration is assumed to be compact and $\HLC$.
+
+
+% \[
+% (m^{>e}_d - p_d) + (-1)^1 (m^{>e}_{d-1} - p_{d-1}) + \dots + (-1)^n (m^{>e}_0 - p_0) \geq 0
+% \]
+
+% \begin{thm}
+% With notation as above, assume that $\tilde H_{d}(X_{\leq \bullet})$ is q-tame and upper-semicontinuous for all $d$ with multiplicity function $\mathfrak{m}_{d}$. Assume that $\tilde H_{d}(X_{\leq \bullet})$ is eventually constant for all $d$ and that $\mathfrak{m}_{d}(-\infty, q) = 0$ for all $q$ and $d$. Then the following hold.
+% \begin{enumerate}
+% 	\item The numbers $m_{d}^{> e}(F, t)$ are finite for all $t \in \R$ and non-zero for only finitely many $t \in \R$.
+% 	\item The numbers $p_{d}(F)$ are finite.
+% 	\item We have 
+% 	\[
+% 	m_{d}^{> e}(F) = \sum_{\substack{(p,q)\\q-p>e\\q\neq\infty}}\mathfrak{m}_{d-1}(p,q)+\sum_{\substack{(p,q)\\q-p>e\\p\neq-\infty}}\mathfrak{m}_d(p,q).
+% 	\]
+% 	\item The Morse inequalities 
+% 	\[
+% 	(m^{>e}_n-p_n)+(-1)^1 (m^{>e}_{n-1}-p_{n-1})+\dots+(-1)^n (m^{>e}_0-p_0)\geq 0
+% 	\]
+% 	hold for all $n$.
+% \end{enumerate}
+% \end{thm}
+
+%For semi-continuity: \cref{thm:cech_cont} and the fact that $\lim_{\varepsilon > 0} X_{\leq t + \varepsilon} = X_{\leq t}$.
+%For q-tameness: \cref{t:strong local connectedness implies q-tameness}.
+%For the rest: Boundedness of $F$.

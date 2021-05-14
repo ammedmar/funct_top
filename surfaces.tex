@@ -1,0 +1,45 @@
+
+\section{Minimal surfaces and functional topology} \label{s:surfaces}
+
+Morse and Tompkins considered the following setting introduced by Douglas.
+Let $g \colon \R \to \R^n$ be $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
+Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi((t)+2\pi) = \varphi(t) + 2\pi$ for all $t$ and such that there are three distinct points $\alpha_i \in [0,2\pi)$ with $\varphi(\alpha_i)=\alpha_i$.
+The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined by
+\begin{equation*}
+A_g(\varphi)=\frac{1}{16}\int_0^{2\pi}\int_0^{2\pi}\sin\left(\frac{\alpha-\beta}{2}\right)^{-2} \! \lVert g(\varphi(\alpha))-g(\varphi(\beta)) \rVert_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
+\end{equation*}
+Let $\Omega_g=\{\varphi\in\widetilde\Omega\mid A_g(\varphi)<\infty\}$.
+Douglas proved that, for a large class of curves $g$ the set $\Omega_g$ is non-empty with compact sublevel sets of $A_g$.
+Since $A_g$ is bounded below by $0$, this implies that $A_g$ has a unique global minimizer.
+Douglas then used harmonic analysis to show that this minimizing critical point of $A_g$ corresponds to a solution of Plateau's Problem.
+
+In \cite[p.445]{Morse.1939}, Morse and Tompkins introduce for any metric space $M$ and $F \colon M \to \R$ a homotopical version of critical point.
+Intuitively, a point $p$ is \textit{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
+
+Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, i.e., a minimal surface.
+They then use a form of Morse inequalities for homotopically critical points
+% , or, more generally, critical sets
+to infer their unstable minimal surface theorem:
+\begin{itemize}
+    \item[($\ast$)] If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely a critical point of index 1.
+\end{itemize}
+
+In \cref{s:inequalities} we review Morse's topological inequalities using the language of barcodes.
+In order to apply these inequalities and deduce their theorem, Morse and Tompkins need to prove the \mbox{q-tameness} of $(\Omega_g, A_g)$. 
+For this they want to use that $(\Omega_g, A_g)$ is weakly $\piLC$ \cite[p.431]{Morse.1940}. This property is not sufficient to ensure q-tameness as \cref{thm:counterexample} demonstrates.
+However, the proof given in \cite[p.464]{Morse.1939} establishes that $(\Omega_g, A_g)$ is $\LC$, implying that it is also $\HLC$ for any homology theory.
+Therefore, from \cref{t:strong local connectedness implies q-tameness} we can conclude that $(\Omega_g, A_g)$ is q-tame as claimed.
+This implies that Morse inequalities hold as does the unstable minimal surfaces theorem of Morse.
+
+% We also mention that in \cite[p.421]{Morse.1937} appearing three years before the work of Morse-Tompkins on minimal surfaces, Morse considered the notion of $\piLC$ and claiming it to be sufficient to ensure q-tameness of compact sublevel set filtrations.
+
+% We anticipate that the stronger version of local $F$-connectivity introduced by Morse, and inspiring our $\HLC$ notion, is also sufficient to obtain q-tameness, but we do not provide a proof.
+
+% A stronger notion of local connectivity for the pair $(M, F)$ appeared in print, introduced by Morse himself three years earlier, and claimed sufficient for q-tameness although no proof was given.
+% \begin{displaycquote}[p.421]{Morse.1937}
+% 	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property. For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
+% \end{displaycquote}
+% This is precisely the notions of $\piLC$ \cref{defi:local_connectedness_filtrations}.
+
+% As is, the argument given by Morse and Tompkins to establish $(\ast)$ is not strictly valid, however, the proof of the local $A_g$-connectivity of $\Omega_g$ given in \cite[p.?]{Morse.1939} establishes th stronger statement implying, in our terminology, that $(\Omega_g, A_g)$ is $\HLC$ for any homology theory, and \cref{t:strong local connectedness implies q-tameness} fixes this gap.
+% We anticipate that the stronger version of local $F$-connectivity introduced by Morse, and inspiring our $\HLC$ notion, is also sufficient to obtain q-tameness, but we do not provide a proof.

@@ -1,108 +1,83 @@
 
 \section{Homology theories} \label{s:homology}
 
+Let $R$ be a ring and let $\H = \big\{ \H_{n} \big\}_{n \in \Z}$ be a collection of homotopy invariant functors from pairs of topological spaces to $R$-modules.
+Consider the following two properties known respectively as \textit{excision} and \textit{exactness}:
 \begin{itemize}
-\item Definition (generalized homology theory, without dimension axiom, but with Milnor's additivity axiom)
-\item Examples, main: singular with integer coeff and cech with field \cite{Kelly.1961}
-\item mention Dowker duality
-\item Mayer-Vietoris
+	\item If $(X,A)$ is a pair and $U \subseteq X$ is an open subspace whose closure in $X$ is contained in $A$, then the inclusion $(X \setminus U, A \setminus U) \to (X, A)$ is sent to an isomorphism by $\H_{n}$ for all $n$.
+	\item For each pair $(X,A)$ there exists a natural long exact sequence
+	\begin{equation*}
+    \begin{tikzcd}[column sep = small]
+	\cdots \arrow[r] & \H_{n+1}(X,A) \arrow[r] & \H_{n}(A, \emptyset) \arrow[r] & \H_{n}(X, \emptyset) \arrow[r] & \H_{n}(X,A) \arrow[r] & \cdots
+	\end{tikzcd}
+	\end{equation*}
 \end{itemize}
-As special instances of homology theories, we will consider the well-known singular theory, as well as the \v{C}ech and Vietoris theories that we will recall next.
 
-Let $(X_{1},X_{2})$ be a pair of topological spaces. We denote by $\Cov(X_{1},X_{2})$ the set of covers of $(X_{1},X_{2})$ directed by the refinement relation. 
+If $\H$ satisfies these properties, we call it a \emph{homology theory}.
+Nowadays, it is common to also ask of a homology theory to satisfy some form of additivity, but this property, suggested by Milnor \cite{MR159327}, was not part of Eilenberg-Steenrod axioms as presented in \cite[Chapter I]{MR0050886} and,
+since it does not play a role in this work, we do not demand it.
 
-If $\alpha=(\alpha_{1},\alpha_{2})$ is a cover of $(X_{1},X_{2})$, we write $\Nrv(\alpha)$ for the simplicial pair $(\Nrv(\alpha_{1}),\Nrv(\alpha_{2}))$, where 
+Similarly, point axiom ....
+
+Ulrich: uniqueness theorems.
+
+For us, a weaker version of exactness will be important.
+We say $\H$ satisfies \textit{partial exactness} if pairs of spaces give rise to long sequences satisfying the chain complex property but not needing to be exact, i.e., satisfying a condition of the form ``$\im \subseteq \ker$" instead of ``$\im = \ker$".
+We say that $\H$ is a \emph{partially exact homology theory} if it satisfies excision and partial exactness.
+
+Let us now review the Mayer-Vietories long exact sequence.
+We say that a triple of spaces $X_{1}, X_{2} \subseteq X$ is \emph{excisive} with respect to $\H$ if the inclusion of $(X_{1}, X_{1} \cap X_{2})$ into $(X, X_{2})$ is sent to an isomorphism by $\H_{n}$ for all $n$.
+Note that if $\H$ satisfies excision then a triple $X_{1}, X_{2} \subseteq X$ is excisive if $X = X_{1} \cup X_{2}$ and $X_{1}$, $X_{2}$ are open in $X$.
+
+If $X_{1}, X_{2} \subseteq X$ are excisive with respect to $\H$ and the long sequences associated to $(X_{1}, X_{1} \cap X_{2})$ and $(X, X_{2})$ are exact, then there is a natural long exact sequence
 \[
-\Nrv(\alpha_{i})=\left\{\beta\subseteq\alpha_{i}\mid\beta\text{ is finite and }\bigcap_{U\in\beta} U\neq\emptyset\right\}.
+\begin{tikzcd}[column sep = small]
+\cdots \arrow[r] & \H_{n}(X_{1} \cap X_{2}) \arrow[r] & \H_{n}(X_{1}) \oplus \H_{n}(X_{2}) \arrow[r] & \H_{n}(X) \arrow[r] & \H_{n-1}(X_{1} \cap X_{2}) \arrow[r] & \cdots
+\end{tikzcd}
+\]
+referred to as the \emph{Mayer-Vietoris sequence} of $X_{1}, X_{2} \subseteq X$. 
+
+In particular, for any homology theory there is an exact Mayer-Vietoris sequence for any triple of spaces $X_{1}, X_{2} \subseteq X$ if $X = X_{1} \cup X_{2}$ and $X_{1}$, $X_{2}$ are open in $X$.
+
+An example of a homology theory consider in this work is the well-known singular theory of Eilenberg \cite{Eilenberg.1944}, whereas an example of a partially exact homology theory, reviewed next, is the \v{C}ech theory, for which a historical account can be found in \cite{Edwards.1980}.
+
+Let $(X_{1},X_{2})$ be a pair of topological spaces. We say that $\alpha = (\alpha_1, \alpha_2)$ is an \emph{open cover} of $(X_1, X_2)$ if $\alpha_1$ is an open cover of $X_1$ and $\alpha_2 \subseteq \alpha_1$ is a subcover such that $X_1 \subseteq \bigcup_{U \in \alpha_2} U$.
+We denote by $\Cov(X_{1}, X_{2})$ the set of open covers of $(X_{1}, X_{2})$ directed by the refinement relation. 
+
+If $\alpha = (\alpha_{1}, \alpha_{2})$ is a cover of $(X_{1}, X_{2})$, we write $\Nrv(\alpha)$ for the simplicial pair $(\Nrv(\alpha_{1}),\Nrv(\alpha_{2}))$, where 
+\[
+\Nrv(\alpha_{i}) =
+\big\{ \beta \subseteq \alpha_{i} \mid \beta \text{ is finite and } \textstyle{\bigcap_{U \in \beta}} \, U \neq \emptyset \big\}
 \]
 denotes the nerve of a cover. The nerve construction defines a functor from $\Cov(X_{1},X_{2})$ regarded as a category to the category of simplicial pairs. 
 
-If $D\subseteq\Cov(X_{1},X_{2})$ is a directed set with respect to refinement and $G$ is an abelian group, we define
-\[
-\CH_{*}^{D}(X_{1},X_{2};G)=\lim_{\alpha\in D}H_{*}(\Nrv(\alpha);G).
-\]
 The \emph{\v{C}ech homology with coefficients in $G$} of $(X_{1},X_{2})$ is defined as
 \[
-\CH_{*}(X_{1},X_{2};G)=\CH_{*}^{\Cov(X_{1},X_{2})}(X_{1},X_{2};G).%=\lim_{\alpha\in\Cov(X_{1},X_{2})}H_{*}(\Nrv(\alpha);G)
-\]
-If $(X_{1},X_{2})$ is a pair of metric spaces, its \emph{metric \v{C}ech homology with coefficients in $G$} is defined as
-\[
-\MCH_{*}(X_{1},X_{2};G)=\CH_{*}^{\Balls(X_{1},X_{2})}(X_{1},X_{2};G),%=\lim_{\alpha\in\Balls(X_{1},X_{2})}H_{*}(\Nrv(\alpha);G).
-\]
-where $\Balls(X_{1},X_{2})=\{((B_{\delta}(x))_{x\in X_{1}},(B_{\delta}(x))_{x\in X_{2}})\mid\delta>0\}\subseteq\Cov(X_{1},X_{2})$.
-
-If $\alpha=(\alpha_{1},\alpha_{2})$ is a cover of $(X_{1},X_{2})$, we write $\Vietoris(\alpha)$ for the simplicial pair $(\Vietoris(\alpha_{1}),\Vietoris(\alpha_{2}))$, where 
-\[
-\Vietoris(\alpha_{i})=\left\{\sigma\subseteq X_{i}\mid\sigma\text{ is finite and there is}U\in\alpha_{i}\text{ with }\sigma\in U\right\}.
-\]
-denotes the Vietoris complex of a cover. The Vietoris complex construction defines a functor from $\Cov(X_{1},X_{2})$ regarded as a category to the category of simplicial pairs. 
-
-If $D\subseteq\Cov(X_{1},X_{2})$ is a directed set with respect to refinement and $G$ is an abelian group, we define
-\[
-\VH_{*}^{D}(X_{1},X_{2};G)=\lim_{\alpha\in D}H_{*}(\Vietoris(\alpha);G).
-\]
-The \emph{Vietoris homology with coefficients in $G$} of $(X_{1},X_{2})$ is defined as
-\[
-\VH_{*}(X_{1},X_{2};G)=\VH_{*}^{\Cov(X_{1},X_{2})}(X_{1},X_{2};G).%=\lim_{\alpha\in\Cov(X_{1},X_{2})}H_{*}(\Vietoris(\alpha);G)
-\]
-If $(X_{1},X_{2})$ is a pair of metric spaces, its \emph{metric Vietoris homology with coefficients in $G$} is defined as
-\[
-\MVH_{*}(X_{1},X_{2};G)=\VH_{*}^{\Balls(X_{1},X_{2})}(X_{1},X_{2};G).%=\lim_{\alpha\in\Balls(X_{1},X_{2})}H_{*}(\Vietoris(\alpha);G).
+\CH_{*}(X_{1}, X_{2}; G) \ =
+\lim_{\alpha \in \Cov(X_{1}, X_{2})} H_{*}(\Nrv(\alpha); G).
 \]
 
-\v{C}ech and Vietoris homology, as well as their metric versions, can be made into functors and have boundary operators; we omit the straightforward constructions. The metric Vietoris theory is what Morse uses in Functional Topology. As we will see, all of the aforementioned theories agree for the spaces we are interested in. To see this, we use a special case of Dowker's Theorem.
+\v{C}ech homology can be made into a functor and satisfies the axioms of a partially exact homology theory; we refer to \cite[Section IX--X]{MR0050886} for the constructions and verifications of the axioms.
+For arbitrary coefficients it is not in general a homology theory, but for vector space coefficients and compact Hausdorff pairs, the associated long sequences are exact \cite{Kelly.1961}.
+If $X_{1}, X_{2} \subseteq X = X_{1} \cup X_2$ are all compact Hausdorff, they are also excisive for \v{C}ech homology \cite[Sections X.1, X.5]{MR0050886}, so such triples have exact Mayer-Vietoris sequences for \v{C}ech homology with field coefficients.
 
-\begin{thm}[{{\cite{Dowker.1952}}}]
-Let $(X,A)$ be a pair of topological spaces, $\alpha\in\Cov(X_{1},X_{2})$ and $G$ an abelian group. There exists an isomorphism 
-\[
-H_{*}(\Nrv(\alpha);G)\cong H_{*}(\Vietoris(\alpha);G),
-\]
-which is natural with respect to refinement and compatible with the boundary operators.
-\end{thm}
+Another important property of \v{C}ech homology is its compatibility with cofiltered limits \cite[Theorems VIII.3.6.\@ and X.3.1.]{MR0050886}. More specifically, if $(X_i, Y_i)_i$ is a totally ordered diagram of compact Hausdorff spaces, its limit $(X, Y) = \lim_i (X_i, Y_i)$ in the category of pairs of spaces is again a compact Hausdorff pair and the natural map $\CH_*(X, Y; G) \to \lim_i \CH_*(X_i, Y_i; G)$ is an isomorphism.
 
-\begin{cor}
-\v{C}ech and Vietoris homology with arbitrary coefficients agree for pairs of topological spaces. Metric \v{C}ech and metric Vietoris homology with arbitrary coefficients agree for metric pairs.
-\end{cor}
+%\todo{Uli: I saw a discussion about the topological invariance of Vietoris homology for non-compact metric spaces.
+%I thought that it suggested that invariance holds only for compact spaces,
+%but I can't find it anymore. 
 
-Note that when $D_{1},D_{2}\subseteq\Cov(X_{1},X_{2})$ are directed subsets such that one of them is coinital in the other, we have natural isomorphisms $\CH_{*}^{D_{1}}(X_{1},X_{2};G)\cong\CH_{*}^{D_{2}}(X_{1},X_{2};G)$ and $\VH_{*}^{D_{1}}(X_{1},X_{2};G)\cong\VH_{*}^{D_{2}}(X_{1},X_{2};G)$. If $X_{1}$ and $X_{2}$ are compact metric spaces, $\Balls(X_{1},X_{2})$ is coinitial in $\Cov(X_{1},X_{2})$. This yields the following.
+%What I found was this:
+%\url{http://pldml.icm.edu.pl/pldml/element/bwmeta1.element.zamlynska-8f369e96-b1eb-4ec9-99e2-8c366367a5a4} claims invariance also for non-compact.
+%\url{https://www.ams.org/journals/tran/1947-062-02/S0002-9947-1947-0024128-6/S0002-9947-1947-0024128-6.pdf} mentions a non-invariant property "null-bounding"
 
-\begin{cor}
-\v{C}ech and metric \v{C}ech homology with arbitrary coefficients, as well as Vietoris and metric Vietoris homology with arbitrary coefficients, agree for compact metric pairs.
-\end{cor}
-
-The previous comparison results justify that from now on, we will use \v{C}ech and Vietoris homology interchangeably.
-
-In full generality, none of of the previously defined functors is an actual homology theory in the sense of the Eilenberg-Steenrod axioms because their long sequences associated to a pair are generally only chain complexes and not necessarily exact. We refer to \cite[Section IX--X]{MR0050886} for verifications of the other axioms. For vector space coefficients and compact pairs, the long sequences are indeed exact (\cite{Kelly.1961}), so we get the following.
-
-\begin{thm}
-\v{C}ech homology with coefficients in a vector space $V$ over some field $\mathbb{F}$ defines a homology theory for compact pairs.
-\end{thm}
-
-Another important property of \v{C}ech homology, and ultimately the reason why Morse uses it, is its compatibility with inverse limits.
-
-\begin{thm}[{\cite[Chapter VIII, Theorem 3.6.~and Chapter X, Theorem 3.1.]{MR0050886}}]
-\v{C}ech homology commutes with inverse limits of compact Hausdorff pairs, i.e., if $(X_{1,i},X_{2,i})_{i}$ is an inverse system of compact Hausdorff pairs, the inverse limit $\lim_{i}(X_{1,i},X_{2,i})$ taken in the category of pairs of topological spaces is again a compact Hausdorff pair and for any coefficient group $G$ the natural map
-\[
-\CH_{*}(\lim_{i}(X_{1,i},X_{2,i});G)\to\lim_{i}\CH_{*}(X_{1,i},X_{2,i};G)
-\]
-is an isomorphism.
-\end{thm}
-
-\todo{Uli: I saw a discussion about the topological invariance of Vietoris homology for non-compact metric spaces.
-I thought that it suggested that invariance holds only for compact spaces,
-but I can't find it anymore. 
-
-What I found was this:
-\url{http://pldml.icm.edu.pl/pldml/element/bwmeta1.element.zamlynska-8f369e96-b1eb-4ec9-99e2-8c366367a5a4} claims invariance also for non-compact.
-\url{https://www.ams.org/journals/tran/1947-062-02/S0002-9947-1947-0024128-6/S0002-9947-1947-0024128-6.pdf} mentions a non-invariant property "null-bounding"
-
-Update: Cech homology (as usually defined) and Vietoris homology (as defined originally) are only isomorphic for compact metric spaces. In our setting, this is enough. Decide which homology theories are really relevant to us.
-Vietoris (metric),
-Vietoris (topological, i.e. as the limit over all open covers);
-eqivalently (by Dowker duality):
-Cech (metric),
-Cech (topological);
-(Massey also defined Alexander-Spanier homology \url{https://doi.org/10.2307/2321782}. It should be equivalent to the "topological" variants here.)
-Singular;
-}
+%Update: Cech homology (as usually defined) and Vietoris homology (as defined originally) are only isomorphic for compact metric spaces. In our setting, this is enough. Decide which homology theories are really relevant to us.
+%Vietoris (metric),
+%Vietoris (topological, i.e. as the limit over all open covers);
+%eqivalently (by Dowker duality):
+%Cech (metric),
+%Cech (topological);
+%(Massey also defined Alexander-Spanier homology \url{https://doi.org/10.2307/2321782}. It should be equivalent to the "topological" variants here.)
+%Singular;
+%}
 

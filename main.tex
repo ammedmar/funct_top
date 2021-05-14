@@ -1,30 +1,23 @@
 \immediate\write18{bibtex \jobname}
 \documentclass{amsart}
 \usepackage{amsmath, amsthm, amssymb}
-\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
-\usepackage[capitalize,noabbrev]{cleveref}
 \usepackage{tikz-cd}
-%\usepackage{newtxtext,newtxmath}
 \usepackage[numbers,sort,compress]{natbib}
 \usepackage{graphicx}
 \usepackage{csquotes}
-
-%To-do
-\usepackage[marginpar]{todo}
-%\makeatletter
-%\renewcommand{\@tododisplay}[1]{%
-%%\marginpar{#1}%
-%\textsuperscript{#1}%
-%}
-%%
-%\renewcommand\@displaytodo[2][\todomark]{%
-%\@tododisplay{{\todoformat [#1~\ref{todolbl:\thetodo}]}}%
-%\footnotetext[\thetodo]{\todoformat #1:~#2}%
-%\global\@todotoks\expandafter{\the\@todotoks\todoitem{#1}{#2}}%
-%\@todotrue%
-%}%
-%\renewcommand\todomark{todo}
-%\makeatother
+\usepackage[bookmarks=true,
+bookmarksnumbered=true, breaklinks=true,
+pdfstartview=FitH, hyperfigures=true,
+plainpages=false, naturalnames=true,
+colorlinks=true, pagebackref=true,
+pdfpagelabels]{hyperref}
+\hypersetup{
+	linktocpage,
+	colorlinks,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue}
+\usepackage[capitalize, noabbrev]{cleveref}
 
 % theorems
 \theoremstyle{plain}
@@ -49,6 +42,10 @@
 \newcommand{\HS}{\mathrm{HS}}
 \newcommand{\HT}{\mathrm{HT}}
 \newcommand{\HLC}{\mathrm{HLC}}
+\newcommand{\piT}{\pi\mathrm{T}}
+\newcommand{\LC}{\mathrm{LC}}
+\newcommand{\NH}{\mathrm{NH}}
+\newcommand{\piLC}{\pi\mathrm{LC}}
 \newcommand{\HE}{\mathbb{H}^d}
 \renewcommand{\H}{\widetilde{H}}
 \DeclareMathOperator{\interior}{int}
@@ -59,50 +56,59 @@
 \newcommand{\PFG}{\mathrm{PFG}}
 \DeclareMathOperator{\Nrv}{Nrv}
 \DeclareMathOperator{\Cov}{Cov}
-\DeclareMathOperator{\Vietoris}{Vietoris}
+\DeclareMathOperator{\Vietoris}{Vtr}
 \DeclareMathOperator{\Balls}{Balls}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator{\crit}{crit}
 \newcommand\MCH{M\check{H}}
 \newcommand\VH{VH}
 \newcommand\MVH{MVH}
 
 % margins
 \setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-1.6in}
+\addtolength{\textwidth}{-2.5in}
 \setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-1.8in}
+\addtolength{\textheight}{-2.5in}
 \calclayout
-
-\newcommand{\anibal}[1]{\textcolor{blue}{[Anibal: #1]}}
 
 \begin{document}
 
 \title[Persistence in functional topology]{Persistence in functional topology: local-connectivity, q-tameness and a correction to a theorem of Morse}
-\author{}
+
+% % Anibal
+% \author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
+% \address{Max Planck Institute for Mathematics, Bonn, Germany}
+% \email{ammedmar@mpim-bonn.mpg.de}
+% \address{Department of Mathematics, University of Notre, Notre Dame, IN, USA}
+% \email{amedinam@nd.edu}
+	
 \date{\today}
 
 \begin{abstract}
-	During the 1930's Morse developed a general theory, which he named functional topology, relating the critical set of a semi-continuous functional and the topology of its sublevel sets; and, in joint work with Tompkins, used this body of work to study minimal surfaces.
-	Many of the key insights of functional topology have been rediscovered in the study of persistence homology.
-	In particular, conditions enforcing the existence of an interval decomposition are as central to functional topology as they are to persistence theory.
-	With modern applications to geometry in mind, in this article we present an up-to-date study of local-connectivity for Morse filtrations, and provide in passing a correction to the Critical Surface Theorem of Morse and Tompkins.
+	During the 1930's Morse developed the theory of functional topology relating the critical set of a semi-continuous functional and the topology of its sublevel sets.
+	Morse and Tompkins applied this body of work in the setting defined by Douglas' solution to Plateau's Problem, and proved with it their Unstable Minimal Surface Theorem.
+	Many of the key insights of functional topology have been rediscovered in the study of persistent homology, with the notion of q-tameness being as central to functional topology as it is to persistence theory.
+	With applications to geometry in mind, in this article we present a modern treatment of the relationship between local-connectivity properties of sublevel set filtrations, Morse inequalities, and the q-tameness of their associated persistence modules.
+	As a consequence of our analysis we identify a gap in the proof of the Unstable Minimal Surface Theorem of Morse and Tompkins and provide a correction.
 \end{abstract}
-
 
 \maketitle
 \tableofcontents
 \input{introduction}
 \input{homology}
 \input{persistence}
+\input{inequalities}
 \input{connectivity}
-%\input{outlook}
-\input{historical}
-%\input{other}
+\input{surfaces}
+\appendix
+\input{vietoris}
 
 \section*{Acknowledgements}
 This research has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}, the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
 
+A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT - 1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL where part of this work developed.
+
 \bibliographystyle{abbrvnaturl}
 \bibliography{biblio}
 
-\todos
 \end{document}

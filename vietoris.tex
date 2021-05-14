@@ -1,0 +1,40 @@
+
+\section{Vietoris homology} \label{s:vietoris}
+
+In his work on functional topology, Morse uses the Vietoris homology for metric spaces as introduced in \cite{MR1512371}. So far, we have considered \v{C}ech homology instead, applying a topological rather than metric construction.
+We will recall the definition of Vietoris homology and recall that these two constructions yield the same result for compact metric spaces.
+
+\v{C}ech homology of a pair of spaces $(X_{1}, X_{2})$ was defined as the inverse limit over the homology of nerves of covers of $(X_{1}, X_{2})$.
+As an alternative to the nerve construction, for a cover $\alpha = (\alpha_{1}, \alpha_{2})$ one can define $\Vietoris(\alpha)$ as the simplicial pair $\big(\Vietoris (\alpha_{1}), \Vietoris (\alpha_{2})\big)$, where 
+\[
+\Vietoris (\alpha_{i}) = \left\{ \sigma \subseteq X_{i} \mid \sigma \text{ is finite and there is } U \in \alpha_{i} \text{ with } \sigma \in U \right\}.
+\]
+This construction is dual in the sense of Dowker's Theorem \cite{Dowker.1952} to the nerve construction.
+As a consequence, we have that
+$
+H_{*} (\Nrv (\alpha); G) \cong H_{*} (\Vietoris (\alpha); G)
+$
+for any coefficient group $G$.
+This isomorphism is natural with respect to refinement and compatible with the boundary operators, so that we get an alternative description of \v{C}ech homology as 
+%the inverse limit over the homology of Vietoris complexes of covers.
+\[
+\lim_{\alpha \in \Cov (X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \, \cong\, \CH (X_{1}, X_{2}; G)
+\]
+This is still not exactly the construction of Vietoris homology of a pair of metric spaces $(X_{1}, X_{2})$ as presented in \cite{MR1512371}, which in modern notation is the limit
+\begin{equation*}
+    \lim_{\alpha \in \Balls(X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G),
+\end{equation*}
+where 
+\[
+\Balls (X_{1}, X_{2}) = \left\{ \big( ( B_{\delta} (x) )_{x \in X_{1}} , ( B_{\delta} (x) )_{x \in X_{2}} \big) \mid \delta > 0 \right\}
+%\left\{ \big(B_{\delta}(x),\ B_{\delta}(y) \big) \right\}_{(x,y) \in X_{1} \times X_2} 
+\subseteq \Cov (X_{1}, X_{2}).
+\]
+But if the metric pair $(X_{1}, X_{2})$ is compact, then $\Balls (X_{1}, X_{2})$ is coinitial in $\Cov (X_{1}, X_{2})$, that is to say, they define the same limit.
+Thus, we have natural isomorphisms
+\[
+\lim_{\alpha \in \Balls(X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \ \cong \,
+%\lim_{\alpha \in \Cov (X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \, \cong\, 
+\CH (X_{1}, X_{2}; G),
+\]
+so in Morse's setting the metric Vietoris homology theory he uses is indeed the same as the \v{C}ech homology we considered earlier on.
