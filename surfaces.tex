@@ -1,4 +1,19 @@
 
+Throughout his work on functional topology, to obtain q-tameness Morse assumed slightly varying forms of local-connectivity on the resulting sublevel set filtrations.
+In particular, Morse and Tompkins use in their applications to minimal surface theory the following version:
+\begin{displaycquote}[p.431]{Morse.1940}
+	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
+\end{displaycquote}
+Here, $M$ is a metric space and $F$ a real-valued function on $M$ whose sublevel sets $F_{t}$ are all compact.
+Morse then states that as consequence of these assumptions the persistent \v{C}ech homology of this sublevel set filtration is q-tame.
+In the original it reads:
+\begin{displaycquote}[Theorem 6.3, p.432]{Morse.1940}
+	Let $a$ and $c$ be positive constants such that $a < c < 1$.
+	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
+\end{displaycquote}
+Morse does not prove this statement in the given reference, but rather refers to \cite[Theorem 6.1]{Morse.1938}.
+Unfortunately, the claim as stated is not correct and in this work we provide a counterexample as a consequence of \cref{thm:counterexample}.
+
 \section{Minimal surfaces and functional topology} \label{s:surfaces}
 
 Morse and Tompkins considered the following setting introduced by Douglas.
@@ -19,7 +34,7 @@ Intuitively, a point $p$ is \textit{homotopically critical} if it has no neighbo
 Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, i.e., a minimal surface.
 They then use a form of Morse inequalities for homotopically critical points
 % , or, more generally, critical sets
-to infer their unstable minimal surface theorem:
+to infer their Unstable Minimal Surface Theorem:
 \begin{itemize}
     \item[($\ast$)] If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely a critical point of index 1.
 \end{itemize}
