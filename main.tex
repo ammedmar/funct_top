@@ -1,5 +1,8 @@
-\immediate\write18{bibtex \jobname}
-\documentclass{amsart}
+%\immediate\write18{bibtex \jobname}
+\documentclass[nospthms, a4paper, final]{svjour3}
+\setlength{\textwidth}{\dimexpr\pdfpagewidth-2in}
+\setlength{\textheight}{\dimexpr\pdfpageheight-2in}
+\usepackage{mathptmx}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{tikz-cd}
 \usepackage[numbers,sort,compress]{natbib}
@@ -73,35 +76,29 @@ pdfpagelabels]{hyperref}
 \newcommand{\Vect}{\mathsf{Vect}}
 \newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
 
-% margins
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-2.3in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-2.3in}
-\calclayout
-
 \begin{document}
 
-\title[Persistence in functional analysis]{Persistence in functional analysis and a correction to a theorem of Morse}
+\title{Persistence in functional analysis and a correction to a theorem of Morse}
 
-% % Anibal
-% \author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
-% \address{Max Planck Institute for Mathematics, Bonn, Germany}
-% \email{ammedmar@mpim-bonn.mpg.de}
-% \address{Department of Mathematics, University of Notre, Notre Dame, IN, USA}
-% \email{amedinam@nd.edu}
-	
-\date{\today}
+
+\author{author1 \and author2 \and author3}
+
+\institute{author1 \at where \\ \email{@} \and
+	author2 \at where \\ \email{@} \and
+	author3 \at where \\ \email{@} \and
+}
+
+\authorrunning{author1, author2, author3}
+
+\maketitle
 
 \begin{abstract}
 	During the 1930's Morse developed the theory of functional topology relating the critical set of a semi-continuous functional and the topology of its sublevel sets.
-	Morse and Tompkins applied this body of work in the setting defined by Douglas' solution to Plateau's Problem, and proved with it their Unstable Minimal Surface Theorem.
-	Many of the key insights of functional topology have been rediscovered in the study of persistent homology, with the notion of q-tameness being as central to functional topology as it is to persistence theory.
-	With applications to geometry in mind, we present a modern treatment of local-connectivity of sublevel set filtrations, q-tameness of their associated persistence homology, and Morse inequalities.
-	As a consequence of our analysis we identify and correct a gap in the proof of the Unstable Minimal Surface Theorem of Morse and Tompkins.
+	Morse and Tompkins applied this body of work to prove the Unstable Minimal Surface Theorem in the setting defined by Douglas' solution to Plateau's Problem.
+	In recent years, persistence homology has led to fast passed developments in both mathematical theory and practice within several fields including simplectic geometry, WHAT ELSE? and neuroscience. In this article, we present a modern account of Morse's functional topology from the point of view of persistence theory.
+	We do so to allow for future applications of persistence techniques in functional analysis, as well as to correct a gap we identified in the proof of the Unstable Minimal Surface Theorem of Morse and Tompkins.
 \end{abstract}
 
-\maketitle
 \tableofcontents
 \input{introduction}
 \input{persistence}
