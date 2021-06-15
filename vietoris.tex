@@ -1,13 +1,30 @@
 
 \section{Vietoris homology} \label{s:vietoris}
 
-In his work on functional topology, Morse uses the Vietoris homology for metric spaces as introduced in \cite{MR1512371}. So far, we have considered \v{C}ech homology instead, applying a topological rather than metric construction.
-We will recall the definition of Vietoris homology and recall that these two constructions yield the same result for compact metric spaces.
+Let $(X_{1},X_{2})$ be a pair of topological spaces. We say that $\alpha = (\alpha_1, \alpha_2)$ is an \emph{open cover} of $(X_1, X_2)$ if $\alpha_1$ is an open cover of $X_1$ and $\alpha_2 \subseteq \alpha_1$ is a subcover such that $X_1 \subseteq \bigcup_{U \in \alpha_2} U$.
+We denote by $\Cov(X_{1}, X_{2})$ the set of open covers of $(X_{1}, X_{2})$ directed by the refinement relation. 
+
+If $\alpha = (\alpha_{1}, \alpha_{2})$ is a cover of $(X_{1}, X_{2})$, we write $\Nrv(\alpha)$ for the simplicial pair $(\Nrv(\alpha_{1}),\Nrv(\alpha_{2}))$, where 
+\[
+\Nrv(\alpha_{i}) =
+\big\{ \beta \subseteq \alpha_{i} \mid \beta \text{ is finite and } \textstyle{\bigcap_{U \in \beta}} \, U \neq \emptyset \big\}
+\]
+denotes the nerve of a cover $\alpha_{i}$.
+The nerve construction defines a functor from $\Cov(X_{1},X_{2})$ regarded as a category to the category of simplicial pairs. 
+
+The \emph{\v{C}ech homology with coefficients in $\mathbb{F}$} of $(X_{1},X_{2})$ is defined as
+\[
+\CH_{*}(X_{1}, X_{2}; \mathbb{F}) \ =
+\lim_{\alpha \in \Cov(X_{1}, X_{2})} H_{*}(\Nrv(\alpha); \mathbb{F}).
+\]
+
+In his work on functional topology, Morse uses Vietoris homology for metric spaces as introduced in \cite{MR1512371}. So far, we have considered \v{C}ech homology instead, applying a topological rather than a metric construction.
+We will review the definition of Vietoris homology and recall that these two constructions yield the same result for compact metric spaces.
 
 \v{C}ech homology of a pair of spaces $(X_{1}, X_{2})$ was defined as the inverse limit over the homology of nerves of covers of $(X_{1}, X_{2})$.
 As an alternative to the nerve construction, for a cover $\alpha = (\alpha_{1}, \alpha_{2})$ one can define $\Vietoris(\alpha)$ as the simplicial pair $\big(\Vietoris (\alpha_{1}), \Vietoris (\alpha_{2})\big)$, where 
 \[
-\Vietoris (\alpha_{i}) = \left\{ \sigma \subseteq X_{i} \mid \sigma \text{ is finite and there is } U \in \alpha_{i} \text{ with } \sigma \in U \right\}.
+\Vietoris (\alpha_{i}) = \left\{ \sigma \subseteq X_{i} \mid \sigma \text{ is finite and } \sigma \in U \text{ for some } U \in \alpha_{i}  \right\}.
 \]
 This construction is dual in the sense of Dowker's Theorem \cite{Dowker.1952} to the nerve construction.
 As a consequence, we have that
@@ -20,7 +37,7 @@ This isomorphism is natural with respect to refinement and compatible with the b
 \[
 \lim_{\alpha \in \Cov (X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \, \cong\, \CH (X_{1}, X_{2}; G)
 \]
-This is still not exactly the construction of Vietoris homology of a pair of metric spaces $(X_{1}, X_{2})$ as presented in \cite{MR1512371}, which in modern notation is the limit
+This is still not exactly the same as the construction of Vietoris homology of a pair of metric spaces $(X_{1}, X_{2})$ as presented in \cite{MR1512371}, which in modern notation is the limit
 \begin{equation*}
     \lim_{\alpha \in \Balls(X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G),
 \end{equation*}
@@ -30,11 +47,11 @@ where
 %\left\{ \big(B_{\delta}(x),\ B_{\delta}(y) \big) \right\}_{(x,y) \in X_{1} \times X_2} 
 \subseteq \Cov (X_{1}, X_{2}).
 \]
-But if the metric pair $(X_{1}, X_{2})$ is compact, then $\Balls (X_{1}, X_{2})$ is coinitial in $\Cov (X_{1}, X_{2})$, that is to say, they define the same limit.
+However, if the metric pair $(X_{1}, X_{2})$ is compact, then $\Balls (X_{1}, X_{2})$ is coinitial in $\Cov (X_{1}, X_{2})$, that is to say, they define the same limit.
 Thus, we have natural isomorphisms
 \[
 \lim_{\alpha \in \Balls(X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \ \cong \,
 %\lim_{\alpha \in \Cov (X_{1}, X_{2})} H_{*} (\Vietoris (\alpha); G) \, \cong\, 
 \CH (X_{1}, X_{2}; G),
 \]
-so in Morse's setting the metric Vietoris homology theory he uses is indeed the same as the \v{C}ech homology we considered earlier on.
+and so the metric Vietoris homology theory employed in Morse's setting is indeed canonically isomorphic to the \v{C}ech homology we considered earlier on.
