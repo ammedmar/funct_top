@@ -1,7 +1,7 @@
 
 \section{Persistence diagrams from local connectivity} \label{s:connectivity}
 
-We have seen that q-tame functions admit persistence diagrams, which can be used to formulate Morse inequalities. With q-tameness being a rather abstract condition, we would now like to establish more concrete topological conditions that ensure the q-tameness of a function. Our definitions are motivated by similar conditions that Morse considered in his work on functional topology. We will present a historical account in \cref{s:surfaces}.
+We have seen that q-tame functions admit persistence diagrams, which can be used to formulate Morse inequalities. With q-tameness being a rather abstract condition, we now establish more concrete topological conditions that ensure the q-tameness of a function. Our definitions are motivated by similar conditions that Morse considered in his work on functional topology. We will present a historical account in \cref{s:surfaces}.
 
 Whether a function is q-tame or not depends on the functor that is used to pass from the sublevel set filtration of the function to a persistence module. The general idea that we want to employ is to deduce global finiteness properties like q-tameness from local ones. Thus, the functors we consider should have some property that allows us to do so.
 
@@ -12,16 +12,17 @@ A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer-Viet
 \cdots \arrow[r] & \H_{n}(X_{1} \cap X_{2}) \arrow[r] & \H_{n}(X_{1}) \oplus \H_{n}(X_{2}) \arrow[r] & \H_{n}(X) \arrow[r] & \H_{n-1}(X_{1} \cap X_{2}) \arrow[r] & \cdots \ .
 \end{tikzcd}
 \]
-We say that $\H$ has the \emph{open} (resp.\@ \emph{compact}) \emph{Mayer-Vietories property} if there are natural Mayer-Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@ compact Hausdorff). 
+We say that $\H$ has the \emph{open} (resp.\@\  \emph{compact}) \emph{Mayer-Vietories property} if there are natural Mayer-Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff). 
 
-For the rest of this section, we will assume that $\H$ has the open or the compact Mayer-Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$. 
+For the rest of this section, we will assume that $\H$ has either the open or the compact Mayer-Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$. 
 Note that this includes singular homology with field coefficients, which, like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{MR0050886}, has the open Mayer-Vietoris property, and it also includes \v{C}ech homology with field coefficients, which has the closed Mayer-Vietoris property.
+%We prioritize the reduced versions of these theories, which motivates our notation for a generic homology $\H$.
 
 \begin{defi} \label{defi:local_connectedness}
 	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} ($\HS_n$) if the image of the map induced by $\H_{n}$ is finite dimensional.
-	Furthermore, if that image is $0$ then we say that the map is \textit{$n$-homologically trivial} ($\HT_n$).
+	%Furthermore, if that image is $0$ then we say that the map is \textit{$n$-homologically trivial} ($\HT_n$).
 	%The map is said to be \textit{$n$-homotopically trivial} $(\piT_{n})$ if the map induced by $\pi_{n}$ is 0.
-	We omit references to $n$ if the conditions hold for all integers.
+	We omit references to $n$ if the condition holds for all integers.
 	%The map is said to be \emph{null-homotopic} ($\NH$) if it is homotopic to a constant map.
 \end{defi}
 
@@ -64,20 +65,20 @@ Note that this includes singular homology with field coefficients, which, like a
 % The following definitions are motivated by Morse's work, in particular his local connectivity conditions mentioned in the introduction and reviewed in \cref{s:surfaces}. 
 
 \begin{defi} \label{defi:local_connectedness_filtrations}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be $\HLC$ 
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally homologically small} or $\HLC$ 
 	%(resp.\@ $\piLC$, $\LC$) 
-	if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion
+	if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion
 	\begin{equation*}
 	f_{\leq s} \cap U \to f_{\leq t} \cap V
 	\end{equation*}
-	is $\HT$.
+	is $\HS$.
 	%(resp.\@ $\piT$, $\NH$).
     %
-	Similarly, the sublevel set filtration is called \emph{strongly $\HLC$} if for any $x \in X$, $V$ a neighborhood of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion
+	Similarly, the sublevel set filtration is called \emph{strongly locally homologically small $\HLC$} or \emph{strongly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion
 	\begin{equation*}
 	f_{\leq s} \cap U \to f_{\leq t} \cap V
 	\end{equation*}
-	is $\HT$.
+	is $\HS$.
 \end{defi}
 
 Clearly, any strongly $\HLC$ sublevel set filtration is also $\HLC$. If the filtration is induced by a continuous function, the converse also holds, as the following theorem shows.
@@ -86,15 +87,14 @@ Clearly, any strongly $\HLC$ sublevel set filtration is also $\HLC$. If the filt
     If the sublevel set filtration of a continuous function $f \colon X \to \R$ is $\HLC$, then it is also strongly $\HLC$.
 \end{thm}
 \begin{proof}
-    Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$. We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HT$. 
+    Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$. We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$. 
     
-    To do so, we start by using the $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HT$. 
-    Now, if $s = f(x)$, we choose $U = U'$. 
-    If $s > f(x)$, we choose $U = U' \cap f_{< s'}$, where $f_{< s'} = f^{-1} (-\infty, s')$.
+    To do so, we start by using the $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$. 
+    Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
     %is the open sublevel set of $f$ at $s'$. 
     Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of $X$.
     
-    In both cases, we obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$. This second map is $\HT$ by construction. Any map that factors through an $\HT$ map is also $\HT$, so the proof is finished.
+    We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$. This second map is $\HS$ by construction. Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
 \end{proof}
 
 % As for a single space, the $\LC$ notions imply the corresponding $\piLC$ notions and the corresponding $\HLC$ notions if $\H$ evaluated at a point is trivial.
@@ -121,7 +121,7 @@ We collect the main ideas in three lemmas.
 \end{lem}
 
 \begin{proof}
-	This is proven via a straightforward diagram chase. For more details see \cite[Lemma 17.3]{Bredon.1997}.
+	This is proven via a straightforward diagram chase. For more details see \cite[Lemma II.17.3]{Bredon.1997}.
 \end{proof}
 
 \begin{lem} \label{l:neighborhood third}
@@ -143,8 +143,10 @@ We collect the main ideas in three lemmas.
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-    With the assumptions of \cref{t:strong local connectedness implies q-tameness},
-	consider sets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
+    %With the assumptions of \cref{t:strong local connectedness implies q-tameness},
+    Let $f \colon X \to \R$ be a function whose sublevel set filtration is compact and strongly $\HLC$, and
+    %
+	consider subsets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
 	For any $s < t$ the inclusion
 	\[
 	C \cap f_{\leq s} \to L \cap f_{\leq t}
@@ -162,7 +164,7 @@ We collect the main ideas in three lemmas.
     $U \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$. 
 	
-	We will show that $\Sigma_{s, t}$ has following three properties:
+	We will show that $\Sigma_{s, t}$ has the following three properties:
 	\begin{enumerate}
 	    \item Any point $x \in L \cap f_{\leq s}$ has a neighborhood $V_x \in \Sigma_{s,t}$.
 	    \item If $V_1,\, V_2 \in \Sigma_{s,t}$, then $V_1 \cup V_2 \in \Sigma_{s,t}$.
@@ -179,7 +181,6 @@ We collect the main ideas in three lemmas.
 	is $\HS_n$, so the inclusion 
 	$C \cap f_{\leq s} \to L \cap f_{\leq t}$ 
 	is also $\HS_n$ because this map factors through the aforementioned one.
-	
 	What is left to do is to show that $\Sigma_{s,t}$ has the properties we want.
 	
 	For the third property, let $V \in \Sigma_{s,t}$ with $U$ an open neighborhood of $\overline{V}$ in $L$ and $s' \in (s,\, t)$ such that 
@@ -195,7 +196,7 @@ We collect the main ideas in three lemmas.
 	Choose an arbitrary $s' \in (s,\, t)$.
 	Since the sublevel set filtration of $f$ is strongly $\HLC$, there is an open neighborhood $U_x \subseteq L$ such that the inclusion
 	$U_x \cap f_{\leq s'} \to L \cap f_{\leq t}$
-	is $\HT$, so in particular $\HS_n$.
+	is $\HS$, so in particular $\HS_n$.
 	By local compactness of $X$ we can choose a compact neighborhood $K_x$ of $x$ contained in $U_x$. 
 	Now $V_x = \interior (K_x)$ is a neighborhood of $x$ with $V_x \in \Sigma_{s,t}$.
 	
@@ -272,7 +273,8 @@ We collect the main ideas in three lemmas.
 We can now complete the proof of the claim stating that for compact sublevel set filtrations, strong $\HLC$ implies q-tameness. 
 
 \begin{proof}[Proof of \cref{t:strong local connectedness implies q-tameness}]
-	This follows from applying \cref{l:key lemma for q-tameness} with $C = f_{\leq s}$ and $L = X$.
+    By definition, the sublevel set filtration of $f$ is q-tame if and only if the inclusion $f_{\leq s} \to f_{\leq t}$ is $\HS$ for all pairs $s < t$.
+    Thus, the theorem follows by applying \cref{l:key lemma for q-tameness} with $C = f_{\leq s}$, which is compact by assumption, and $L = X$.
 \end{proof}
 
 Combining \cref{thm:hlc_to_strong_hlc} with \cref{t:strong local connectedness implies q-tameness} also yields the following result for continuous functions.
@@ -280,3 +282,5 @@ Combining \cref{thm:hlc_to_strong_hlc} with \cref{t:strong local connectedness i
 \begin{cor}
     If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and $\HLC$, then it is also q-tame.
 \end{cor}
+
+
