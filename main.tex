@@ -1,5 +1,8 @@
-\immediate\write18{bibtex \jobname}
-\documentclass{amsart}
+%\immediate\write18{bibtex \jobname}
+\documentclass[nospthms, a4paper, final]{svjour3}
+\setlength{\textwidth}{\dimexpr\pdfpagewidth-2in}
+\setlength{\textheight}{\dimexpr\pdfpageheight-2in}
+\usepackage{mathptmx}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{tikz-cd}
 \usepackage[numbers,sort,compress]{natbib}
@@ -43,13 +46,13 @@ pdfpagelabels]{hyperref}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\HS}{\mathrm{HS}}
 \newcommand{\HT}{\mathrm{HT}}
-\newcommand{\HLC}{\mathrm{HLC}}
+\newcommand{\HLC}{\mathrm{LHS}}
 \newcommand{\piT}{\pi\mathrm{T}}
 \newcommand{\LC}{\mathrm{LC}}
 \newcommand{\NH}{\mathrm{NH}}
 \newcommand{\piLC}{\pi\mathrm{LC}}
 \newcommand{\HE}{\mathbb{H}^d}
-\renewcommand{\H}{\widetilde{H}}
+\renewcommand{\H}{H}
 \DeclareMathOperator{\interior}{int}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\coker}{coker}
@@ -73,35 +76,31 @@ pdfpagelabels]{hyperref}
 \newcommand{\Vect}{\mathsf{Vect}}
 \newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
 
-% margins
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-2.3in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-2.3in}
-\calclayout
-
 \begin{document}
 
-\title[Persistence in functional analysis]{Persistence in functional analysis and a correction to a theorem of Morse}
+\title{Persistence in functional topology and a correction to a theorem of Morse}
 
-% % Anibal
-% \author[A. Medina-Mardones]{Anibal M. Medina-Mardones}
-% \address{Max Planck Institute for Mathematics, Bonn, Germany}
-% \email{ammedmar@mpim-bonn.mpg.de}
-% \address{Department of Mathematics, University of Notre, Notre Dame, IN, USA}
-% \email{amedinam@nd.edu}
-	
-\date{\today}
+\author{Ulrich Bauer \and Anibal M.~Medina-Mardones \and Maximilian Schmahl}
 
-\begin{abstract}
-	During the 1930's Morse developed the theory of functional topology relating the critical set of a semi-continuous functional and the topology of its sublevel sets.
-	Morse and Tompkins applied this body of work in the setting defined by Douglas' solution to Plateau's Problem, and proved with it their Unstable Minimal Surface Theorem.
-	Many of the key insights of functional topology have been rediscovered in the study of persistent homology, with the notion of q-tameness being as central to functional topology as it is to persistence theory.
-	With applications to geometry in mind, we present a modern treatment of local-connectivity of sublevel set filtrations, q-tameness of their associated persistence homology, and Morse inequalities.
-	As a consequence of our analysis we identify and correct a gap in the proof of the Unstable Minimal Surface Theorem of Morse and Tompkins.
-\end{abstract}
+\institute{
+    Ulrich Bauer \at Technical University of Munich \\ \email{mail@ulrich-bauer.org} \and
+	Anibal M.~Medina-Mardones \at Max Planck Institute for Mathematics, Bonn \\ \email{ammedmar@mpim-bonn.mpg.de} 
+	\and
+	Maximilian Schmahl \at Heidelberg University \\ \email{mschmahl@mathi.uni-heidelberg}
+}
+
+\authorrunning{U.~Bauer, A.~M.~Medina-Mardones, M.~Schmahl}
 
 \maketitle
+
+\begin{abstract}
+	During the 1930s, Marston Morse developed a vast generalization of what is commonly known as Morse theory relating the critical points of a semi-continuous functional with the topology of its sublevel sets.
+	Morse and Tompkins applied this body of work, referred to as functional topology, to prove the Unstable Minimal Surface Theorem in the setting defined by Douglas' solution to Plateau's Problem.
+	Several concepts introduced by Morse in this context can be seen as early precursors to the theory of persistent homology, which by now has established itself as a popular tool in applied and theoretical mathematics with applications to a wide range of topics, including neuroscience, genomics, and symplectic geometry.
+	In this article, we provide a modern redevelopment of the homological aspects of Morse's functional topology from the perspective of persistence theory.
+	We adjust several key definitions and prove stronger statements in order to allow for future applications of persistence techniques in functional analysis, as well as to correct a mistake in the proof by Morse and Tompkins of the Unstable Minimal Surface Theorem.
+\end{abstract}
+
 \tableofcontents
 \input{introduction}
 \input{persistence}
@@ -114,7 +113,7 @@ pdfpagelabels]{hyperref}
 \section*{Acknowledgements}
 This research has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}, the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
 
-A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT - 1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL where part of this work developed.
+A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT-1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL, where part of this work developed.
 
 \bibliographystyle{abbrvnaturl}
 \bibliography{biblio}
