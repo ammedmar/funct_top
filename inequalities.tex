@@ -1,29 +1,28 @@
 
 \section{Generalized Morse inequalities from persistence diagrams} \label{s:inequalities}
 
-In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse--Tompkins to prove their Unstable Minimal Surface Theorem, see \cref{s:surfaces} for more details on this result.
+In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse--Tompkins in their proof of the Unstable Minimal Surface Theorem (see \cref{s:surfaces} for more details on this result).
 We deduce these general inequalities from the existence of persistence diagrams as reviewed in \cref{thm:q-tame modules have barcodes}.
 
-Recall that for a Morse function $f$ on a closed manifold $X$, the usual Morse inequalities state that for any $n$ we have
+Recall that the usual Morse inequalities state that for a Morse function $f$ on a closed manifold $X$ and for any $n \in \mathbb N$ we have
 \begin{equation}\label{equ:morse_inequalities}
     \sum_{d=0}^n \ (-1)^{n-d} ( \# \crit_{d}(f) - \beta_{d}(X) ) \ \geq\  0,  
 \end{equation}
 where $\crit_{d}(f)$ is the set of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d$th Betti number of $X$. 
 
-Now if no two critical points of $f$ have the same value, the critical points are in one-to-one correspondence with the critical values, which in turn are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing the barcode of $H_*(f_{\leq \bullet})$. 
-
-More precisely, an index $d$ critical point may either kill an existing homology class, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it may give rise to a new homology class, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
-
-The Betti numbers of $X$ may also be expressed in terms of barcodes because they agree with the number of intervals that extend to $+\infty$. 
+Now if $f$ is a \emph{excellent} Morse function, meaning that no two critical points of $f$ have the same value, the critical points are in one-to-one correspondence with the critical values, which in turn are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing the barcode of $H_*(f_{\leq \bullet})$. 
+More precisely, an index $d$ critical point may either kill an existing homology class in degree $d-1$, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it may give rise to a new homology class in degree $d$, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
+The Betti numbers of $X$ may also be expressed in terms of barcodes, as they agree with the number of intervals that extend to $+\infty$. 
 Thus, the Morse inequalities above can be expressed entirely in terms of the barcode or persistence diagram of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
 This approach of counting homological changes instead of critical points is also what Morse used in his non-smooth setting of functional topology.
-To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, e)$-\textit{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is upper semi-continuous\footnote{A persistence module $M$ is \emph{upper semi-continuous} if $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$.}, correspond to the number of finite bars with length greater than $e$ in the $d$-dimensional barcode with left endpoint $t$, plus the number of finite bars with length greater than $e$ in the $(d-1)$-dimensional barcode with right endpoint $t$ (killed by something $d$-dimensional).
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, e)$-\textit{cap numbers} of a filtration, which can be described in terms of persistent homology as follows.
+Assuming that the associated persistence module $M$ has a barcode and is \emph{upper semi-continuous}, meaning that $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$, the $(d, t, e)$-cap number correspond to the number of finite bars with length greater than $e$ in the $d$-dimensional barcode with left endpoint $t$, plus the number of finite bars with length greater than $e$ in the $(d-1)$-dimensional barcode with right endpoint $t$ (killed by something $d$-dimensional).
 
 Working entirely in the algebraic setting, we will now fix a $\Z$-graded q-tame persistence module $M$.
-Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
+Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could also arise, for example, as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
 
-By \cref{thm:q-tame modules have barcodes} $M$ has a persistence diagram in every degree $d$ with multiplicity function denoted $\mathfrak{m}_d \colon \multiplicityDomain \to \N$.
+By \cref{thm:q-tame modules have barcodes}, the persistence module $M$ has a persistence diagram in every degree $d$, with multiplicity function denoted $\mathfrak{m}_d \colon \multiplicityDomain \to \N$.
 In analogy to Morse's definitions, we may define the $(d, t, e)$-\textit{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
 \[
 m_{d}^{> e}(t) =

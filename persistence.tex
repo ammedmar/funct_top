@@ -1,7 +1,7 @@
 
 \section{Filtered spaces and persistence theory} \label{s:persistence}
 
-In this section we present an overview of the theory of persistence as it is used in geometric contexts, through filtrations by sublevel sets of real-valued functions.
+In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions, applicable to functionals defined on a function or moduli space.
 For a detailed exposition we refer to \cite{polterovich2020topological} and \cite{Chazal.2016a, MR3408277}.
 
 The ``pipeline'' of topological persistence traverses through geometry, algebra and discrete mathematics as follows:
@@ -65,13 +65,13 @@ It guarantees the existence of a barcode decomposition for any \emph{pointwise f
 Unfortunately, the $\PFD$ condition is too restrictive for many purposes.
 In particular, it is unsuited for the the applications of Morse and Tompkins in minimal surfaces theory.
 An appropriate weakening of $\PFD$ for more general settings is the notion of \emph{q-tame}.
-A persistence module $M$ is q-tame if the rank of the map $M_{s,t} \colon M_s \to M_t$ is finite dimensional for all $s < t$  \cite{Chazal.2016a}.
+A persistence module $M$ is q-tame if the rank of the map $M_{s,t} \colon M_s \to M_t$ is finite for all $s < t$ \cite{Chazal.2016a}.
 As exemplified by the infinite product of interval modules $\prod_{n \in \N_{> 0}} C([0,1/n))$, not every q-tame persistence module admits a barcode decomposition in the above sense.
 Yet, there are multiple ways of working around this to still get discrete invariants in the spirit of barcodes \cite{Chazal.2016a, Chazal.2016b, schmahl2020structure}.
 We briefly recall the approach from \citet{Chazal.2016b}.
 
 A persistence module $K$ is called \emph{ephemeral} if the maps $K_{s,t} \colon K_s \to K_t$ are $0$ for all $s < t$.
-The \emph{radical} $\rad M$ of a persistence module $M$ is defined as the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \to M$ is an ephemeral persistence module.
+The \emph{radical} $\rad M$ of a persistence module $M$ is the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \to M$ is an ephemeral persistence module.
 Specifically, $(\rad M)_t = \sum_{s<t}\im M_{s,t}$.
 If $M$ is q-tame, then its radical admits a barcode decomposition \cite[Corollary~3.6]{Chazal.2016b},
 with the associated barcode describing the isomorphism type of~$M$ ``up to ephemerals".
@@ -79,10 +79,10 @@ This can be formalized by constructing the \emph{observable category of persiste
 Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
-Instead of talking about the barcode of the radical of a q-tame persistence module, it will be more convenient for our treatment of Morse inequalities to talk about the \emph{(undecorated) persistence diagram} associated to a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which is the multiset defined by the \emph{multiplicity function} $\mathfrak{m} \colon \multiplicityDomain \to \mathbb{N}$ that associates to an element in
+Instead of talking about the barcode of the radical of a q-tame persistence module, it will be more convenient for our treatment of Morse inequalities to talk about the \emph{(undecorated) persistence diagram} associated to a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which is the multiset defined by the \emph{multiplicity function} $\mathfrak{m} \colon \multiplicityDomain \to \mathbb{N}$ that associates to an element in the set $\multiplicityDomain$ of pairs of interval endpoints,
 \[
 \multiplicityDomain =
-\big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
+\big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\},
 \]
 the cardinality of the set $\{ \alpha \in A \mid \inf I_{\alpha} = p,\ \sup I_{\alpha} = q\}$.
 
@@ -90,7 +90,7 @@ Two q-tame barcode modules are observably isomorphic if and only if their persis
 We summarize:
 
 \begin{thm}[{{\citet{Chazal.2016a,Chazal.2016b}}}] \label{thm:q-tame modules have barcodes}
-Every q-tame persistence module has a unique persistence diagram that completely describes its isomorphism type in the observable category.
+    Every q-tame persistence module has a unique persistence diagram that completely describes its isomorphism type in the observable category.
 \end{thm}
 
 We have thus seen how to obtain a persistence diagram from a real-valued function $f$ by applying a functor $\H \colon \Top \to \Vect$ to its sublevel set filtration and considering the persistence diagram of the resulting persistence module $\H(f_{\leq \bullet})$, which is well-defined provided that $\H(f_{\leq \bullet})$ is q-tame.
@@ -101,8 +101,8 @@ As mentioned earlier, the passage from functions to persistence diagrams is 1-Li
 The metric of choice to consider on the space of $\R$-valued functions on $X$ is the distance induced by the supremum norm.
 The metric of choice on the space of persistence diagrams is the \emph{bottleneck distance}, which expresses the distance between persistence diagrams by an optimal matching of the intervals in the corresponding barcodes: two diagrams are within distance $\delta$ if any two matched intervals are within Hausdorff distance $\delta$, and any unmatched interval has length at most $2\delta$.
 
-The most general stability result is shown by considering as an intermediate step the metric space of filtrations and persistence modules equipped with the \emph{interleaving distance} \cite{MR2279866}.
+The most general stability result is shown by considering as an intermediate step the metric spaces of filtrations and persistence modules equipped with the \emph{interleaving distance} \cite{MR2279866}.
 Given two functors $M,N \colon \R \to \mathsf C$, where $\mathsf C$ is typically $\Top$ or $\Vect$, a $\delta$-interleaving consists of a pair of natural transformations $(M_t \to N_{t+\delta})_t$ and $(N_t \to M_{t+\delta})_t$ from one diagram to a shifted version of the other and vice versa, which compose to the structure maps $(M_t \to M_{t+2\delta})_t$ and $(N_t \to N_{t+2\delta})_t$.
-Clearly, the case $\delta=0$ describes an isomorphism, and the infimum $\delta$ for which $M$ and $N$ admit a $\delta$-interleaving is defined as the interleaving distance between them.
-As it turns out, the stability of persistence barcodes can then be described as a sequence of 1-Lipschitz transformations: from functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance on diagrams of topological spaces), to persistent homology (with interleaving distance on persistence modules), and finally to persistence diagrams (with the bottleneck distance).
+Clearly, the case $\delta=0$ describes an isomorphism, and the infimum $\delta$ for which $M$ and $N$ admit a $\delta$-interleaving is defined as the \emph{interleaving distance} between them.
+As it turns out, the stability of persistence barcodes can then be described as a sequence of several 1-Lipschitz transformations: from functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance on diagrams of topological spaces), to persistent homology (with interleaving distance on persistence modules), and finally to persistence diagrams (with the bottleneck distance).
 In this approach, by far the most difficult step is showing that passing from persistence modules to persistence diagrams is stable, a result which is known as the Algebraic Stability Theorem  \cite{10.1145/1542362.1542407,Chazal.2016a,MR3333456}.
