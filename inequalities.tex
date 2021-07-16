@@ -1,132 +1,128 @@
 
 \section{Generalized Morse inequalities from persistence diagrams} \label{s:inequalities}
 
-In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse--Tompkins to prove their Unstable Minimal Surface Theorem, see \cref{s:surfaces} for more details on this result.
+In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse and Tompkins to prove their Unstable Minimal Surface Theorem.
 We deduce these general inequalities from the existence of persistence diagrams as reviewed in \cref{thm:q-tame modules have barcodes}.
 
-Recall that for a Morse function $f$ on a closed manifold $X$, the usual Morse inequalities state that for any $n$ we have
-\begin{equation}\label{equ:morse_inequalities}
-    \sum_{d=0}^n \ (-1)^{n-d} ( \# \crit_{d}(f) - \beta_{d}(X) ) \ \geq\  0,  
+Recall that for a Morse function $f$ on a closed smooth manifold $X$, the usual Morse inequalities state that for any $n$ we have
+\begin{equation} \label{equ:morse_inequalities}
+\sum_{d=0}^n \ (-1)^{n-d} ( \# \crit_{d}(f) - \beta_{d}(X) ) \ \geq\  0,  
 \end{equation}
-where $\crit_{d}(f)$ is the set of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d$th Betti number of $X$. 
+where $\crit_{d}(f)$ is the set of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d\th$ Betti number of $X$.
 
-Now if no two critical points of $f$ have the same value, the critical points are in one-to-one correspondence with the critical values, which in turn are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing the barcode of $H_*(f_{\leq \bullet})$. 
-
+If no two critical points of $f$ have the same value, the critical points are in one-to-one correspondence with the critical values, which in turn are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing in the barcode of the persistence homology of $f_{\leq \bullet}$.
 More precisely, an index $d$ critical point may either kill an existing homology class, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it may give rise to a new homology class, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
 
-The Betti numbers of $X$ may also be expressed in terms of barcodes because they agree with the number of intervals that extend to $+\infty$. 
-Thus, the Morse inequalities above can be expressed entirely in terms of the barcode or persistence diagram of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
+The Betti numbers of $X$ may also be expressed in terms of barcodes because they agree with the number of intervals that extend to $+\infty$.
+Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistence homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
-This approach of counting homological changes instead of critical points is also what Morse used in his non-smooth setting of functional topology.
-To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, e)$-\textit{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is upper semi-continuous\footnote{A persistence module $M$ is \emph{upper semi-continuous} if $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$.}, correspond to the number of finite bars with length greater than $e$ in the $d$-dimensional barcode with left endpoint $t$, plus the number of finite bars with length greater than $e$ in the $(d-1)$-dimensional barcode with right endpoint $t$ (killed by something $d$-dimensional).
+This approach counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, e)$-\textit{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is upper semi-continuous\footnote{A persistence module $M$ is \emph{upper semi-continuous} if $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$.}, correspond to the number of finite bars with length greater than $e$ in the $d\th$ barcode with left endpoint $t$, plus the number of finite bars with length greater than $e$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
 
-Working entirely in the algebraic setting, we will now fix a $\Z$-graded q-tame persistence module $M$.
+Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
 Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
-
-By \cref{thm:q-tame modules have barcodes} $M$ has a persistence diagram in every degree $d$ with multiplicity function denoted $\mathfrak{m}_d \colon \multiplicityDomain \to \N$.
+By \cref{thm:q-tame modules have barcodes}, $M$ has a persistence diagram in every degree $d$ with multiplicity function denoted $\mathfrak{m}_d \colon \multiplicityDomain \to \N$.
 In analogy to Morse's definitions, we may define the $(d, t, e)$-\textit{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
-\[
+\begin{equation*}
 m_{d}^{> e}(t) =
 \sum_{\substack{p \in \R \\ t - p > e}} \mathfrak{m}_{d-1}(p, t) +
 \sum_{\substack{q \in \R \\ q - t > e}} \mathfrak{m}_d(t, q).
-\]
-Note that finiteness of these quantities is ensured by the q-tameness of $M$. 
-Moreover, note that the condition on the counted features to have persistence greater than $e$ is necessary for finiteness of the cap numbers in the q-tame setting. 
-One may omit the lower persistence bound $e$ in the definition if one restricts to $\PFD$ persistence modules.
+\end{equation*}
+Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $e$ bounding below the persistence of the considered features.
+To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$.
 
 Whenever the sums below are well-defined, we also consider the \emph{$(d,e)$-cap numbers} 
-\[
-m_{d}^{> e } 
-= \sum_{t} m_{d}^{> e}(t) 
-=
-\sum_{\substack{(p,q) \in \multiplicityDomain \\ q - p > e \\ q \neq \infty}} \mathfrak{m}_{d-1}(p,q)
-+
+\begin{equation} \label{e:cap numbers}
+m_{d}^{> e } =
+\sum_{t} m_{d}^{> e}(t) \ =
+\sum_{\substack{(p,q) \in \multiplicityDomain \\ q - p > e \\ q \neq \infty}} \mathfrak{m}_{d-1}(p,q) \ +
 \sum_{\substack{(p,q) \in \multiplicityDomain \\ q - p > e \\ p \neq -\infty}}\mathfrak{m}_d(p,q).
-\] 
-They are well-defined for example if $M$ is the persistent homology of the sublevel set filtration of a bounded function. This can be deduced from the following general result.
+\end{equation} 
+They are well-defined for example if $M$ is the persistent homology of the sublevel set filtration of a bounded function.
+This can be deduced from the following general result.
 
 \begin{thm}
-    Assume that $N$ is a q-tame persistence module that is initially and eventually constant, i.e., that there exist $t_0$ and $t_1$ with $N_s = N_{t_0}$ for all $s \leq t_0$ and $N_u = N_{t_1}$ for all $u \geq t_1$, and let $\mathfrak{n}$ be the multiplicity function of the persistence diagram of $N$. Then for each $e>0$ we have 
-    \[
+    Assume that $N$ is a q-tame persistence module that is initially and eventually constant, i.e., that there exist $t_0$ and $t_1$ with $N_s = N_{t_0}$ for all $s \leq t_0$ and $N_u = N_{t_1}$ for all $u \geq t_1$, and let $\mathfrak{n}$ be the multiplicity function of the persistence diagram of $N$.
+    Then for each $e>0$ we have 
+    \begin{equation*}
     \sum_{ \substack{ (p,q) \in \multiplicityDomain \\ q-p > e } } \mathfrak{n} (p,q) < \infty.
-    \]
+    \end{equation*}
 \end{thm}
 
 \begin{proof}
     We split the sum whose finiteness we want to show in two parts
-    \[
+    \begin{equation*}
     \sum_{ \substack{ (p,q) \in \multiplicityDomain \\ q-p > e } } \mathfrak{n} (p,q)
     \ = \!\!
     \sum_{ \substack{ (p,q) \in \multiplicityDomain \setminus T \\ q-p > e } } \mathfrak{n} (p,q)
     \ \ +
     \sum_{ \substack{ (p,q) \in T \\ q-p > e } } \mathfrak{n} (p,q)
-    \]
-    and show for each summand separately that it is finite. 
+    \end{equation*}
+    and show for each summand separately that it is finite.
     Here, $T$ denotes the triangle
-    \[
+    \begin{equation*}
     T = \{(p,q) \in \multiplicityDomain \mid t_0 \leq p < q \leq t_1\}.
-    \]
+    \end{equation*}
     
-    For the first summand, observe that because $N$ is constant below $t_0$ and constant above $t_1$, we have $\mathfrak{n}(p,q) = 0$ whenever one of $-\infty < p < t_0$, $q < t_0$, $p > t_1$ or $t_1 < q < \infty$ holds.
+    For the first summand, observe that because $N$ is constant below $t_0$ and constant above $t_1$, we have $\mathfrak{n}(p,q) = 0$ whenever one of $-\infty < p < t_0$ or $q < t_0$, $p > t_1$ or $t_1 < q < \infty$ holds.
     This implies 
-    \[
+    \begin{equation*}
     \sum_{ \substack{ (p,q) \in \multiplicityDomain \setminus T \\ q-p > e } } \mathfrak{n} (p,q)
     \ = \!
     \sum_{t_0 < q < t_1} \mathfrak{n} (-\infty,q)
     \ + \!
     \sum_{t_0 < p < t_1} \mathfrak{n} (p, \infty)
-    \]
+    \end{equation*}
     which is clearly finite because $N$ is q-tame.
     
     For the second summand, note that  
-    \[
+    \begin{equation*}
     \sum_{ \substack{ (p,q) \in T \\ q-p > e } } \mathfrak{n} (p,q)
     \ \, \leq \!\!
     \sum_{(p,q) \in T^{\geq e}} \mathfrak{n} (p,q),
-    \]
+    \end{equation*}
     where $T^{\geq e}$ is the smaller triangle 
-    \[
+    \begin{equation*}
     T^{\geq e} = \{(p,q) \in T \mid q-p \geq e\}.
-    \]
+    \end{equation*}
     Thus, in order to prove the theorem, it suffices to show that we have 
-    \[
+    \begin{equation*}
     \sum_{(p,q) \in T^{\geq e}} \mathfrak{n} (p,q) 
     \ < \ 
     \infty.
-    \]
+    \end{equation*}
     To do this, we consider open quadrants 
-    \[
+    \begin{equation*}
     Q(x, y) = \{ (p, q) \in \R^2 \mid p < x \text{ and } y < q \}.
-    \]
-    Covering the compact set $T^{\geq e}$ by the open quadrants $Q \left(x, x + \frac{e}{2} \right)$ for $x \in \R$, we may choose a finite subcover given by, say, $x_1,\dots, x_n$. We obtain
-    \[
+    \end{equation*}
+    Covering the compact set $T^{\geq e}$ by the open quadrants $Q \left(x, x + \frac{e}{2} \right)$ for $x \in \R$, we may choose a finite subcover given by, say, $x_1,\dots, x_n$.
+	We obtain
+    \begin{equation*}
     \sum_{(p,q) \in T^{\geq e}} \mathfrak{n} (p,q) 
     \ \leq \
-    \sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{e}{2})}} \mathfrak{n}(p,q). 
-    \]
-    Each of sums $\sum_{(p,q) \in Q \left(x_i, x_i + \frac{e}{2} \right)} \mathfrak{n}(p,q)$ over the quadrants $Q \left(x_i, x_i + \frac{e}{2} \right)$ is finite since $N$ is q-tame (which is where the name q-tame or \emph{quadrant}-tame comes from), see \cite[Section 3.8]{Chazal.2016a}. This finishes the proof.
+    \sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{e}{2})}} \mathfrak{n}(p,q).
+    \end{equation*}
+    Each of sums $\sum_{(p,q) \in Q \left(x_i, x_i + \frac{e}{2} \right)} \mathfrak{n}(p,q)$ over the quadrants $Q \left(x_i, x_i + \frac{e}{2} \right)$ is finite since $N$ is q-tame (which is where the name q-tame or \emph{quadrant}-tame comes from, see \cite[Section 3.8]{Chazal.2016a}).
 \end{proof}
 
-%If $X$ is a closed manifold and $F$ is a Morse function, then the cap numbers $m_{d}^{> e}(F)$ associated to the persistent homology of the sublevel set filtration of $F$ agree with the number of critical points of $F$ with index $d$ for all sufficiently small $e > 0$. 
-
-Comparing to the usual Morse inequalities, the cap numbers in dimension $d$ act like the number of critical points with index $d$. As an analogue to the Betti numbers of the manifold appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$, which, under the same assumptions as before, can be expressed in the language of persistence as
-\[
+Comparing to the usual Morse inequalities, the cap numbers in dimension $d$ act like the number of critical points with index $d$.
+As an analogue to the Betti numbers of the manifold appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$ referred to as \emph{essential dimensions}, which, under the same assumptions as before, can be expressed in the language of persistence diagrams as
+\begin{equation} \label{e:essential dimension}
 p_{d} \ = \!\! \sum_{p \in \R \cup \{-\infty\}} \mathfrak{m}_d(p,\infty),
-\]
+\end{equation}
 which is also the dimension of the colimit of the degree $d$ part of $M$.
-%Because $M$ is 0-interleaved with $\bigoplus_(p,q) \bigoplus_{\mathfrak{m}(p,q)} C((p,q))$ and colimits commute with direct sums and are invariant up to finite interleaving distance.
 
 \begin{thm}
-    Let $M$ be a graded q-tame persistence module with $m_{d}^{> e }$ and $p_{d}$ finite for all $d$ and $e$. If $\mathfrak{m}_d(-\infty, p) = 0$ for all $p \in \R \cup \{\infty\}$ and all $d$, then we have Morse inequalities
+	Let $M$ be a graded q-tame persistence module with cap numbers $m_{d}^{> e }$ and essential dimensions $p_{d}$ finite for all $d$ and $e$.
+	If $\mathfrak{m}_d(-\infty, p) = 0$ for all $p \in \R \cup \{\infty\}$ and all $d$, then we have Morse inequalities
     \begin{equation} \label{e:morse inequalities}
-        \sum_{d=0}^n \ (-1)^{n-d} (m^{>e}_{d} - p_{d}) \ \geq\  0
+    \sum_{d=0}^n \ (-1)^{n-d} (m^{>e}_{d} - p_{d}) \ \geq\  0
     \end{equation}
     for any dimension $n$ and any $e > 0$.
 \end{thm}
 
 \begin{proof}
-    Using a simple argument carried out for example in \cite[Section 11]{Morse.1940}, the claimed inequalities are equivalent to the existence of a sequence $(\nu_d)_d$ of non-negative integers with $m^{>e}_{d} - p_{d} = \nu_{d-1} + \nu_{d}$. 
-    
+    The claimed inequalities are equivalent to the existence of a sequence $(\nu_d)_d$ of non-negative integers with $m^{>e}_{d} - p_{d} = \nu_{d-1} + \nu_{d}$.
     Since we assume $\mathfrak{m}_d(-\infty, p) = 0$ for all $p$, we have
     \begin{align*}
     m^{>e}_{d}
@@ -141,13 +137,13 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
     \sum_{\substack{(p,q) \in \multiplicityDomain \\ q - p > e \\ p \neq -\infty}}\mathfrak{m}_d(p,q)
     \end{align*}
     and
-    \[
+    \begin{equation*}
     p_{d}
     \ = \!\!
     \sum_{p \in \R \cup \{-\infty\}} \mathfrak{m}_d(p,\infty)
     \ = \
     \sum_{p \in \R} \mathfrak{m}_d(p,\infty),
-    \]
+    \end{equation*}
     which yields
     \begin{align*}
     m^{>e}_{d} - p_{d} \
@@ -163,43 +159,17 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
     \ + \!
     \sum_{\substack{(p,q) \in \R^2 \\ q - p > e }}\mathfrak{m}_d(p,q),
     \end{align*}
-    so the sequence given by $\nu_d = \sum_{\substack{(p,q) \in \R^2 \\ q - p > e }}\mathfrak{m}_d(p,q)$ satisfies $m^{>e}_{d} - p_{d} = \nu_{d-1} + \nu_{d}$. This finishes the proof.
+    so the sequence given by $\nu_d = \sum_{\substack{(p,q) \in \R^2 \\ q - p > e }}\mathfrak{m}_d(p,q)$ satisfies $m^{>e}_{d} - p_{d} = \nu_{d-1} + \nu_{d}$ as desired.
 \end{proof}
-As we have remarked, the finiteness assumptions are satisfied if $M$ is initially and eventually constant, so as a special case, the theorem yields Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, which includes classical Morse functions on closed manifolds, as well as the functionals that Morse considered in his work on functional topology.
 
-As we have outlined while motivating the definition for the cap numbers above, our inequalities as presented in \eqref{e:morse inequalities} agree with the classical inequalities \eqref{equ:morse_inequalities} for Morse functions $f$ on closed manifolds $X$ because in this setting, we have $\beta_d(X) = p_d$ and $m_d^{>e} = \crit_d(f)$ for $e > 0$ smaller than the minimal difference between any two critical values of $f$. Our inequalities also agree with Morse's historical version from functional topology as presented in \cite{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also upper semi-continuous, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work. Note, however, that in contrast to Morse's version, our inequalities also work without the upper semi-continuity assumption, removing the need for this unusual choice of homology theory.
+As we have remarked, the finiteness assumptions are satisfied if $M$ is initially and eventually constant, so as a special case, the theorem yields Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, which includes classical Morse functions on closed smooth manifolds, as well as the functionals that Morse considered in his work on functional topology.
+As we have outlined while motivating the definition of the cap numbers, our inequalities as presented in \eqref{e:morse inequalities} agree with the classical inequalities \eqref{equ:morse_inequalities} for a Morse function $f$ on a closed smooth manifold $X$ because, in this setting, $\beta_d(X) = p_d$ and $m_d^{>e} = \crit_d(f)$ for $e > 0$ smaller than the minimal difference between any two critical values of $f$.
+Our inequalities also agree with Morse's historical version from functional topology as presented in \cite{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also upper semi-continuous, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
+Note, however, that in contrast to Morse's version, our inequalities also work without the upper semi-continuity assumption, removing the need for this unusual choice of homology theory.
 
 \begin{rem}
-In addition to the formulation of the inequalities in terms of cap numbers, Morse also proposes a generalized version of critical points, which he calls homotopically critical and which formalizes the idea of a point being critical if it produces topological changes in the sublevel set filtration. 
-This notion is employed by Morse and Tompkins in their study of minimal surfaces \cite{Morse.1939}, which we will partly review in \cref{s:surfaces} and for which a thorough historical account may be found in \cite[Section II.6]{Struwe.1988}.
-The usefulness of this notion might be limited though, because for example in the context of Floer theory, critical points of the action functional corresponding to a Hamiltonian usually have infinite index and thus do not produce changes in the topology. 
-In this setting, our approach of formulating the inequalities purely in algebraic terms might be more suitable, because while these critical points are not topologically visible, they do correspond to features in the persistence diagram of the filtered Floer homology, to which our inequalities may also be applied.
+	In addition to the formulation of the inequalities in terms of cap numbers, Morse also proposes a generalized version of critical points, which he calls homotopically critical and which formalizes the idea of a point being critical if it produces topological changes in the sublevel set filtration.
+	This notion is employed by Morse and Tompkins in their study of minimal surfaces \cite{Morse.1939}, which we will partly review in \cref{s:surfaces} and for which a thorough historical account may be found in \cite[Section II.6]{Struwe.1988}.
+	The usefulness of this notion might be limited though, because for example in the context of Floer theory, critical points of the action functional corresponding to a Hamiltonian usually have infinite index and thus do not produce changes in the topology.
+	In this setting, our approach of formulating the inequalities purely in algebraic terms might be more suitable, because while these critical points are not topologically visible, they do correspond to features in the persistence diagram of the filtered Floer homology, to which our inequalities may also be applied.
 \end{rem}
-
-
-
-%\anibal{Is there a theorem worth mentioning relating homotopical critical points and the algebraic Morse inequalities.}
-% \[
-% (m^{>e}_d - p_d) + (-1)^1 (m^{>e}_{d-1} - p_{d-1}) + \dots + (-1)^n (m^{>e}_0 - p_0) \geq 0
-% \]
-
-% \begin{thm}
-% With notation as above, assume that $\tilde H_{d}(X_{\leq \bullet})$ is q-tame and upper-semicontinuous for all $d$ with multiplicity function $\mathfrak{m}_{d}$. Assume that $\tilde H_{d}(X_{\leq \bullet})$ is eventually constant for all $d$ and that $\mathfrak{m}_{d}(-\infty, q) = 0$ for all $q$ and $d$. Then the following hold.
-% \begin{enumerate}
-% 	\item The numbers $m_{d}^{> e}(F, t)$ are finite for all $t \in \R$ and non-zero for only finitely many $t \in \R$.
-% 	\item The numbers $p_{d}(F)$ are finite.
-% 	\item We have 
-% 	\[
-% 	m_{d}^{> e}(F) = \sum_{\substack{(p,q)\\q-p>e\\q\neq\infty}}\mathfrak{m}_{d-1}(p,q)+\sum_{\substack{(p,q)\\q-p>e\\p\neq-\infty}}\mathfrak{m}_d(p,q).
-% 	\]
-% 	\item The Morse inequalities 
-% 	\[
-% 	(m^{>e}_n-p_n)+(-1)^1 (m^{>e}_{n-1}-p_{n-1})+\dots+(-1)^n (m^{>e}_0-p_0)\geq 0
-% 	\]
-% 	hold for all $n$.
-% \end{enumerate}
-% \end{thm}
-
-%For semi-continuity: \cref{thm:cech_cont} and the fact that $\lim_{\varepsilon > 0} X_{\leq t + \varepsilon} = X_{\leq t}$.
-%For q-tameness: \cref{t:strong local connectedness implies q-tameness}.
-%For the rest: Boundedness of $F$.
