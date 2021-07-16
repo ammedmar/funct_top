@@ -24,10 +24,7 @@ Note that this includes singular homology with field coefficients, which, like a
 
 \begin{defi} \label{defi:local_connectedness}
 	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
-	%Furthermore, if that image is $0$ then we say that the map is \textit{$n$-homologically trivial} ($\HT_n$).
-	%The map is said to be \textit{$n$-homotopically trivial} $(\piT_{n})$ if the map induced by $\pi_{n}$ is 0.
 	We omit references to $n$ if the condition holds for all integers.
-	%The map is said to be \emph{null-homotopic} ($\NH$) if it is homotopic to a constant map.
 \end{defi}
 
 \begin{defi} \label{defi:local_connectedness_filtrations}
@@ -39,7 +36,7 @@ Similarly, we have the following stronger version of this property.
 \end{defi}
 
 Clearly, any strongly $\HLC$ sublevel set filtration is also $\HLC$.
-If the filtration is induced by a continuous function, the converse also holds, as the following theorem shows.
+If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
 
 \begin{thm}\label{thm:hlc_to_strong_hlc}
     If the sublevel set filtration of a continuous function $f \colon X \to \R$ is $\HLC$, then it is also strongly $\HLC$.
@@ -50,7 +47,6 @@ If the filtration is induced by a continuous function, the converse also holds, 
     
     To do so, we start by using the $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
     Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
-    %is the open sublevel set of $f$ at $s'$.
     Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of $X$.
     
     We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
@@ -58,9 +54,7 @@ If the filtration is induced by a continuous function, the converse also holds, 
 	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
 \end{proof}
 
-% As for a single space, the $\LC$ notions imply the corresponding $\piLC$ notions and the corresponding $\HLC$ notions if $\H$ evaluated at a point is trivial.
-
-As our main result, we will now show that for compact sublevel set filtrations the strong $\HLC$ condition implies \mbox{q-tameness}, and consequently also implies the existence of a persistence diagram, yielding persistent Morse inequalities.
+As our main result, we will now show that for compact sublevel set filtrations the strong $\HLC$ condition implies \mbox{q-tameness}, and consequently also implies the existence of a persistence diagram which yields persistent Morse inequalities.
 
 \begin{thm} \label{t:strong local connectedness implies q-tameness}
 	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and strongly $\HLC$, then it is also q-tame.
@@ -105,10 +99,7 @@ For more details see \cite[Lemma II.17.3]{Bredon.1997}.
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-    %With the assumptions of \cref{t:strong local connectedness implies q-tameness},
-    Let $f \colon X \to \R$ be a function whose sublevel set filtration is compact and strongly $\HLC$, and
-    %
-	consider subsets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
+    Let $f \colon X \to \R$ be a function whose sublevel set filtration is compact and strongly $\HLC$, and consider subsets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
 	For any $s < t$ the inclusion
 	\begin{equation*}
 	C \cap f_{\leq s} \to L \cap f_{\leq t}
@@ -150,9 +141,7 @@ For more details see \cite[Lemma II.17.3]{Bredon.1997}.
 	is $\HS_n$.
 	The inclusion
 	$V \cap f_{\leq s} \to L \cap f_{\leq t}$
-	factors through the previous one %because we have 
-	%$V \cap f_{\leq s} \subseteq U \cap f_{\leq s'}$, 
-	so it is $\HS_n$ as well.
+	factors through the previous one so it is $\HS_n$ as well.
 	Thus, $\Sigma_{s, t}$ has the third property we want.
 	
 	Next, we will show using the strong $\HLC$ property that $\Sigma_{s, t}$ has the first required property, i.e., that any point $x \in L \cap f_{\leq s}$ has a neighborhood in $\Sigma_{s, t}$.
