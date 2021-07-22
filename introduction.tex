@@ -3,41 +3,47 @@
 
 The interplay between the critical set of a function and the topology of its domain is a cornerstone of modern mathematics.
 Nowadays, when thinking about the pioneering work of Marston Morse, our first thought probably considers a differentiable function on a closed smooth manifold, but more general settings should also be regarded.
-Morse theory in the smooth context was masterfully presented in Milnor's famous book on the subject \cite{MR0163331}, where he also gave a new proof of Bott's periodicity by applying Morse theory to the energy functional of paths in a Riemannian manifold.
+Morse theory in the smooth context was masterfully presented in Milnor's famous book on the subject \cite{MR0163331}, where he also gave a new proof of Bott's periodicity by applying Morse theory to the energy functional of paths in a Riemannian manifold, which notably goes beyond the compact setting.
 Another important example of the use of Morse's insights in an infinite context is Floer's work on the Arnold conjecture and its many ramifications in symplectic topology, as surveyed for example in \cite{MR1702944}.
 Morse himself worked in a very general setting, publishing in the 1930s a series of papers \cite{Morse.1937, Morse.1938, Morse.1940, MR9102} in which he established the key results of Morse theory in the broad context defined by semi-continuous functionals on metric spaces.
-He named this body of work \emph{functional topology} and used it to study minimal surfaces motivated by Douglas' solution to Plateau’s Problem \cite{Douglas.1931}.
+He named this body of work \emph{functional topology} and used it to study questions about minimal surfaces motivated by Douglas' solution to Plateau’s Problem \cite{Douglas.1931}.
 In particular, Morse and Tompkins \cite{Morse.1939, Morse.1941} used these techniques to prove the Unstable Minimal Surface Theorem, a result providing conditions for the existence of critical points of the Douglas functional that are not local minima.
 
 While Morse's work on functional topology did not have a long lasting impact on minimal surface theory or the calculus of variations in general, many of his ideas have resurfaced and flourished in other domains.
-In particular, in applied topology, specifically in \emph{topological data analysis}, several key insights of Morse were rediscovered independently as part of the development of persistent homology, which is
-a technique that provides robust and efficiently computable invariants of filtered spaces using the functorial properties of homology.
+In particular, in applied topology and topological data analysis, several key insights of Morse have been independently rediscovered as part of the development of \textit{persistent homology}, a technique that provides robust and efficiently computable invariants of filtered spaces using the functorial properties of homology.
 Its success in applied topology has motivated a refined abstract theory of persistence that lies on the intersection of geometry, topology, and representation theory.
-The homology of a filtered space is a diagram of vector spaces indexed over the real numbers (considered as a poset category), also called a \emph{persistence module}.
-In many important cases, a persistence module admits an essentially unique decomposition into indecomposable direct summands, and the structure of this decomposition yields its basic invariant known as its \emph{persistence diagram}.
-The influence of persistence theory and its sophistication have seen rapid growth in recent years, motivated in part by the fact that persistence diagrams can be organized into a metric space, and that the passage to barcodes from filtrations -- or more specifically, real valued-functions with the $L^\infty$ metric -- is Lipschitz.
-This often allows to recast geometric questions about general filtered spaces into a combinatorial and typically finite metric model.
 
-Going into more detail, one interesting aspect of Morse's work from the modern point of view is his use of Vietoris homology with coefficients in a field (or, equivalently, \v{C}ech homology, see \cref{s:vietoris}), which connects closely to the use of filtered Vietoris-Rips and \v{C}ech complexes and the computation of their persistent homology in the context of topological data analysis.
-The most remarkable connections between functional topology and persistence theory come from Morse's paper \cite{Morse.1940}, where he develops the theory of \emph{caps} and their \emph{spans}, which capture much of the same information as the modern notion of a persistence diagram does, including concepts such as the persistence or the birth and the death of a topological feature.
-As mentioned, Morse's intended use for his theory of caps was to study functionals by analyzing the evolution of the topology of their sublevel sets, which relied on him defining so-called cap numbers and proving that they satisfy a version of his eponymous inequalities.
-In this work, we generalize the definition of these cap numbers in terms of barcode decompositions of persistence modules and show that Morse inequalities are also satisfied in this setting.
-This approach overcomes a limitation of Morse's functional topology setting, which enforced the use of Vietoris homology.
-With our generalization, the analogous results now hold for singular homology as well.
-Furthermore, the generalized Morse inequalities now become applicable in settings beyond sublevel set persistence, such as Floer homology.
+The homology of a filtered space is an example of what is called a \textit{persistence module}, a functor to vector spaces from the real numbers considered as a poset category.
+In many important cases, a persistence module admits an essentially unique decomposition into indecomposable direct summands, and the structure of this decomposition yields the basic invariant known as its \textit{persistence diagram}.
 
-Building on these generalized Morse inequalities, our focus will be on the existence of barcode decompositions for a broad class of filtered spaces arising from the sublevel sets of real valued functions.  
-For general persistence modules, a well studied condition for the existence of a barcode decomposition is \emph{q-tameness} \cite{Chazal.2016a,Chazal.2016b}, which simply states that all linear maps between different indices in the persistence module have finite dimensional rank.
-Even though none of the structure theory of persistence modules existed at the time, this condition is also already emphasized by Morse in his work on functional topology, where he considered different local connectivity conditions for filtered metric spaces that he claimed to be sufficient for q-tameness.
-Contrary to his claims, one of Morse's conditions is actually insufficient, leaving a gap in the proof the Unstable Minimal Surface Theorem.
-To correct this mistake, we will consider similar, but more natural and more widely applicable local connectivity conditions,
-showing their sufficiency and limitations for guaranteeing q-tameness in different contexts.
-Establishing these general conditions for sublevel set filtrations that ensure the existence of barcodes and Morse inequalities is important to extend the applicability of persistence methods in infinite dimensional geometric settings, such as the one originally considered by Morse and Tompkins.
+The influence of persistence theory and its sophistication have seen rapid growth in recent years.
+One of the primary reasons for this is the fact that persistence diagrams can be organized into a metric space, often allowing to recast geometric questions about general filtered spaces in a combinatorial metric model.
+This is because the passage via the homology construction to this metric space is Lipschitz, a statement commonly known as the \textit{stability} of persistence diagrams.
+
+The most remarkable connections between functional topology and persistence theory come from Morse's paper \cite{Morse.1940}, where he developed the theory of \textit{caps} and their \textit{spans}, capturing much of the same information as the modern notion of persistence diagram, including concepts such as the persistence or birth-death of a topological feature.
+Morse used his theory of caps to study functionals on a metric space by analyzing the evolution of the topology of their sublevel sets.
+A key tool for this end is a version of his eponymous inequalities for cap numbers, which expands their usual version in the compact and smooth setting.
+In this work, using persistence diagrams, we generalize  the definition of these cap numbers to persistence modules and prove the existence of Morse inequalities for a large class of them (\cref{t:inequalities}).
+Our approach makes these inequalities accessible in new contexts beyond those originally covered by functional topology, including, for example, symplectic geometry.
+
+Given the importance of persistence diagrams for stating and proving Morse inequalities, our focus will then be on the study of topological properties ensuring their existence for a broad class of filtered spaces and homology constructions.
+For general persistence modules, a well studied condition for the existence of persistence diagrams is \textit{q-tameness} \cite{Chazal.2016a,Chazal.2016b}, which simply states that all linear maps between different real values in the persistence module have finite dimensional rank.
+The motivating question can then be reformulated as asking for topological conditions on a filtered space that ensure its persistent homology to be q-tame.
+In fact, the problem of finding such conditions was already considered by Morse, who studied certain local connectivity properties of a filtered metric space and claimed them to suffice for the q-tameness of the associated persistent homology.
+Contrary to these claims, we show that the local connectivity condition used by Morse and Tompkins in the proof of the Unstable Minimal Surface Theorem is insufficient (\cref{c: counterexample}).
+We introduce two similar but more widely applicable conditions, and show that the first suffices for the \mbox{q-tameness} of filtrations defined by continuous functionals (\cref{c: q-tameness for continuous functions}), and the second for those defined by functionals with compact sublevel sets (\cref{t:strong local connectedness implies q-tameness}).
+Since Douglas' functional has compact sublevel sets but is not continuous in the $C^0$ topology, which Morse and Tompkins considered, we use this second condition to correct their proof.
+
+\subsection*{Summary}
+
+The primary contribution of this work consists in the introduction of topological conditions for a broad class of filtered spaces ensuring their associated persistence homology modules satisfy Morse inequalities.
+As an application, we identify and fix with our conditions a mistake in the proof the Unstable Minimal Surface Theorem of Morse and Tompkins. 
 
 \subsection*{Outline}
+
 In \cref{s:persistence} we recall the foundations of persistence theory where, for us, the persistent homology of a sublevel set filtration is the key example.
-In \cref{s:inequalities}, we present a persistence-theoretic point of view on Morse inequalities, relating to Morse's version of these inequalities in functional topology.
-\cref{s:connectivity} is the core of this work.
-We define two natural notions of local-connectivity for a sublevel set filtration and show under what circumstances they imply that the associated persistence module is q-tame.
+We present a persistence-theoretic point of view on Morse inequalities in \cref{s:inequalities}.
+It generalizes both their version in the smooth and compact setting as well as the one used in functional topology.
+The core of this work is presented in \cref{s:connectivity}, where we define two natural notions of local-connectivity for a sublevel set filtration and show under what circumstances they imply q-tameness for its associated persistence module.
 We close with a historical overview of Morse's functional topology and its relation to our results in \cref{s:surfaces}.
 \cref{s:vietoris} contains a brief discussion on the definitions of Vietoris and \v{C}ech homology and a comparison between them based on Dowker's Theorem.

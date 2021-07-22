@@ -1,6 +1,6 @@
 \documentclass[nospthms, a4paper, final]{svjour3}
 \setlength{\textwidth}{\dimexpr\pdfpagewidth-2in}
-\setlength{\textheight}{\dimexpr\pdfpageheight-2in}
+\setlength{\textheight}{\dimexpr\pdfpageheight-2.4in}
 \usepackage{mathptmx}
 \usepackage{amsmath, amsthm, amssymb}
 \usepackage{tikz-cd}
@@ -80,13 +80,13 @@ pdfpagelabels]{hyperref}
 
 \title{Persistence in functional topology and a correction to a theorem of Morse}
 
-\author{Ulrich Bauer \and Anibal M.~Medina-Mardones \and Maximilian Schmahl}
+\author{Ulrich Bauer \and Anibal M.~Medina-Mardones \and Maximilian~Schmahl}
 
 \institute{
     Ulrich Bauer \at Technical University of Munich \\ \email{mail@ulrich-bauer.org} \and
-	Anibal M.~Medina-Mardones \at Max Planck Institute for Mathematics in Bonn \at Department of Mathematics, University of Notre Dame \\ \email{ammedmar@mpim-bonn.mpg.de} 
+	Anibal M.~Medina-Mardones \at University of Notre Dame du Lac \at Max Planck Institute for Mathematics in Bonn \\ \email{ammedmar@mpim-bonn.mpg.de} 
 	\and
-	Maximilian Schmahl \at Heidelberg University \\ \email{mschmahl@mathi.uni-heidelberg}
+	Maximilian~Schmahl \at Heidelberg University \\ \email{mschmahl@mathi.uni-heidelberg.de}
 }
 
 \authorrunning{U.~Bauer, A.~Medina-Mardones, M.~Schmahl}
@@ -96,9 +96,10 @@ pdfpagelabels]{hyperref}
 \begin{abstract}
 	During the 1930s, Marston Morse developed a vast generalization of what is commonly known as Morse theory relating the critical points of a semi-continuous functional with the topology of its sublevel sets.
 	Morse and Tompkins applied this body of work, referred to as functional topology, to prove the Unstable Minimal Surface Theorem in the setting defined by Douglas' solution to Plateau's Problem.
-	Several concepts introduced by Morse in this context can be seen as early precursors to the theory of persistent homology, which by now has established itself as a popular tool in applied and theoretical mathematics with applications to a wide range of topics, including neuroscience, genomics, and symplectic geometry.
+	Several concepts introduced by Morse in this context can be seen as early precursors to the theory of persistent homology, which by now has established itself as a popular tool in applied and theoretical mathematics.
 	In this article, we provide a modern redevelopment of the homological aspects of Morse's functional topology from the perspective of persistence theory.
-	We adjust several key definitions and prove stronger statements in order to allow for future applications of persistence techniques in functional analysis, as well as to correct a mistake in the proof by Morse and Tompkins of the Unstable Minimal Surface Theorem.
+	We adjust several key definitions and prove stronger statements, including a generalized version of Morse inequalities, in order to allow for novel uses of persistence techniques in functional analysis and symplectic geometry.
+	As an application, we identify and correct a mistake in the proof of the Unstable Minimal Surface Theorem of Morse and Tompkins.
 \end{abstract}
 
 \tableofcontents

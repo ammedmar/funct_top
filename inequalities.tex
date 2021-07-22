@@ -4,19 +4,19 @@
 In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse and Tompkins to prove their Unstable Minimal Surface Theorem.
 We deduce these general inequalities from the existence of persistence diagrams as reviewed in \cref{thm:q-tame modules have barcodes}.
 
-Recall that for a Morse function $f$ on a closed smooth manifold $X$, the usual Morse inequalities state that for any $n$ we have
+Recall that for a Morse function $f$ on a closed smooth manifold $X$, the usual Morse inequalities state that for any non-negative integer $n$ the following holds:
 \begin{equation} \label{equ:morse_inequalities}
 \sum_{d=0}^n \ (-1)^{n-d} ( \# \crit_{d}(f) - \beta_{d}(X) ) \ \geq\  0,  
 \end{equation}
 where $\crit_{d}(f)$ is the set of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d\th$ Betti number of $X$.
 
-If no two critical points of $f$ have the same value, the critical points are in one-to-one correspondence with the critical values, which in turn are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing in the barcode of the persistence homology of $f_{\leq \bullet}$.
+If no two critical points of $f$ have the same value, the sets of critical points and values are naturally in one-to-one correspondence, which, in turn, are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing in the barcode of the persistent homology of $f_{\leq \bullet}$.
 More precisely, an index $d$ critical point may either kill an existing homology class, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it may give rise to a new homology class, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
 
 The Betti numbers of $X$ may also be expressed in terms of barcodes because they agree with the number of intervals that extend to $+\infty$.
-Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistence homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
+Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistent homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
-This approach counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
+This approach of counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
 To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $e$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, e)$-\textit{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is upper semi-continuous\footnote{A persistence module $M$ is \emph{upper semi-continuous} if $M_{t} \to \lim_{u > t} M_{u}$ is an isomorphism for all~$t$.}, correspond to the number of finite bars with length greater than $e$ in the $d\th$ barcode with left endpoint $t$, plus the number of finite bars with length greater than $e$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
 
 Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
@@ -112,7 +112,7 @@ p_{d} \ = \!\! \sum_{p \in \R \cup \{-\infty\}} \mathfrak{m}_d(p,\infty),
 \end{equation}
 which is also the dimension of the colimit of the degree $d$ part of $M$.
 
-\begin{thm}
+\begin{thm}\label{t:inequalities}
 	Let $M$ be a graded q-tame persistence module with cap numbers $m_{d}^{> e }$ and essential dimensions $p_{d}$ finite for all $d$ and $e$.
 	If $\mathfrak{m}_d(-\infty, p) = 0$ for all $p \in \R \cup \{\infty\}$ and all $d$, then we have Morse inequalities
     \begin{equation} \label{e:morse inequalities}
@@ -162,9 +162,11 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
     so the sequence given by $\nu_d = \sum_{\substack{(p,q) \in \R^2 \\ q - p > e }}\mathfrak{m}_d(p,q)$ satisfies $m^{>e}_{d} - p_{d} = \nu_{d-1} + \nu_{d}$ as desired.
 \end{proof}
 
-As we have remarked, the finiteness assumptions are satisfied if $M$ is initially and eventually constant, so as a special case, the theorem yields Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, which includes classical Morse functions on closed smooth manifolds, as well as the functionals that Morse considered in his work on functional topology.
-As we have outlined while motivating the definition of the cap numbers, our inequalities as presented in \eqref{e:morse inequalities} agree with the classical inequalities \eqref{equ:morse_inequalities} for a Morse function $f$ on a closed smooth manifold $X$ because, in this setting, $\beta_d(X) = p_d$ and $m_d^{>e} = \crit_d(f)$ for $e > 0$ smaller than the minimal difference between any two critical values of $f$.
-Our inequalities also agree with Morse's historical version from functional topology as presented in \cite{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also upper semi-continuous, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
+As we have remarked, the finiteness assumptions are satisfied if $M$ is initially and eventually constant, so as a special case, the theorem yields Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, which includes classical Morse functions $f$ on closed smooth manifolds $X$.
+As we have outlined while motivating the definition of the cap numbers, our inequalities as presented in \eqref{e:morse inequalities} agree with the classical inequalities \eqref{equ:morse_inequalities} because, in this setting, $\beta_d(X) = p_d$ and $m_d^{>e} = \crit_d(f)$ for $e > 0$ smaller than the minimal difference between any two critical values of $f$.
+
+The finiteness conditions of our theorem are also satisfied for the functionals that Morse considered in his work on functional topology, with q-tameness being guaranteed by \cref{t:strong local connectedness implies q-tameness} instead of the insufficient condition Morse proposed.
+As we have also mentioned before, our inequalities then agree with Morse's historical version from functional topology as presented in \cite{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also upper semi-continuous, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
 Note, however, that in contrast to Morse's version, our inequalities also work without the upper semi-continuity assumption, removing the need for this unusual choice of homology theory.
 
 \begin{rem}

@@ -2,7 +2,7 @@
 \section{Minimal surfaces and functional topology} \label{s:surfaces}
 
 Morse and Tompkins considered the following setting introduced by Douglas.
-Let $g \colon \R \to \R^n$ be $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
+Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
 Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi((t)+2\pi) = \varphi(t) + 2\pi$ for all $t$ and such that there are three distinct points $\alpha_i \in [0,2\pi)$ with $\varphi(\alpha_i)=\alpha_i$.
 The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined by
 \begin{equation*}
@@ -19,40 +19,40 @@ Roughly, a point $p$ is \textit{homotopically critical} if it has no neighborhoo
 Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, i.e., a minimal surface.
 They then use a form of Morse inequalities for homotopically critical points to infer their Unstable Minimal Surface Theorem:
 \begin{itemize}
-    \item[($\ast$)] If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely a critical point of of $A_g$ of index 1.
+    \item[($\ast$)] If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely a critical point of $A_g$ of index 1.
 \end{itemize}
 
 They infer Morse inequalities for homotopically critical points by relating these points to cap numbers and then applying the Morse inequalities for cap numbers as we have considered them in \cref{s:inequalities}, and as Morse considered them in \cite{Morse.1940}.
 
 We have seen that these inequalities require q-tameness, so in order to apply them and deduce their theorem, Morse and Tompkins need to prove the \mbox{q-tameness} of $(\Omega_g, A_g)$.
-Throughout his work on functional topology, to obtain \mbox{q-tameness} Morse assumed slightly varying forms of local-connectivity on the resulting sublevel set filtrations.
-In particular, Morse and Tompkins use in their applications to minimal surface theory the following condition:
-\begin{displaycquote}[p.431]{Morse.1940}
+Throughout his work on functional topology, in order to obtain \mbox{q-tameness}, Morse assumed slightly varying forms of local connectivity on the resulting sublevel set filtrations.
+In particular, in their applications to minimal surface theory, Morse and Tompkins use the following condition:
+\begin{displaycquote}[p.~431]{Morse.1940}
 	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
 \end{displaycquote}
 Here, $c = F(p)$.
 Using similar language to the one used in \cref{s:connectivity}, this property is equivalent to the following notion applicable to general topological spaces.
 
 \begin{defi}
-    The sublevel set filtration of a function $F \colon M \to \R$ is said to be $\piLC$	if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ induces the zero map on homotopy groups.
+    The sublevel set filtration of a function $F \colon M \to \R$ is said to be \emph{homotopically locally connected} or $\piLC$	if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ induces trivial maps on homotopy groups.
 \end{defi}
 
 It is then stated that as a consequence of local $F$-connectivity the persistent \v{C}ech homology of this sublevel set filtration is q-tame.
 In the original it reads:
 
-\begin{displaycquote}[Theorem 6.3, p.432]{Morse.1940}
+\begin{displaycquote}[Theorem 6.3, p.~432]{Morse.1940}
 	Let $a$ and $c$ be positive constants such that $a < c < 1$.
 	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
 \end{displaycquote}
 Morse does not prove this statement in the given reference, but rather refers to \cite[Theorem~6.1]{Morse.1938}.
-Unfortunately, this argument is not in general sound as we will show next.
+Unfortunately, this claim does not hold in general, as we will show next by providing an explicit counterexample.
 
 \begin{defi}
-    The sublevel set filtration of a function $f \colon X \to \R$ is said to be $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+    The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally connected} or $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being $\LC$ implies being $\piLC$ and, if the homology $\H$ takes finite dimensional values on one point spaces, also $\HLC$.
-We will now show that not even $\LC$ is sufficient to ensure the q-tameness of compact sublevel set filtrations.
+We will now show that not even $\LC$ is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions.
 In particular, our construction will be used to invalidate Morse's claim quoted above.
 
 Consider the \textit{$d$-dimensional Hawaiian earring}
@@ -78,9 +78,11 @@ Consider the \textit{$d$-dimensional Hawaiian earring}
 \end{thm}
 
 \begin{proof}
-	The space $\HE$ is Hausdorff and locally compact since $\R^{d+1}$ is.
-	To verify that $f$ has compact sublevel sets we notice that all level sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact spaces.
-	Let us now verify that the sublevel set filtration of $f$ is weakly $\LC$.
+    \todo{needs to be rewritten with the new s, t notation instead of the epsilon, delta notation}
+	The space $\HE$ is Hausdorff %and locally compact
+	since $\R^{d+1}$ is.
+	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact spaces.
+	Let us now verify that the sublevel set filtration of $f$ is $\LC$.
 	Let $\epsilon > 0$ and $x \in \HE$.
 	If $x$ is the origin, we choose $\delta$ between $0$ and the minimum of $\epsilon$ and $1$.
 	Then $\HE_{\leq f(x) + \delta} = \HE_{\leq \delta} = \{x\}$, so the weak $\LC$ condition is trivially satisfied.
@@ -105,7 +107,7 @@ Clearly, each $\HE_{k}$ is a CW-complex, so we can simply use cellular homology 
 \end{equation*}
 which is infinite-dimensional over $\mathbb{F}$.
 
-\begin{cor}
+\begin{cor}\label{c: counterexample}
     The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
 \end{cor}
 
@@ -124,7 +126,7 @@ It roughly corresponds to being \emph{strongly} $\piLC$ with a certain added uni
 In the original it reads:
 \begin{displaycquote}[p.421-422]{Morse.1937}
 	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property.
-For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
+    For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
 \end{displaycquote}
 Morse also claims in the given reference that this condition is sufficient for q-tameness, but without providing a proof.
 We expect this statement to be true, but do not investigate it further.
