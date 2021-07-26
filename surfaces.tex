@@ -18,12 +18,12 @@ Since $A_g$ is bounded below by $0$, this implies that $A_g$ has a unique global
 Douglas then used harmonic analysis to show that this minimizing critical point of $A_g$ corresponds to a solution of Plateau's Problem.
 
 In \cite[p.~445]{Morse.1939}, Morse and Tompkins introduce a homotopical notion of critical point for any metric space $M$ and $F \colon M \to \R$.
-Roughly, a point $p$ is \textit{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
+Roughly, a point $p$ is \emph{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
 
 Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, i.e., a minimal surface, and use this correspondence to prove the following result \cite[p.~447]{Morse.1939}, also reviewed as Theorem 6.10 in \cite{Struwe.1988}.
 
 \begin{thm}[Unstable Minimal Surface Theorem]
-    If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely, a critical point of $A_g$ of index 1.
+	If $\Omega_g$ contains two distinct solutions to Plateau's Problem then it also contains an unstable minimal surface, more precisely, a critical point of $A_g$ of index 1.
 \end{thm}
 
 Their proof relies on Morse inequalities for homotopically critical points which they infer by relating them to cap numbers and then applying the Morse inequalities for cap numbers as we have considered them in \cref{s:inequalities}, and as Morse considered them in \cite{Morse.1940}.
@@ -32,13 +32,13 @@ We have seen that these inequalities require q-tameness, so in order to apply th
 Throughout his work on functional topology, in order to obtain \mbox{q-tameness}, Morse assumed slightly varying forms of local connectivity on the resulting sublevel set filtrations.
 In particular, in their applications to minimal surface theory, Morse and Tompkins used the following condition:
 \begin{displaycquote}[p.~431]{Morse.1940}
-	The space $M$ is said to be \textit{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
+	The space $M$ is said to be \emph{locally $F$-connected} of order $r$ at $p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
 \end{displaycquote}
 Here, $c = F(p)$.
 Using similar language to the one used in \cref{s:connectivity}, this property is equivalent to the following notion applicable to general topological spaces.
 
 \begin{defi}
-    The sublevel set filtration of a function $f \colon M \to \R$ is said to be \emph{homotopically locally connected} or $\piLC$	if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ induces trivial maps on homotopy groups.
+	The sublevel set filtration of a function $f \colon M \to \R$ is said to be \emph{homotopically locally connected} or $\piLC$	if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ induces trivial maps on homotopy groups.
 \end{defi}
 
 Morse then goes on to state that as a consequence of local $F$-connectivity the persistent \v{C}ech homology of this sublevel set filtration is q-tame.
@@ -51,14 +51,14 @@ Morse does not prove this statement in the given reference, but rather refers to
 Unfortunately, the above claim does not hold in general, as we will show next by providing an explicit counterexample.
 
 \begin{defi}
-    The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally connected} or $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with  $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally connected} or $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being $\LC$ implies being $\piLC$ and, if the homology $\H$ takes finite dimensional values on one point spaces, also $\HLC$.
 We will now show that not even $\LC$ is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions.
 In particular, our construction will be used to invalidate Morse's claim quoted above.
 
-We will consider the \textit{$d$-dimensional Hawaiian earring}
+We will consider the \emph{$d$-dimensional Hawaiian earring}
 \begin{equation*}
 \HE = \bigcup_{n\in\mathbb{N}}\left\{(x_0,\dots,x_d)\in\R^{d+1} \ \middle | \ \left(x_0-\frac{1}{n}\right)^2+x_1^2+\dots+x_d^2=\left(\frac{1}{n}\right)^2\right\},
 \end{equation*}
@@ -74,10 +74,9 @@ which is a compact subspace of $\R^{d+1}$.
 	}
 	\end{tikzpicture}
 	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
-	\label{fig:earrings}
 \end{figure}
 
-\begin{thm} \label{thm:counterexample}
+\begin{thm} \label{t:counterexample}
 	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact $\LC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is not finite dimensional for some $n$.
 \end{thm}
 
@@ -96,15 +95,16 @@ which is a compact subspace of $\R^{d+1}$.
 	The disk $D_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = D_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
 	
 	What remains to be shown is that $f_{\leq \bullet}$ is not q-tame for $\H$.
-    This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$ because $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
+	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$ because $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
 \end{proof}
 
-Both singular and \v{C}ech homology of the Hawaiian earring are infinite dimensional in some degree, so they satisfy the assumptions of \cref{thm:counterexample}.
-The singular case is treated in \cite{Barratt.1962}, and for \v{C}ech homology, one can use the fact that it commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6.\@ and X.3.1.]{MR0050886}:
+Both singular and \v{C}ech homology of the Hawaiian earring are infinite dimensional in some degree, so they satisfy the assumptions of \cref{t:counterexample}.
+The singular case is treated in \cite{Barratt.1962}, and for \v{C}ech homology, one can use the fact that it commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6.\@ and X.3.1.]{Eilenberg.1952}:
 Define 
 \begin{align*}
-\HE_k &= \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle|\  \left( x_0 - \frac{1}{k} \right)^2 + x_1^2 + \dots + x_d^2 \leq \left( \frac{1}{k} \right)^2 \right\} \\
-& \cup \bigcup_{n=1}^{k-1} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle|\  \left( x_0 - \frac{1}{n} \right)^2 + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right \},
+\HE_k &=
+\left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle| \ \left( x_0 - \frac{1}{k} \right)^2 + x_1^2 + \dots + x_d^2 \leq \left( \frac{1}{k} \right)^2 \right\} \\ &\cup
+\bigcup_{n=1}^{k-1} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle |\ \left( x_0 - \frac{1}{n} \right)^2 + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
 \end{align*}
 i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled.
 We have $\lim_{k} \HE_{k} = \bigcap_{k} \HE_{k} = \HE$, and hence $\CH_{d}(\HE; \mathbb{F}) = \lim_{k} \CH_{d}(\HE_{k}; \mathbb{F})$, where $\CH$ denotes \v{C}ech homology.
@@ -114,8 +114,8 @@ Clearly, each $\HE_{k}$ is a CW-complex, so we can simply use cellular homology 
 \end{equation*}
 which is infinite-dimensional over $\mathbb{F}$.
 
-\begin{cor}\label{c: counterexample}
-    The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
+\begin{cor} \label{c: counterexample}
+	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
 \end{cor}
 
 The gap we have highlighted in the argument of Morse and Tompkins can be fixed by applying \cref{t:strong local connectedness implies q-tameness} because the proof given in \cite[p.464]{Morse.1939} for local connectivity of $(\Omega_g, A_g)$ actually establishes a stronger property for the sublevel set filtration of $A_g$, which we now formalize.
@@ -133,7 +133,7 @@ It roughly corresponds to being \emph{strongly} $\piLC$ with a certain added uni
 In the original it reads:
 \begin{displaycquote}[p.421-422]{Morse.1937}
 	The space $M$ will be said to be locally $F$-connected for the order $n$ if corresponding to $n$, an arbitrary point $p$ on $M$, and an arbitrary positive constant $e$, there exists a positive constant $\delta$ with the following property.
-    For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
+	For $c \geq F(p)$ any singular $n$-sphere on $F \leq c$ (the continuous image on $F \leq c$ of an ordinary $n$-sphere) on the $\delta$-neighborhood $p_{\delta}$ of $p$ is the boundary of a singular $(n + 1)$-cell on $F \leq c + e$ and on $p_e$.
 \end{displaycquote}
 Morse also claims in the given reference that this condition is sufficient for q-tameness, but without providing a proof.
 Whether this statement is true or not is not covered by our analysis, because the $\piLC$ and $\HLC$ conditions generally do not imply each other.
