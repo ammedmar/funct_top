@@ -1,0 +1,105 @@
+\documentclass{proc-l}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+\usepackage{csquotes}
+\usepackage[numbers,sort,compress]{natbib}
+\usepackage[capitalize, noabbrev]{cleveref}
+
+% theorems
+\newtheorem{thm}{Theorem}[section]
+\Crefname{thm}{Theorem}{Theorems}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\Crefname{prop}{Proposition}{Propositions}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{conj}[thm]{Conjecture}
+\Crefname{conj}{Conjecture}{Conjectures}
+\theoremstyle{definition}
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+
+% commands
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\HS}{\mathrm{HS}}
+\newcommand{\HT}{\mathrm{HT}}
+\newcommand{\HLC}{\mathrm{LHS}}
+\newcommand{\piT}{\pi\mathrm{T}}
+\newcommand{\LC}{\mathrm{LC}}
+\newcommand{\NH}{\mathrm{NH}}
+\newcommand{\piLC}{\pi\mathrm{LC}}
+\newcommand{\HE}{\mathbb{H}^d}
+\renewcommand{\H}{H}
+\DeclareMathOperator{\interior}{int}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rad}{rad}
+\newcommand{\CH}{\check{H}}
+\newcommand{\PFD}{\mathrm{PFD}}
+\DeclareMathOperator{\Nrv}{Nrv}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Vietoris}{Vtr}
+\DeclareMathOperator{\Balls}{Balls}
+\DeclareMathOperator*{\colim}{colim}
+\DeclareMathOperator{\crit}{crit}
+\newcommand{\multiplicityDomain}{\mathcal{E}}
+\newcommand{\Top}{\mathsf{Top}}
+\newcommand{\Vect}{\mathsf{Vect}}
+\renewcommand{\th}{^{\mathrm{th}}}
+\newcommand{\m}{\mathfrak{m}}
+\newcommand{\n}{\mathfrak{n}}
+
+\begin{document}
+	
+	\title[Persistence in functional topology]{Persistence in functional topology and a correction to a theorem of Morse}
+	
+	\author[U. Bauer]{Ulrich Bauer}
+	\address{Technical University of Munich}
+	\email{mail@ulrich-bauer.org}
+	
+	%    author two information
+	\author[A. Medina-Mardones]{Anibal M.~Medina-Mardones}
+	\address{Max Planck Institute for Mathematics \and University of Notre Dame du Lac}
+	\email{ammedmar@mpim-bonn.mpg.de}
+	\thanks{A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT-1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL, where part of this work was developed.}
+	
+	\author[M. Schmahl]{Maximilian~Schmahl}
+	\address{Heidelberg University}
+	\email{mschmahl@mathi.uni-heidelberg.de}
+	
+	
+	%\subjclass is required.
+	\subjclass[2020]{Primary }
+	
+	\date{}
+	
+	\dedicatory{}
+	
+	%    "Communicated by" -- provide editor's name; required.
+	\commby{Editor's name}
+	
+	%    Abstract is required.
+	\begin{abstract}
+		\input{abstract}
+	\end{abstract}
+	
+	\maketitle
+	\input{introduction}
+	\input{persistence}
+	\input{inequalities}
+	\input{connectivity}
+	\input{surfaces}
+	\appendix
+	\input{vietoris}
+	
+	%    Bibliographies can be prepared with BibTeX using amsplain,
+	%    amsalpha, or (for "historical" overviews) natbib style.
+	\bibliographystyle{abbrvnaturl}
+	\bibliography{biblio}
+	
+\end{document}
