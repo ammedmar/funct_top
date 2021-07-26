@@ -1,7 +1,7 @@
 
 \section{Filtered spaces and persistence theory} \label{s:persistence}
 
-In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions, applicable to functionals defined on a function or moduli space.
+In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions on general topological spaces.
 For a detailed exposition we refer to \cite{polterovich2020topological} and \cite{Chazal.2016a, MR3408277}.
 
 The ``pipeline'' of topological persistence traverses through geometry, algebra and discrete mathematics as follows:
@@ -34,8 +34,9 @@ A morphism of persistence modules $\varphi \colon M \to N$ is a natural transfor
     \end{tikzcd}
 \end{equation*}
 commute for all pairs $s \leq t$.
+
 Since most examples of interest arise from applying a homology theory to a filtered space, we also consider \emph{graded persistence modules}, which are collections of persistence modules indexed by the integers.
-To ease the reading, in what follows we study persistence modules omitting the straightforward generalization of the developed concepts to graded persistence modules.
+To lighten the presentation of the theory of persistence, in what follows we will solely focus on persistence modules omitting straightforward generalizations to their graded counterparts.
 
 Usual constructions that work in the category of vector spaces over the field $\F$ can be transferred to the category of persistence modules by applying them pointwise.
 For example, the kernel and cokernel of a morphism, as well as the direct sum of persistence modules are well-defined.
@@ -60,6 +61,7 @@ Given a barcode module $\bigoplus_{\lambda \in \Lambda} C(I_{\lambda})$, the ass
 By a version of the Krull--Remak--Schmidt--Azumaya Theorem \cite{MR37832} (see also \cite[Theorem 2.7]{Chazal.2016a} for a specialization to barcode modules), two isomorphic barcode modules have the same barcodes up to a choice of the index set $\Lambda$.
 Thus, if a persistence module $M$ is provided with an isomorphism to a barcode module, referred to as a \emph{barcode decomposition}, the associated barcode is a complete isomorphism invariant of $M$.
 Hence, understanding which persistence modules admit barcode decompositions is key.
+
 The most commonly used existence result for barcode decompositions is due to Crawley-Boevey's \cite{Crawley-Boevey.2015}.
 It guarantees the existence of a barcode decomposition for any \emph{pointwise finite dimensional} ($\PFD$) persistence module, which is a persistence modules $M$ such that $M_t$ is a finite dimensional vector space for all $t \in \R$.
 Unfortunately, the $\PFD$ condition is too restrictive for many purposes.
@@ -77,18 +79,21 @@ For example, the radical of the infinite product $\prod_{n \in \N_{> 0}} C([0,1/
 If $M$ is q-tame, then its radical admits a barcode decomposition \cite[Corollary~3.6]{Chazal.2016b},
 with the associated barcode describing the isomorphism type of~$M$ ``up to ephemerals".
 This can be formalized by constructing the \emph{observable category of persistence modules}, which is equivalent to the quotient of the category of persistence modules by the full sub-category of ephemeral persistence modules.
-Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
-Instead of talking about the barcode of the radical of a q-tame persistence module, it will be more convenient for our treatment of Morse inequalities to talk about the \emph{(undecorated) persistence diagram} associated to a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which is the multiset defined by the \emph{multiplicity function} $\mathfrak{m} \colon \multiplicityDomain \to \mathbb{N}$ that associates to an element in
+Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
+One can avoid losing any information in this process, for example by requiring all persistence modules $M$ to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{schmahl2020structure}, which is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology.
+In terms of barcodes, continuity from above amounts to only admitting intervals that are closed on the left and open on the right.
+One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another discrete invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities later on.
+% When forgetting the endpoints of the intervals in the barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$ of a persistence module with an interval decomposition, i.e., when disregarding the distinction between open, closed and half-open intervals, we obtain a discrete invariant that is more convenient in many regards, including the formulation of generalized Morse inequalities.
+Defined precisely, this invariant known as the \textit{persistence diagram} is the multiset given by the \emph{multiplicity function} $\mathfrak{m} \colon \multiplicityDomain \to \mathbb{N}$ that associates to an element in
 \begin{equation*}
 \multiplicityDomain =
 \big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
 \end{equation*}
 the cardinality of the set $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \sup I_{\lambda} = q\}$.
-
-Two q-tame barcode modules are observably isomorphic if and only if their persistence diagrams agree, so the persistence diagram associated to the barcode of $\rad M$ is still a complete invariant of the q-tame persistence module $M$ in the observable category.
-We summarize:
+Because information about the endpoints of intervals is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete for q-tame modules in the observable category. % and suffices to recover the barcode in many cases of interest.
+Stated explicitly, we have the following.
 
 \begin{thm}[{{\citet{Chazal.2016a,Chazal.2016b}}}] \label{thm:q-tame modules have barcodes}
     Every q-tame persistence module has a unique persistence diagram that completely describes its isomorphism type in the observable category.

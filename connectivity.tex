@@ -20,7 +20,7 @@ A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer-Viet
 We say that $\H$ has the \emph{open} (resp.\@\  \emph{compact}) \emph{Mayer-Vietories property} if there are natural Mayer-Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
 
 For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer-Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
-Note that this includes singular homology with field coefficients, which, like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{MR0050886}, has the open Mayer-Vietoris property, and it also includes \v{C}ech homology with field coefficients, which has the closed Mayer-Vietoris property.
+Note that this includes singular homology with field coefficients, which, like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{MR0050886}, has the open Mayer-Vietoris property, and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer-Vietoris property.
 
 \begin{defi} \label{defi:local_connectedness}
 	For $n \in \Z$ a continuous map is said to be \textit{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
@@ -35,7 +35,8 @@ Similarly, we have the following stronger version of this property.
 	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{strongly locally homologically small} or \emph{strongly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
-Clearly, any strongly $\HLC$ sublevel set filtration is also $\HLC$.
+Clearly, any strongly $\HLC$ sublevel set filtration is also $\HLC$:
+while the $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the \emph{strong} $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
 If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
 
 \begin{thm}\label{thm:hlc_to_strong_hlc}
