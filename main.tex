@@ -29,12 +29,8 @@ pdfpagelabels]{hyperref}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \Crefname{prop}{Proposition}{Propositions}
-\newtheorem{claim}[thm]{Claim}
-\newtheorem{conj}[thm]{Conjecture}
-\Crefname{conj}{Conjecture}{Conjectures}
 \theoremstyle{definition}
 \newtheorem{defi}[thm]{Definition}
-\newtheorem{ex}[thm]{Example}
 \newtheorem{rem}[thm]{Remark}
 
 % commands
@@ -53,65 +49,57 @@ pdfpagelabels]{hyperref}
 \renewcommand{\H}{H}
 \DeclareMathOperator{\interior}{int}
 \DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\coker}{coker}
 \DeclareMathOperator{\rad}{rad}
-\newcommand\CH{\check{H}}
-\newcommand{\Mod}[1]{#1-\mathbf{Mod}}
+\newcommand{\CH}{\check{H}}
 \newcommand{\PFD}{\mathrm{PFD}}
-\newcommand{\PFG}{\mathrm{PFG}}
 \DeclareMathOperator{\Nrv}{Nrv}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Vietoris}{Vtr}
 \DeclareMathOperator{\Balls}{Balls}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator{\crit}{crit}
-\newcommand\MCH{M\check{H}}
-\newcommand\VH{VH}
-\newcommand\MVH{MVH}
-\newcommand{\obs}{\dashrightarrow}
 \newcommand{\multiplicityDomain}{\mathcal{E}}
 \newcommand{\Top}{\mathsf{Top}}
 \newcommand{\Vect}{\mathsf{Vect}}
 \renewcommand{\th}{^{\mathrm{th}}}
 \newcommand{\m}{\mathfrak{m}}
 \newcommand{\n}{\mathfrak{n}}
-\newcommand{\anibal}[1]{\textcolor{blue}{\underline{Anibal}: #1}}
 
 \begin{document}
 
-\title{Persistence in functional topology and a correction to a theorem of Morse}
-
-\author{Ulrich Bauer \and Anibal M.~Medina-Mardones \and Maximilian~Schmahl}
-
-\institute{
-	Ulrich Bauer \at Technical University of Munich \\ \email{mail@ulrich-bauer.org} \and
-	Anibal M.~Medina-Mardones \at Max Planck Institute for Mathematics \at University of Notre Dame du Lac \\ \email{ammedmar@mpim-bonn.mpg.de} \and
-	Maximilian~Schmahl \at Heidelberg University \\ \email{mschmahl@mathi.uni-heidelberg.de}
-}
-
-\authorrunning{U.~Bauer, A.~Medina-Mardones, M.~Schmahl}
-
-\maketitle
-
-\begin{abstract}
-	\input{abstract}
-\end{abstract}
-
-\tableofcontents
-\input{introduction}
-\input{persistence}
-\input{inequalities}
-\input{connectivity}
-\input{surfaces}
-\appendix
-\input{vietoris}
-
-\section*{Acknowledgements}
-This research has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}, the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
-
-A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT-1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL, where part of this work developed.
-
-\bibliographystyle{abbrvnaturl}
-\bibliography{biblio}
+	\title{Persistence in functional topology and a correction to a theorem of Morse}
+	
+	\author{Ulrich Bauer \and Anibal M.~Medina-Mardones \and Maximilian~Schmahl}
+	
+	\institute{
+		Ulrich Bauer \at Technical University of Munich \\ \email{mail@ulrich-bauer.org} \and
+		Anibal M.~Medina-Mardones \at Max Planck Institute for Mathematics \at University of Notre Dame du Lac \\ \email{ammedmar@mpim-bonn.mpg.de} \and
+		Maximilian~Schmahl \at Heidelberg University \\ \email{mschmahl@mathi.uni-heidelberg.de}
+	}
+	
+	\authorrunning{U.~Bauer, A.~Medina-Mardones, M.~Schmahl}
+	
+	\maketitle
+	
+	\begin{abstract}
+		\input{abstract}
+	\end{abstract}
+	
+	\tableofcontents
+	\input{introduction}
+	\input{persistence}
+	\input{inequalities}
+	\input{connectivity}
+	\input{surfaces}
+	\appendix
+	\input{vietoris}
+	
+	\section*{Acknowledgements}
+	This research has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}, the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
+	
+	A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT-1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL, where part of this work developed.
+	
+	\bibliographystyle{abbrvnaturl}
+	\bibliography{biblio}
 
 \end{document}
