@@ -10,4 +10,5 @@
 *.nav
 *.snm
 *.txss
-
+*.zip
+source*/

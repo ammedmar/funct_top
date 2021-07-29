@@ -11,16 +11,16 @@ The general idea that we want to employ is to deduce global finiteness propertie
 Thus, the functors we consider should have some property that allows us to do so.
 
 Concretely, let $\H = (\H_d)_{d \in \Z} \colon \Top \to \Vect$ be a fixed graded homotopy invariant functor, which we call a \emph{homology theory}.
-A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer-Vietoris sequence} for $\H$ if the inclusion-induced maps assemble to a long exact sequence
+A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer---Vietoris sequence} for $\H$ if the inclusion-induced maps assemble to a long exact sequence
 \begin{equation*}
 \begin{tikzcd}[column sep = small]
 \cdots \arrow[r] & \H_{n}(X_{1} \cap X_{2}) \arrow[r] & \H_{n}(X_{1}) \oplus \H_{n}(X_{2}) \arrow[r] & \H_{n}(X) \arrow[r] & \H_{n-1}(X_{1} \cap X_{2}) \arrow[r] & \cdots \ .
 \end{tikzcd}
 \end{equation*}
-We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer-Vietories property} if there are natural Mayer-Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
+We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer---Vietoris property} if there are natural Mayer---Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
 
-For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer-Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
-Note that this includes singular homology with field coefficients, which has the open Mayer-Vietoris property (like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{Eilenberg.1952}) , and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer-Vietoris property.
+For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer---Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
+Note that this includes singular homology with field coefficients, which has the open Mayer---Vietoris property (like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{Eilenberg.1952}) , and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer---Vietoris property.
 
 \begin{defi}
 	For $n \in \Z$ a continuous map is said to be \emph{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
@@ -138,7 +138,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 \end{lem}
 
 \begin{proof}
-	Recall that we are assuming that the underlying homology theory $\H$ has either the open or the compact Mayer-Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
+	Recall that we are assuming that the underlying homology theory $\H$ has either the open or the compact Mayer---Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
 	The statement of the lemma holds for $\HS_{n}$ in place of $\HS$ for any $n \leq n_0$ since $\H_{n}$ induces the zero map.
 	We will proceed by induction on $n \geq n_0$ assuming the statement for $\HS_{n-1}$.
 	
@@ -177,7 +177,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	By local compactness of $X$ we can choose a compact neighborhood $K_x$ of $x$ contained in $U_x$.
 	Now $V_x = \interior (K_x)$ is a neighborhood of $x$ with $V_x \in \Sigma_{s,t}$.
 	
-	Finally, using Mayer-Vietoris and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
+	Finally, using Mayer---Vietoris and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
 	So for $i \in \{1, 2\}$ let $V_i \in \Sigma_{s,t}$ with $U_i$ and $s'_i \in (s,\, t)$ such that 
 	$\overline{V_i} \subseteq U_i \subseteq L$ 
 	and
@@ -193,7 +193,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$.
 	To do so, we set $s'' = \min_i s'_i$ and choose $s' \in (s,\, s'')$.
-	For proving that $\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$ we now distinguish the two cases where $\H$ has either the open or the compact Mayer-Vietoris property.
+	For proving that $\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$ we now distinguish the two cases where $\H$ has either the open or the compact Mayer---Vietoris property.
 	
 	In the open case, notice that for both choices of $i$ the inclusions
 	$U_i \cap f_{\leq s''} \to L \cap f_{\leq t}$
@@ -203,7 +203,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	is $\HS_{n-1}$ because it factors through the inclusion
 	$K'_1 \cap K'_2 \cap f_{\leq s'} \to U_1 \cap U_2 \cap f_{\leq s''}$,
 	which is $\HS_{n-1}$ by the induction hypothesis.
-	Because the $V_i$ and $V'_i$ are open and because $\H$ has the open Mayer-Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
+	Because the $V_i$ and $V'_i$ are open and because $\H$ has the open Mayer---Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
 	\begin{equation*}
 	\begin{tikzcd}[column sep=small]
 	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
@@ -233,7 +233,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	is $\HS_{n-1}$ because it factors through the inclusion
 	$K'_1 \cap K'_2 \cap f_{\leq s'} \to V''_1 \cap V''_2 \cap f_{\leq s''}$,
 	which is $\HS_{n-1}$ by the induction hypothesis.
-	Because the $K'_i$ and $K''_i$ as well as the sublevel sets of $f$ are all compact and because $\H$ has the compact Mayer-Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
+	Because the $K'_i$ and $K''_i$ as well as the sublevel sets of $f$ are all compact and because $\H$ has the compact Mayer---Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
 	\begin{equation*}
 	\begin{tikzcd}[column sep=small]
 	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
