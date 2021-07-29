@@ -19,7 +19,7 @@ f_{\leq t} = f^{-1}(-\infty, t].
 \end{equation*}
 We say that this filtration is \emph{compact} if all sublevel sets are compact Hausdorff spaces.
 
-For the next step in the persistence pipeline, one needs a coherent assignment of a vector space to any topological space, or, more precisely, a functor from the category $\Top$ of topological spaces to the category $\Vect$ of vector spaces over a fixed field $\mathbb{F}$.
+For the next step in the persistence pipeline, one needs a coherent assignment of a vector space to any topological space, or, more precisely, a functor from the category $\Top$ of topological spaces to the category $\Vect$ of vector spaces over a fixed field $\F$.
 Key examples are provided by \emph{homology theories}, which for now are only assumed to be $\Z$-graded families $\H = (\H_d)_{d \in \Z}$ of \emph{homotopy invariant functors}, meaning that they assign the same morphism to homotopic maps.
 Of particular importance to us are \v{C}ech homology \cite[Section IX--X]{Eilenberg.1952} with coefficients in $\F$, and homology theories in the sense of Eilenberg--Steenrod \cite[Section I]{Eilenberg.1952}, such as singular homology, again with coefficients in $\F$ \cite{Eilenberg.1944}.
 
@@ -45,13 +45,13 @@ A rich family of indecomposable persistence modules is given by \emph{interval m
 \begin{equation} \label{e:interval module}
 C(I)_t =
 \begin{cases}
-\mathbb{F} & \text{if } t \in I, \\
+\F & \text{if } t \in I, \\
 0 & \text{otherwise},
 \end{cases}
 \qquad \qquad
 C(I)_{s, t} =
 \begin{cases}
-\operatorname{id}_{\mathbb{F}} & \text{if } s, t \in I, \\
+\operatorname{id}_{\F} & \text{if } s, t \in I, \\
 0 & \text{otherwise}.
 \end{cases}
 \end{equation}
@@ -84,9 +84,9 @@ Intuitively, one may think of the observable category as forgetting all informat
 One can avoid losing any information in this process, for example by requiring all persistence modules $M$ to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}, which is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology.
 In terms of barcodes, continuity from above amounts to only admitting intervals that are closed on the left and open on the right.
 One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another discrete invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities later on.
-Defined precisely, this invariant known as the \emph{persistence diagram} is the multiset given by the \emph{multiplicity function} $\m \colon \multiplicityDomain \to \mathbb{N}$ that associates to an element in
+Defined precisely, this invariant known as the \emph{persistence diagram} is the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
 \begin{equation*}
-\multiplicityDomain =
+\mulDom =
 \big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
 \end{equation*}
 the cardinality of the set $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \sup I_{\lambda} = q\}$.
@@ -103,7 +103,7 @@ If $\H$ is some kind of homology theory, we will call $\H(f_{\leq \bullet})$ the
 
 As mentioned earlier, the passage from real-valued functions on a topological space to persistence diagrams is 1-Lipschitz for appropriate metrics.
 On the space of real-valued functions one considers the metric induced by the supremum norm, and for the space of persistence diagrams the \emph{bottleneck distance}.
-This metric expresses the distance between persistence diagrams by a matching of their points, counted with multiplicities, which is optimal with respect to the $L^{\infty}$-distance on $\multiplicityDomain$: two diagrams are within distance $\delta$ if any two matched points are within $L^{\infty}$-distance $\delta$, and any unmatched point has $L^{\infty}$-distance at most $2\delta$ to the diagonal $\{(p,q) \in \R^2 \mid p = q\}$.
+This metric expresses the distance between persistence diagrams by a matching of their points, counted with multiplicities, which is optimal with respect to the $L^{\infty}$-distance on $\mulDom$: two diagrams are within distance $\delta$ if any two matched points are within $L^{\infty}$-distance $\delta$, and any unmatched point has $L^{\infty}$-distance at most $2\delta$ to the diagonal $\{(p,q) \in \R^2 \mid p = q\}$.
 
 The most general stability result is shown by considering as an intermediate step the metric spaces of filtrations and persistence modules equipped with the \emph{interleaving distance}.
 Given two functors $M,N \colon \R \to \mathsf C$, where $\mathsf C$ is typically $\Top$ or $\Vect$, a $\delta$-interleaving between $M$ and $N$ consists of a pair of natural transformations $(M_t \to N_{t+\delta})_t$ and $(N_t \to M_{t+\delta})_t$ from one diagram to a shifted version of the other and vice versa, which compose to the structure maps $(M_t \to M_{t+2\delta})_t$ and $(N_t \to N_{t+2\delta})_t$.

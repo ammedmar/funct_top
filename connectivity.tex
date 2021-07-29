@@ -1,6 +1,4 @@
 
-% \section{Sufficient conditions for the existence of persistence diagrams} \label{s:connectivity}
-
 \section{Existence of persistence diagrams} \label{s:connectivity}
 
 We have seen that q-tame functions admit persistence diagrams, which can be used to formulate Morse inequalities.
@@ -30,9 +28,7 @@ Note that this includes singular homology with field coefficients, which has the
 \end{defi}
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{%strongly
-	locally homologically small} or \emph{%strongly
-	$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
 Similarly, we have the following weaker version of this property.
@@ -42,13 +38,11 @@ Similarly, we have the following weaker version of this property.
 \end{defi}
 
 Clearly, any $\HLC$ sublevel set filtration is also weakly $\HLC$:
-while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the %\emph{strong} 
-$\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
+while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
 If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
 
 \begin{thm} \label{t:weak hlc to hlc}
-	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also %strongly 
-	$\HLC$.
+	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also $\HLC$.
 \end{thm}
 
 \begin{proof}
@@ -108,41 +102,38 @@ For more details see \cite[Lemma II.17.3]{Bredon.1997}.
 	Defining $K^\prime = \bigcup_{i=1}^m C(x_i)$ finishes the proof.
 \end{proof}
 
-We want to use \cref{l:neighborhood third} on the domain of the function whose sublevel set filtration we consider. However, we do not want to assume the domain to be locally compact for \cref{t:local connectedness implies q-tameness}. To circumvent this, we will work in one of the sublevel sets, which are assumed to be compact Hausdorff and hence locally compact.
+We want to use \cref{l:neighborhood third} on the domain of the function whose sublevel set filtration we consider.
+However, we do not want to assume the domain to be locally compact for \cref{t:local connectedness implies q-tameness}.
+To circumvent this, we will work in one of the sublevel sets, which are assumed to be compact Hausdorff and hence locally compact.
 This requires the use of a slight weakening of the $\HLC$ condition.
 
 \begin{defi}
-	For $u \in \R$, the sublevel set filtration of a function $f \colon X \to \R$ is called \emph{%strongly
-	$\HLC$ below $u$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t < u$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+	For $u \in \R$, the sublevel set filtration of a function $f \colon X \to \R$ is called \emph{$\HLC$ below $u$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t < u$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
 \begin{lem} \label{l:restriction of LHS filtration}
-	Let $f \colon X \to \R$ be a function whose sublevel set filtration is %strongly 
-	$\HLC$.
+	Let $f \colon X \to \R$ be a function whose sublevel set filtration is $\HLC$.
 	Fix $u \in \R$ and let $g \colon Y \to \R$ be the restriction of $f$ to the sublevel set $Y = f_{\leq u}$.
-	Then the sublevel set filtration defined by $g$ is %strongly 
-	$\HLC$ below $u$.
+	Then the sublevel set filtration defined by $g$ is $\HLC$ below $u$.
 \end{lem}
 
 \begin{proof}
-	Let $x \in Y$, $V$ a neighborhood of $x$ in $Y$ and consider indices $s,t$ with $g(x) < s < t < u$. 
+	Let $x \in Y$, $V$ a neighborhood of $x$ in $Y$ and consider indices $s,t$ with $g(x) < s < t < u$.
 	We need to find a neighborhood $U \subseteq V$ of $x$ such that the inclusion $g_{\leq s} \cap U \to g_{\leq t} \cap V$ is $\HS$.
 	
-	Since $Y \subseteq X$ carries the subspace topology, we may choose a neighborhood $V'$ of $x$ in $X$ such that $V = V' \cap Y$. 
-	The sublevel set filtration of $f$ is assumed to be %strongly 
-	$\HLC$, so there is a neighborhood $U' \subseteq V'$ of $x$ in $X$ such that the inclusion $f_{\leq s} \cap U' \to f_{\leq t} \cap V'$ is $\HS$.
+	Since $Y \subseteq X$ carries the subspace topology, we may choose a neighborhood $V'$ of $x$ in $X$ such that $V = V' \cap Y$.
+	The sublevel set filtration of $f$ is assumed to be $\HLC$, so there is a neighborhood $U' \subseteq V'$ of $x$ in $X$ such that the inclusion $f_{\leq s} \cap U' \to f_{\leq t} \cap V'$ is $\HS$.
 	We set $U = U' \cap Y$, which defines a neighborhood of $x$ in $Y$.
 	
-	Now, $s < t < u$ implies that we have $g_{\leq s} = f_{\leq s}$ and $g_{\leq t} = f_{\leq t}$. 
-	Moreover, we have $f_{\leq s} \cap Y = f_{\leq s} \cap f_{\leq u} = f_{\leq s}$ and $f_{\leq t} \cap Y = f_{\leq t} \cap f_{\leq u} = f_{\leq t}$. 
+	Now, $s < t < u$ implies that we have $g_{\leq s} = f_{\leq s}$ and $g_{\leq t} = f_{\leq t}$.
+	Moreover, we have $f_{\leq s} \cap Y = f_{\leq s} \cap f_{\leq u} = f_{\leq s}$ and $f_{\leq t} \cap Y = f_{\leq t} \cap f_{\leq u} = f_{\leq t}$.
 	Thus, we obtain $g_{\leq s} \cap U = f_{\leq s} \cap Y \cap U' = f_{\leq s} \cap U'$ and $g_{\leq t} \cap V = f_{\leq t} \cap Y \cap V' = f_{\leq t} \cap V'$.
 	This implies that the inclusion $g_{\leq s} \cap U \to g_{\leq t} \cap V$ is $\HS$ because it agrees with the inclusion $f_{\leq s} \cap U' \to f_{\leq t} \cap V'$, which is $\HS$ by construction.
 	This finishes the proof.
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-	Let $f \colon X \to \R$ be a function on a locally compact space $X$ whose sublevel set filtration is compact and %strongly 
-	$\HLC$ below $u \in \R$, and consider subsets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
+	Let $f \colon X \to \R$ be a function on a locally compact space $X$ whose sublevel set filtration is compact and $\HLC$ below $u \in \R$, and consider subsets $C \subseteq L \subseteq X$ with $C$ compact and $L$ open.
 	For any $s < t < u$ the inclusion $C \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS$.
 \end{lem}
 
@@ -178,11 +169,9 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	factors through the previous one so it is $\HS_n$ as well.
 	Thus, $\Sigma_{s, t}$ has the third property we want.
 	
-	Next, we will show using the %strong 
-	$\HLC$ property that $\Sigma_{s, t}$ has the first required property, i.e., that any point $x \in L \cap f_{\leq s}$ has a neighborhood in $\Sigma_{s, t}$.
+	Next, we will show using the $\HLC$ property that $\Sigma_{s, t}$ has the first required property, i.e., that any point $x \in L \cap f_{\leq s}$ has a neighborhood in $\Sigma_{s, t}$.
 	Choose an arbitrary $s' \in (s,\, t)$.
-	Since the sublevel set filtration of $f$ is %strongly
-	$\HLC$ below $u$ and we have $s' < t < u$, there is an open neighborhood $U_x \subseteq L$ such that the inclusion
+	Since the sublevel set filtration of $f$ is $\HLC$ below $u$ and we have $s' < t < u$, there is an open neighborhood $U_x \subseteq L$ such that the inclusion
 	$U_x \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS$, so in particular $\HS_n$.
 	By local compactness of $X$ we can choose a compact neighborhood $K_x$ of $x$ contained in $U_x$.
@@ -223,7 +212,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	\H_{n}((U_1 \cup U_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
 	\H_{n-1}(U_1 \cap U_2 \cap f_{\leq s''}) \\ & 
 	\H_{n}((V'_1 \cup V'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-	\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}). \arrow[u]
+	\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}) \arrow[u].
 	\end{tikzcd}
 	\end{equation*}
 	We conclude that the inclusion 
@@ -253,7 +242,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	\H_{n}((K''_1 \cup K''_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
 	\H_{n-1}(K''_1 \cap K''_2 \cap f_{\leq s''}) \\ & 
 	\H_{n}((K'_1 \cup K'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-	\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}). \arrow[u]
+	\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}) \arrow[u].
 	\end{tikzcd}
 	\end{equation*}
 	We conclude that the inclusion 
@@ -263,15 +252,12 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	because it factors through the previous one.
 \end{proof}
 
-We can now complete the proof of the claim stating that for compact sublevel set filtrations, %strong 
-$\HLC$ implies q-tameness.
+We can now complete the proof of the claim stating that for compact sublevel set filtrations, $\HLC$ implies q-tameness.
 
 \begin{proof}[Proof of \cref{t:local connectedness implies q-tameness}]
-	By definition, the sublevel set filtration of $f$ is q-tame if and only if the inclusion $f_{\leq s} \to f_{\leq t}$ is $\HS$ for all pairs $s < t$. 
-	Choose $u \in \R$ with $u > t$ and let $g \colon Y \to \R$ be the restriction of $f$ to the sublevel set $Y=f_{\leq u}$. 
-	Since we assume $f$ to induce a %strongly 
-	$\HLC$ sublevel set filtration, by \cref{l:restriction of LHS filtration} the sublevel set filtration of $g$ is %strongly 
-	$\HLC$ below $u$. 
+	By definition, the sublevel set filtration of $f$ is q-tame if and only if the inclusion $f_{\leq s} \to f_{\leq t}$ is $\HS$ for all pairs $s < t$.
+	Choose $u \in \R$ with $u > t$ and let $g \colon Y \to \R$ be the restriction of $f$ to the sublevel set $Y=f_{\leq u}$.
+	Since we assume $f$ to induce a $\HLC$ sublevel set filtration, by \cref{l:restriction of LHS filtration} the sublevel set filtration of $g$ is $\HLC$ below $u$.
 	Clearly, the sublevel set filtration of $g$ is also compact, and its domain $Y$ is locally compact being a compact Hausdorff space by assumption.
 	Thus, we can apply \cref{l:key lemma for q-tameness} to the filtration $g_{\leq \bullet}$ with $C = f_{\leq s}$ and $L = Y$ to obtain that the inclusion $f_{\leq s} = C \cap g_{\leq s} \to L \cap g_{\leq t} = f_{\leq t}$ is $\HS$.
 \end{proof}
