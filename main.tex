@@ -38,8 +38,6 @@ pdfpagelabels]{hyperref}
 \Crefname{thm}{Theorem}{Theorems}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\Crefname{prop}{Proposition}{Propositions}
 \theoremstyle{definition}
 \newtheorem{defi}[thm]{Definition}
 \newtheorem{rem}[thm]{Remark}
@@ -69,7 +67,7 @@ pdfpagelabels]{hyperref}
 \DeclareMathOperator{\Balls}{Balls}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator{\crit}{crit}
-\newcommand{\multiplicityDomain}{\mathcal{E}}
+\newcommand{\mulDom}{\mathcal{E}}
 \newcommand{\Top}{\mathsf{Top}}
 \newcommand{\Vect}{\mathsf{Vect}}
 \renewcommand{\th}{^{\mathrm{th}}}
@@ -96,11 +94,10 @@ pdfpagelabels]{hyperref}
 	
 	\date{\today}
 	
-	\begin{abstract}
-		\input{abstract}
-	\end{abstract}
+	\input{abstract}
 	
 	\maketitle
+	
 	\input{introduction}
 	\input{persistence}
 	\input{inequalities}
@@ -109,14 +106,8 @@ pdfpagelabels]{hyperref}
 	\appendix
 	\input{vietoris}
 	
-	\section*{Acknowledgements}
-	U.B. has been supported by German Research Foundation (DFG) through the Collaborative Research Center SFB/TRR 109 \emph{Discretization in Geometry and Dynamics}.
-	
-	A.M-M. acknowledges financial support from Innosuisse grant \mbox{32875.1 IP-ICT-1} and the hospitality of the Laboratory for Topology and Neuroscience at EPFL.
-	
-	M.S. has been supported by German Research Foundation (DFG) through %the Collaborative Research Center SFB/TRR 191 \emph{Symplectic Structures in Geometry, Algebra and Dynamics}, 
-	the Cluster of Excellence EXC-2181/1 \emph{STRUCTURES}, and the Research Training Group RTG 2229 \emph{Asymptotic Invariants and Limits of Groups and Spaces}.
-	
+	\input{acknowledgment}
+		
 	\bibliographystyle{abbrvnaturl}
 	\bibliography{biblio}
 	
