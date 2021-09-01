@@ -4,14 +4,14 @@
 For greater generality, in this paper we considered \v{C}ech homology instead of the homology construction used by Morse in functional topology: metric Vietoris homology.
 We now justify this choice by showing that these two constructions agree on compact metric spaces.
 
-First, let us recall the definition of \v{C}ech homology as presented for example by \citet[Section~IX--X]{Eilenberg.1952}.
-Let $X$ be a topological space and let $\Cov(X)$ be the set of all open covers of $X$ ordered by the refinement relation. 
+First, let us recall the definition of \v{C}ech homology as presented for example by \cite[Section~IX--X]{Eilenberg.1952}.
+Let $X$ be a topological space and let $\Cov(X)$ be the set of all open covers of $X$ ordered by the refinement relation.
 Recall that for an open cover $\alpha \in \Cov(X)$ its \emph{nerve} $\Nrv(\alpha)$ is defined as the simplicial complex
 \begin{equation*}
 \Nrv(\alpha) =
 \big\{ \beta \subseteq \alpha \mid \beta \text{ is finite and } \textstyle{\bigcap_{U \in \beta}} \, U \neq \emptyset \big\}.
 \end{equation*}
-The nerve construction defines a functor from the poset $\Cov(X)$ regarded as a category to that of simplicial complexes. 
+The nerve construction defines a functor from the poset $\Cov(X)$ regarded as a category to that of simplicial complexes.
 The \emph{\v{C}ech homology with coefficients in $\F$} of $X$ is defined as
 \begin{equation*}
 \CH(X; \F) \ =
@@ -24,7 +24,7 @@ As an alternative to the nerve construction, for a cover $\alpha \in \Cov(X)$ on
 which again yields a functor from $\Cov(X)$ to simplicial complexes.
 This construction is dual to the nerve construction in the sense of Dowker's Theorem \cite{Dowker.1952}, which asserts that the two complexes $\Nrv (\alpha)$ and $\Vietoris (\alpha)$ are homotopy equivalent.
 As a consequence, we have that $H (\Nrv (\alpha); \F) \cong H (\Vietoris (\alpha); \F)$.
-This isomorphism is natural with respect to refinement of covers, so we get an alternative description of \v{C}ech homology as 
+This isomorphism is natural with respect to refinement of covers, so we get an alternative description of \v{C}ech homology as
 \begin{equation*}
 \CH (X; \F) \ \cong
 \lim_{\alpha \in \Cov (X)} H (\Vietoris (\alpha); \F).
@@ -34,7 +34,7 @@ If $X$ is a metric space, this is still not exactly the same as the construction
 \begin{equation*}
 \lim_{\alpha \in \Balls(X)} H (\Vietoris (\alpha); \F),
 \end{equation*}
-where 
+where
 \begin{equation*}
 \Balls (X) = \left\{ ( B_{\delta} (x) )_{x \in X} \mid \delta > 0 \right\}
 \subseteq \Cov (X).

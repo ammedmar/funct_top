@@ -42,7 +42,7 @@ Usual constructions that work in the category of vector spaces over the field $\
 For example, the kernel and cokernel of a morphism, as well as the direct sum of persistence modules are well-defined.
 Persistence modules that are \emph{indecomposable}, i.e., those that have only trivial direct sum decompositions, play an important role in persistence theory.
 A rich family of indecomposable persistence modules is given by \emph{interval modules}, which for intervals $I \subseteq \R$ are defined by
-\begin{equation} \label{e:interval module}
+\begin{equation*}
 C(I)_t =
 \begin{cases}
 \F & \text{if } t \in I, \\
@@ -54,7 +54,7 @@ C(I)_{s, t} =
 \operatorname{id}_{\F} & \text{if } s, t \in I, \\
 0 & \text{otherwise}.
 \end{cases}
-\end{equation}
+\end{equation*}
 These indecomposable interval modules can be used as building blocks for \emph{barcode modules}, which are direct sums of interval modules.
 Given a barcode module $\bigoplus_{\lambda \in \Lambda} C(I_{\lambda})$, the associated multiset of intervals $\{I_{\lambda}\}_{\lambda \in \Lambda}$ is known as its \emph{barcode}.
 By a version of the Krull--Remak--Schmidt--Azumaya Theorem \cite{Azumaya.1950} (see also \cite[Theorem 2.7]{Chazal.2016a} for a specialization to barcode modules), two isomorphic barcode modules have the same barcodes up to a choice of the index set $\Lambda$.
@@ -69,7 +69,7 @@ An appropriate weakening of $\PFD$ for more general settings is the notion of \e
 A persistence module $M$ is q-tame if the rank of the map $M_{s,t} \colon M_s \to M_t$ is finite for all $s < t$ \cite{Chazal.2016a}.
 As exemplified by the infinite product of interval modules $\prod_{n \in \N_{> 0}} C([0,1/n))$, not every q-tame persistence module admits a barcode decomposition in the above sense.
 Yet, there are multiple ways to regularize q-tame persistence modules to obtain discrete invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
-We briefly recall the approach from \citet{Chazal.2016b}.
+We briefly recall the approach from \cite{Chazal.2016b}.
 
 A persistence module $K$ is called \emph{ephemeral} if the maps $K_{s,t} \colon K_s \to K_t$ are $0$ for all $s < t$.
 The \emph{radical} $\rad M$ of a persistence module $M$ is the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \to M$ is an ephemeral persistence module.
@@ -93,7 +93,7 @@ the cardinality of the set $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \
 Because information about the endpoints of intervals is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete invariant for q-tame modules in the observable category.
 Stated explicitly, we have the following.
 
-\begin{thm}[\citet{Chazal.2016a, Chazal.2016b}] \label{t:q-tame modules have barcodes}
+\begin{thm}[\cite{Chazal.2016a, Chazal.2016b}] \label{t:q-tame modules have barcodes}
 	Every q-tame persistence module has a unique persistence diagram that completely determines its isomorphism type in the observable category.
 \end{thm}
 

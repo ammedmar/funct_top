@@ -5,7 +5,7 @@ In this section we prove that $q$-tame persistence modules satisfy a general ver
 We deduce these general inequalities from the existence of persistence diagrams as reviewed in \cref{t:q-tame modules have barcodes}.
 
 Recall that for a Morse function $f$ on a closed smooth manifold $X$, the usual Morse inequalities state that for any non-negative integer $n$ the following holds:
-\begin{equation} \label{e:morse_inequalities}
+\begin{equation} \label{e:classical morse inequalities}
 \sum_{d=0}^n \ (-1)^{n-d} \big( \# \crit_{d}(f) - \beta_{d}(X) \big) \ \geq \ 0,
 \end{equation}
 where $\crit_{d}(f)$ is the set of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d\th$ Betti number of $X$.
@@ -17,7 +17,7 @@ The Betti numbers of $X$ may also be expressed in terms of barcodes because they
 Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistent homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
 This approach of counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
-To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$ but not indefinitely, \citet{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is continuous from above, correspond to the number of finite bars with length greater than $\epsilon$ in the $d\th$ barcode with left endpoint $t$, plus the number of finite bars with length greater than $\epsilon$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$ but not indefinitely, \cite{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is continuous from above, correspond to the number of finite bars with length greater than $\epsilon$ in the $d\th$ barcode with left endpoint $t$, plus the number of finite bars with length greater than $\epsilon$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
 
 Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
 Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
@@ -31,13 +31,13 @@ m_{d}^{\epsilon}(t) \ =
 Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $e$ bounding below the persistence of the considered features.
 To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$.
 
-Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers} 
-\begin{equation} \label{e:cap numbers}
+Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers}
+\[
 m_{d}^{\epsilon} =
 \sum_{t} m_{d}^{\epsilon}(t) \ =
 \sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ q \neq \infty}} \m_{d-1}(p,q) \ +
 \sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ p \neq -\infty}}\m_d(p,q).
-\end{equation}
+\]
 An important setting where all cap numbers are well-defined is when $M$ is the persistent homology of the sublevel set filtration of a bounded function.
 A more general statement can be made using the following notion.
 
@@ -50,7 +50,7 @@ A more general statement can be made using the following notion.
 \begin{thm} \label{t:cap numbers well defined}
 	Let $N$ be a q-tame persistence module that is both initially and eventually constant.
 	If $\n$ is the multiplicity function of the persistence diagram of $N$,
-	then 
+	then
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \n (p,q) < \infty
 	\end{equation*}
@@ -69,9 +69,9 @@ A more general statement can be made using the following notion.
 	\begin{equation*}
 	T = \{(p,q) \in \mulDom \mid t_0 \leq p < q \leq t_1\}.
 	\end{equation*}
-	
+
 	For the first summand, observe that because $N$ is constant below $s$ and constant above $u$, we have $\n(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
-	This implies 
+	This implies
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q)
 	\ = \!
@@ -80,31 +80,31 @@ A more general statement can be made using the following notion.
 	\sum_{s < p < u} \n (p, \infty)
 	\end{equation*}
 	which is clearly finite because $N$ is q-tame.
-	
+
 	For the second summand, note that
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \n (p,q)
 	\ \, \leq \!\!
 	\sum_{(p,q) \in T^{\epsilon}} \n (p,q),
 	\end{equation*}
-	where $T^{\epsilon}$ is the smaller triangle 
+	where $T^{\epsilon}$ is the smaller triangle
 	\begin{equation*}
 	T^{\epsilon} = \{(p,q) \in T \mid q-p \geq \epsilon\}.
 	\end{equation*}
-	Thus, in order to prove the theorem, it suffices to show that we have 
+	Thus, in order to prove the theorem, it suffices to show that we have
 	\begin{equation*}
-	\sum_{(p,q) \in T^{\epsilon}} \n (p,q) 
-	\ < \ 
+	\sum_{(p,q) \in T^{\epsilon}} \n (p,q)
+	\ < \
 	\infty.
 	\end{equation*}
-	To do this, we consider open quadrants 
+	To do this, we consider open quadrants
 	\begin{equation*}
 	Q(x, y) = \{ (p, q) \in \R^2 \mid p < x \text{ and } y < q \}.
 	\end{equation*}
 	Covering the compact set $T^{\epsilon}$ by the open quadrants $Q \left(x, x + \frac{\epsilon}{2} \right)$ for $x \in \R$, we may choose a finite subcover given by, say, $x_1,\dots, x_n$.
 	We obtain
 	\begin{equation*}
-	\sum_{(p,q) \in T^{\geq e}} \n (p,q) 
+	\sum_{(p,q) \in T^{\geq e}} \n (p,q)
 	\ \leq \
 	\sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{\epsilon}{2})}} \n(p,q).
 	\end{equation*}
@@ -113,9 +113,9 @@ A more general statement can be made using the following notion.
 
 Comparing to the usual Morse inequalities, the cap numbers in dimension $d$ act like the number of critical points with index $d$.
 As an analogue to the Betti numbers of the manifold appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$ referred to as \emph{essential dimensions}, which, under the same assumptions as before, can be expressed in the language of persistence diagrams as
-\begin{equation} \label{e:essential dimension}
+\[
 p_{d} \ = \!\! \sum_{p \in \R \cup \{-\infty\}} \m_d(p,\infty),
-\end{equation}
+\]
 which is also the dimension of the colimit of the degree $d$ part of $M$.
 
 \begin{thm} \label{t:inequalities}
@@ -145,10 +145,10 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
 	\end{equation*}
 	which yields
 	\begin{align*}
-	m^{\epsilon}_{d} - p_{d} \ &= 
+	m^{\epsilon}_{d} - p_{d} \ &=
 	\sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_{d-1}(p,q) \ +
 	\sum_{\substack{(p,q) \in \mulDom \\ q-p > \epsilon \\ p \neq -\infty}} \m_d(p,q) \ - \
-	\sum_{p \in \R} \m_d(p,\infty) \ =
+	\sum_{p \in \R} \m_d(p,\infty) \\ &=
 	\sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_{d-1}(p,q)
 	\ + \!
 	\sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_d(p,q),
@@ -158,7 +158,7 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
 
 As mentioned above, the finiteness assumptions are satisfied if $M$ is initially and eventually constant.
 Hence, as a special case, the theorem yields generalized Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, including classical Morse functions $f$ on closed smooth manifolds $X$.
-As outlined in our motivation for the definition of cap numbers, in this setting our inequalities \eqref{e:morse inequalities} agree with the classical inequalities \eqref{e:morse_inequalities}, as $\beta_d(X) = p_d$ and $m_d^{\epsilon} = \crit_d(f)$ for $\epsilon > 0$ smaller than the minimal difference between any two critical values of~$f$.
+As outlined in our motivation for the definition of cap numbers, in this setting our inequalities \eqref{e:morse inequalities} agree with the classical inequalities \eqref{e:classical morse inequalities}, as $\beta_d(X) = p_d$ and $m_d^{\epsilon} = \crit_d(f)$ for $\epsilon > 0$ smaller than the minimal difference between any two critical values of~$f$.
 
 The finiteness conditions of our theorem are also satisfied for the functionals considered by Morse in his work on functional topology.
 While the condition proposed by Morse turns out to be insufficient as shown in \cref{s:surfaces}, q-tameness is still guaranteed by \cref{t:local connectedness implies q-tameness} established in \cref{s:connectivity}.

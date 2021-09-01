@@ -1,32 +1,85 @@
-\usepackage{mathptmx}
 \usepackage{amssymb}
 \usepackage{tikz-cd}
-\usepackage[numbers, sort, compress]{natbib}
-\usepackage{graphicx}
+\usepackage{mathbbol} % changes \mathbb{} and adds more support
 \usepackage{csquotes}
+\usepackage{adjustbox}
+
+% bibliography
+\usepackage[backend=biber,
+style=alphabetic,
+backref=true,
+url=false,
+doi=false,
+isbn=false,
+eprint=false
+]{biblatex}
+
+\addbibresource{aux/bibliography.bib}
+
+\renewbibmacro{in:}{}  % don't display "in:" before the journal name
+\AtEveryBibitem{\clearfield{pages}}  % don't show page numbers
+
+%%% get titles hyperlinked
+\DeclareFieldFormat{title}{\myhref{\mkbibemph{#1}}}
+\DeclareFieldFormat
+[article,inbook,incollection,inproceedings,patent,thesis,unpublished]
+{title}{\myhref{\mkbibquote{#1\isdot}}}
+
+\newcommand{\doiorurl}{%
+	\iffieldundef{url}
+	{\iffieldundef{eprint}
+		{}
+		{http://arxiv.org/abs/\strfield{eprint}}}
+	{\strfield{url}}%
+}
+
+\newcommand{\myhref}[1]{%
+	\ifboolexpr{%
+		test {\ifhyperref}
+		and
+		not test {\iftoggle{bbx:eprint}}
+		and
+		not test {\iftoggle{bbx:url}}
+	}
+	{\href{\doiorurl}{#1}}
+	{#1}%
+}
+
+%%% references
 \usepackage[bookmarks=true,
-bookmarksnumbered=true, breaklinks=true,
-pdfstartview=FitH, hyperfigures=true,
-plainpages=false, naturalnames=true,
-colorlinks=true, pagebackref=true,
+linktocpage=true,
+bookmarksnumbered=true,
+breaklinks=true,
+pdfstartview=FitH,
+hyperfigures=false,
+plainpages=false,
+naturalnames=true,
+colorlinks=true,
+pagebackref=false,
 pdfpagelabels]{hyperref}
+
 \hypersetup{
-	linktocpage,
 	colorlinks,
 	citecolor=blue,
+	filecolor=blue,
 	linkcolor=blue,
-	urlcolor=blue}
+	urlcolor=blue
+}
+
 \usepackage[capitalize, noabbrev]{cleveref}
+\let\subsectionSymbol\S
+\crefname{subsection}{\subsectionSymbol\!}{subsections}
 
 % layout
-\setlength{\textwidth}{\paperwidth}
-\addtolength{\textwidth}{-1.85in}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-2in}
+\addtolength{\textwidth}{0in}
+\addtolength{\textheight}{0in}
 \calclayout
 
-% updating to MSC2020
+% update to MSC2020
 \makeatletter
 \@namedef{subjclassname@2020}{%
 	\textup{2020} Mathematics Subject Classification}
 \makeatother
+
+% table of contents
+\setcounter{tocdepth}{1}

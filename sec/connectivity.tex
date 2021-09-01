@@ -11,16 +11,21 @@ The general idea that we want to employ is to deduce global finiteness propertie
 Thus, the functors we consider should have some property that allows us to do so.
 
 Concretely, let $\H = (\H_d)_{d \in \Z} \colon \Top \to \Vect$ be a fixed graded homotopy invariant functor, which we call a \emph{homology theory}.
-A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer---Vietoris sequence} for $\H$ if the inclusion-induced maps assemble to a long exact sequence
+A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer--Vietoris sequence} for $\H$ if the inclusion-induced maps assemble to a long exact sequence
 \begin{equation*}
 \begin{tikzcd}[column sep = small]
-\cdots \arrow[r] & \H_{n}(X_{1} \cap X_{2}) \arrow[r] & \H_{n}(X_{1}) \oplus \H_{n}(X_{2}) \arrow[r] & \H_{n}(X) \arrow[r] & \H_{n-1}(X_{1} \cap X_{2}) \arrow[r] & \cdots \ .
+\cdots \arrow[r] &[-10pt] \H_{n+1}(X) \arrow[d] & &[-20pt] & \\
+& \H_{n}(X_{1} \cap X_{2}) \arrow[r] &
+\H_{n}(X_{1}) \oplus \H_{n}(X_{2}) \arrow[r] &
+\H_{n}(X) \arrow[d] \\ & & &
+\H_{n-1}(X_{1} \cap X_{2}) \arrow[r] &
+\cdots \ .
 \end{tikzcd}
 \end{equation*}
-We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer---Vietoris property} if there are natural Mayer---Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
+We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer--Vietoris property} if there are natural Mayer--Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
 
-For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer---Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
-Note that this includes singular homology with field coefficients, which has the open Mayer---Vietoris property (like any homology theory in the sense of the Eilenberg-Steenrod axioms \cite[Section I]{Eilenberg.1952}) , and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer---Vietoris property.
+For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer--Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
+Note that this includes singular homology with field coefficients, which has the open Mayer--Vietoris property (like any homology theory in the sense of the Eilenberg--Steenrod axioms \cite[Section I]{Eilenberg.1952}) , and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer--Vietoris property.
 
 \begin{defi}
 	For $n \in \Z$ a continuous map is said to be \emph{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
@@ -48,11 +53,11 @@ If the filtration is induced by a continuous function, the converse also holds a
 \begin{proof}
 	Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$.
 	We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-	
+
 	To do so, we start by using the weak $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
 	Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
 	Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of $X$.
-	
+
 	We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
 	This second map is $\HS$ by construction.
 	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
@@ -120,11 +125,11 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 \begin{proof}
 	Let $x \in Y$, $V$ a neighborhood of $x$ in $Y$ and consider indices $s,t$ with $g(x) < s < t < u$.
 	We need to find a neighborhood $U \subseteq V$ of $x$ such that the inclusion $g_{\leq s} \cap U \to g_{\leq t} \cap V$ is $\HS$.
-	
+
 	Since $Y \subseteq X$ carries the subspace topology, we may choose a neighborhood $V'$ of $x$ in $X$ such that $V = V' \cap Y$.
 	The sublevel set filtration of $f$ is assumed to be $\HLC$, so there is a neighborhood $U' \subseteq V'$ of $x$ in $X$ such that the inclusion $f_{\leq s} \cap U' \to f_{\leq t} \cap V'$ is $\HS$.
 	We set $U = U' \cap Y$, which defines a neighborhood of $x$ in $Y$.
-	
+
 	Now, $s < t < u$ implies that we have $g_{\leq s} = f_{\leq s}$ and $g_{\leq t} = f_{\leq t}$.
 	Moreover, we have $f_{\leq s} \cap Y = f_{\leq s} \cap f_{\leq u} = f_{\leq s}$ and $f_{\leq t} \cap Y = f_{\leq t} \cap f_{\leq u} = f_{\leq t}$.
 	Thus, we obtain $g_{\leq s} \cap U = f_{\leq s} \cap Y \cap U' = f_{\leq s} \cap U'$ and $g_{\leq t} \cap V = f_{\leq t} \cap Y \cap V' = f_{\leq t} \cap V'$.
@@ -138,37 +143,37 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 \end{lem}
 
 \begin{proof}
-	Recall that we are assuming that the underlying homology theory $\H$ has either the open or the compact Mayer---Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
+	Recall that we are assuming that the underlying homology theory $\H$ has either the open or the compact Mayer--Vietoris property and that there is some $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
 	The statement of the lemma holds for $\HS_{n}$ in place of $\HS$ for any $n \leq n_0$ since $\H_{n}$ induces the zero map.
 	We will proceed by induction on $n \geq n_0$ assuming the statement for $\HS_{n-1}$.
-	
+
 	We define $\Sigma_{s, t}$ to be the collection of all open subsets $V \subseteq X$ whose closure $\overline{V}$ is compact, contained in $L$, and has an open neighborhood $U$ with $\overline{V} \subseteq U \subseteq L$	for which there exists $s' \in (s,\, t)$ such that the inclusion $U \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$.
 	We will show that $\Sigma_{s, t}$ has the following three properties:
 	\begin{enumerate}
 		 \item Any point $x \in L \cap f_{\leq s}$ has a neighborhood $V_x \in \Sigma_{s,t}$.
 		 \item If $V_1,\, V_2 \in \Sigma_{s,t}$ then $V_1 \cup V_2 \in \Sigma_{s,t}$.
-		 \item For each $V \in \Sigma_{s,t}$ the inclusion 
+		 \item For each $V \in \Sigma_{s,t}$ the inclusion
 		 $V \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS_n$.
 	\end{enumerate}
-	
+
 	Assuming them for the moment, the first property allows us to cover $C$ by sets $V_x \in \Sigma_{s,t}$, $x \in C$.
 	Because $C$ is compact, this cover can be chosen finite, represented by say $x_1,\dots, x_m$.
 	By the second property, we have $V = \bigcup_{i = 1}^m V_{x_i} \in \Sigma_{s,t}$.
-	Using the third property, the inclusion 
-	$V \cap f_{\leq s} \to L \cap f_{\leq t}$ 
-	is $\HS_n$, so the inclusion 
-	$C \cap f_{\leq s} \to L \cap f_{\leq t}$ 
+	Using the third property, the inclusion
+	$V \cap f_{\leq s} \to L \cap f_{\leq t}$
+	is $\HS_n$, so the inclusion
+	$C \cap f_{\leq s} \to L \cap f_{\leq t}$
 	is also $\HS_n$ because this map factors through the aforementioned one.
 	What is left to do is to show that $\Sigma_{s,t}$ has the properties we want.
-	
-	For the third property, let $V \in \Sigma_{s,t}$ with $U$ an open neighborhood of $\overline{V}$ in $L$ and $s' \in (s,\, t)$ such that 
+
+	For the third property, let $V \in \Sigma_{s,t}$ with $U$ an open neighborhood of $\overline{V}$ in $L$ and $s' \in (s,\, t)$ such that
 	$U \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$.
 	The inclusion
 	$V \cap f_{\leq s} \to L \cap f_{\leq t}$
 	factors through the previous one so it is $\HS_n$ as well.
 	Thus, $\Sigma_{s, t}$ has the third property we want.
-	
+
 	Next, we will show using the $\HLC$ property that $\Sigma_{s, t}$ has the first required property, i.e., that any point $x \in L \cap f_{\leq s}$ has a neighborhood in $\Sigma_{s, t}$.
 	Choose an arbitrary $s' \in (s,\, t)$.
 	Since the sublevel set filtration of $f$ is $\HLC$ below $u$ and we have $s' < t < u$, there is an open neighborhood $U_x \subseteq L$ such that the inclusion
@@ -176,10 +181,10 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	is $\HS$, so in particular $\HS_n$.
 	By local compactness of $X$ we can choose a compact neighborhood $K_x$ of $x$ contained in $U_x$.
 	Now $V_x = \interior (K_x)$ is a neighborhood of $x$ with $V_x \in \Sigma_{s,t}$.
-	
-	Finally, using Mayer---Vietoris and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
-	So for $i \in \{1, 2\}$ let $V_i \in \Sigma_{s,t}$ with $U_i$ and $s'_i \in (s,\, t)$ such that 
-	$\overline{V_i} \subseteq U_i \subseteq L$ 
+
+	Finally, using Mayer--Vietoris and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
+	So for $i \in \{1, 2\}$ let $V_i \in \Sigma_{s,t}$ with $U_i$ and $s'_i \in (s,\, t)$ such that
+	$\overline{V_i} \subseteq U_i \subseteq L$
 	and
 	$U_{i} \cap f_{\leq s'_i} \to L \cap f_{\leq t}$
 	is $\HS_n$.
@@ -189,12 +194,12 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	\end{equation*}
 	where $V'_i = \interior(K'_i)$.
 	We have that the union $V_1 \cup V_2 \subseteq L$ is open, its closure $\overline{V_1 \cup V_2}$ is compact, and we have $\overline{V_1 \cup V_2} \subseteq V'_1 \cup V'_2 \subseteq L$.
-	Thus, we obtain $V_1 \cup V_2 \in \Sigma_{s,t}$ if we can show that there is an $s' \in (s,\, t)$ such that the inclusion 
+	Thus, we obtain $V_1 \cup V_2 \in \Sigma_{s,t}$ if we can show that there is an $s' \in (s,\, t)$ such that the inclusion
 	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$.
 	To do so, we set $s'' = \min_i s'_i$ and choose $s' \in (s,\, s'')$.
-	For proving that $\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$ we now distinguish the two cases where $\H$ has either the open or the compact Mayer---Vietoris property.
-	
+	For proving that $\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$ we now distinguish the two cases where $\H$ has either the open or the compact Mayer--Vietoris property.
+
 	In the open case, notice that for both choices of $i$ the inclusions
 	$U_i \cap f_{\leq s''} \to L \cap f_{\leq t}$
 	are $\HS_n$.
@@ -203,22 +208,24 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	is $\HS_{n-1}$ because it factors through the inclusion
 	$K'_1 \cap K'_2 \cap f_{\leq s'} \to U_1 \cap U_2 \cap f_{\leq s''}$,
 	which is $\HS_{n-1}$ by the induction hypothesis.
-	Because the $V_i$ and $V'_i$ are open and because $\H$ has the open Mayer---Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
-	\begin{equation*}
-	\begin{tikzcd}[column sep=small]
-	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
-	\H_n(L \cap f_{\leq t}) & \\
-	\H_{n}(U_1 \cap f_{\leq s''}) \oplus \H_n(U_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] & 
-	\H_{n}((U_1 \cup U_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-	\H_{n-1}(U_1 \cap U_2 \cap f_{\leq s''}) \\ & 
-	\H_{n}((V'_1 \cup V'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-	\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}) \arrow[u].
-	\end{tikzcd}
-	\end{equation*}
-	We conclude that the inclusion 
-	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ 
+	Because the $V_i$ and $V'_i$ are open and because $\H$ has the open Mayer--Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
+	\begin{center}
+		\adjustbox{scale=.92}{
+			\begin{tikzcd}[column sep=small]
+			\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
+			\H_n(L \cap f_{\leq t}) & \\
+			\H_{n}(U_1 \cap f_{\leq s''}) \oplus \H_n(U_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+			\H_{n}((U_1 \cup U_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+			\H_{n-1}(U_1 \cap U_2 \cap f_{\leq s''}) \\ &
+			\H_{n}((V'_1 \cup V'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
+			\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}) \arrow[u].
+			\end{tikzcd}
+		}
+	\end{center}
+	We conclude that the inclusion
+	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$, which finishes this part of the proof.
-	
+
 	In the compact case, we apply \cref{l:neighborhood third} again to obtain compact sets $K''_i$ such that
 	\begin{equation*}
 	V_i \subseteq K_i \subseteq V'_i \subseteq K'_i \subseteq V''_i \subseteq K''_i \subseteq U_i \subseteq L
@@ -233,22 +240,24 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	is $\HS_{n-1}$ because it factors through the inclusion
 	$K'_1 \cap K'_2 \cap f_{\leq s'} \to V''_1 \cap V''_2 \cap f_{\leq s''}$,
 	which is $\HS_{n-1}$ by the induction hypothesis.
-	Because the $K'_i$ and $K''_i$ as well as the sublevel sets of $f$ are all compact and because $\H$ has the compact Mayer---Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
-	\begin{equation*}
-	\begin{tikzcd}[column sep=small]
-	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
-	\H_n(L \cap f_{\leq t}) & \\
-	\H_{n}(K''_1 \cap f_{\leq s''}) \oplus \H_n(K''_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] & 
-	\H_{n}((K''_1 \cup K''_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-	\H_{n-1}(K''_1 \cap K''_2 \cap f_{\leq s''}) \\ & 
-	\H_{n}((K'_1 \cup K'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-	\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}) \arrow[u].
-	\end{tikzcd}
-	\end{equation*}
-	We conclude that the inclusion 
+	Because the $K'_i$ and $K''_i$ as well as the sublevel sets of $f$ are all compact and because $\H$ has the compact Mayer--Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
+	\begin{center}
+		\adjustbox{scale=.885}{
+			\begin{tikzcd}[column sep=small]
+			\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
+			\H_n(L \cap f_{\leq t}) & \\
+			\H_{n}(K''_1 \cap f_{\leq s''}) \oplus \H_n(K''_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+			\H_{n}((K''_1 \cup K''_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+			\H_{n-1}(K''_1 \cap K''_2 \cap f_{\leq s''}) \\ &
+			\H_{n}((K'_1 \cup K'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
+			\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}) \arrow[u].
+			\end{tikzcd}
+		}
+	\end{center}
+	We conclude that the inclusion
 	$\left(K'_1 \cup K'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	is $\HS_n$, so the same is true for the inclusion
-	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$ 
+	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
 	because it factors through the previous one.
 \end{proof}
 

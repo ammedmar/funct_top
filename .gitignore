@@ -7,8 +7,6 @@
 *.pdf
 *.synctex.gz
 *.toc
-*.nav
-*.snm
 *.txss
-*.zip
-source*/
+*.bcf
+*.xml
