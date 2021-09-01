@@ -1,0 +1,32 @@
+\usepackage{mathptmx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usepackage[numbers, sort, compress]{natbib}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage[bookmarks=true,
+bookmarksnumbered=true, breaklinks=true,
+pdfstartview=FitH, hyperfigures=true,
+plainpages=false, naturalnames=true,
+colorlinks=true, pagebackref=true,
+pdfpagelabels]{hyperref}
+\hypersetup{
+	linktocpage,
+	colorlinks,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=blue}
+\usepackage[capitalize, noabbrev]{cleveref}
+
+% layout
+\setlength{\textwidth}{\paperwidth}
+\addtolength{\textwidth}{-1.85in}
+\setlength{\textheight}{\paperheight}
+\addtolength{\textheight}{-2in}
+\calclayout
+
+% updating to MSC2020
+\makeatletter
+\@namedef{subjclassname@2020}{%
+	\textup{2020} Mathematics Subject Classification}
+\makeatother

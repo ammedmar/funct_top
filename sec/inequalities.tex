@@ -25,7 +25,7 @@ By \cref{t:q-tame modules have barcodes}, $M$ has a persistence diagram in every
 In analogy to Morse's definitions, we may define the $(d, t, \epsilon)$-\emph{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
 \begin{equation*}
 m_{d}^{\epsilon}(t) \ =
-\sum_{\substack{p \in \R \\ t - p > \epsilon}} \m_{d-1}(p, t) +
+\sum_{\substack{p \in \R \\ t - p > \epsilon}} \m_{d-1}(p, t) \ +
 \sum_{\substack{q \in \R \\ q - t > \epsilon}} \m_d(t, q).
 \end{equation*}
 Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $e$ bounding below the persistence of the considered features.
@@ -42,8 +42,9 @@ An important setting where all cap numbers are well-defined is when $M$ is the p
 A more general statement can be made using the following notion.
 
 \begin{defi} \label{d:initially and eventually constant}
-	A persistence module $N$ is said to be \emph{initially constant} if there is $t_0 \in \R$ such that $N_{u,t_0}$ is an isomorphism for all $u \leq t_0$.
-	Similarly, it is said to be \emph{eventually constant} if there is $t_1 \in \R$ such that $N_{t_1,u}$ is an isomorphism for all $u \geq t_1$.
+	A persistence module $N$ is said to be \emph{initially constant} if there is $s \in \R$ such that $N_{r,s}$ is an isomorphism for all $r \leq s$.
+	Similarly, it is said to be \emph{eventually constant} if there is $u \in \R$
+	such that $N_{u,v}$ is an isomorphism for all $u \leq v$.
 \end{defi}
 
 \begin{thm} \label{t:cap numbers well defined}
@@ -57,29 +58,26 @@ A more general statement can be made using the following notion.
 \end{thm}
 
 \begin{proof}
-	Let $t_0, t_1 \in \R$ be as in \cref{d:initially and eventually constant}.
+	Let $s, u \in \R$ be as in \cref{d:initially and eventually constant}.
 	We split the sum whose finiteness we want to show in two parts
 	\begin{equation*}
-	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \n (p,q)
-	\ = \!\!
-	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q)
-	\ +
+	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \n (p,q) \ = \!\!
+	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q) \ +
 	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \n (p,q)
 	\end{equation*}
-	and show for each summand separately that it is finite.
-	Here, $T$ denotes the triangle
+	where $T$ denotes the triangle
 	\begin{equation*}
 	T = \{(p,q) \in \mulDom \mid t_0 \leq p < q \leq t_1\}.
 	\end{equation*}
 	
-	For the first summand, observe that because $N$ is constant below $t_0$ and constant above $t_1$, we have $\n(p,q) = 0$ whenever one of $-\infty < p < t_0$ or $q < t_0$ or $p > t_1$ or $t_1 < q < \infty$ holds.
+	For the first summand, observe that because $N$ is constant below $s$ and constant above $u$, we have $\n(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
 	This implies 
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q)
 	\ = \!
-	\sum_{t_0 < q < t_1} \n (-\infty,q)
+	\sum_{s < q < u} \n (-\infty,q)
 	\ + \!
-	\sum_{t_0 < p < t_1} \n (p, \infty)
+	\sum_{s < p < u} \n (p, \infty)
 	\end{equation*}
 	which is clearly finite because $N$ is q-tame.
 	

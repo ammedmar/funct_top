@@ -11,7 +11,7 @@ These invariants are key to applications.
 For example, in the next section we will see how they lead to a generalization of the classical Morse inequalities.
 Much of their usefulness comes from a remarkable fact known as \emph{stability}, stating that the map from functions on $X$ with the supremum norm to the set of all persistence diagrams is 1-Lipschitz with respect to a certain natural metric called \emph{bottleneck distance}.
 
-To explain the meaning of the above terms in detail, we consider a space $X$ and a function $f \colon X \to \R$.
+In more detail, consider a space $X$ and a function $f \colon X \to \R$.
 Unless noted otherwise, the functions we consider need not be continuous.
 We pass to filtered spaces by considering the \emph{sublevel set filtration $f_{\leq \bullet}$ of $X$ induced by $f$}, which is defined by
 \begin{equation*}
@@ -81,25 +81,25 @@ This can be formalized by constructing the \emph{observable category of persiste
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
 Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
-One can avoid losing any information in this process, for example by requiring all persistence modules $M$ to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}, which is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology.
+One can avoid losing any information in this process, for example by requiring all persistence modules $M$ to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}, which is satisfied in Morse's setting of compact sublevel set filtrations and \v{C}ech homology.
 In terms of barcodes, continuity from above amounts to only admitting intervals that are closed on the left and open on the right.
-One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another discrete invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities later on.
-Defined precisely, this invariant known as the \emph{persistence diagram} is the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
+One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another discrete invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities.
+Defined precisely, this invariant known as \emph{persistence diagram} is the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
 \begin{equation*}
 \mulDom =
 \big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
 \end{equation*}
 the cardinality of the set $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \sup I_{\lambda} = q\}$.
-Because information about the endpoints of intervals is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete for q-tame modules in the observable category.
+Because information about the endpoints of intervals is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete invariant for q-tame modules in the observable category.
 Stated explicitly, we have the following.
 
 \begin{thm}[\citet{Chazal.2016a, Chazal.2016b}] \label{t:q-tame modules have barcodes}
-	Every q-tame persistence module has a unique persistence diagram that completely describes its isomorphism type in the observable category.
+	Every q-tame persistence module has a unique persistence diagram that completely determines its isomorphism type in the observable category.
 \end{thm}
 
 We have thus seen how to obtain a persistence diagram from a real-valued function $f$ by applying a functor $\H \colon \Top \to \Vect$ to its sublevel set filtration, and considering the persistence diagram of the resulting persistence module $\H(f_{\leq \bullet})$, which is well-defined provided that $\H(f_{\leq \bullet})$ is q-tame.
 If this is the case, we will call the function \emph{q-tame} with respect to the functor $\H$.
-If $\H$ is some kind of homology theory, we will call $\H(f_{\leq \bullet})$ the \emph{persistent homology} of the filtration $f_{\leq \bullet}$.
+If $\H$ is a homology theory, we will call $\H(f_{\leq \bullet})$ the \emph{persistent homology} of the filtration $f_{\leq \bullet}$.
 
 As mentioned earlier, the passage from real-valued functions on a topological space to persistence diagrams is 1-Lipschitz for appropriate metrics.
 On the space of real-valued functions one considers the metric induced by the supremum norm, and for the space of persistence diagrams the \emph{bottleneck distance}.
