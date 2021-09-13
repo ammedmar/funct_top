@@ -1,11 +1,13 @@
+%!TEX root = ../func_top.tex
 
 \section{Filtered spaces and persistence theory} \label{s:persistence}
 
 In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions on general topological spaces.
-For a detailed exposition we refer to \cite{Polterovich.2020} and \cite{Chazal.2016a, Oudot.2015}.
+For a detailed exposition we refer to either of \cite{Chazal.2016a, Oudot.2015, Polterovich.2020}, and for applications of this theory in symplectic geometry to 
+\cite{Polterovich.2016, Usher.2016, LeRoux.2018, Shelukhin.2019}.
 
 The ``pipeline'' of topological persistence traverses through geometry, algebra and discrete mathematics as follows:
-Given a space $X$ filtered by the sublevel sets of a function $f$, the application of some homology theory in degree $n$ with coefficients in a field, or, more generally, a functor from topological spaces to vector spaces, produces a \emph{persistence module}, an algebraic object equipped with a structure theory leading in favorable cases to a powerful discrete invariant called \emph{persistence diagram}.
+Given a space $X$ filtered by the sublevel sets of a function $f$, the application of some homology theory in degree $n$ with coefficients in a field, or, more generally, a functor from topological spaces to vector spaces, produces a \emph{persistence module}, an algebraic object equipped with a structure theory leading in favorable cases to a powerful invariant called \emph{persistence diagram}.
 
 These invariants are key to applications.
 For example, in the next section we will see how they lead to a generalization of the classical Morse inequalities.
@@ -18,6 +20,7 @@ We pass to filtered spaces by considering the \emph{sublevel set filtration $f_{
 f_{\leq t} = f^{-1}(-\infty, t].
 \end{equation*}
 We say that this filtration is \emph{compact} if all sublevel sets are compact Hausdorff spaces.
+In this case, the function $f$ is necessarily lower-semicontinuous and bounded from below, see \cite[p.~444]{Morse.1939} or \cite[Theorem 3.1]{Struwe.1988}.
 
 For the next step in the persistence pipeline, one needs a coherent assignment of a vector space to any topological space, or, more precisely, a functor from the category $\Top$ of topological spaces to the category $\Vect$ of vector spaces over a fixed field $\F$.
 Key examples are provided by \emph{homology theories}, which for now are only assumed to be $\Z$-graded families $\H = (\H_d)_{d \in \Z}$ of \emph{homotopy invariant functors}, meaning that they assign the same morphism to homotopic maps.
@@ -68,7 +71,7 @@ In particular, it is unsuited for the applications of Morse and Tompkins in mini
 An appropriate weakening of $\PFD$ for more general settings is the notion of \emph{q-tameness}.
 A persistence module $M$ is q-tame if the rank of the map $M_{s,t} \colon M_s \to M_t$ is finite for all $s < t$ \cite{Chazal.2016a}.
 As exemplified by the infinite product of interval modules $\prod_{n \in \N_{> 0}} C([0,1/n))$, not every q-tame persistence module admits a barcode decomposition in the above sense.
-Yet, there are multiple ways to regularize q-tame persistence modules to obtain discrete invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
+Yet, there are multiple ways to regularize q-tame persistence modules to obtain invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
 We briefly recall the approach from \cite{Chazal.2016b}.
 
 A persistence module $K$ is called \emph{ephemeral} if the maps $K_{s,t} \colon K_s \to K_t$ are $0$ for all $s < t$.
@@ -81,10 +84,11 @@ This can be formalized by constructing the \emph{observable category of persiste
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
 Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
-One can avoid losing any information in this process, for example by requiring all persistence modules $M$ to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}, which is satisfied in Morse's setting of compact sublevel set filtrations and \v{C}ech homology.
+In certain situations, no information is lost in this process, for example if the persistence module $M$ can be assumed to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}.
+This assumption is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology; in this setting, both the filtration as well as the resulting persistence module are continuous from above.
 In terms of barcodes, continuity from above amounts to only admitting intervals that are closed on the left and open on the right.
-One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another discrete invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities.
-Defined precisely, this invariant known as \emph{persistence diagram} is the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
+One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities.
+This invariant, known as the \emph{persistence diagram}, is defined as the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
 \begin{equation*}
 \mulDom =
 \big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
@@ -108,5 +112,6 @@ This metric expresses the distance between persistence diagrams by a matching of
 The most general stability result is shown by considering as an intermediate step the metric spaces of filtrations and persistence modules equipped with the \emph{interleaving distance}.
 Given two functors $M,N \colon \R \to \mathsf C$, where $\mathsf C$ is typically $\Top$ or $\Vect$, a $\delta$-interleaving between $M$ and $N$ consists of a pair of natural transformations $(M_t \to N_{t+\delta})_t$ and $(N_t \to M_{t+\delta})_t$ from one diagram to a shifted version of the other and vice versa, which compose to the structure maps $(M_t \to M_{t+2\delta})_t$ and $(N_t \to N_{t+2\delta})_t$.
 Clearly, the case $\delta=0$ describes an isomorphism, and the infimum $\delta$ for which $M$ and $N$ admit a $\delta$-interleaving is defined as the interleaving distance between them.
+$M$ and $N$ are isomorphic in the observable category if and only if they have interleaving distance $0$.
 As it turns out, the stability of persistence barcodes can then be described as a sequence of 1-Lipschitz transformations: From functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance), to persistence modules (with the interleaving distance), and finally to persistence diagrams (with the bottleneck distance).
 In this approach, by far the most difficult step is showing that passing from persistence modules to persistence diagrams is stable, a result which is known as the Algebraic Stability Theorem \cite{Chazal.2009, Chazal.2016a, Bauer.2015, Cohen-Steiner.2007}.

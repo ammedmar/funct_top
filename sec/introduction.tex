@@ -1,3 +1,4 @@
+%!TEX root = ../func_top.tex
 
 \section{Introduction}
 
@@ -17,11 +18,11 @@ Morse's work on functional topology did not have a long lasting impact on minima
 A similar assessment was given by Raoul Bott, who writes in \cite[p.~934]{Bott.1980} that the papers \cite{Morse.1937, Morse.1940} ``are not easy reading'' and constitute a ``tour de force'' by Morse.
 
 The intricacies of Morse's development notwithstanding, many of his ideas have resurfaced in the intervening years and flourished in other domains.
-In particular, in applied topology and topological data analysis, several key insights of Morse have been independently rediscovered as part of the development of \emph{persistent homology}, a technique that provides robust and efficiently computable invariants of filtered spaces using the functorial properties of homology.
-Its success in applied topology has motivated a refined abstract theory of persistence that lies in the intersection of geometry, topology, and representation theory.
+In particular, in applied topology and symplectic geometry, several key insights of Morse have been independently rediscovered as part of the development of \emph{persistent homology}, a technique that provides robust and efficiently computable invariants of filtered spaces using the functorial properties of homology.
+Its success in these fields has motivated a refined abstract theory of persistence that lies in the intersection of geometry, topology, and representation theory.
 
 The homology of a filtered space is an example of what is referred to as a \emph{persistence module}, a functor to vector spaces from the real numbers considered as a poset category.
-In many important cases, a persistence module $M$ admits an essentially unique decomposition into indecomposable direct summands, and the structure of this decomposition yields a complete discrete invariant of $M$ known as its \emph{persistence diagram}.
+In many important cases, a persistence module $M$ admits an essentially unique decomposition into indecomposable direct summands, and the structure of this decomposition yields a complete invariant of $M$ known as its \emph{persistence diagram}.
 The set of all persistence diagrams can be organized into a metric space.
 This often allows to recast geometric questions about general filtered spaces in a combinatorial metric model, since the passage via the homology construction to this metric space is Lipschitz, a statement commonly known as the \emph{stability} of persistence diagrams.
 
@@ -38,11 +39,11 @@ The motivating question can then be reformulated as asking for topological condi
 In fact, the problem of finding such conditions was already considered by Morse, who studied certain local connectivity properties of a filtered metric space and claimed them to suffice for the q-tameness of the associated persistent \v{C}ech homology.
 Contrary to these claims, we show that the local connectivity condition used by Morse and Tompkins in the proof of the Unstable Minimal Surface Theorem is insufficient (\cref{c:counterexample}).
 We introduce two similar but more widely applicable conditions, and show that the first suffices for the \mbox{q-tameness} of filtrations defined by continuous functionals (\cref{c:q-tameness for continuous functions}), and the second for those defined by functionals with compact sublevel sets (\cref{t:local connectedness implies q-tameness}).
-Since Douglas' functional has compact sublevel sets but is not continuous in the $C^0$ topology considered by Morse and Tompkins, we use this second condition to correct their proof.
+Since the Douglas functional has compact sublevel sets but is not continuous in the $C^0$ topology considered by Morse and Tompkins, we use this second condition to correct their proof.
 
 \subsection*{Summary}
 
-The primary contribution of this work consists in the introduction of topological conditions on a broad class of filtered spaces ensuring their associated persistent homology modules satisfy Morse inequalities.
+The primary contribution of this work consists in the introduction of topological conditions on a broad class of filtered spaces ensuring their associated persistent homology modules have persistence diagrams and satisfy generalized Morse inequalities.
 As an application of our results, we identify and fix a mistake in the proof the Unstable Minimal Surface Theorem of Morse and Tompkins.
 
 \subsection*{Outline}
@@ -52,4 +53,4 @@ We present a persistence-theoretic point of view on Morse inequalities in \cref{
 It generalizes both their versions in the smooth and compact setting as well as the one used in functional topology.
 The core of this work is presented in \cref{s:connectivity}, where we define two natural notions of local-connectivity for a sublevel set filtration and show under what circumstances they imply q-tameness for its associated persistence module.
 We close in \cref{s:surfaces} with a historical overview of Morse--Tompkins' use of functional topology in minimal surface theory, and explore its relation to our results.
-\cref{s:vietoris} contains a brief discussion on the definitions of Vietoris and \v{C}ech homology and a comparison between them based on Dowker's Theorem.
+\cref{s:vietoris} contains a brief discussion on the definitions of Vietoris and \v{C}ech homology and their equivalence for compact metric spaces.
