@@ -62,45 +62,45 @@ Clearly, being weakly $\LC$ implies being weakly $\piLC$ and, if the homology $\
 We will now show that not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions.
 In particular, our construction will be used to invalidate Morse's claim quoted above.
 
-We will consider the \emph{$d$-dimensional Hawaiian earring}
-\begin{equation*}
-\HE = \bigcup_{n \in \N} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle | \ \left( x_0 - \frac{1}{n} \right)^2 \!\! + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
-\end{equation*}
-which is a compact subspace of $\R^{d+1}$.
-
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}[scale = 60]
-	\draw[thick] (-.1,-.001) rectangle (.1,.05);
-	\clip (-.1,0) rectangle (.1,.05);
-	\foreach \i in {1,...,100}{
-		\draw[line width=0.4/\i^0.25 pt] (0, 1/\i^2) circle (1/\i^2);
-	}
-	\end{tikzpicture}
-	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
-\end{figure}
-
-\begin{thm} \label{t:counterexample}
-	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact and weakly $\LC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is infinite dimensional for some $n$.
-\end{thm}
-
-\begin{proof}
-	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
-
-	In order to verify that the sublevel set filtration of $f$ is weakly $\LC$, we
-	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
-
-	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
-	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\LC$ condition is trivially satisfied.
-
-	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
-	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
-	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$. 
-	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
-
-	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
-	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
-\end{proof}
+%We will consider the \emph{$d$-dimensional Hawaiian earring}
+%\begin{equation*}
+%\HE = \bigcup_{n \in \N} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle | \ \left( x_0 - \frac{1}{n} \right)^2 \!\! + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
+%\end{equation*}
+%which is a compact subspace of $\R^{d+1}$.
+%
+%\begin{figure}[t]
+%	\centering
+%	\begin{tikzpicture}[scale = 60]
+%	\draw[thick] (-.1,-.001) rectangle (.1,.05);
+%	\clip (-.1,0) rectangle (.1,.05);
+%	\foreach \i in {1,...,100}{
+%		\draw[line width=0.4/\i^0.25 pt] (0, 1/\i^2) circle (1/\i^2);
+%	}
+%	\end{tikzpicture}
+%	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
+%\end{figure}
+%
+%\begin{thm} \label{t:counterexample}
+%	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact and weakly $\LC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is infinite dimensional for some $n$.
+%\end{thm}
+%
+%\begin{proof}
+%	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
+%
+%	In order to verify that the sublevel set filtration of $f$ is weakly $\LC$, we
+%	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+%
+%	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
+%	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\LC$ condition is trivially satisfied.
+%
+%	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
+%	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
+%	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$.
+%	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
+%
+%	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
+%	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
+%\end{proof}
 
 Both singular and \v{C}ech homology of the $d$-dimensional Hawaiian earring is infinite dimensional in degree $d$, so they satisfy the assumptions of \cref{t:counterexample}.
 For singular homology this is proven in \cite{Barratt.1962}.

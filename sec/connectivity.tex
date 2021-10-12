@@ -28,6 +28,8 @@ We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer--Viet
 For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer--Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
 Note that this includes singular homology with field coefficients, which has the open Mayer--Vietoris property (like any homology theory in the sense of the Eilenberg--Steenrod axioms \cite[Section I]{Eilenberg.1952}), and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer--Vietoris property.
 
+\subsection{Local connectivity and q-tameness}
+
 \begin{defi}
 	For $n \in \Z$ a continuous map is said to be \emph{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
 	We omit references to $n$ if the condition holds for all integers.
@@ -64,11 +66,60 @@ If the filtration is induced by a continuous function, the converse also holds a
 	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
 \end{proof}
 
-As our main result we will show now that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
+As our main result, proven in the next subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
 
 \begin{thm} \label{t:local connectedness implies q-tameness}
 	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and	$\HLC$, then it is also q-tame.
 \end{thm}
+
+Combining \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} we have the following consequence.
+
+\begin{cor} \label{c:q-tameness for continuous functions}
+	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
+\end{cor}
+
+As the following example illustrates, the continuity assumption in the above corollary is crucial.
+Consider the \emph{$d$-dimensional Hawaiian earring}
+\begin{equation*}
+\HE = \bigcup_{n \in \N} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle | \ \left( x_0 - \frac{1}{n} \right)^2 \!\! + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
+\end{equation*}
+which is a compact subspace of $\R^{d+1}$.
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[scale = 60]
+	\draw[thick] (-.1,-.001) rectangle (.1,.05);
+	\clip (-.1,0) rectangle (.1,.05);
+	\foreach \i in {1,...,100}{
+		\draw[line width=0.4/\i^0.25 pt] (0, 1/\i^2) circle (1/\i^2);
+	}
+	\end{tikzpicture}
+	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
+\end{figure}
+
+\begin{thm} \label{t:counterexample}
+	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact and weakly $\HLC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is infinite dimensional for some $n$.
+\end{thm}
+
+\begin{proof}
+	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
+
+	In order to verify that the sublevel set filtration of $f$ is weakly $\HLC$, we
+	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+
+	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
+	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\HLC$ condition is trivially satisfied.
+
+	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
+	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
+	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$.
+	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
+
+	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
+	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
+\end{proof}
+
+\subsection{Proof of \cref{t:local connectedness implies q-tameness}}
 
 The general proof strategy is inspired by the proof of a result by Wilder \cite[p.~325]{Wilder.1949}, as presented by Bredon \cite[Section II.17]{Bredon.1997}.
 We collect the main ideas in several lemmas.
@@ -87,7 +138,7 @@ We collect the main ideas in several lemmas.
 
 \begin{proof}
 	This is proven via a straightforward diagram chase.
-For more details see \cite[Lemma II.17.3]{Bredon.1997}.
+	For more details see \cite[Lemma II.17.3]{Bredon.1997}.
 \end{proof}
 
 \begin{lem} \label{l:neighborhood third}
@@ -151,10 +202,10 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	We define $\Sigma_{s, t}$ to be the collection of all open subsets $V \subseteq Y$ whose closure $\overline{V}$ is compact, contained in $L$, and has an open neighborhood $U$ with $\overline{V} \subseteq U \subseteq L$	for which there exists $s' \in (s,\, t)$ such that the inclusion $U \cap f_{\leq s'} \to L \cap f_{\leq t}$ is $\HS_n$.
 	We will show that $\Sigma_{s, t}$ has the following three properties:
 	\begin{enumerate}
-		 \item Any point $x \in L \cap f_{\leq s}$ has a neighborhood $V_x \in \Sigma_{s,t}$.
-		 \item If $V_1,\, V_2 \in \Sigma_{s,t}$ then $V_1 \cup V_2 \in \Sigma_{s,t}$.
-		 \item For each $V \in \Sigma_{s,t}$ the inclusion
-		 $V \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS_n$.
+		\item Any point $x \in L \cap f_{\leq s}$ has a neighborhood $V_x \in \Sigma_{s,t}$.
+		\item If $V_1,\, V_2 \in \Sigma_{s,t}$ then $V_1 \cup V_2 \in \Sigma_{s,t}$.
+		\item For each $V \in \Sigma_{s,t}$ the inclusion
+		$V \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS_n$.
 	\end{enumerate}
 
 	Assuming them for the moment, the first property allows us to cover $C$ by sets $V_x \in \Sigma_{s,t}$, $x \in C$.
@@ -212,15 +263,15 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	which is $\HS_{n-1}$ by the induction hypothesis.
 	Because the $V_i$ and $V'_i$ are open and because $\H$ has the open Mayer--Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
 	\[
-			\begin{tikzcd}[column sep=small,every matrix/.append style={nodes={font=\small}}]
-			\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
-			\H_n(L \cap f_{\leq t}) & \\
-			\H_{n}(U_1 \cap f_{\leq s''}) \oplus \H_n(U_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-			\H_{n}((U_1 \cup U_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-			\H_{n-1}(U_1 \cap U_2 \cap f_{\leq s''}) \\ &
-			\H_{n}((V'_1 \cup V'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-			\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}) \arrow[u].
-			\end{tikzcd}
+	\begin{tikzcd}[column sep=small,every matrix/.append style={nodes={font=\small}}]
+	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
+	\H_n(L \cap f_{\leq t}) & \\
+	\H_{n}(U_1 \cap f_{\leq s''}) \oplus \H_n(U_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+	\H_{n}((U_1 \cup U_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+	\H_{n-1}(U_1 \cap U_2 \cap f_{\leq s''}) \\ &
+	\H_{n}((V'_1 \cup V'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
+	\H_{n-1}(V'_1 \cap V'_2 \cap f_{\leq s'}) \arrow[u].
+	\end{tikzcd}
 	\]
 	We conclude that the inclusion
 	$\left(V'_1 \cup V'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
@@ -242,15 +293,15 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	which is $\HS_{n-1}$ by the induction hypothesis.
 	Because the $K'_i$ and $K''_i$ as well as the sublevel sets of $f$ are all compact and because $\H$ has the compact Mayer--Vietoris property, we obtain the following commutative diagram satisfying the assumptions of \cref{l:commutative algebra}:
 	\[
-			\begin{tikzcd}[column sep=tiny,every matrix/.append style={nodes={font=\small}}]
-			\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
-			\H_n(L \cap f_{\leq t}) & \\
-			\H_{n}(K''_1 \cap f_{\leq s''}) \oplus \H_n(K''_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-			\H_{n}((K''_1 \cup K''_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
-			\H_{n-1}(K''_1 \cap K''_2 \cap f_{\leq s''}) \\ &
-			\H_{n}((K'_1 \cup K'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
-			\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}) \arrow[u].
-			\end{tikzcd}
+	\begin{tikzcd}[column sep=tiny,every matrix/.append style={nodes={font=\small}}]
+	\H_n(L \cap f_{\leq t}) \oplus \H_n(L \cap f_{\leq t}) \arrow[r] &
+	\H_n(L \cap f_{\leq t}) & \\
+	\H_{n}(K''_1 \cap f_{\leq s''}) \oplus \H_n(K''_2 \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+	\H_{n}((K''_1 \cup K''_2) \cap f_{\leq s''}) \arrow[r] \arrow[u] &
+	\H_{n-1}(K''_1 \cap K''_2 \cap f_{\leq s''}) \\ &
+	\H_{n}((K'_1 \cup K'_2) \cap f_{\leq s'}) \arrow[r] \arrow[u] &
+	\H_{n-1}(K'_1 \cap K'_2 \cap f_{\leq s'}) \arrow[u].
+	\end{tikzcd}
 	\]
 	We conclude that the inclusion
 	$\left(K'_1 \cup K'_2 \right) \cap f_{\leq s'} \to L \cap f_{\leq t}$
@@ -268,11 +319,3 @@ We can now complete the proof of the claim stating that for compact sublevel set
 	Clearly, the sublevel set filtration of $g$ is also compact, and its domain $Y$ is locally compact being a compact Hausdorff space by assumption.
 	Thus, we can apply \cref{l:key lemma for q-tameness} to the filtration $g_{\leq \bullet}$ with $C = L = Y$ to obtain that the inclusion $f_{\leq s} = C \cap g_{\leq s} \to L \cap g_{\leq t} = f_{\leq t}$ is $\HS$.
 \end{proof}
-
-Combining \cref{t:weak hlc to hlc} with \cref{t:local connectedness implies q-tameness} also yields the following result for continuous functions.
-
-\begin{cor} \label{c:q-tameness for continuous functions}
-	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
-\end{cor}
-
-
