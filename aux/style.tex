@@ -1,18 +1,19 @@
 \usepackage{amssymb}
 \usepackage{tikz-cd}
-\usepackage{mathbbol} % changes \mathbb{} and adds more support
+\usepackage{mathbbol} % adds support to \mathbb{}
 \usepackage{csquotes}
 \usepackage{adjustbox}
 
 % bibliography
-\usepackage[backend=biber,
-style=alphabetic,
-backref=true,
-url=false,
-doi=false,
-isbn=false,
-eprint=false
-]{biblatex}
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    backref=true,
+    url=false,
+    doi=false,
+    isbn=false,
+    eprint=false
+    ]{biblatex}
 
 \addbibresource{aux/bibliography.bib}
 
@@ -46,17 +47,19 @@ eprint=false
 }
 
 %%% references
-\usepackage[bookmarks=true,
-            linktocpage=true,
-            bookmarksnumbered=true,
-            breaklinks=true,
-            pdfstartview=FitH,
-            hyperfigures=false,
-            plainpages=false,
-            naturalnames=true,
-            colorlinks=true,
-            pagebackref=false,
-            pdfpagelabels]{hyperref}
+\usepackage{hyperref}[
+    bookmarks=true,
+    linktocpage=true,
+    bookmarksnumbered=true,
+    breaklinks=true,
+    pdfstartview=FitH,
+    hyperfigures=false,
+    plainpages=false,
+    naturalnames=true,
+    colorlinks=true,
+    pagebackref=false,
+    pdfpagelabels
+]
 
 \hypersetup{
 	colorlinks,

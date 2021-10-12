@@ -1,4 +1,4 @@
-%!TEX root = ../func_top.tex
+% !TEX root = ../func_top.tex
 
 \section{Generalized Morse inequalities} \label{s:inequalities}
 
@@ -153,7 +153,9 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
 	\ + \!
 	\sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_d(p,q),
 	\end{align*}
-	so the sequence given by $\nu_d = \sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_d(p,q)$ satisfies the equation $c_{d}^{\epsilon} - p_{d} = \nu_{d-1} + \nu_{d}$ as desired.
+	so the sequence given by
+	\[\nu_d = \sum_{\substack{(p,q) \in \R^2 \\ q-p > \epsilon}} \m_d(p,q)\]
+	satisfies the equation $c_{d}^{\epsilon} - p_{d} = \nu_{d-1} + \nu_{d}$ as desired.
 \end{proof}
 
 As shown in \cref{t:cap numbers well defined}, the finiteness assumptions are satisfied if $M$ is initially and eventually constant.
@@ -163,7 +165,7 @@ Morse inequalities for unbounded functions can still be obtained by restricting 
 
 The finiteness conditions of our theorem are also satisfied for the Douglas functional considered by Morse and Tompkins as an application of Morse' theory of functional topology.
 While the condition proposed by Morse turns out to be insufficient as shown in \cref{s:surfaces}, q-tameness is still guaranteed by \cref{t:local connectedness implies q-tameness} established in \cref{s:connectivity}.
-As mentioned before, our inequalities then agree with Morse's historical version from functional topology as presented in \cite{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also continuous from above, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
+As mentioned before, our inequalities then agree with Morse's historical version from functional topology as presented in \cite[Corollary~12.3]{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also continuous from above, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
 Note however that, in contrast to Morse's version, our inequalities also hold without the assumption of continuity from above, expanding their use beyond \v{C}ech type theories.
 
 \begin{rem} \label{r:homotopically critial points}
