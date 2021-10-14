@@ -37,49 +37,15 @@ Note that this includes singular homology with field coefficients, which has the
 \end{defi}
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-\end{defi}
-
-Similarly, we have the following weaker version of this property.
-
-\begin{defi}
 	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally homologically small} or \emph{weakly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
-Clearly, any $\HLC$ sublevel set filtration is also weakly $\HLC$:
-while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
-If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
+The following result is deduced directly from \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} below.
+The existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
 
-\begin{thm} \label{t:weak hlc to hlc}
-	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also $\HLC$.
-\end{thm}
-
-\begin{proof}
-	Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$.
-	We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-
-	To do so, we start by using the weak $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
-	Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
-	Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of~$X$.
-
-	We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
-	This second map is $\HS$ by construction.
-	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
-\end{proof}
-
-Our main result, proven in the next subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
-
-\begin{thm} \label{t:local connectedness implies q-tameness}
-	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and	$\HLC$, then it is also q-tame.
-\end{thm}
-
-Combining \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} we have the following consequence;
-the existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
-
-
-\begin{cor} \label{c:q-tameness for continuous functions}
+\begin{thm} \label{t:q-tameness for continuous functions}
 	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
-\end{cor}
+\end{thm}
 
 As the following example illustrates, the continuity assumption in the above corollary is crucial.
 Consider the \emph{$d$-dimensional Hawaiian earring}
@@ -121,6 +87,40 @@ which is a compact subspace of $\R^{d+1}$.
 	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
 	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
 \end{proof}
+
+We consider the following stronger local connectivity condition of sublevel set filtrations.
+
+\begin{defi}
+	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+\end{defi}
+
+Clearly, any $\HLC$ sublevel set filtration is also weakly $\HLC$:
+while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
+If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
+
+\begin{thm} \label{t:weak hlc to hlc}
+	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also $\HLC$.
+\end{thm}
+
+\begin{proof}
+	Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$.
+	We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+
+	To do so, we start by using the weak $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
+	Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
+	Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of~$X$.
+
+	We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
+	This second map is $\HS$ by construction.
+	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
+\end{proof}
+
+Our main technical result, proven in the next subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
+
+\begin{thm} \label{t:local connectedness implies q-tameness}
+	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and	$\HLC$, then it is also q-tame.
+\end{thm}
+
 
 \subsection{Proof of \cref{t:local connectedness implies q-tameness}}
 
