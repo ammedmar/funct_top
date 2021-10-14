@@ -9,7 +9,7 @@ We will present a historical account in \cref{s:surfaces}.
 
 Whether a function is q-tame or not depends on the functor that is used to pass from the sublevel set filtration of the function to a persistence module.
 The general idea that we want to employ is to deduce global finiteness properties like q-tameness from local ones.
-Thus, the functors we consider should have some property that allows us to do so.
+Thus, the functors we consider should have a certain property allowing us to do so.
 
 Concretely, let $\H = (\H_d)_{d \in \Z} \colon \Top \to \Vect$ be a fixed graded homotopy invariant functor, which we call a \emph{homology theory}.
 A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer--Vietoris sequence} for $\H$ if the inclusion-induced maps can be completed to a long exact sequence
@@ -26,6 +26,7 @@ A triple of spaces $X_{1}, X_{2} \subseteq X$ is said to have a \emph{Mayer--Vie
 We say that $\H$ has the \emph{open} (resp.\@\ \emph{compact}) \emph{Mayer--Vietoris property} if there are natural Mayer--Vietoris sequences for all triples $X_{1}, X_{2} \subseteq X$ with $X = X_1 \cup X_2$ and $X_i \subseteq X$ open (resp.\@\ compact Hausdorff).
 
 For the rest of this section, we will assume that $\H$ is a homology theory that has either the open or the compact Mayer--Vietoris property and for which there is $n_0$ such that $\H_{n}$ is 0 for all $n \leq n_0$.
+We will also assume that $\H_{n}$ takes finite dimensional values on one-point spaces.
 Note that this includes singular homology with field coefficients, which has the open Mayer--Vietoris property (like any homology theory in the sense of the Eilenberg--Steenrod axioms \cite[Section I]{Eilenberg.1952}), and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer--Vietoris property.
 
 \subsection{Local connectivity and q-tameness}
@@ -66,13 +67,15 @@ If the filtration is induced by a continuous function, the converse also holds a
 	Any map that factors through an $\HS$ map is also $\HS$, so the proof is finished.
 \end{proof}
 
-As our main result, proven in the next subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
+Our main result, proven in the next subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
 
 \begin{thm} \label{t:local connectedness implies q-tameness}
 	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and	$\HLC$, then it is also q-tame.
 \end{thm}
 
-Combining \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} we have the following consequence.
+Combining \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} we have the following consequence;
+the existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
+
 
 \begin{cor} \label{c:q-tameness for continuous functions}
 	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
@@ -105,7 +108,7 @@ which is a compact subspace of $\R^{d+1}$.
 	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
 
 	In order to verify that the sublevel set filtration of $f$ is weakly $\HLC$, we
-	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$. Since we assume that $\H_{n}$ is homotopy invariant and takes singletons to finite dimensional spaces, it suffices to find $U$ as above such that $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 
 	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
 	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\HLC$ condition is trivially satisfied.

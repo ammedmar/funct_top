@@ -1,34 +1,49 @@
 %!TEX root = ../func_top.tex
 
-\section{Persistent homology and the minimal surface problem} \label{s:surfaces}
+\section{Persistent homology and functional topology} \label{s:surfaces}
 
-Having established Morse inequalities in terms of persistence diagrams and topological conditions for existence of persistence diagrams associated to filtrations, we now connect these results to the work of Morse and Tompkins on minimal surfaces from \cite{Morse.1939}.
+Having established topological conditions for the existence of persistence diagrams associated to filtrations and corresponding generalized Morse inequalities, we now illustrate how these results relate to Morse and Tompkins' work on minimal surfaces from \cite{Morse.1939}.
 We will focus on the homological aspects of their approach.
-For a general exposition we refer to \cite[Sections 4.3--5]{Bott.1980}, and for a more detailed exposition including the analytical details see \cite[Section II.6]{Struwe.1988}.
+For a general exposition we refer to \cite[Sections 4.3--5]{Bott.1980}, for a more detailed exposition including the analytical details see \cite[Section II.6]{Struwe.1988}, and for a historical account and an overview of subsequent results see \cite[Section 6.7]{Dierkes.2010} and \cite[Section 6.8.1]{Dierkes.2010b}.
+
+\subsection{The unstable minimal surface problem}
 
 Morse and Tompkins considered the following setting introduced by Douglas.
 Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
 Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi((t)+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
-The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined by
+The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined as
 \begin{equation*}
 A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi}  \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
 \end{equation*}
-Let $\Omega_g = \{\varphi \in \widetilde\Omega \mid A_g(\varphi) < \infty\}$.
-Douglas proved that, for a large class of curves $g$, the set $\Omega_g$ is non-empty and the sublevel sets of $A_g$ are compact.
-Since $A_g$ is bounded below by $0$, this implies that $A_g$ attains a global minimimum.
+Let $\Omega_g = \{\varphi \in \widetilde\Omega \mid A_g(\varphi) < \infty\}$, equipped with the $C^0$ metric.
+Douglas proved that, for a large class of curves~$g$, the set $\Omega_g$ is non-empty and the sublevel sets of $A_g$ are compact.
+Since $A_g$ is bounded below by $0$, this implies that $A_g$ attains a global minimum.
 Douglas then showed that this minimizing critical point of $A_g$ corresponds to a solution of Plateau's Problem, a surface homeomorphic to a disk with boundary $g$ and minimum area.
 
 As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consider a homotopical notion of critical point for a general function $F \colon M \to \R$ on a metric space \cite[p.~445]{Morse.1939}, see also \cite{Morse.1943}.
 Roughly, a point $p$ is \emph{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
 
-Morse and Tompkins prove that each homotopically critical point of the functional $A_g$ corresponds to a critical point of the area functional, called a minimal surface \cite[p.~464]{Morse.1939}, and use this correspondence to prove the following result \cite[p.~472]{Morse.1939}, also reviewed in \cite[Theorem II.6.10]{Struwe.1988}.
+Morse and Tompkins prove \cite[p.~464]{Morse.1939} that each homotopically critical point of the functional $A_g$ indeed corresponds to 
+%
+%a critical point of the area functional,
+%called 
+a \emph{minimal surface} -- a surface with vanishing mean curvature -- and use this correspondence to prove the following result, also reviewed in \cite[Theorem II.6.10]{Struwe.1988}.
 
-\begin{thm}[Unstable Minimal Surface Theorem]
-	If $\Omega_g$ contains two distinct solutions of Plateau's Problem contained in disjoint critical sets of $A_g$, then it also contains an unstable minimal surface, more precisely, a homotopically critical point of $A_g$ of non-minimum type.
+\begin{thm}[{Unstable Minimal Surface Theorem \cite[p.~472]{Morse.1939}}]
+	If the space $\Omega_g$ contains two distinct solutions of Plateau's Problem contained in disjoint critical sets of the functional $A_g$, then it also contains a critical set not of minimum type.
+	%, more precisely, a homotopically critical point of $A_g$ of non-minimum type.
 \end{thm}
-Moreover, they give an explicit example of a curve $g$ satisfying these assumptions, proving the existence of an unstable minimal surface.
+Here, a \emph{critical set} $S$ is a closed and open subspace of the set of all critical points with a given function value.
+It is said to be of \emph{minimum type} if for every neighborhood $N$ of $S$, the function value on the complement $N \setminus S$ exceeds the function value on $S$. 
+%it corresponds to a homotopically critical point of $A_g$ of non-minimum type?
+In addition to the general theorem above, Morse and Tompkins also give an explicit example of a curve $g$ satisfying the assumptions, thus proving the existence of an unstable minimal surface.
 
-Their proof relies on Morse inequalities for homotopically critical points, which they infer by relating these critical points to the cap numbers associated to the persistent \v{C}ech homology of the sublevel set filtration of the function, and then applying the Morse inequalities for cap numbers as we have considered them in \cref{s:inequalities}, and as Morse considered them in \cite{Morse.1940}.
+While more efficient and more general proofs for the existence of an unstable minimal surface (with respect to more natural topologies than $C^0$) have subsequently been established \cite{Struwe.1988,Dierkes.2010}, the original approach of Morse and Tompkins is notable for its connection to persistent homology.
+
+
+\subsection{Morse's local connectivity conditions}
+
+Morse and Tompkins' proof of the existence of unstable minimal surfaces is revisited in \cite{Morse.1940} using an argument that relies on Morse inequalities for cap numbers associated to the persistent \v{C}ech homology of the sublevel set filtration, as also considered in \cref{s:inequalities}.
 
 We have seen that these inequalities require q-tameness, so in order to apply them and deduce their theorem, Morse and Tompkins need to prove the \mbox{q-tameness} of $(\Omega_g, A_g)$.
 Throughout his work on functional topology, in order to obtain \mbox{q-tameness}, Morse assumed slightly varying forms of local connectivity on the resulting sublevel set filtrations.
@@ -51,16 +66,32 @@ In the original (where the function is assumed to take values in $[0,1)$ the cla
 	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
 \end{displaycquote}
 Morse does not prove this statement in the given reference, but rather refers to \cite[Theorem~6.1]{Morse.1938}.
-Unfortunately, the above claim does not hold in general, as we will show next by providing an explicit counterexample.
-We start by introducing a stronger version of weak local connectedness, which will still be satisfied by our counterexample.
+Unfortunately, the above claim does not hold in general, as exemplified by the sublevel set filtration from \cref{t:counterexample}.
+To elaborate on this, we consider a stronger version of weak local connectedness.
 
 \begin{defi}
 	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected} or $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being weakly $\LC$ implies being weakly $\piLC$ and, if the homology $\H$ takes finite dimensional values on one-point spaces, also weakly $\HLC$.
-We will now show that not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions.
-In particular, our construction will be used to invalidate Morse's claim quoted above.
+Observe that the proof of \cref{t:counterexample} actually establishes that the filtration given there is weakly $\LC$, so not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions in general.
+In particular, our construction invalidates Morse's claim quoted above because \v{C}ech homology satisfies the assumptions on the homology theory made in \cref{t:counterexample}.
+
+Specifically, \v{C}ech homology is infinite dimensional in degree $d$ for the $d$-dimensional Hawaiian earring. 
+To see that his is the case, one can use the fact that \v{C}ech homology commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6 and X.3.1]{Eilenberg.1952} as follows.
+Define
+\begin{align*}
+\HE_k &=
+\left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle| \ \left( x_0 - \frac{1}{k} \right)^2 + x_1^2 + \dots + x_d^2 \leq \left( \frac{1}{k} \right)^2 \right\} \\ &\, \cup
+\bigcup_{n=1}^{k-1} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle |\ \left( x_0 - \frac{1}{n} \right)^2 + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
+\end{align*}
+i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled.
+We have $\lim_{k} \HE_{k} = \bigcap_{k} \HE_{k} = \HE$, and hence $\CH_{d}(\HE; \F) = \lim_{k} \CH_{d}(\HE_{k}; \F)$, where $\CH$ denotes \v{C}ech homology.
+Clearly, each $\HE_{k}$ is a CW-complex, so we can simply use cellular homology to compute
+\begin{equation*}
+\lim_{k}\CH_{d}(\mathbb{H}^{d}_{k}; \F)=\lim\left(\dots\to \prod_{n=1}^2\F\to \prod_{n=1}^1\F\to \prod_{n=1}^0\F\right)=\prod_{n\in\N}\F,
+\end{equation*}
+which is infinite-dimensional over $\F$.
 
 %We will consider the \emph{$d$-dimensional Hawaiian earring}
 %\begin{equation*}
@@ -102,28 +133,13 @@ In particular, our construction will be used to invalidate Morse's claim quoted 
 %	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
 %\end{proof}
 
-Both singular and \v{C}ech homology of the $d$-dimensional Hawaiian earring is infinite dimensional in degree $d$, so they satisfy the assumptions of \cref{t:counterexample}.
-For singular homology this is proven in \cite{Barratt.1962}.
-For \v{C}ech homology, one can use the fact that it commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6 and X.3.1]{Eilenberg.1952} as follows.
-Define
-\begin{align*}
-\HE_k &=
-\left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle| \ \left( x_0 - \frac{1}{k} \right)^2 + x_1^2 + \dots + x_d^2 \leq \left( \frac{1}{k} \right)^2 \right\} \\ &\, \cup
-\bigcup_{n=1}^{k-1} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle |\ \left( x_0 - \frac{1}{n} \right)^2 + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
-\end{align*}
-i.e., the $d$-dimensional Hawaiian earring but with the $k$-th largest $d$-sphere filled.
-We have $\lim_{k} \HE_{k} = \bigcap_{k} \HE_{k} = \HE$, and hence $\CH_{d}(\HE; \F) = \lim_{k} \CH_{d}(\HE_{k}; \F)$, where $\CH$ denotes \v{C}ech homology.
-Clearly, each $\HE_{k}$ is a CW-complex, so we can simply use cellular homology to compute
-\begin{equation*}
-\lim_{k}\CH_{d}(\mathbb{H}^{d}_{k}; \F)=\lim\left(\dots\to \prod_{n=1}^2\F\to \prod_{n=1}^1\F\to \prod_{n=1}^0\F\right)=\prod_{n\in\N}\F,
-\end{equation*}
-which is infinite-dimensional over $\F$.
+As proven in \cite{Barratt.1962}, the singular homology of the Hawaiian earrings is also infinite dimensional. In summary, we have the following.
 
 \begin{cor} \label{c:counterexample}
 	The function $f \colon \HE \to \R$ with value~$0$ at the origin and $1$ elsewhere defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
 \end{cor}
 
-The gap we have highlighted in the argument of Morse and Tompkins, that the sublevel set filtration of $A_g$ is not necessarily q-tame, can be fixed by applying \cref{t:local connectedness implies q-tameness}.
+The gap we have thus highlighted in the argument of Morse and Tompkins, that the sublevel set filtration of $A_g$ is not necessarily q-tame, can be fixed by applying \cref{t:local connectedness implies q-tameness}.
 This is because the proof given in \cite[p.464]{Morse.1939} for the local connectivity of $(\Omega_g, A_g)$ actually establishes a stronger property described next.
 
 \begin{defi}
