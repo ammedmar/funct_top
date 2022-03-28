@@ -151,7 +151,7 @@ We collect the main ideas in several lemmas.
 \end{proof}
 
 \begin{lem} \label{l:neighborhood third}
-	Let $X$ be a locally compact space.
+	Let $X$ be a locally compact Hausdorff space.
 	For any compact subset $K$ and open set $U$ with $K \subseteq U$ there exists a compact set $K^\prime$ such that
 	\begin{equation*}
 	K \subseteq \interior(K^\prime) \subseteq K^\prime \subseteq U.
@@ -199,7 +199,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 \end{proof}
 
 \begin{lem} \label{l:key lemma for q-tameness}
-	Let $f \colon Y \to \R$ be a function on a locally compact space $Y$ whose sublevel set filtration is compact and $\HLC$ below $u \in \R$, and consider subsets $C \subseteq L \subseteq Y$ with $C$ compact and $L$ open.
+	Let $f \colon Y \to \R$ be a function on a locally compact Hausdorff space $Y$ whose sublevel set filtration is compact and $\HLC$ below $u \in \R$, and consider subsets $C \subseteq L \subseteq Y$ with $C$ compact and $L$ open.
 	For any $s < t < u$ the inclusion $C \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS$.
 \end{lem}
 
@@ -217,8 +217,8 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 		$V \cap f_{\leq s} \to L \cap f_{\leq t}$ is $\HS_n$.
 	\end{enumerate}
 
-	Assuming them for the moment, the first property allows us to cover $C$ by sets $V_x \in \Sigma_{s,t}$, $x \in C$.
-	Because $C$ is compact, this cover can be chosen finite, represented by say $x_1,\dots, x_m$.
+	Assuming them for the moment, the first property allows us to cover $C \cap f_{\leq s}$ by sets $V_x \in \Sigma_{s,t}$, $x \in C \cap f_{\leq s}$.
+	Because both $C$ and $f_{\leq s}$ are compact, $C \cap f_{\leq s}$ is again compact, and hence the cover can be chosen finite, represented by say $x_1,\dots, x_m$.
 	By the second property, we have
 	\[V \defeq \bigcup_{i = 1}^m V_{x_i} \in \Sigma_{s,t}.\]
 	Using the third property, the inclusion

@@ -18,7 +18,7 @@ The Betti numbers of $X$ may also be expressed in terms of barcodes because they
 Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistent homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
 This approach of counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
-To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$ but not indefinitely, \cite{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is continuous from above, correspond to the number of finite bars with length greater than $\epsilon$ in the $d\th$ barcode with left endpoint $t$, plus the number of finite bars with length greater than $\epsilon$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$ but not indefinitely, \cite{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is continuous from above, correspond to the number of bars with length greater than $\epsilon$ in the $d\th$ barcode with left endpoint $t$, plus the number of bars with length greater than $\epsilon$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
 
 Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
 Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
@@ -26,8 +26,8 @@ By \cref{t:q-tame modules have barcodes}, $M$ has a persistence diagram in every
 In analogy to Morse's definitions, we may define, for an integer $d$ and real numbers $t$ and $\epsilon > 0$, the $(d, t, \epsilon)$-\emph{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
 \begin{equation*}
 c_{d}^{\epsilon}(t) \ =
-\sum_{\substack{p \in \R \\ t - p > \epsilon}} \m_{d-1}(p, t) \ +
-\sum_{\substack{q \in \R \\ q - t > \epsilon}} \m_d(t, q).
+\sum_{\substack{p \in \R \cup \{-\infty\} \\ t - p > \epsilon}} \m_{d-1}(p, t) \ +
+\sum_{\substack{q \in \R \cup \{\infty\} \\ q - t > \epsilon}} \m_d(t, q).
 \end{equation*}
 Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $\epsilon$ bounding below the persistence of the considered features.
 To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$.
@@ -43,17 +43,17 @@ An important setting where all cap numbers are well-defined is when $M$ is the p
 A more general statement can be made using the following notion.
 
 \begin{defi} \label{d:initially and eventually constant}
-	A persistence module $N$ is said to be \emph{initially constant} if there is $s \in \R$ such that $N_{r,s}$ is an isomorphism for all $r \leq s$.
+	A persistence module $M$ is said to be \emph{initially constant} if there is $s \in \R$ such that $M_{r,s}$ is an isomorphism for all $r \leq s$.
 	Similarly, it is said to be \emph{eventually constant} if there is $u \in \R$
-	such that $N_{u,v}$ is an isomorphism for all $u \leq v$.
+	such that $M_{u,v}$ is an isomorphism for all $u \leq v$.
 \end{defi}
 
 \begin{thm} \label{t:cap numbers well defined}
-	Let $N$ be a q-tame persistence module that is both initially and eventually constant.
-	If $\n$ is the multiplicity function of the persistence diagram of $N$,
+	Let $M$ be a q-tame persistence module that is both initially and eventually constant.
+	If $\m$ is the multiplicity function of the persistence diagram of $N$,
 	then for each $\epsilon > 0$,
 	\begin{equation*}
-	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \n (p,q) < \infty.
+	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \m (p,q) < \infty.
 	\end{equation*}
 \end{thm}
 
@@ -61,31 +61,31 @@ A more general statement can be made using the following notion.
 	Let $s, u \in \R$ be as in \cref{d:initially and eventually constant}.
 	We split the sum whose finiteness we want to show in two parts
 	\begin{equation*}
-	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \n (p,q) \ = \!\!
-	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q) \ +
-	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \n (p,q)
+	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \m (p,q) \ = \!\!
+	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \m (p,q) \ +
+	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \m (p,q)
 	\end{equation*}
 	where $T$ denotes the triangle
 	\begin{equation*}
 	T = \{(p,q) \in \mulDom \mid s \leq p < q \leq u\}.
 	\end{equation*}
 
-	For the first summand, observe that, because $N$ is constant below $s$ and constant above $u$, we have $\n(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
+	For the first summand, observe that, because $M$ is constant below $s$ and constant above $u$, we have $\m(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
 	This implies
 	\begin{equation*}
-	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \n (p,q)
+	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \m (p,q)
 	\ = \!
-	\sum_{s < q < u} \n (-\infty,q)
+	\sum_{s < q < u} \m (-\infty,q)
 	\ + \!
-	\sum_{s < p < u} \n (p, \infty)
+	\sum_{s < p < u} \m (p, \infty)
 	\end{equation*}
-	which is clearly finite because $N$ is q-tame.
+	which is clearly finite because $M$ is q-tame.
 
 	For the second summand, note that
 	\begin{equation*}
-	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \n (p,q)
+	\sum_{ \substack{ (p,q) \in T \\ q-p > \epsilon } } \m (p,q)
 	\ \, \leq \!\!
-	\sum_{(p,q) \in T^{\epsilon}} \n (p,q),
+	\sum_{(p,q) \in T^{\epsilon}} \m (p,q),
 	\end{equation*}
 	where $T^{\epsilon}$ is the smaller triangle
 	\begin{equation*}
@@ -93,7 +93,7 @@ A more general statement can be made using the following notion.
 	\end{equation*}
 	Thus, in order to prove the theorem, it suffices to show that we have
 	\begin{equation*}
-	\sum_{(p,q) \in T^{\epsilon}} \n (p,q)
+	\sum_{(p,q) \in T^{\epsilon}} \m (p,q)
 	\ < \
 	\infty.
 	\end{equation*}
@@ -104,11 +104,11 @@ A more general statement can be made using the following notion.
 	Covering the compact set $T^{\epsilon}$ by the open quadrants $Q \left(x, x + \frac{\epsilon}{2} \right)$ for $x \in \R$, we may choose a finite subcover given by, say, $x_1,\dots, x_n$.
 	We obtain
 	\begin{equation*}
-	\sum_{(p,q) \in T^{\epsilon}} \n (p,q)
+	\sum_{(p,q) \in T^{\epsilon}} \m (p,q)
 	\ \leq \
-	\sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{\epsilon}{2})}} \n(p,q).
+	\sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{\epsilon}{2})}} \m(p,q).
 	\end{equation*}
-	Each of the sums $\sum_{(p,q) \in Q \left(x_i, x_i + \frac{\epsilon}{2} \right)} \n(p,q)$ over the quadrants $Q \left(x_i, x_i + \frac{\epsilon}{2} \right)$ is finite since $N$ is q-tame (which is where the name q-tame or \emph{quadrant}-tame comes from, see \cite[Section 3.8]{Chazal.2016a}).
+	Each of the sums $\sum_{(p,q) \in Q \left(x_i, x_i + \frac{\epsilon}{2} \right)} \m(p,q)$ over the quadrants $Q \left(x_i, x_i + \frac{\epsilon}{2} \right)$ is finite since $M$ is q-tame (which is where the name q-tame or \emph{quadrant}-tame comes from, see \cite[Section 3.8]{Chazal.2016a}).
 \end{proof}
 
 Comparing to the usual Morse inequalities, the cap numbers in dimension $d$ act like the number of critical points with index $d$.

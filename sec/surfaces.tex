@@ -10,7 +10,7 @@ For a more thorough presentation of the unstable minimal surface problem, includ
 
 Morse and Tompkins considered the following setting introduced by Douglas.
 Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
-Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi(t+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
+Let $\widetilde{\Omega}$ be the space of continuous non-decreasing functions $\varphi \colon \R \to \R$ with $\varphi(t+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
 The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined as
 \begin{equation*}
 A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi}  \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
@@ -80,7 +80,7 @@ Unfortunately, the above claim does not hold in general, as exemplified by the s
 To elaborate on this, we consider a stronger version of weak local connectedness.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected} or weakly $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected} or \emph{weakly $\LC$} if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being weakly $\LC$ implies being weakly $\piLC$ and, if the homology $\H$ takes finite dimensional values on one-point spaces, also weakly $\HLC$.
@@ -151,7 +151,7 @@ The gap we have thus highlighted in the argument of Morse and Tompkins, that the
 This is because the proof given in \cite[p.464]{Morse.1939} for the local connectivity of the sublevel set filtration induced by $A_g$ can actually be seen to establish a stronger property described next.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be $\LC$ if for any $x \in X$, any neighborhood $V$ of $x$ and any pair of indices $f(x) < s < t$ there is a neighborhood $U \subseteq V$ of $x$ such that the map $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally connected} $\LC$ if for any $x \in X$, any neighborhood $V$ of $x$ and any pair of indices $f(x) < s < t$ there is a neighborhood $U \subseteq V$ of $x$ such that the map $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, the filtration being $\LC$ implies that the filtration is also $\HLC$ for \v{C}ech homology with field coefficients, which is the homology theory Morse and Tompkins use.
