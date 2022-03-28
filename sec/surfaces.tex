@@ -10,12 +10,12 @@ For a more thorough presentation of the unstable minimal surface problem, includ
 
 Morse and Tompkins considered the following setting introduced by Douglas.
 Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
-Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi((t)+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
+Let $\widetilde{\Omega}$ be the space of continuous functions $\varphi \colon \R \to \R$ with $\varphi(t+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
 The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined as
 \begin{equation*}
 A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi}  \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
 \end{equation*}
-It coincides with the Dirichlet energy of the unique harmonic extension of the reparametrized curve $g \circ \phi$ to a parametrized surface.
+It coincides with the Dirichlet energy of the unique harmonic extension of the reparametrized curve $g \circ \varphi$ to a parametrized surface.
 The Dirichlet energy is an upper bound for the area, with equality if the parametrization is conformal.
 Let $\Omega_g = \{\varphi \in \widetilde\Omega \mid A_g(\varphi) < \infty\}$, equipped with the $C^0$ metric.
 Douglas proved that, for a large class of curves~$g$, the set $\Omega_g$ is non-empty and the sublevel sets of $A_g$ are compact.
@@ -25,10 +25,10 @@ The corresponding surface is then a solution of \emph{Plateau's Problem}, which 
 As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consider a homotopical notion of critical point for a general function $F \colon M \to \R$ on a metric space \cite[p.~445]{Morse.1939}, see also \cite{Morse.1943}.
 Roughly, a point $p$ is \emph{homotopically critical} if it has no neighborhood in $M_{\leq F(p)}$ that can be mapped by a homotopy into $M_{\leq t}$ for some $t<F(p)$.
 
-Morse and Tompkins prove \cite[p.~464]{Morse.1939} that each homotopically critical point of the functional $A_g$ indeed corresponds to 
+Morse and Tompkins prove \cite[p.~464]{Morse.1939} that each homotopically critical point of the functional $A_g$ indeed corresponds to
 %
 %a critical point of the area functional,
-%called 
+%called
 a \emph{minimal surface} -- a surface with vanishing mean curvature -- and use this correspondence to prove the following result, also reviewed in \cite[Theorem II.6.10]{Struwe.1988}.
 
 \begin{thm}[{Unstable Minimal Surface Theorem \cite[p.~472]{Morse.1939}}]
@@ -36,7 +36,7 @@ a \emph{minimal surface} -- a surface with vanishing mean curvature -- and use t
 	%, more precisely, a homotopically critical point of $A_g$ of non-minimum type.
 \end{thm}
 Here, a \emph{critical set} $S$ is a closed and open subspace of the set of all critical points with a given function value.
-It is said to be of \emph{minimum type} if for every neighborhood $N$ of $S$, the function value on the complement $N \setminus S$ exceeds the function value on $S$. 
+It is said to be of \emph{minimum type} if for every neighborhood $N$ of $S$, the function value on the complement $N \setminus S$ exceeds the function value on $S$.
 %it corresponds to a homotopically critical point of $A_g$ of non-minimum type?
 In addition to the general theorem above, Morse and Tompkins also give an explicit example of a curve $g$ satisfying the assumptions, thus proving the existence of an unstable minimal surface in the above sense.
 
@@ -49,9 +49,9 @@ While more efficient and more general proofs for the existence of an unstable mi
 
 \subsection{Morse's local connectivity conditions}
 
-Parts of the framework of functional topology that Morse and Tompkins use is developed by Morse in \cite{Morse.1940} in a very general setting. 
+Parts of the framework of functional topology that Morse and Tompkins use is developed by Morse in \cite{Morse.1940} in a very general setting.
 In particular, he proves inequalities for cap numbers associated to the persistent \v{C}ech homology of the sublevel set filtration, as also considered in \cref{s:inequalities}.
-From these generalized Morse inequalities, the existence of an unstable minimal surface can easily be deduced in the presence of two distinct critical set of minimum type.
+From these generalized Morse inequalities, the existence of an unstable minimal surface can easily be deduced in the presence of two distinct critical sets of minimum type.
 
 We have seen that these inequalities require q-tameness, so in order to apply them in the minimal surface setting % and deduce their theorem,
 one needs to prove the \mbox{q-tameness} of the sublevel set filtration of the Douglas functional $A_g$.
@@ -70,7 +70,7 @@ Using similar language to the one used in \cref{s:connectivity}, the property of
 
 Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ is bounded from below and satisfies the assumptions of local $F$-connectivity and compactness of sublevel sets.
 %, and a further condition called $F$-regularity, which is trivially satisfied if the domain of $F$ is compact.
-In the original (where the function is assumed to take values in $[0,1)$ the claim reads:
+In the original (where the function is assumed to take values in $[0,1)$) the claim reads:
 \begin{displaycquote}[Theorem 6.3, p.~432]{Morse.1940}
 	Let $a$ and $c$ be positive constants such that $a < c < 1$.
 	The $k^{\mathrm{th}}$ connectivity $R^k(a,c)$ of $F_a$ on $F_c$ is finite.
@@ -80,14 +80,14 @@ Unfortunately, the above claim does not hold in general, as exemplified by the s
 To elaborate on this, we consider a stronger version of weak local connectedness.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected} or $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected} or weakly $\LC$ if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being weakly $\LC$ implies being weakly $\piLC$ and, if the homology $\H$ takes finite dimensional values on one-point spaces, also weakly $\HLC$.
 Observe that the proof of \cref{t:counterexample} actually establishes that the filtration given there is weakly $\LC$, so not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions in general.
 In particular, our construction invalidates Morse's claim quoted above because \v{C}ech homology satisfies the assumptions on the homology theory made in \cref{t:counterexample}.
 
-Specifically, using the the fact that \v{C}ech homology of compact Hausdorff spaces commutes with inverse limits, it is straightforward to verify that the \v{C}ech homology in degree $d$ for the $d$-dimensional Hawaiian earring is isomorphic to $\prod_{n\in\N}\F$, which is infinite dimensional over $\F$. 
+Specifically, using the the fact that \v{C}ech homology of compact Hausdorff spaces commutes with inverse limits, it is straightforward to verify that the \v{C}ech homology in degree $d$ of the $d$-dimensional Hawaiian earring is isomorphic to $\prod_{n\in\N}\F$, which is infinite dimensional over $\F$.
 %To see that his is the case, one can use the fact that \v{C}ech homology commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6 and X.3.1]{Eilenberg.1952} as follows.
 %Define
 %\begin{align*}

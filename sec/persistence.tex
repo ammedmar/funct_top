@@ -3,7 +3,7 @@
 \section{Filtered spaces and persistence theory} \label{s:persistence}
 
 In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions on general topological spaces.
-For a detailed exposition we refer to either of \cite{Chazal.2016a, Oudot.2015, Polterovich.2020}, and for applications of this theory in symplectic geometry to 
+For a detailed exposition we refer to either of \cite{Chazal.2016a, Oudot.2015, Polterovich.2020}, and for applications of this theory in symplectic geometry to
 \cite{Polterovich.2016, Usher.2016, LeRoux.2018, Shelukhin.2019}.
 
 The ``pipeline'' of topological persistence traverses through geometry, algebra and discrete mathematics as follows:
@@ -19,8 +19,6 @@ We pass to filtered spaces by considering the \emph{sublevel set filtration $f_{
 \begin{equation*}
 f_{\leq t} = f^{-1}(-\infty, t].
 \end{equation*}
-We say that this filtration is \emph{compact} if all sublevel sets are compact Hausdorff spaces.
-In this case, the function $f$ is necessarily lower-semicontinuous and bounded from below, see \cite[p.~444]{Morse.1939} or \cite[Theorem 3.1]{Struwe.1988}.
 
 For the next step in the persistence pipeline, one needs a coherent assignment of a vector space to any topological space, or, more precisely, a functor from the category $\Top$ of topological spaces to the category $\Vect$ of vector spaces over a fixed field $\F$.
 The typical choices are given by \emph{homology theories}, which for now are only assumed to be $\Z$-graded families $\H = (\H_d)_{d \in \Z}$ of \emph{homotopy invariant functors}, meaning that they assign the same morphism to homotopic maps.
@@ -64,7 +62,7 @@ By a version of the Krull--Remak--Schmidt--Azumaya Theorem \cite{Azumaya.1950} (
 Thus, if a persistence module $M$ is provided with an isomorphism to a barcode module, referred to as a \emph{barcode decomposition}, the associated barcode is a complete isomorphism invariant of $M$.
 Hence, understanding which persistence modules admit barcode decompositions is key.
 
-The most commonly used existence result for barcode decompositions is due to Crawley-Boevey's \cite{Crawley-Boevey.2015}.
+The most commonly used existence result for barcode decompositions is due to Crawley-Boevey \cite{Crawley-Boevey.2015}.
 It guarantees the existence of a barcode decomposition for any \emph{pointwise finite dimensional} ($\PFD$) persistence module, which is a persistence modules $M$ such that $M_t$ is a finite dimensional vector space for all $t \in \R$.
 Unfortunately, the $\PFD$ condition is too restrictive for many purposes.
 In particular, it is unsuited for the applications of Morse and Tompkins in minimal surface theory.
@@ -74,7 +72,7 @@ As exemplified by the infinite product of interval modules $\prod_{n \in \N_{> 0
 Yet, there are multiple ways to regularize q-tame persistence modules to obtain invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
 We briefly recall the approach from \cite{Chazal.2016b}.
 
-A persistence module $K$ is called \emph{ephemeral} if the maps $K_{s,t} \colon K_s \to K_t$ are $0$ for all $s < t$.
+A persistence module $M$ is called \emph{ephemeral} if the maps $M_{s,t} \colon M_s \to M_t$ are $0$ for all $s < t$.
 The \emph{radical} $\rad M$ of a persistence module $M$ is the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \to M$ is an ephemeral persistence module.
 More explicitly, we have $(\rad M)_t = \sum_{s<t}\im M_{s,t}$.
 As an example, the radical of the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$ is the direct sum $\bigoplus_{n \in \N_{> 0}} C((0,1/n))$.
@@ -106,12 +104,13 @@ If this is the case, we will call the function \emph{q-tame} with respect to the
 If $\H$ is a homology theory, we will call $\H(f_{\leq \bullet})$ the \emph{persistent homology} of the filtration $f_{\leq \bullet}$.
 
 As mentioned earlier, the passage from real-valued functions on a topological space to persistence diagrams is 1-Lipschitz for appropriate metrics.
-On the space of real-valued functions one considers the metric induced by the supremum norm, and for the space of persistence diagrams the \emph{bottleneck distance}.
-This metric expresses the distance between persistence diagrams by a matching of their points, counted with multiplicities, which is optimal with respect to the $L^{\infty}$-distance on $\mulDom$: two diagrams are within distance $\delta$ if any two matched points are within $L^{\infty}$-distance $\delta$, and any unmatched point has $L^{\infty}$-distance at most $2\delta$ to the diagonal $\{(p,q) \in \R^2 \mid p = q\}$.
+We now provide more details regarding this result although they are not used in the present work.
+On the space of real-valued functions one considers the metric induced by the supremum norm, and on the space of persistence diagrams the \emph{bottleneck distance}.
+This metric expresses the distance between persistence diagrams by a matching of their points, counted with multiplicities, which is optimal with respect to the $L^{\infty}$-distance on $\mulDom$: two diagrams are within distance $\delta$ if any two matched points are within $L^{\infty}$-distance $\delta$, and any unmatched point has $L^{\infty}$-distance at most $\delta$ to the diagonal $\{(p,q) \in \R^2 \mid p = q\}$.
 
 The most general stability result is shown by considering as an intermediate step the metric spaces of filtrations and persistence modules equipped with the \emph{interleaving distance}.
 Given two functors $M,N \colon \R \to \mathsf C$, where $\mathsf C$ is typically $\Top$ or $\Vect$, a $\delta$-interleaving between $M$ and $N$ consists of a pair of natural transformations $(M_t \to N_{t+\delta})_t$ and $(N_t \to M_{t+\delta})_t$ from one diagram to a shifted version of the other and vice versa, which compose to the structure maps $(M_t \to M_{t+2\delta})_t$ and $(N_t \to N_{t+2\delta})_t$.
-Clearly, the case $\delta=0$ describes an isomorphism, and the infimum $\delta$ for which $M$ and $N$ admit a $\delta$-interleaving is defined as the interleaving distance between them.
+Clearly, the case $\delta=0$ describes an isomorphism, and the infimum of $\delta$ for which $M$ and $N$ admit a $\delta$-interleaving is defined as the interleaving distance between them.
 $M$ and $N$ are isomorphic in the observable category if and only if they have interleaving distance $0$.
 As it turns out, the stability of persistence barcodes can then be described as a sequence of 1-Lipschitz transformations: From functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance), to persistence modules (with the interleaving distance), and finally to persistence diagrams (with the bottleneck distance).
 In this approach, by far the most difficult step is showing that passing from persistence modules to persistence diagrams is stable, a result which is known as the Algebraic Stability Theorem \cite{Chazal.2009, Bauer.2015, Chazal.2016a}.

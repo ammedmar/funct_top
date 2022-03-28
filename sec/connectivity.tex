@@ -40,6 +40,11 @@ Note that this includes singular homology with field coefficients, which has the
 	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally homologically small} or \emph{weakly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
+\begin{defi}
+	We say that a sublevel set filtration is \emph{compact} if all sublevel sets are compact Hausdorff spaces.
+	In this case, the function $f$ is necessarily lower-semicontinuous and bounded from below, see \cite[p.~444]{Morse.1939} or \cite[Theorem 3.1]{Struwe.1988}.
+\end{defi}
+
 The following result is deduced directly from \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} below.
 The existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
 
@@ -91,7 +96,7 @@ which is a compact subspace of $\R^{d+1}$.
 
 \subsection{Local connectivity and q-tameness}
 
-Motivated by the example above, we introduce a stronger local connectivity condition for sublevel set filtrations that ensures its q-tameness without the strict continuity assumption.
+Motivated by the example above, we introduce a stronger local connectivity condition for sublevel set filtrations that ensures its q-tameness without the continuity assumption.
 
 \begin{defi}
 	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
@@ -239,7 +244,7 @@ This requires the use of a slight weakening of the $\HLC$ condition.
 	By local compactness of $Y$ we can choose a compact neighborhood $K_x$ of $x$ contained in $U_x$.
 	Now $V_x = \interior (K_x)$ is a neighborhood of $x$ with $V_x \in \Sigma_{s,t}$.
 
-	Finally, using Mayer--Vietoris and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
+	Finally, using the Mayer--Vietoris property and the induction hypothesis we will show that $\Sigma_{s,t}$ has the second required property, i.e., that it is closed under finite unions.
 	So for $i \in \{1, 2\}$ let $V_i \in \Sigma_{s,t}$ with $U_i$ and $s'_i \in (s,\, t)$ such that
 	$\overline{V_i} \subseteq U_i \subseteq L$
 	and

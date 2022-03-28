@@ -1,10 +1,10 @@
 \immediate\write18{biber \jobname}
 
 \documentclass{amsart}
-\include{aux/style}
-\include{aux/commands}
+\input{aux/style}
+\input{aux/commands}
 
-\title[Persistence in functional topology]{Persistence in functional topology: 
+\title[Persistence in functional topology]{Persistence in functional topology:
 existence of
 persistence diagrams
 and
@@ -64,5 +64,6 @@ Morse inequalities
 	\appendix
 	\input{sec/vietoris}
 	\input{sec/acknowledgment}
+	\sloppy
 	\printbibliography
 \end{document}

@@ -23,16 +23,16 @@ To keep track of the number of $d$-dimensional homological events at filtration 
 Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
 Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
 By \cref{t:q-tame modules have barcodes}, $M$ has a persistence diagram in every degree $d$ with multiplicity function denoted $\m_d \colon \mulDom \to \N$.
-In analogy to Morse's definitions, we may define the $(d, t, \epsilon)$-\emph{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
+In analogy to Morse's definitions, we may define, for an integer $d$ and real numbers $t$ and $\epsilon > 0$, the $(d, t, \epsilon)$-\emph{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
 \begin{equation*}
 c_{d}^{\epsilon}(t) \ =
 \sum_{\substack{p \in \R \\ t - p > \epsilon}} \m_{d-1}(p, t) \ +
 \sum_{\substack{q \in \R \\ q - t > \epsilon}} \m_d(t, q).
 \end{equation*}
-Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $e$ bounding below the persistence of the considered features.
+Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $\epsilon$ bounding below the persistence of the considered features.
 To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$.
 
-Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers} 
+Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers}
 \[
 c_{d}^{\epsilon} =
 \sum_{t} c_{d}^{\epsilon}(t) \ =
@@ -67,7 +67,7 @@ A more general statement can be made using the following notion.
 	\end{equation*}
 	where $T$ denotes the triangle
 	\begin{equation*}
-	T = \{(p,q) \in \mulDom \mid t_0 \leq p < q \leq t_1\}.
+	T = \{(p,q) \in \mulDom \mid s \leq p < q \leq u\}.
 	\end{equation*}
 
 	For the first summand, observe that, because $N$ is constant below $s$ and constant above $u$, we have $\n(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
@@ -104,7 +104,7 @@ A more general statement can be made using the following notion.
 	Covering the compact set $T^{\epsilon}$ by the open quadrants $Q \left(x, x + \frac{\epsilon}{2} \right)$ for $x \in \R$, we may choose a finite subcover given by, say, $x_1,\dots, x_n$.
 	We obtain
 	\begin{equation*}
-	\sum_{(p,q) \in T^{\geq e}} \n (p,q)
+	\sum_{(p,q) \in T^{\epsilon}} \n (p,q)
 	\ \leq \
 	\sum_{i=1}^n \sum_{\substack{(p, q) \in \\ Q (x_i, x_i + \frac{\epsilon}{2})}} \n(p,q).
 	\end{equation*}
@@ -163,7 +163,7 @@ Hence, as a special case, the theorem yields generalized Morse inequalities for 
 As outlined in our motivation for the definition of cap numbers, in this setting our inequalities \eqref{e:morse inequalities} agree with the classical inequalities \eqref{e:classical morse inequalities}, as $\beta_d(X) = p_d$ and $c_d^{\epsilon} = \# \crit_d(f)$ for $\epsilon > 0$ smaller than the minimal difference between any two critical values of~$f$.
 Morse inequalities for unbounded functions can still be obtained by restricting the function to an arbitrary sublevel set.
 
-The finiteness conditions of our theorem are also satisfied for the Douglas functional considered by Morse and Tompkins as an application of Morse' theory of functional topology.
+The finiteness conditions of our theorem are also satisfied for the Douglas functional considered by Morse and Tompkins as an application of Morse's theory of functional topology.
 While the condition proposed by Morse turns out to be insufficient as shown in \cref{s:surfaces}, q-tameness is still guaranteed by \cref{t:local connectedness implies q-tameness} established in \cref{s:connectivity}.
 As mentioned before, our inequalities then agree with Morse's historical version from functional topology as presented in \cite[Corollary~12.3]{Morse.1940} if the persistent homology of the sublevel set filtration is not only q-tame but also continuous from above, which is satisfied for compact sublevel set filtrations if one uses \v{C}ech homology, as is the case in Morse's work.
 Note however that, in contrast to Morse's version, our inequalities also hold without the assumption of continuity from above, expanding their use beyond \v{C}ech type theories.
