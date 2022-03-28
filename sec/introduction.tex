@@ -8,7 +8,7 @@ Morse theory in the smooth context was masterfully presented in Milnor's famous 
 Another important example of the use of Morse's insights in an infinite context is Floer's work on the Arnold conjecture and its many ramifications in symplectic topology, as surveyed for example in \cite{Salamon.1999}.
 Morse himself worked in a very general setting, publishing in the 1930s a pair of papers \cite{Morse.1937, Morse.1940} and a monograph \cite{Morse.1938} in which he established the key results of Morse theory in the broad context defined by semi-continuous functionals on metric spaces.
 He called the theory set forth in this body of work \emph{functional topology} and used it to study questions about minimal surfaces motivated by Douglas' solution to Plateau’s Problem \cite{Douglas.1931}.
-In particular, Morse and Tompkins \cite{Morse.1939, Morse.1941} used these techniques to prove a general form of \emph{Mountain Pass Theorem} --~an existence result for saddle points~-- applying to functions that are not necessarily continuous.
+In particular, Morse and Tompkins \cite{Morse.1939} used these techniques to prove a general form of \emph{Mountain Pass Theorem} --~an existence result for saddle points~-- applying to functions that are not necessarily continuous.
 From this, they deduce their \emph{Unstable Minimal Surface Theorem}, showing the existence of critical points of the Douglas functional that are not local minima.
 In the intervening years, this result has been reproven and generalized in several directions using various techniques, and the problem class is still an active area of research \cite{Struwe.1984,Jost.1990,Jost.1991,Montezuma.2020,Marques.2021}.
 
@@ -32,29 +32,25 @@ They capture much of the same information as the modern notion of persistence di
 Morse used his theory of caps to study functionals on a metric space by analyzing the evolution of the topology of their sublevel sets.
 A key tool for this end is a version of his eponymous inequalities for cap numbers, which expands their usual version in the compact and smooth setting.
 In this work, using persistence diagrams, we generalize the definition of these cap numbers to persistence modules and prove the existence of Morse inequalities for a large class of them (\cref{t:inequalities}).
-Our approach makes these inequalities accessible in new contexts beyond those originally covered by functional topology, including, for example, symplectic geometry.
+Our approach makes these inequalities accessible in new contexts beyond those originally covered by functional topology. %including, for example, symplectic geometry.
 
 Given the importance of persistence diagrams, in particular for stating and proving Morse inequalities, our focus will then be on the study of topological properties ensuring their existence for a broad class of filtered spaces and homology constructions.
 For general persistence modules, a well studied condition for the existence of persistence diagrams is \emph{q-tameness} \cite{Chazal.2016a,Chazal.2016b}, which simply states that all linear maps between different real values in the persistence module have finite dimensional rank.
 The motivating question can then be reformulated as asking for topological conditions on a filtered space that ensure its persistent homology to be q-tame.
-We introduce two broadly applicable local-connectivity conditions and show that the first suffices for the \mbox{q-tameness} of filtrations defined by continuous functionals (\cref{c:q-tameness for continuous functions}), and the second for those defined by functionals with compact sublevel sets (\cref{t:local connectedness implies q-tameness}).
+We introduce two broadly applicable local-connectivity conditions and show that the first suffices for the \mbox{q-tameness} of filtrations defined by continuous functionals (\cref{t:q-tameness for continuous functions}), and the second for those defined by functionals with compact sublevel sets (\cref{t:local connectedness implies q-tameness}).
 
-To illustrate the applicability of these results we return to the original setting that motivated the development of functional topology considering the Douglas functional.
-It satisfies the hypothesis of \cref{t:local connectedness implies q-tameness}, so its associated persistent \v{C}ech homology is indeed q-tame and satisfies the Morse inequalities assumed by Morse and Tompkins, eventhough the other local-connectivity assumptions they wanted to employ are not sufficient for this conclusion (\cref{c:counterexample}).
+To illustrate the applicability of these results we return to the original setting of the Douglas functional that motivated the development of functional topology.
+This functional satisfies the hypotheses of \cref{t:local connectedness implies q-tameness}, so its associated persistent \v{C}ech homology is indeed q-tame and admits a persistence diagram. From this, one can easily deduce the existence of an unstable minimal surface for certain explicit examples.
+As it turns out, the local connectivity conditions proposed by Morse \cite{Morse.1937} are not sufficient for this purpose, which we illustrate by a counterexample (\cref{c:counterexample}).
+
 
 \subsection*{Summary}
-%During the 1930s, Marston Morse developed a vast generalization of what is commonly known as Morse theory relating the critical points of a semi-continuous functional with the topology of its sublevel sets.
-%Morse and Tompkins applied this body of work, referred to as functional topology, to prove the Unstable Minimal Surface Theorem in the setting defined by Douglas' solution to Plateau's Problem, a result later re-proven and generalized by minimal surface theorists using other techniques.
-%Several concepts introduced by Morse in this context can be seen as early precursors to the theory of persistent homology, which by now has established itself as a popular tool in applied and theoretical mathematics.
 
-
-The primary contribution of this work consists in 
-%In this article, we provide 
-a modern redevelopment of the homological aspects of Morse's functional topology from the perspective of persistence theory.
+The primary contribution of this work consists in a modern development of the homological aspects of Morse's functional topology from the perspective of persistence theory.
 We adjust several key definitions and prove stronger statements -- including a generalized version of the Morse inequalities -- in order to allow for novel uses of persistence techniques in functional analysis.
-% and symplectic geometry.
-More specifically, we provide sufficient conditions for a lower semicontinuous function to have q-tame persistent sublevel set homology, and hence to admit a persistence diagram.
-With the goal of illustrating the applicability of this result, we use it to correct an inaccuracy in a result by Morse, which was employed in the proof of the Unstable Minimal Surface Theorem given by Morse and Tompkins.
+We provide sufficient conditions for a lower semicontinuous function to have q-tame persistent sublevel set homology, and hence to admit a persistence diagram.
+As an application of these result, we correct an inaccuracy in a result by Morse, which was employed in the proof of the Unstable Minimal Surface Theorem given by Morse and Tompkins.
+
 
 \subsection*{Outline}
 
@@ -63,5 +59,4 @@ We present a persistence-theoretic point of view on Morse inequalities in \cref{
 It generalizes both their versions in the smooth and compact setting as well as the one used in functional topology.
 The core of this work is presented in \cref{s:connectivity}, where we define two natural notions of local-connectivity for a sublevel set filtration and show under what circumstances they imply q-tameness for its associated persistence module.
 We close in \cref{s:surfaces} with a historical overview of Morse--Tompkins' use of functional topology in minimal surface theory, and explore its relation to our results.
-\todo{update this to reflect the restructuring}
 \cref{s:vietoris} contains a brief discussion on the definitions of Vietoris and \v{C}ech homology and their equivalence for compact metric spaces.
