@@ -29,7 +29,7 @@ For the rest of this section, we will assume that $\H$ is a homology theory that
 We will also assume that $\H_{n}$ takes finite dimensional values on one-point spaces.
 Note that this includes singular homology with field coefficients, which has the open Mayer--Vietoris property (like any homology theory in the sense of the Eilenberg--Steenrod axioms \cite[Section I]{Eilenberg.1952}), and it also includes \v{C}ech homology with field coefficients, which has the compact Mayer--Vietoris property.
 
-\subsection{Weak local connectivity and q-tameness}
+\subsection{Local connectivity and q-tameness}
 
 \begin{defi}
 	For $n \in \Z$ a continuous map is said to be \emph{$n$-homologically small} or $\HS_n$ if the image of the map induced by $\H_{n}$ is finite dimensional.
@@ -37,93 +37,16 @@ Note that this includes singular homology with field coefficients, which has the
 \end{defi}
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally homologically small} or \emph{weakly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
 \end{defi}
 
 \begin{defi}
 	We say that a sublevel set filtration is \emph{compact} if all sublevel sets are compact Hausdorff spaces.
-	In this case, the function $f$ is necessarily lower-semicontinuous and bounded from below, see \cite[p.~444]{Morse.1939} or \cite[Theorem 3.1]{Struwe.1988}.
 \end{defi}
 
-The following result is deduced directly from \cref{t:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness} below.
-The existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
+If $f_{\leq t}$ is compact then the function $f$ is necessarily lower-semicontinuous and bounded from below, see \cite[p.~444]{Morse.1939} or \cite[Theorem 3.1]{Struwe.1988}.
 
-\begin{thm} \label{t:q-tameness for continuous functions}
-	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
-\end{thm}
-
-As the following example illustrates, the continuity assumption in the above theorem is crucial.
-Consider the \emph{$d$-dimensional Hawaiian earring}
-\begin{equation*}
-\HE = \bigcup_{n \in \N} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle | \ \left( x_0 - \frac{1}{n} \right)^2 \!\! + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
-\end{equation*}
-which is a compact subspace of $\R^{d+1}$.
-
-\begin{figure}[t]
-	\centering
-	\begin{tikzpicture}[scale = 60]
-	\draw[thick,lightgray] (-.1,-.001) rectangle (.1,.05);
-	\clip (-.1,0) rectangle (.1,.05);
-	\foreach \i in {1,...,100}{
-		\draw[line width=0.4/\i^0.25 pt] (0, 1/\i^2) circle (1/\i^2);
-	}
-	\end{tikzpicture}
-	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
-\end{figure}
-
-\begin{thm} \label{t:counterexample}
-	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact and weakly $\HLC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is infinite dimensional for some $n$.
-\end{thm}
-
-\begin{proof}
-	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
-
-	In order to verify that the sublevel set filtration of $f$ is weakly $\HLC$, we consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$.
-	We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-	Since we assume that $\H_{n}$ is homotopy invariant and takes singletons to finite dimensional spaces, it suffices to find $U$ as above such that $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
-
-	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
-	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\HLC$ condition is trivially satisfied.
-
-	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
-	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
-	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$.
-	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
-
-	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
-	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
-\end{proof}
-
-\subsection{Local connectivity and q-tameness}
-
-Motivated by the example above, we introduce a stronger local connectivity condition for sublevel set filtrations that ensures its q-tameness without the continuity assumption.
-
-\begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is called \emph{locally homologically small} or \emph{$\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any pair of indices $s,t$ with $f(x) < s < t$ there is a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-\end{defi}
-
-Clearly, any $\HLC$ sublevel set filtration is also weakly $\HLC$:
-while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
-If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
-
-\begin{thm} \label{t:weak hlc to hlc}
-	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also $\HLC$.
-\end{thm}
-
-\begin{proof}
-	Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$.
-	We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
-
-	To do so, we start by using the weak $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
-	Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
-	Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of~$X$.
-
-	We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
-	This second map is $\HS$ by construction.
-	Any map that factors through an $\HS$ map is also $\HS$, so the proof is complete.
-\end{proof}
-
-Our main technical result, proven in the remainder of this subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
+Our main result, proven in the remainder of this subsection, is that for compact sublevel set filtrations the $\HLC$ condition implies \mbox{q-tameness} and, consequently, also the existence of a persistence diagram.
 
 \begin{thm} \label{t:local connectedness implies q-tameness}
 	If the sublevel set filtration of a function $f \colon X \to \R$ is compact and	$\HLC$, then it is also q-tame.
@@ -328,3 +251,79 @@ We can now complete the proof of the claim stating that for compact sublevel set
 	Clearly, the sublevel set filtration of $g$ is also compact, and its domain $Y$ is locally compact being a compact Hausdorff space by assumption.
 	Thus, we can apply \cref{l:key lemma for q-tameness} to the filtration $g_{\leq \bullet}$ with $C = L = Y$ to obtain that the inclusion $f_{\leq s} = C \cap g_{\leq s} \to L \cap g_{\leq t} = f_{\leq t}$ is $\HS$.
 \end{proof}
+
+\subsection{Continuity}
+
+We now describe a weaker version of local connectivity of sublevel set filtrations that implies q-tameness when continuity is assumed.
+
+\begin{defi}
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally homologically small} or \emph{weakly $\HLC$} if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+\end{defi}
+
+Clearly, any $\HLC$ sublevel set filtration is also weakly $\HLC$:
+while the weak $\HLC$ property merely requires the existence of an index $s \in (f(x),t)$ satisfying the $\HS$ condition, the $\HLC$ property requires the $\HS$ condition to hold for any $s \in (f(x),t)$.
+If the filtration is induced by a continuous function, the converse also holds as the following theorem shows.
+
+\begin{lem} \label{l:weak hlc to hlc}
+	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is weakly $\HLC$, then it is also $\HLC$.
+\end{lem}
+
+\begin{proof}
+	Fix $x \in X$, a neighborhood $V$ of $x$ and indices $f(x) < s < t$.
+	We need to show that there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+
+	To do so, we start by using the weak $\HLC$ property to choose a neighborhood $U' \subseteq V$ of $x$ and an index $s' \in (f(x),\, t)$ such that the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$ is $\HS$.
+	Now, we choose $U = f_{< s'} \cap U'$, where $f_{< s'} = f^{-1} (-\infty, s')$.
+	Note that this choice of $U$ still defines a neighborhood of $x$ because $f$ is assumed to be continuous, so that $f_{< s'}$ is an open subset of~$X$.
+
+	We obtain that $f_{\leq s} \cap U \subseteq f_{\leq s'} \cap U'$, so that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ factors through the inclusion $f_{\leq s'} \cap U' \to f_{\leq t} \cap V$.
+	This second map is $\HS$ by construction.
+	Any map that factors through an $\HS$ map is also $\HS$, so the proof is complete.
+\end{proof}
+
+The following result is deduced directly from \cref{l:weak hlc to hlc} and \cref{t:local connectedness implies q-tameness}.
+The existence of a result of this kind has been suggested by Weinberger \cite{Weinberger.2011}.
+
+\begin{cor} \label{c:q-tameness for continuous functions}
+	If the sublevel set filtration of a continuous function $f \colon X \to \R$ is compact and weakly $\HLC$, then it is also q-tame.
+\end{cor}
+
+As the following example illustrates, the continuity assumption in the above theorem is crucial.
+
+\begin{figure}[t]
+	\centering
+	\begin{tikzpicture}[scale = 60]
+		\draw[thick,lightgray] (-.1,-.001) rectangle (.1,.05);
+		\clip (-.1,0) rectangle (.1,.05);
+		\foreach \i in {1,...,100}{
+			\draw[line width=0.4/\i^0.25 pt] (0, 1/\i^2) circle (1/\i^2);
+		}
+	\end{tikzpicture}
+	\caption{A closeup of the Hawaiian earring $\mathbb{H}^1$.}
+\end{figure}
+
+\begin{example} \label{e:counterexample}
+	Consider the \emph{$d$-dimensional Hawaiian earring}
+	\begin{equation*}
+		\HE = \bigcup_{n \in \N} \left\{ (x_0, \dots, x_d) \in \R^{d+1} \ \middle | \ \left( x_0 - \frac{1}{n} \right)^2 \!\! + x_1^2 + \dots + x_d^2 = \left( \frac{1}{n} \right)^2 \right\},
+	\end{equation*}
+	which is a compact subspace of $\R^{d+1}$.
+	The function $f \colon \HE \to \R$ whose value at the origin is $0$ and is $1$ everywhere else defines a compact and weakly $\HLC$ sublevel set filtration that is not q-tame with respect to $\H$ if $\H_{n}(\HE)$ is infinite dimensional for some $n$.
+
+	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
+
+	In order to verify that the sublevel set filtration of $f$ is weakly $\HLC$, we consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$.
+	We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is $\HS$.
+	Since we assume that $\H_{n}$ is homotopy invariant and takes singletons to finite dimensional spaces, it suffices to find $U$ as above such that $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+
+	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
+	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\HLC$ condition is trivially satisfied.
+
+	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
+	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
+	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$.
+	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
+
+	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
+	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
+\end{example}
