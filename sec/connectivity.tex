@@ -85,9 +85,12 @@ We collect the main ideas in several lemmas.
 	For any $x \in K$ choose a compact neighborhood $C(x) \subseteq U$.
 	We have
 	\begin{equation*}
-	K \subseteq \bigcup_{x \in K} \interior(C(x)) \subseteq \interior\left(\bigcup_{x \in K} C(x)\right) \subseteq \bigcup_{x \in K} C(x) \subseteq U
+	K \subseteq \bigcup_{x \in K} \interior(C(x)).
 	\end{equation*}
-	Since $K$ is compact, the first inclusion above is achieved over a finite subset $\{x_1, \dots, x_m\}$ of elements in $K$.
+	Since $K$ is compact, there is a finite subset $\{x_1, \dots, x_m\}$ of elements in $K$ so that
+	\begin{equation*}
+	K \subseteq \bigcup_{i=1}^m \interior(C(x_i)) \subseteq \interior\left(\bigcup_{i=1}^m C(x_i)\right) \subseteq \bigcup_{i=1}^m C(x_i) \subseteq U
+	\end{equation*}
 	Defining $K^\prime = \bigcup_{i=1}^m C(x_i)$ finishes the proof.
 \end{proof}
 

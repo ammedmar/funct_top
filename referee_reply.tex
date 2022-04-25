@@ -17,9 +17,12 @@
 	\section{Second point.} Thank you for the suggestions.
 	We have implemented them all as requested.
 
-	\section{Third point.} TBW
+	\section{Third point.} Thank you for the suggestions. 
+	We have included a proof of the Unstable Minimal Surface Theorem and a formal definition of the notion of homotopically critical point in Section 5.1, mostly following the general outline that was suggested. 
+	The proof is broken down into some intermediate lemmas and cites Morse--Tompkins and Struwe as necessary.
+	We have also added the notions of \emph{number of births} and \emph{number of deaths} in the section on persistence and gave some basic formulas to compute them, which was necessary to make the later proofs work.
 
-	\section{Additional suggestion.} TBW
+	\section{Additional suggestion.} We have implemented the conceptually easier proof of the Morse inequalities as suggested, thank you.
 
 	\section{List of typos, minor remarks and suggestions.}
 	\begin{enumerate}
@@ -36,7 +39,7 @@
 		\item RAS.
 		\item RAS.
 		\item RAS.
-		\item RAS, thank you. (ULI, PLEASE CHECK THIS CHANGE)
+		\item RAS. (@Uli, please check this change.)
 		\item RAS.
 		\item Removed ``finite'' from the informal description and changed the definition of $c_d^{\epsilon}(t)$ as suggested.
 		\item RAS.
@@ -48,22 +51,18 @@
 		\item RAS.
 		\item RAS.
 		\item RAS.
-		\item TBW
+		\item Paragraph has been reformulated.
 		\item RAS.
-		\item (I THINK WE ARE ASSUMING HAUSDORFF, RIGHT? IS THIS NOT MENTIONED?)
-		Max: I guess not in general. Here, we want the version 3' of local compactness from \url{https://en.wikipedia.org/wiki/Locally_compact_space}, which is only equivalent to weaker versions for Hausdorff spaces. We apply the lemma only to Hausdorff spaces, so it's fine to add the assumption.		
-		Added Hausdorff assumption as suggested, also added the assumption for the domain $Y$ to be Hausdorff in the main lemma.
-
-		\item TBW
+		\item Clarified as suggested by adding the Hausdorff assumption explicitly.
+		\item RAS.
 		\item RAS.
 		\item RAS.
 		\item Assumption that $\varphi$ should be non-decreasing was indeed missing and has been added, thank you.
 		\item RAS.
 		\item RAS.
-		\item (I DO NOT KNOW)
-		\item TO BE ADDRESS AFTER DISCUSSING WHAT ``homotopically critical point'' ARE.
-		\item (I DO NOT KNOW)
-		Max: Not making a change, yet, but i think the referee is correct. As stated right now "minimum type" would only refer to global minima, but it should probably also refer to local minima. Please check this, Uli.
+		\item The sentence ``for a large class of curves'' seems to have been a remnant of a previous version where we did not make the assumptions on the curve explicit. We have removed this part and included a precise reference to the relevant part in Morse--Tompkins' paper.
+		\item RAS.
+		\item It should have indeed said ``there exists a neighborhood'' instead of ``for every neighborhood''. We also realised there was another assumption missing: The neighborhood should not only contain the critical set but in fact its closure -- in general a critical set will only be closed in its level set, but not necessarily in the whole space.
 		\item RAS.
 		\item RAS.
 		\item RAS.
@@ -74,4 +73,7 @@
 		\item RAS.
 		\item Explained that this indeed follows from Lebesgue's number lemma.
 	\end{enumerate}
+	
+	\section{Other changes}
+	The notion that was formerly called 'homotopically locally connected' is now simply called 'locally connected of all orders' and the notion that was formerly called 'locally connected' is now called 'locally contractible', which seems to be more in line with the existing literature.
 \end{document}

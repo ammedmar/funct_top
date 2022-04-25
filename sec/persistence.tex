@@ -82,8 +82,9 @@ This can be formalized by constructing the \emph{observable category of persiste
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
 Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
-In certain situations, no information is lost in this process, for example if the persistence module $M$ can be assumed to be \emph{continuous from above}, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}.
-This assumption is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology; in this setting, both the filtration as well as the resulting persistence module are continuous from above.
+In certain situations, no information is lost in this process, for example if the persistence module $M$ can be assumed to be \emph{continuous from above at $s$} for all~$s \in \R$, i.e., $M_{s} \to \lim_{s < t} M_{t}$ is an isomorphism for all~$s \in \R$ \cite{Schmahl.2021}.
+Alternatively, one may also impose the condition that $M$ be \emph{continuous from below at $t$} for all~$t \in \R$, i.e., $\colim_{s < t} M_{s} \to M_{t}$ is an isomorphism for all~$t \in \R$.
+Continuity from above is satisfied in Morse's setting of studying compact sublevel set filtrations with \v{C}ech homology; in this setting, both the filtration as well as the resulting persistence module are continuous from above.
 In terms of barcodes, continuity from above amounts to only admitting intervals that are closed on the left and open on the right.
 One can also simply disregard the distinction between open, closed and half-open intervals in a barcode $\{I_{\lambda}\}_{\lambda \in \Lambda}$, which leads to another invariant that is more convenient in many settings, including our formulation of generalized Morse inequalities.
 This invariant, known as the \emph{persistence diagram}, is defined as the multiset given by the \emph{multiplicity function} $\m \colon \mulDom \to \N$ that associates to an element in
@@ -114,4 +115,60 @@ Clearly, the case $\delta=0$ describes an isomorphism, and the infimum of $\delt
 $M$ and $N$ are isomorphic in the observable category if and only if they have interleaving distance $0$.
 As it turns out, the stability of persistence barcodes can then be described as a sequence of 1-Lipschitz transformations: From functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance), to persistence modules (with the interleaving distance), and finally to persistence diagrams (with the bottleneck distance).
 In this approach, by far the most difficult step is showing that passing from persistence modules to persistence diagrams is stable, a result which is known as the Algebraic Stability Theorem \cite{Chazal.2009, Bauer.2015, Chazal.2016a}.
+
+We will now finish this section by recording some helpful facts about the \emph{number of births at $t$}
+\[
+	\alpha(t) = \sum_{q \in (t, \infty]} \m(t,q)
+\]
+and the \emph{number of deaths at $t$}
+\[
+	\omega(t) = \sum_{p \in [-\infty, t)} \m(p,t)
+\]
+for a q-tame persistence module $M$ with persistence diagram given by $\m$.
+%\begin{defi}
+%	Let $M$ be a q-tame persistence module with persistence diagram given by $\m$. 
+%	For $t \in \R$ we define the \emph{number of births at $t$} as
+%	\[
+%		\alpha(t) = \sum_{q \in (t, \infty]} \m(t,q)
+%	\]
+%	and the \emph{number of deaths at $t$} as 
+%	\[
+%		\omega(t) = \sum_{p \in [-\infty, t)} \m(p,t).
+%	\]
+%\end{defi}
+
+\todo{should we somehow unify definitions of $\alpha$, $\omega$, $c$ etc. in a single place? compare also the use of $\alpha^{\epsilon}$ and $\omega^{\epsilon}$ in the proof of \cref{t:inequalities}}
+
+\begin{lem}
+\label{lem:birth_death_formulas}
+	Let $M$ be a q-tame persistence module.
+	For each $t \in \R$ we either have 
+	\[
+		\alpha(t) = \dim \coker (\colim_{s < t} M_{s} \to \lim_{u > t} M_{u})
+	\]
+	or both quantities are infinite.
+	Similarly, we either have 
+	\[
+		\omega(t) = \dim \ker (\colim_{s < t} M_{s} \to \lim_{u > t} M_{u})
+	\]
+	or both quantities are infinite.
+\end{lem}
+\begin{proof}
+	None of the quantities appearing in the statement change if we replace $M$ by its radical.
+	This radical admits a barcode decomposition and the claims easily follow from an explicit computation on the corresponding barcode module.
+\end{proof}
+
+If $M$ is continuous from below or above, then the colimits and limits appearing in the formulas above may simply be replaced by constituent vector spaces of $M$. 
+As a special case, this yields the following corollary.
+
+\begin{cor}
+\label{cor:regular_value_no_endpoint}
+	Let $M$ be a q-tame persistence module.
+	If $M$ is continuous from above and below at $t$ we have
+	\[
+		\alpha(t) = \omega(t) = 0.
+	\]
+\end{cor}
+
+
 
