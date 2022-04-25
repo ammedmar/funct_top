@@ -44,7 +44,8 @@ As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consi
 \end{defi}
 
 Note that, in particular, an isolated local minimum constitutes a critical set of minimum type.
-Morse and Tompkins state the following result with slightly different assumptions, as a general Mountain Pass Lemma for critical sets.
+Morse and Tompkins state the following result with slightly different assumptions.
+%, as a general Mountain Pass Lemma for critical sets.
 
 % \begin{thm}[{\cite[Corollary 7.1, p.~472]{Morse.1939}}]
 % \label{thm:mountain_pass}
@@ -54,7 +55,7 @@ Morse and Tompkins state the following result with slightly different assumption
 %	maybe only formulate for \v{C}ech homology to get rid of some text?}
 % \end{thm}
 
-\begin{thm}[{\cite[Corollary 7.1, p.~472]{Morse.1939}}]
+\begin{thm}[Mountain Pass Lemma, {\cite[Corollary 7.1, p.~472]{Morse.1939}}]
 \label{thm:mountain_pass}
 	Let $M$ be a metric space and $F \colon M \to \R$ a function.
 	Assume that $F$ is bounded below, that the sublevel set filtration of $F$ is compact, and that $\CH(F_{\leq \bullet})$ is q-tame with essential dimension $\cp_{0} = 1$, where $\CH$ denotes \v{C}ech homology.
@@ -159,6 +160,7 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 \end{proof}
 
 We are now ready to give a proof of the Mountain Pass Lemma.
+
 \begin{proof}[Proof of \cref{thm:mountain_pass}]
 	We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
 	Assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
@@ -185,6 +187,7 @@ We can also check that the essential dimension $\check{p}_{0}$ is $1$ using the 
 	Let $F \colon M \to \R$ be a function on a non-empty metric space with compact sublevel set filtration and let $\cp_{d}$ be the essential dimensions of its q-tame persistent \v{C}ech homology.
 	If $M$ is contractible, then $\cp_{0} = 1$.
 \end{lem}
+
 \begin{proof}
 	Let $\H$ denote singular homology, let $p_{d}$ denote the essential dimensions of the persistent singular homology of $F_{\leq \bullet}$, and let $\CH$ denote \v{C}ech homology.
 	Since $M$ is contractible, we have $\dim H_{0}(M) = 1$.
