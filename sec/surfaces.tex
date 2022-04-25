@@ -13,7 +13,7 @@ Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple c
 Let $\widetilde{\Omega}$ be the space of continuous non-decreasing functions $\varphi \colon \R \to \R$ with $\varphi(t+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
 The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined as
 \begin{equation*}
-A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi}  \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
+A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi} \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
 \end{equation*}
 It coincides with the Dirichlet energy of the unique harmonic extension of the reparametrized curve $g \circ \varphi$ to a parametrized surface.
 The Dirichlet energy is an upper bound for the area, with equality if the parametrization is conformal.
@@ -38,7 +38,7 @@ As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consi
 % 		\item $F(\varphi(x,s)) - F(\varphi(x,t)) > \delta(d(\varphi(x,s),\varphi(x,t)))$ for all $x \in V$ and $0 \leq s \leq t \leq 1$.
 % 	\end{itemize}
 	A point that is not homotopically regular is called \emph{homotopically critical}.
-	Function values of  homotopically critical points will be called \emph{critical values} and all other values will be called \emph{regular values}.
+	Function values of homotopically critical points will be called \emph{critical values} and all other values will be called \emph{regular values}.
 	A \emph{critical set} $S$ is a closed and open subset of the subspace of all homotopically critical points with a given function value.
 	It is said to be of \emph{minimum type} if there exists a neighborhood $N$ of the closure $\overline{S}$ of $S$, taken in $M$, such that the function values on $N \setminus S$ strictly exceed the function value on $S$.
 \end{defi}
@@ -48,22 +48,24 @@ Morse and Tompkins state the following result with slightly different assumption
 
 % \begin{thm}[{\cite[Corollary 7.1, p.~472]{Morse.1939}}]
 % \label{thm:mountain_pass}
-% 	Let $M$ be a metric space and $F \colon M \to \R$ a function. 
+% 	Let $M$ be a metric space and $F \colon M \to \R$ a function.
 % 	Assume that $F$ is bounded below, that the sublevel set filtration of $F$ is compact, and let $\H$ be an additive homology theory taking non-zero values on non-empty sets in dimension 0, and such that $\H(F_{\leq \bullet})$ is q-tame, continuous from above and has essential dimension $p_{0} = 1$.
-% 	If $M$ contains two distinct critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.\todo{sort of difficult to parse, assumptions too long. maybe only formulate for \v{C}ech homology to get rid of some text?}
+% 	If $M$ contains two distinct critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.\todo{sort of difficult to parse, assumptions too long.
+%	maybe only formulate for \v{C}ech homology to get rid of some text?}
 % \end{thm}
 
 \begin{thm}[{\cite[Corollary 7.1, p.~472]{Morse.1939}}]
 \label{thm:mountain_pass}
-	Let $M$ be a metric space and $F \colon M \to \R$ a function. 
+	Let $M$ be a metric space and $F \colon M \to \R$ a function.
 	Assume that $F$ is bounded below, that the sublevel set filtration of $F$ is compact, and that $\CH(F_{\leq \bullet})$ is q-tame with essential dimension $\cp_{0} = 1$, where $\CH$ denotes \v{C}ech homology.
 	If $M$ contains two distinct critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.
 \end{thm}
 
 \begin{rem}
-    We mention that more general homology theories can be considered in this theorem.
-    The precise hypothesis on the homology theory $H$ are that it is additive, taking non-zero values on non-empty sets in dimension $0$, and such that $\H(F_{\leq \bullet})$ is continuous from above. \todo{Where is continuous from above introduced? Maybe put a reference here.}
-    % Recall that $\H$ is called \emph{additive} if $\H (A \sqcup B) \cong \H(A) \oplus \H(B)$ for all $A$ and $B$.
+	We mention that more general homology theories can be considered in this theorem.
+	The precise hypothesis on the homology theory $H$ are that it is additive, taking non-zero values on non-empty sets in dimension $0$, and such that $\H(F_{\leq \bullet})$ is continuous from above.
+	\todo{Where is continuous from above introduced? Maybe put a reference here.}
+	% Recall that $\H$ is called \emph{additive} if $\H (A \sqcup B) \cong \H(A) \oplus \H(B)$ for all $A$ and $B$.
 \end{rem}
 
 An important case where the hypotheses of \cref{thm:mountain_pass} are satisfied is when $M$ is contractible (which ensures that $\check{p}_0 = 1$ by \cref{lem:essential_cech_dim}), and the sublevel set filtration is $\HLC$ with respect to $\CH$ (which ensures the q-tameness hypothesis by \cref{t:local connectedness implies q-tameness}).
@@ -82,37 +84,38 @@ a \emph{minimal surface} -- a surface with vanishing mean curvature -- and use t
 In \cite[Section 8]{Morse.1939}, Morse and Tompkins provide an example of a curve $g$ for which $\Omega_{g}$ indeed contains two distinct critical sets of minimum type, so that $g$ then also spans an unstable minimal surface.
 
 \begin{rem}
-	In their definition of a critical set $S$ of \emph{minimum type} \cite[p.~472]{Morse.1939}, Morse and Tompkins do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$. 
+	In their definition of a critical set $S$ of \emph{minimum type} \cite[p.~472]{Morse.1939}, Morse and Tompkins do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
 	However, without this additional assumption, \cref{thm:mountain_pass} does not hold, as the example given by $f \colon [0,1] \to \R$ with $f(0) = f(1) = 0$ and $f(t) = 1$ for $0 < t < 1$ shows:
 	$f$ has the four critical sets $\{0\}$, $\{1\}$, $\{0\} \cup \{1\}$ and $(0,1)$, which all satisfy the minimum type condition if the neighborhood $N$ need not contain their closure, but then there is no critical set that is not of minimum type.
 \end{rem}
 
 While more efficient and more general proofs for the existence of an unstable minimal surface (with respect to more natural topologies than $C^0$) have subsequently been established \cite{Struwe.1988,Dierkes.2010}, including less restrictive assumptions on the boundary curve, the original approach of Morse and Tompkins is notable
-% for its close connection to persistent homology. 
+% for its close connection to persistent homology.
 for its connections to other areas of mathematics.
 As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using the previously developed machinery, starting with some intermediate results.
 
 \begin{lem}
 \label{lem:endpoint_implies_crit_pt}
-	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration. 
+	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration.
 	Assume that $\H(F_{\leq \bullet})$ is q-tame and continuous from above and consider $t \in \R$ and its cap numbers $c^{\epsilon}(t)$.
 	If there exists $\epsilon > 0$ such that $c^{\epsilon}(t) > 0$, then $t$ is a critical value.
 \end{lem}
 \begin{proof}
-	Following \cite[Remark II.6.3]{Struwe.1988}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \to F_{\leq t}$ is a homotopy equivalence for all $s \in [t - \epsilon, t]$. \todo{not quite what struwe says, check whether this is actually true}
+	Following \cite[Remark II.6.3]{Struwe.1988}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \to F_{\leq t}$ is a homotopy equivalence for all $s \in [t - \epsilon, t]$.
+	\todo{not quite what struwe says, check whether this is actually true}
 	Thus, $\H(F_{\leq \bullet})$ is continuous from below at every regular value.
-	However, we assume $\H(F_{\leq \bullet})$ to be also continuous from above at every value, and in particular at regular values. 
+	However, we assume $\H(F_{\leq \bullet})$ to be also continuous from above at every value, and in particular at regular values.
 	Hence, \cref{cor:regular_value_no_endpoint} implies that $\alpha(t) = \omega(t) = 0$ whenever $t$ is regular, which proves the claim.
 \end{proof}
 
 %\begin{lem}
 %\label{lem:minimum_type_implies_summand}
-%	Let $F \colon M \to \R$ be a function on a metric space and let $S$ be a critical set with value $t$. 
+%	Let $F \colon M \to \R$ be a function on a metric space and let $S$ be a critical set with value $t$.
 %	If $S$ is of minimum type, then it is a topological summand of $F_{\leq t}$ in the sense that $F_{\leq t}$ is homeomorphic to the disjoint union $S \sqcup (F_{\leq t} \setminus S)$.
 %\end{lem}
 %\begin{proof}
-%	By definition, there exists a neighborhood $N$ of $\overline{S}$ in $M$ such that the function values of $F$ on $N \setminus S$ exceed $t$. 
-%	In particular, we have $F_{\leq t} \cap N = S$, showing that $S$ is open in $F_{\leq t}$. 
+%	By definition, there exists a neighborhood $N$ of $\overline{S}$ in $M$ such that the function values of $F$ on $N \setminus S$ exceed $t$.
+%	In particular, we have $F_{\leq t} \cap N = S$, showing that $S$ is open in $F_{\leq t}$.
 %	Because $N$ contains $\overline{S}$, we also obtain $F_{\leq t} \cap \overline{S} = S$, showing that $S$ is closed in $F_{\leq t}$.
 %	This proves the claim.
 %\end{proof}
@@ -121,7 +124,7 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 
 \begin{lem}
 \label{lem:minimum_type_implies_some_birth_and_no_death}
-	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration and let $S$ be a critical set of minimum type with value $t$. 
+	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration and let $S$ be a critical set of minimum type with value $t$.
 	Assume that $\H$ is additive and that $\H(F_{\leq \bullet})$ is q-tame and continuous from above.
 	\begin{enumerate}
 		\item We have $\alpha(t) \geq \dim \H(S)$ for the number of births at $t$.
@@ -131,21 +134,21 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 \begin{proof}
 	We start by showing that $S$ is a topological summand of $F_{\leq t}$ in the sense that $F_{\leq t}$ is homeomorphic to the disjoint union $S \sqcup (F_{\leq t} \setminus S)$.
 	It suffices to show that $S$ is open and closed in $F_{\leq t}$.
-	By definition, there exists a neighborhood $N$ of $\overline{S}$ in $M$ such that the function values of $F$ on $N \setminus S$ exceed $t$. 
-	In particular, we have $F_{\leq t} \cap N = S$, showing that $S$ is open in $F_{\leq t}$. 
+	By definition, there exists a neighborhood $N$ of $\overline{S}$ in $M$ such that the function values of $F$ on $N \setminus S$ exceed $t$.
+	In particular, we have $F_{\leq t} \cap N = S$, showing that $S$ is open in $F_{\leq t}$.
 	Because $N$ contains $\overline{S}$, we also obtain $F_{\leq t} \cap \overline{S} = S$, showing that $S$ is closed in $F_{\leq t}$.
-	
+
 	Using additivity of $\H$ and \cref{lem:birth_death_formulas}, we now obtain
 	\begin{align*}
 		\alpha(t) &= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \lim_{u > t} \H(F_{\leq u}) \big) \\
-			      &= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t}) \big) \\
-			      &= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t} \setminus S) \oplus \H(S) \big) \\
-			      &\geq \dim \H(S),
+			&= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t}) \big) \\
+			&= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t} \setminus S) \oplus \H(S) \big) \\
+			&\geq \dim \H(S),
 	\end{align*}
 	where we have used the assumption that $\H(F_{\leq \bullet})$ is continuous from above for the second equality and the fact that $F_{\leq s} \subseteq (F_{\leq t} \setminus S)$ for all $s < t$ for the final inequality.
-	
+
 	Now, assuming that $S$ is the set of all homotopically critical points with value $t$ implies that the inclusion $F_{\leq s} \to (F_{\leq t} \setminus S)$ is in fact a homotopy equivalence for $s < t$, again following \cite[Remark II.6.3]{Struwe.1988}.\todo{again, needs to be reviewed whether this actually follows from what struwe says}
-	Hence, again using additivity of $\H$, continuity from above, and \cref{lem:birth_death_formulas}, we obtain that 
+	Hence, again using additivity of $\H$, continuity from above, and \cref{lem:birth_death_formulas}, we obtain that
 	\begin{align*}
 		\omega(t) &= \dim \ker \big( \colim_{s < t} \H(F_{\leq s}) \to \lim_{u > t} \H(F_{\leq u}) \big) \\
 				&= \dim \ker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t}) \big) \\
@@ -157,7 +160,7 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 
 We are now ready to give a proof of the Mountain Pass Lemma.
 \begin{proof}[Proof of \cref{thm:mountain_pass}]
-    We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively. 
+	We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
 	Assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
 	Since both critical sets are non-empty, we have $\CH_{0}(S_{i}) \neq 0$, and thus the first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{i}) \geq \dim \CH_0(S_{i}) \geq 1$ for $i = 1,2$.
 	This implies that there exists $\epsilon > 0$ with $\cc_{0}^{\epsilon} \geq \calpha_{0}(t_{1}) + \calpha_{0}(t_{2}) \geq 1 + 1 = 2$.
@@ -179,15 +182,16 @@ We can also check that the essential dimension $\check{p}_{0}$ is $1$ using the 
 
 \begin{lem}
 \label{lem:essential_cech_dim}
-	Let $F \colon M \to \R$ be a function on a non-empty metric space with compact sublevel set filtration and let $\cp_{d}$ be the essential dimensions of its q-tame persistent \v{C}ech homology. 
+	Let $F \colon M \to \R$ be a function on a non-empty metric space with compact sublevel set filtration and let $\cp_{d}$ be the essential dimensions of its q-tame persistent \v{C}ech homology.
 	If $M$ is contractible, then $\cp_{0} = 1$.
 \end{lem}
 \begin{proof}
-	Let $\H$ denote singular homology, let $p_{d}$ denote the essential dimensions of the persistent singular homology of $F_{\leq \bullet}$, and let $\CH$ denote \v{C}ech homology. 
+	Let $\H$ denote singular homology, let $p_{d}$ denote the essential dimensions of the persistent singular homology of $F_{\leq \bullet}$, and let $\CH$ denote \v{C}ech homology.
 	Since $M$ is contractible, we have $\dim H_{0}(M) = 1$.
 	We also have $p_{d} = \dim \colim_{t \to \infty} H_{d}(F_{\leq t}) = \dim H_{d}(M)$, where the second equality holds because all the sublevel sets of $F$ are compact \cite[Proposition 3.33]{Hatcher.2002}.
 	Now, the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so $\cp_{0} \leq p_{0}$.
-	Moreover, we clearly have $\cp_{0} \geq 1$ because $M$ is non-empty. %Map from some non-empty sublevel set to $M$ has to have at least rank 1 and has ti factor through colimit, so $\cp_{0} = \dim \colim \geq 1$. 
+	Moreover, we clearly have $\cp_{0} \geq 1$ because $M$ is non-empty.
+	%Map from some non-empty sublevel set to $M$ has to have at least rank 1 and has ti factor through colimit, so $\cp_{0} = \dim \colim \geq 1$.
 	In total, we obtain $1 \leq \cp_{0} \leq p_{0} = \dim H_{0}(M) = 1$, which proves the claim.
 \end{proof}
 
@@ -278,7 +282,8 @@ Specifically, using the fact that \v{C}ech homology of compact Hausdorff spaces 
 %	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
 %
 %	In order to verify that the sublevel set filtration of $f$ is weakly $\LC$, we
-%	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$. We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+%	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$.
+%We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
 %
 %	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
 %	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\LC$ condition is trivially satisfied.
@@ -291,7 +296,8 @@ Specifically, using the fact that \v{C}ech homology of compact Hausdorff spaces 
 %	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
 %	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
 %\end{proof}
-Moreover, the singular homology of the $d$-dimensional Hawaiian earring is also infinite dimensional, as proven in \cite{Barratt.1962}. In summary, we have the following.
+Moreover, the singular homology of the $d$-dimensional Hawaiian earring is also infinite dimensional, as proven in \cite{Barratt.1962}.
+In summary, we have the following.
 
 \begin{cor} \label{c:counterexample}
 	The function $f \colon \HE \to \R$ with value~$0$ at the origin and $1$ elsewhere defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
