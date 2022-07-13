@@ -1,15 +1,15 @@
-\immediate\write18{biber \jobname}
+\IfFileExists{aux/bibliography.bib}{\immediate\write18{biber \jobname}}{}
 
 \documentclass{amsart}
 \input{aux/style}
 \input{aux/commands}
 
-\title[Persistence in functional topology]{Persistence in functional topology:
-existence of
-persistence diagrams
-and
-Morse inequalities
-}
+\title{Persistent homology for functionals}
+
+%\title[Persistence in functional topology]{
+%Persistence in functional topology%:
+%persistent homology of the minimal surface problem
+%}
 
 %from local connectivity
 %to
@@ -50,7 +50,7 @@ Morse inequalities
 \email{\href{mailto:mschmahl@mathi.uni-heidelberg.de}{mschmahl@mathi.uni-heidelberg.de}}
 
 \subjclass[2020]{55N31, 58E05, 58E12, 54D05, 55N05.}
-
+\keywords{Persistent homology, Morse theory, calculus of variations, persistent diagram, barcode, Morse inequalities, q-tameness, local connectedness, minimal surface}
 \date{\today}
 
 \begin{document}
@@ -63,6 +63,7 @@ Morse inequalities
 	\input{sec/surfaces}
 	\appendix
 	\input{sec/vietoris}
+	\input{sec/caps}
 	\input{sec/acknowledgment}
 	\sloppy
 	\printbibliography

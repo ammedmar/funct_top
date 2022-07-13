@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\title{Author's second reply to the referee report of \\ \textsc{
+    ``PERSISTENCE IN FUNCTIONAL TOPOLOGY: EXISTENCE OF PERSISTENCE DIAGRAMS AND MORSE INEQUALITIES''
+    }
+}
+\author{Bauer \and Medina-Mardones \and Schmahl}
+\begin{document}
+	\maketitle
+	We want to thank the referee for his careful reading of our revised article, again providing very helpful commentary and uncovering many of our inaccuracies.
+	
+	\section{First point.}
+	After revisiting Struwe's argument for the homotopy equivalence of the sublevel sets more carefully, we were also unable to determine why Struwe supposes the level set to be compact, and we could also not establish a different argument for the necessary homotopy equivalence without returning to Morse's concept of weak upper-reducibility (WUR). 
+	Hence, we have added this assumption to the Mountain Pass Theorem and we have added a lemma stating that the needed homotopy equivalence holds given that the function is WUR.
+	This lemma can be proven by a very similar argument to the (imprecise) one by Struwe, and very similar arguments also appear in Morse's monograph on functional topology, where he, however, uses a slightly stronger version of upper-reducibility, making these results not directly citable for us.
+	As a compromise between readability and precision, we have decided to just state the lemma at first without proof and with references to these similar arguments, and then to sketch a proof in a new section in the appendix.
+	There, we now also comment on the differences between Morse's notion of cap numbers and our corresponding notion.
+	The preparatory lemmas now also include the WUR assumption where necessary.
+
+	\section{Second point.}
+	The referee is correct in that the proposition cited from Hatcher does not actually apply in the setting as stated; in fact our lemma is not true as it was stated.
+	We have consequently added the assumption that $\colim \check{H}_0(F_{\leq \bullet}) \to \check{H}_0(M)$ needs to be an isomorphism for the Mountain Pass Theorem and have changed the lemma on the essential dimension accordingly.
+	We also include an example in a remark after the Mountain Pass Theorem showing that if this assumption is removed it may happen that $\check{p}_0 > 1$.
+	Moreover, we added a reference in the proof of the Unstable Minimal Surface Theorem for the fact that this new assumption is satisfied for the Douglas functional, which is due to Morse's "regularity at infinity" condition.
+
+	\section{List of typos, minor remarks and suggestions.}
+	\begin{enumerate}
+		\item Removed as suggested (A.S.).
+		\item Changed A.S.
+		\item Removed A.S.
+		\item Changed A.S.
+		\item We have added a reference to the original paper by Douglas, where it is explained that his functional takes finite values for rectifiable curves, and we have added a very brief explanation why this applies in our setting.
+		\item Changed A.S.
+		\item Changed A.S.
+		\item We now address this point in a remark after the Mountain Pass Theorem.
+		\item We have replaced ``the following result [...] can be deduced from the Mountain Pass Theorem'' right above the Unstable Minimal Surface Theorem with ``the following result [...] can be deduced from the Mountain Pass Theorem as further explained in \S 5.2.''
+		\item We have included a reference for the fact that $M$ may be replaced by its radical and have added the explicit calculations showing that the lemma holds for the radical.
+		\item Removed A.S.
+		\item Changed A.S.
+		\item Replaced A.S.
+	\end{enumerate}
+	
+	\section{Other changes}
+	We fixed a typo in the proof of the Mountain Pass Theorem: It needs to be "... , so that in particular $\cc_{1}^{\epsilon}(t) > 0$" instead of "... , so that in particular $\cc_{0}^{\epsilon}(t) > 0$".
+	
+	We also slightly streamlined the proof of Lemma 4.9: The third requirement on $\Sigma_{s,t}$ was unnecessary and has been removed.
+	
+	We also fixed a typo in the definition of the Vietoris complex in the appendix: It should say "$\sigma \subseteq U$" instead of "$\sigma \in U$".
+\end{document}

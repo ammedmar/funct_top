@@ -3,7 +3,7 @@
 \section{Filtered spaces and persistence theory} \label{s:persistence}
 
 In this section we present an overview of the theory of persistence through filtrations by sublevel sets of real-valued functions on general topological spaces.
-For a detailed exposition we refer to either of \cite{Chazal.2016a, Oudot.2015, Polterovich.2020}, and for applications of this theory in symplectic geometry to
+For a detailed exposition we refer to \cite{Chazal.2016a, Oudot.2015, Polterovich.2020} and for applications of this theory in symplectic geometry to
 \cite{Polterovich.2016, Usher.2016, LeRoux.2018, Shelukhin.2019}.
 
 The ``pipeline'' of topological persistence traverses through geometry, algebra and discrete mathematics as follows:
@@ -11,10 +11,10 @@ Given a space $X$ filtered by the sublevel sets of a function $f$, the applicati
 
 These invariants are key to applications.
 For example, in the next section we will see how they lead to a generalization of the classical Morse inequalities.
-Much of their usefulness comes from a remarkable fact known as \emph{stability}, stating that the map from functions on $X$ with the supremum norm to the set of all persistence diagrams is 1-Lipschitz with respect to a certain natural metric called \emph{bottleneck distance} \cite{Cohen-Steiner.2007}.
+Much of their usefulness results from a remarkable fact known as \emph{stability}, stating that the map from functions on $X$ with the supremum norm to the set of all persistence diagrams is 1-Lipschitz with respect to a certain natural metric called \emph{bottleneck distance} \cite{Cohen-Steiner.2007}.
 
 In more detail, consider a space $X$ and a function $f \colon X \to \R$.
-Unless noted otherwise, the functions we consider need not be continuous.
+Unless stated otherwise, the functions we consider need not be continuous.
 We pass to filtered spaces by considering the \emph{sublevel set filtration $f_{\leq \bullet}$ of $X$ induced by $f$}, which is defined by
 \begin{equation*}
 f_{\leq t} = f^{-1}(-\infty, t].
@@ -24,8 +24,8 @@ For the next step in the persistence pipeline, one needs a coherent assignment o
 The typical choices are given by \emph{homology theories}, which for now are only assumed to be $\Z$-graded families $\H = (\H_d)_{d \in \Z}$ of \emph{homotopy invariant functors}, meaning that they assign the same morphism to homotopic maps.
 Of particular importance to us are \v{C}ech homology \cite[Section IX--X]{Eilenberg.1952} with coefficients in $\F$, and homology theories in the sense of Eilenberg--Steenrod \cite[Section I]{Eilenberg.1952}, such as singular homology, again with coefficients in $\F$ \cite{Eilenberg.1944}.
 
-By definition, applying to a filtered space $\{X_t\}_{t \in \R}$ a functor from $\Top$ to $\Vect$ yields for every $t \in \R$ a vector space~$M_t$ and for any pair~$s, t \in \R$ with~$s \leq t$ a linear map~$M_{s,t} \colon M_s \to M_t$ such that $M_{t,t}$ is the identity and the composition $M_{s,t} \circ M_{r,s}$ is equal to $M_{r,t}$ for any triple $r \leq s \leq t$.
-In other words, we obtain a functor $M$ from the real numbers considered as a category via its poset structure to the category of vector spaces.
+By definition, applying to a filtered space $\{X_t\}_{t \in \R}$ a functor from $\Top$ to $\Vect$ yields, for every $t \in \R$ a vector space~$M_t$ and for any pair~$s, t \in \R$ with~$s \leq t$, a linear map~$M_{s,t} \colon M_s \to M_t$ such that $M_{t,t}$ is the identity and the composition $M_{s,t} \circ M_{r,s}$ is equal to $M_{r,t}$ for any triple $r \leq s \leq t$.
+In other words, we obtain a functor $M$ from the real numbers, considered as a poset category, to the category of vector spaces.
 Such functors are called \emph{persistence modules}.
 A morphism of persistence modules $\varphi \colon M \to N$ is a natural transformation, i.e., an assignment of a linear map $\varphi_t \colon M_t \to N_t$ for every $t \in \R$ making the diagram
 \begin{equation*}
@@ -34,13 +34,13 @@ M_{s} \arrow[r, "M_{s,t}"] \arrow[d] & M_{t} \arrow[d] \\
 N_{s} \arrow[r, "N_{s,t}"] & N_{t}
 \end{tikzcd}
 \end{equation*}
-commute for all pairs $s \leq t$.
+commute for every pair $s \leq t$.
 
 Since most examples of interest arise from applying a homology theory to a filtered space, we also consider \emph{graded persistence modules}, which are collections of persistence modules indexed by the integers.
-To lighten the presentation of the theory of persistence, in what follows we will solely focus on persistence modules omitting straightforward generalizations to their graded counterparts.
+To lighten the presentation of the theory of persistence, in what follows we will solely focus on persistence modules, omitting straightforward generalizations to their graded counterparts.
 
-Usual constructions that work in the category of vector spaces over the field $\F$ can be transferred to the category of persistence modules by applying them pointwise.
-For example, the kernel and cokernel of a morphism, as well as the direct sum of persistence modules are well-defined.
+Functorial constructions defined on the category of vector spaces over the field~$\F$ can be transferred to the category of persistence modules by applying them pointwise.
+For example, the kernel and cokernel of a morphism as well as the direct sum of persistence modules are well-defined.
 Persistence modules that are \emph{indecomposable}, i.e., those that have only trivial direct sum decompositions, play an important role in persistence theory.
 A rich family of indecomposable persistence modules is given by \emph{interval modules}, which for intervals $I \subseteq \R$ are defined by
 \begin{equation*}
@@ -63,22 +63,22 @@ Thus, if a persistence module $M$ is provided with an isomorphism to a barcode m
 Hence, understanding which persistence modules admit barcode decompositions is key.
 
 The most commonly used existence result for barcode decompositions is due to Crawley-Boevey \cite{Crawley-Boevey.2015}.
-It guarantees the existence of a barcode decomposition for any \emph{pointwise finite dimensional} ($\PFD$) persistence module, which is a persistence modules $M$ such that $M_t$ is a finite dimensional vector space for all $t \in \R$.
+It guarantees the existence of a barcode decomposition for any \emph{pointwise finite dimensional} ($\PFD$) persistence module, which is a persistence modules $M$ such that $M_t$ is a finite dimensional vector space for all~$t \in \R$.
 Unfortunately, the $\PFD$ condition is too restrictive for many purposes.
 In particular, it is unsuited for the applications of Morse and Tompkins in minimal surface theory.
 An appropriate weakening of $\PFD$ for more general settings is the notion of \emph{q-tameness}.
 A persistence module $M$ is q-tame if the rank of the map $M_{s,t} \colon M_s \to M_t$ is finite for all $s < t$ \cite{Chazal.2016a}.
 As exemplified by the infinite product of interval modules $\prod_{n \in \N_{> 0}} C([0,1/n))$, not every q-tame persistence module admits a barcode decomposition in the above sense.
-Yet, there are multiple ways to regularize q-tame persistence modules to obtain invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
+Yet, there are multiple ways to regularize q-tame persistence modules in order to obtain invariants similar to barcodes \cite{Chazal.2016a, Chazal.2016b, Schmahl.2021}.
 We briefly recall the approach from \cite{Chazal.2016b}.
 
-A persistence module $M$ is called \emph{ephemeral} if the maps $M_{s,t} \colon M_s \to M_t$ are $0$ for all $s < t$.
-The \emph{radical} $\rad M$ of a persistence module $M$ is the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \to M$ is an ephemeral persistence module.
+A persistence module $M$ is called \emph{ephemeral} if the maps $M_{s,t} \colon M_s \to M_t$ are zero for all $s < t$.
+The \emph{radical} $\rad M$ of a persistence module $M$ is the unique minimal submodule of $M$ such that the cokernel of the inclusion $\rad M \hookrightarrow M$ is an ephemeral persistence module.
 More explicitly, we have $(\rad M)_t = \sum_{s<t}\im M_{s,t}$.
 As an example, the radical of the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$ is the direct sum $\bigoplus_{n \in \N_{> 0}} C((0,1/n))$.
 If $M$ is q-tame, then its radical admits a barcode decomposition \cite[Corollary~3.6]{Chazal.2016b},
 with the associated barcode describing the isomorphism type of~$M$ ``up to ephemerals".
-This can be formalized by constructing the \emph{observable category of persistence modules}, which is equivalent to the quotient of the category of persistence modules by the full sub-category of ephemeral persistence modules.
+This can be formalized by constructing the \emph{observable category of persistence modules}, which is equivalent to the quotient of the category of persistence modules by the full subcategory of ephemeral persistence modules.
 The barcode of the radical of a q-tame persistence module $M$ is then a complete invariant of $M$ in the observable category.
 
 Intuitively, one may think of the observable category as forgetting all information in persistence modules that does not persist over a non-zero amount of time.
@@ -92,20 +92,20 @@ This invariant, known as the \emph{persistence diagram}, is defined as the multi
 \mulDom =
 \big\{ (p,q) \mid p \in \R \cup \{-\infty\}, \ q \in \R \cup \{+\infty\}, \ p < q \big\}
 \end{equation*}
-the cardinality of the set $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \sup I_{\lambda} = q\}$.
-Because information about the endpoints of intervals is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete invariant for q-tame modules in the observable category.
+the cardinality of the set of intervals with lower bound $p$ and upper bound $q$, $\{ \lambda \in \Lambda \mid \inf I_{\lambda} = p,\ \sup I_{\lambda} = q\}$.
+Since the type of interval is irrelevant in the observable category, the persistence diagram associated to the barcode of the radical is still a complete invariant for q-tame modules in the observable category.
 Stated explicitly, we have the following.
 
 \begin{thm}[\cite{Chazal.2016a, Chazal.2016b}] \label{t:q-tame modules have barcodes}
 	Every q-tame persistence module has a unique persistence diagram that completely determines its isomorphism type in the observable category.
 \end{thm}
 
-We have thus seen how to obtain a persistence diagram from a real-valued function $f$ by applying a functor $\H \colon \Top \to \Vect$ to its sublevel set filtration, and considering the persistence diagram of the resulting persistence module $\H(f_{\leq \bullet})$, which is well-defined provided that $\H(f_{\leq \bullet})$ is q-tame.
-If this is the case, we will call the function \emph{q-tame} with respect to the functor $\H$.
-If $\H$ is a homology theory, we will call $\H(f_{\leq \bullet})$ the \emph{persistent homology} of the filtration $f_{\leq \bullet}$.
+We have thus seen how to obtain a persistence diagram from a real-valued function $f$ by applying a functor $\H \colon \Top \to \Vect$ to its sublevel set filtration and considering the persistence diagram of the resulting persistence module $\H(f_{\leq \bullet})$, which is well-defined provided that $\H(f_{\leq \bullet})$ is q-tame.
+In this case, we will also call the function $f$ and the filtration $f_{\leq \bullet}$ \emph{q-tame} with respect to the functor~$\H$.
+If $\H$ is a homology theory, we will call $\H(f_{\leq \bullet})$ the \emph{persistent homology} of the filtration~$f_{\leq \bullet}$.
 
 As mentioned earlier, the passage from real-valued functions on a topological space to persistence diagrams is 1-Lipschitz for appropriate metrics.
-We now provide more details regarding this result although they are not used in the present work.
+We now provide some more details regarding this result for context, noting that they are not used in the present work.
 On the space of real-valued functions one considers the metric induced by the supremum norm, and on the space of persistence diagrams the \emph{bottleneck distance}.
 This metric expresses the distance between persistence diagrams by a matching of their points, counted with multiplicities, which is optimal with respect to the $L^{\infty}$-distance on $\mulDom$: two diagrams are within distance $\delta$ if any two matched points are within $L^{\infty}$-distance $\delta$, and any unmatched point has $L^{\infty}$-distance at most $\delta$ to the diagonal $\{(p,q) \in \R^2 \mid p = q\}$.
 
@@ -116,15 +116,16 @@ $M$ and $N$ are isomorphic in the observable category if and only if they have i
 As it turns out, the stability of persistence barcodes can then be described as a sequence of 1-Lipschitz transformations: From functions (with the supremum norm) to filtrations by sublevel sets (with the interleaving distance), to persistence modules (with the interleaving distance), and finally to persistence diagrams (with the bottleneck distance).
 In this approach, by far the most difficult step is showing that passing from persistence modules to persistence diagrams is stable, a result which is known as the Algebraic Stability Theorem \cite{Chazal.2009, Bauer.2015, Chazal.2016a}.
 
-We will now finish this section by recording some helpful facts about the \emph{number of births at $t$}
-\[
-	\alpha(t) = \sum_{q \in (t, \infty]} \m(t,q)
-\]
-and the \emph{number of deaths at $t$}
-\[
-	\omega(t) = \sum_{p \in [-\infty, t)} \m(p,t)
-\]
-for a q-tame persistence module $M$ with persistence diagram given by $\m$.
+%We will now finish this section by recording some helpful facts about the \emph{number of births at $t$}	\todo{move this}
+
+%\[
+%	\alpha(t) = \sum_{q \in (t, \infty]} \m(t,q)
+%\]
+%and the \emph{number of deaths at $t$}
+%\[
+%	\omega(t) = \sum_{p \in [-\infty, t)} \m(p,t)
+%\]
+%for a q-tame persistence module $M$ with persistence diagram given by $\m$.
 %\begin{defi}
 %	Let $M$ be a q-tame persistence module with persistence diagram given by $\m$.
 %	For $t \in \R$ we define the \emph{number of births at $t$} as
@@ -137,38 +138,4 @@ for a q-tame persistence module $M$ with persistence diagram given by $\m$.
 %	\]
 %\end{defi}
 
-\todo{should we somehow unify definitions of $\alpha$, $\omega$, $c$ etc. in a single place? compare also the use of $\alpha^{\epsilon}$ and $\omega^{\epsilon}$ in the proof of \cref{t:inequalities}}
-
-\begin{lem}
-\label{lem:birth_death_formulas}
-	Let $M$ be a q-tame persistence module.
-	For each $t \in \R$ we either have
-	\[
-		\alpha(t) = \dim \coker (\colim_{s < t} M_{s} \to \lim_{u > t} M_{u})
-	\]
-	or both quantities are infinite.
-	Similarly, we either have
-	\[
-		\omega(t) = \dim \ker (\colim_{s < t} M_{s} \to \lim_{u > t} M_{u})
-	\]
-	or both quantities are infinite.
-\end{lem}
-\begin{proof}
-	None of the quantities appearing in the statement change if we replace $M$ by its radical.
-	This radical admits a barcode decomposition and the claims easily follow from an explicit computation on the corresponding barcode module.
-\end{proof}
-
-If $M$ is continuous from below or above, then the colimits and limits appearing in the formulas above may simply be replaced by constituent vector spaces of $M$.
-As a special case, this yields the following corollary.
-
-\begin{cor}
-\label{cor:regular_value_no_endpoint}
-	Let $M$ be a q-tame persistence module.
-	If $M$ is continuous from above and below at $t$ we have
-	\[
-		\alpha(t) = \omega(t) = 0.
-	\]
-\end{cor}
-
-
-
+%\todo{should we somehow unify definitions of $\alpha$, $\omega$, $c$ etc. in a single place? compare also the use of $\alpha^{\epsilon}$ and $\omega^{\epsilon}$ in the proof of \cref{t:inequalities}}

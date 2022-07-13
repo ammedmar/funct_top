@@ -3,34 +3,36 @@
 \section{Persistent homology and functional topology} \label{s:surfaces}
 
 Having established topological conditions for the existence of persistence diagrams associated to filtrations and corresponding generalized Morse inequalities, we now describe how these results relate to Morse's general theory of functional topology \cite{Morse.1937, Morse.1938, Morse.1940}, and to its application in Morse and Tompkins' work on unstable minimal surfaces from \cite{Morse.1939}.
-We will focus on the homological aspects of this approach referring to \cite[Sections 4.3--5]{Bott.1980} for a general exposition.
-For a more thorough presentation of the unstable minimal surface problem, including the analytical details, please consult \cite[Section II.6]{Struwe.1988}, and for a historical account and an overview of subsequent results see \cite[Section 6]{Dierkes.2010} and \cite[Section 6.8.1]{Dierkes.2010b}.
+We will focus on the homological aspects of this approach, referring to \cite[Sections 4.3--5]{Bott.1980} for a general exposition.
+For a more thorough presentation of the unstable minimal surface problem, including the analytical details see \cite[Section II.6]{Struwe.1988}, and for a historical account and an overview of subsequent results see \cite[Section 6]{Dierkes.2010} and \cite[Section 6.8.1]{Dierkes.2010b}.
 
 \subsection{The unstable minimal surface problem}
+\label{subsec:unstable}
 
 Morse and Tompkins considered the following setting introduced by Douglas.
 Let $g \colon \R \to \R^n$ be a $2\pi$-periodic function representing a simple closed curve such that $g$ is differentiable with Lipschitz derivative.
 Let $\widetilde{\Omega}$ be the space of continuous non-decreasing functions $\varphi \colon \R \to \R$ with $\varphi(t+2\pi) = \varphi(t) + 2\pi$ for all $t$ and $\varphi(\alpha_i)=\alpha_i$ for three fixed distinct points $\alpha_i \in [0,2\pi)$.
-The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined as
+The \emph{Douglas functional} on $\widetilde \Omega$ associated to the curve $g$ is defined \cite{Douglas.1931} as
 \begin{equation*}
 A_g(\varphi) = \frac{1}{16 \pi} \int_0^{2\pi} \int_0^{2\pi} \left\| \frac{g(\varphi(\alpha)) - g(\varphi(\beta))}{\sin \frac{\alpha-\beta}{2}} \right\|_2^2 \ \mathrm{d}\alpha \ \mathrm{d}\beta.
 \end{equation*}
 It coincides with the Dirichlet energy of the unique harmonic extension of the reparametrized curve $g \circ \varphi$ to a parametrized surface.
 The Dirichlet energy is an upper bound for the area, with equality if the parametrization is conformal.
 Let $\Omega_g = \{\varphi \in \widetilde\Omega \mid A_g(\varphi) < \infty\}$, equipped with the $C^0$ metric.
-The set $\Omega_g$ is non-empty and the sublevel sets of $A_g$ are compact \cite[p.~448]{Morse.1939}.
+The set $\Omega_g$ is non-empty because $g$ is continuously differentiable and hence rectifiable, which implies $A_g(\operatorname{id}_{\R}) < \infty$ \cite[p.~267-268]{Douglas.1931}.
+Moreover, the sublevel sets of $A_g$ are compact \cite[p.~448]{Morse.1939}.
 Since $A_g$ is bounded below by $0$, this implies that $A_g$ attains a global minimum.
 The corresponding surface is then a solution of \emph{Plateau's Problem}, which asks for a surface homeomorphic to a disk with boundary $g$ and minimum area.
 
 As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consider a homotopical notion of critical point for a general function $F \colon M \to \R$ on a metric space \cite[p.~445]{Morse.1939}, see also \cite{Morse.1943}.
-%Roughly, a point $p$ is \emph{homotopically critical} if it has no neighborhood in $F_{\leq F(p)}$ that can be mapped by a homotopy into $F_{\leq t}$ for some $t<F(p)$.
 
-\begin{defi}[{{\cite[Definition II.6.1-II.6.2]{Struwe.1988},\cite[p.~445, 472]{Morse.1939}}}]
+\begin{defi}[{{\cite[Definition II.6.1-II.6.2]{Struwe.1988}, \cite[p.~445, 466]{Morse.1939}}}]
+\label{def:critical_set}
 	Consider a real-valued function $F$ on a metric space $(M,d)$.
-	A point $p \in M$ is called \emph{homotopically regular} if there exists a neighborhood $U$ of $p$ in $F_{\leq F(p)}$ and a continuous map $\varphi \colon U \times [0,1] \to M$ satisfying $\varphi(p,1) \neq p$ such that for every compact subset $V \subseteq U$ there exists a function $\delta \colon \R_{\geq 0} \to \R_{\geq 0}$ with
+	A point $p \in M$ is called \emph{homotopically regular} if there exists a neighborhood $U$ of $p$ in $F_{\leq F(p)}$ and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(p,1) \neq p$, such that for every compact subset $V \subseteq U$ there exists a \emph{displacement function} $\delta \colon \R_{\geq 0} \to \R_{\geq 0}$ with
 	$\delta(e) = 0$ if and only if $e = 0$, and
 	\[
-	F(\varphi(x,s)) - F(\varphi(x,t)) > \delta(d(\varphi(x,s),\varphi(x,t)))
+	F(\varphi(x,s)) - F(\varphi(x,t)) \geq \delta(d(\varphi(x,s),\varphi(x,t)))
 	\]
 	for all $x \in V$ and $0 \leq s \leq t \leq 1$.
 % 	\begin{itemize}
@@ -43,9 +45,16 @@ As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consi
 	It is said to be of \emph{minimum type} if there exists a neighborhood $N$ of the closure $\overline{S}$ of $S$, taken in $M$, such that the function values on $N \setminus S$ strictly exceed the function value on $S$.
 \end{defi}
 
-Note that, in particular, an isolated local minimum constitutes a critical set of minimum type.
-Morse and Tompkins state the following result with slightly different assumptions.
-%, as a general Mountain Pass Lemma for critical sets.
+Note that, in particular, an isolated local minimum constitutes a critical set of minimum type. Similarly, a critical submanifold of a Morse-Bott function on which the function values are locally minimized is also a critical set of minimum type.
+
+\begin{defi}[{{\cite[p.~445]{Morse.1939}}}]
+\label{def:upper_reducible}
+    Let $F \colon M \to \R$ be a function on a metric space. 
+    We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on every compact subset $V \subseteq U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ as in \cref{def:critical_set}.
+\end{defi}
+
+In \cite[p.~36]{Morse.1938}, the stronger notion of \emph{upper-reducibility}, without the prefix \emph{weakly}, is defined analogously to \cref{def:upper_reducible} with the slight difference that the existence of a displacement function is not only demanded for compact $V \subseteq U \cap F_{\geq c - \eta}$, but for all compact $V \subseteq U$.
+Morse and Tompkins state the following Mountain Pass Theorem under slightly different assumptions, and with a slightly different conclusion.
 
 % \begin{thm}[{\cite[Corollary 7.1, p.~472]{Morse.1939}}]
 % \label{thm:mountain_pass}
@@ -55,59 +64,172 @@ Morse and Tompkins state the following result with slightly different assumption
 %	maybe only formulate for \v{C}ech homology to get rid of some text?}
 % \end{thm}
 
-\begin{thm}[Mountain Pass Lemma, {\cite[Corollary 7.1, p.~472]{Morse.1939}}]
+\begin{thm}[Mountain Pass Theorem, {\cite[Corollary 7.1]{Morse.1939}}]
 \label{thm:mountain_pass}
-	Let $M$ be a metric space and $F \colon M \to \R$ a function.
-	Assume that $F$ is bounded below, that the sublevel set filtration of $F$ is compact, and that $\CH(F_{\leq \bullet})$ is q-tame with essential dimension $\cp_{0} = 1$, where $\CH$ denotes \v{C}ech homology.
+	Let $F \colon M \to \R$ be a weakly upper-reducible function on a non-empty connected metric space with compact sublevel set filtration.
+	Assume that the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism, and that the sublevel set filtration of $F$ is $\HLC$ with respect to \v Cech homology.
 	If $M$ contains two distinct critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.
 \end{thm}
 
+It is worth noting, however, that the details in \cite{Morse.1939} are incomplete, with some crucial theorems such as \cite[Theorems 7.3 and 7.4, Corollary 7.1]{Morse.1939} being stated without proof, and with a citation to a paper in preparation that has never been published under the given name (we suppose that this paper is \cite{Morse.1940}).
+Moreover, there is a gap in \cite{Morse.1940}, because \cite[Theorem 6.3]{Morse.1940}, which establishes q-tameness, is incorrect as we will show in \cref{c:counterexample}.
+The assumptions we choose for our version of the Mountain Pass Theorem are adapted from the original assumptions to the modern language of persistence theory, and they fix the problem with q-tameness.
+Still, our assumptions can be established for the Douglas functional from the results of Morse and Tompkins \cite{Morse.1939}.
+We provide more detailed comments regarding the differences between these assumptions in \cref{rem:critical_set,rem:mountain_pass_assumptions,subsec:historic_hlc}, and regarding the differences in the conclusions of the Mountain Pass Theorem in \cref{rem:mountain_pass_conclusion}.
+
+\begin{rem}\label{rem:critical_set}
+	Our \cref{def:critical_set} of a critical set $S$ of \emph{minimum type} differs slightly from that of Morse and Tompkins \cite[p.~466]{Morse.1939}, who do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
+	Without this additional assumption, however, \cref{thm:mountain_pass} does not hold, as shown by the example $F \colon [0,1] \to \R$ with $F(0) = F(1) = 0$ and $F(t) = 1$ for $0 < t < 1$:
+	$F$ has the four critical sets $\{0\}$, $\{1\}$, $\{0\} \cup \{1\}$ and $(0,1)$, which all satisfy the minimum type condition if the neighborhood $N$ need not contain their closure, but then there is no critical set that is not of minimum type.
+\end{rem}
+
+\begin{rem}\label{rem:mountain_pass_assumptions}
+    In \cite[Corollary 7.1]{Morse.1939}, the assumptions that Morse and Tompkins use for $F$ and $M$ are that the sublevel set filtration is compact,  weakly upper-reducible, ``regular at infinity'', and that $M$ is ``locally $F$-connected''.
+    Compactness is also required for our version, as is weak upper-reducibility. 
+    Local $F$-connectedness is replaced by the $\HLC$ condition.
+    (This point will be discussed in more detail in \cref{subsec:historic_hlc}).
+    Regularity at infinity roughly corresponds to our assumption that $M$ is connected and the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism (see \cite[p.~444]{Morse.1939} and our proof of \cref{thm:unstable_minimial_surface}).
+    This assumption may also replaced by the assumption that $\cp_0 = 1$, which we deduce from our assumptions in \cref{lem:essential_cech_dim}.
+\end{rem}
+
+\begin{rem}\label{rem:mountain_pass_conclusion}
+    The precise statement of \cite[Corollary 7.1]{Morse.1939} postulates the existence of a homotopic critical point such that every critical set containing it has a positive first \emph{type number}.
+    This corresponds to our statement in so far as the existence of a critical set not of minimum type implies that there are $\epsilon$ and $t$ such that $c_{1}^{\epsilon}(t) > 0$ (see \cref{lem:endpoint_implies_crit_pt} and the proof of \cref{thm:mountain_pass}).
+    Note, however, that the existence of a positive cap number $c_{1}^{\epsilon}(t) > 0$ does not conversely imply the existence of a critical set not of minimum type:
+    Consider the parabola $P = \{(x,x^2) \in \R^2 \mid x \in \R\}$, let $M = S^1 \times P$ and let $F \colon M \to \R$ be the Morse--Bott function given by the projection to the second coordinate in $P$.
+    There is a single critical set $C = S^1 \times \{(0,0)\}$, which is of minimum type, but we still have $c_{1}^{\epsilon}(0) > 0$ for any $\epsilon > 0$ if $H$ is a homology theory such that $H_1(C) \neq 0$, e.g.\ singular or \v{C}ech homology.
+    To establish the existence of a critical set not of minimum type in the proof of \cref{thm:mountain_pass}, we will show that not only $c_{1}^{\epsilon}(t) > 0$, but that we indeed have $\omega_1^{\epsilon}(t) > 0$, i.e., that the positive cap number is created by the death of a feature.
+\end{rem}
+
 \begin{rem}
-	We mention that more general homology theories can be considered in this theorem.
-	The precise hypothesis on the homology theory $H$ are that it is additive, taking non-zero values on non-empty sets in dimension $0$, and such that $\H(F_{\leq \bullet})$ is continuous from above.
-	\todo{Where is continuous from above introduced? Maybe put a reference here.}
+	We mention that more general homology theories can be considered in \cref{thm:mountain_pass}.
+	The precise hypotheses on the homology theory $\H$ are that it is additive, taking non-zero values on non-empty sets in dimension $0$, and such that $\H(F_{\leq \bullet})$ is continuous from above, i.e., $\H(F_{\leq s}) \to \lim_{s < t} \H(F_{\leq t})$ is an isomorphism for all~$s \in \R$.
+	One may also replace the topological conditions of $M$ being connected, the natural map $\colim \H_0(F_{\leq \bullet}) \to \H_0(M)$ being an isomorphism, and $F$ being $\HLC$ by the algebraic conditions that $p_0 = 1$ and $\H(F_{\leq \bullet})$ be q-tame.
 	% Recall that $\H$ is called \emph{additive} if $\H (A \sqcup B) \cong \H(A) \oplus \H(B)$ for all $A$ and $B$.
 \end{rem}
 
-An important case where the hypotheses of \cref{thm:mountain_pass} are satisfied is when $M$ is contractible (which ensures that $\check{p}_0 = 1$ by \cref{lem:essential_cech_dim}), and the sublevel set filtration is $\HLC$ with respect to $\CH$ (which ensures the q-tameness hypothesis by \cref{t:local connectedness implies q-tameness}).
-
-Morse and Tompkins aim to prove that the Douglas functional satisfies the assumptions of the \cref{thm:mountain_pass} (we will elaborate on this at the end of this section and in \cref{subsec:historic_hlc}) and they show \cite[Theorem 6.2]{Morse.1939} that each homotopically critical point of the Douglas functional $A_g$ indeed corresponds to
+Morse and Tompkins show \cite[Theorem 6.2]{Morse.1939} that each homotopically critical point of the Douglas functional $A_g$ indeed corresponds to
 %
 %a critical point of the area functional,
 %called
-a \emph{minimal surface} -- a surface with vanishing mean curvature -- and use this correspondence to deduce the following result, also reviewed in \cite[Theorem II.6.10]{Struwe.1988}.
+a \emph{minimal surface} -- a surface with vanishing mean curvature -- and using this correspondence the following result, also reviewed in \cite[Theorem II.6.10]{Struwe.1988}, can be deduced from the Mountain Pass Theorem as further explained in \cref{subsec:historic_hlc}.
 
-\begin{cor}[{Unstable Minimal Surface Theorem \cite[Corollary 7.1, p.~472]{Morse.1939}}]
+\begin{thm}[{Unstable Minimal Surface Theorem \cite[p.~472]{Morse.1939}}]
 \label{thm:unstable_minimial_surface}
 	If the space~$\Omega_g$ contains two minimal surfaces contained in distinct critical sets of minimum type of the functional $A_g$, then it also contains an \emph{unstable} minimal surface, i.e., a minimal surface contained in a critical set that is not of minimum type.
-\end{cor}
+\end{thm}
 
 In \cite[Section 8]{Morse.1939}, Morse and Tompkins provide an example of a curve $g$ for which $\Omega_{g}$ indeed contains two distinct critical sets of minimum type, so that $g$ then also spans an unstable minimal surface.
-
-\begin{rem}
-	In their definition of a critical set $S$ of \emph{minimum type} \cite[p.~472]{Morse.1939}, Morse and Tompkins do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
-	However, without this additional assumption, \cref{thm:mountain_pass} does not hold, as the example given by $f \colon [0,1] \to \R$ with $f(0) = f(1) = 0$ and $f(t) = 1$ for $0 < t < 1$ shows:
-	$f$ has the four critical sets $\{0\}$, $\{1\}$, $\{0\} \cup \{1\}$ and $(0,1)$, which all satisfy the minimum type condition if the neighborhood $N$ need not contain their closure, but then there is no critical set that is not of minimum type.
-\end{rem}
 
 While more efficient and more general proofs for the existence of an unstable minimal surface (with respect to more natural topologies than $C^0$) have subsequently been established \cite{Struwe.1988,Dierkes.2010}, including less restrictive assumptions on the boundary curve, the original approach of Morse and Tompkins is notable
 % for its close connection to persistent homology.
 for its connections to other areas of mathematics.
 As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using the previously developed machinery, starting with some intermediate results.
+As a first step, we will give general formulas for \emph{numbers of births} $\alpha(t) = \sum_{q \in (t, \infty]} \m(t,q)$ and \emph{numbers of deaths} $\omega(t) = \sum_{p \in [-\infty, t)} \m(p,t)$ in q-tame persistence modules.
+
+\begin{lem}
+\label{lem:birth_death_formulas}
+	Let $M$ be a q-tame persistence module.
+	For each $t \in \R$ we either have
+	\[
+		\alpha(t) = \dim \coker \left( \colim_{s < t} M_{s} \to \lim_{u > t} M_{u} \right)
+	\]
+	or both quantities are infinite.
+	Similarly, we either have
+	\[
+		\omega(t) = \dim \ker \left( \colim_{s < t} M_{s} \to \lim_{u > t} M_{u} \right)
+	\]
+	or both quantities are infinite.
+\end{lem}
+\begin{proof}
+    The internal colimits $\colim_{s < t} M_{s}$ and limits $\lim_{u > t} M_{u}$ are invariant under weak isomorphisms by \cite[Lemmas 3.5 and 3.6]{Schmahl.2021}, and the same is true for the numbers of births and deaths $\alpha(t)$ and $\omega(t)$ because they are defined through persistence diagrams, which themselves are invariant under weak isomorphisms.
+	Hence, using the fact that the inclusion $\rad M \hookrightarrow M$ is a weak isomorphism, we conclude that none of the quantities appearing in the statement change if we replace $M$ by its radical.
+	This radical admits a barcode decomposition and the claims follow from an explicit computation on the corresponding barcode module $M' = \bigoplus_{\lambda \in \Lambda} C(I_\lambda)$:
+	
+	First, note that we have 
+	\[
+	    \dim \lim_{u > t} M'_{u} 
+	    = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} \leq t,\ \sup I_{\lambda} > t \right\} 
+	    %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} = t,\ \sup I_{\lambda} > t\}
+	    %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
+	\]
+	if one side of the equation is finite, and we also have
+	\[
+	    \dim \colim_{s < t} M'_{s} 
+	    = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} \geq t \right\}, 
+	    %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} = t\}
+	    %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
+	\]
+	as well as
+	\[
+	    \dim \im \left( \colim_{s < t} M'_{s} \to \lim_{u > t} M'_{u} \right)
+	    = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t \right\}.
+	\]
+	From this, if again one side of the equation is finite, we obtain
+	\begin{align*}
+	    \alpha(t) &= \sum_{q \in (t, \infty]} \m(t,q) \\
+	              &= \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} = t,\ \sup I_{\lambda} > t \right\} \\
+	              &= \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} \leq t,\ \sup I_{\lambda} > t \right\}
+	              -  \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t \right\} \\
+	              &= \dim \lim_{u > t} M'_{u} - \dim \im \left( \colim_{s < t} M'_{s} \to \lim_{u > t} M'_{u} \right) \\
+	              &= \dim \coker \left( \colim_{s < t} M'_{s} \to \lim_{u > t} M'_{u} \right)
+	\end{align*}
+	and we also obtain
+	\begin{align*}
+	    \omega(t) &= \sum_{p \in [-\infty, t)} \m(p,t) \\
+	              &= \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} = t \right\} \\
+	              &= \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} \geq t \right\}
+	              -  \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t \right\} \\
+	              &= \dim \colim_{s < t} M'_{s} - \dim \im \left( \colim_{s < t} M'_{s} \to \lim_{u > t} M'_{u} \right) \\
+	              &= \dim \ker \left( \colim_{s < t} M'_{s} \to \lim_{u > t} M'_{u} \right).
+	              \qedhere
+	\end{align*}
+\end{proof}
+
+If $M$ is continuous from below or above, then the colimits and limits appearing in the formulas above may simply be replaced by the constituent vector spaces of~$M$.
+As a special case, this yields the following corollary.
+
+\begin{cor}
+\label{cor:regular_value_no_endpoint}
+	Let $M$ be a q-tame persistence module.
+	If $M$ is continuous from above and below at $t$, we have
+	\[
+		\alpha(t) = \omega(t) = 0.
+	\]
+\end{cor}
+
+We now return to the setting of functions $F$ on metric spaces and prove some more lemmas.
+To emphasize which persistence-theoretic notions are relevant, we will work with a general homology theory $\H$ such that $\H(F_{\leq \bullet})$ has certain properties, stated in the lemmas. 
+In all cases, \v{C}ech homology as used in \cref{thm:mountain_pass} satisfies the necessary conditions.
+We start with a first result stating that, as in the case of smooth Morse theory, the homotopy type of sublevel sets does not change leading up to regular values.
+
+\begin{lem}\label{lem:sublevel_set_homotopy}
+	Let $F \colon M \to \R$ be a weakly upper-reducible function a metric space with compact sublevel set filtration.
+	If $t \in \R$ is a regular value of $F$, then there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
+\end{lem}
+
+%\cref{lem:sublevel_set_homotopy} can be shown analogously to the argument in \cite[Remark II.6.3]{Struwe.1988}, where level sets of $F$ are assumed to be compact, but $F$ is not assumed to be weakly upper-reducible.
+A weaker version of \cref{lem:sublevel_set_homotopy} is stated in \cite[Lemma 8.1]{Morse.1938}, under the slightly stronger assumption of upper-reducibility.
+In \cite{Morse.1939}, Morse and Tompkins introduce and use \emph{weak} upper-reducibility, noting that the results and arguments from \cite[Sections 7 and 8]{Morse.1938} still apply.
+For convenience, we revisit the arguments using this setting in \cref{s:caps}, loosely following the exposition by Struwe \cite[Remark II.6.3]{Struwe.1988}.
+
+We proceed by showing that function values with non-vanishing \emph{cap numbers} $c_d(t) \defeq \alpha_d(t) + \omega_{d-1}(t)$, for any $d$, are indeed critical values.
+This corresponds to \cite[Theorem 8.1]{Morse.1938}.
+Note that the definition of cap numbers used by Morse is phrased in terms of relative homology, differing from our definition in terms of absolute homology. The equivalence of both definition is shown in \cref{prop:cap_limits}.
 
 \begin{lem}
 \label{lem:endpoint_implies_crit_pt}
-	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration.
-	Assume that $\H(F_{\leq \bullet})$ is q-tame and continuous from above and consider $t \in \R$ and its cap numbers $c^{\epsilon}(t)$.
-	If there exists $\epsilon > 0$ such that $c^{\epsilon}(t) > 0$, then $t$ is a critical value.
+	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration.
+	Assume that $\H(F_{\leq \bullet})$ is q-tame and continuous from above, and consider $t \in \R$ and its birth and death numbers $\alpha_d(t)$ and $\omega_{d-1}(t)$.
+	If $\alpha_d(t) > 0$ or $\omega_{d-1}(t) > 0$, then $t$ is a critical value of $F$.
 \end{lem}
 \begin{proof}
-	Following \cite[Remark II.6.3]{Struwe.1988}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \to F_{\leq t}$ is a homotopy equivalence for all $s \in [t - \epsilon, t]$.
-	\todo{not quite what struwe says, check whether this is actually true}
+	Following \cref{lem:sublevel_set_homotopy}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
 	Thus, $\H(F_{\leq \bullet})$ is continuous from below at every regular value.
 	However, we assume $\H(F_{\leq \bullet})$ to be also continuous from above at every value, and in particular at regular values.
-	Hence, \cref{cor:regular_value_no_endpoint} implies that $\alpha(t) = \omega(t) = 0$ whenever $t$ is regular, which proves the claim.
+	Hence, \cref{cor:regular_value_no_endpoint} implies that $\alpha_d(t) = \omega_{d-1}(t) = 0$ whenever $t$ is regular, which proves the claim.
 \end{proof}
+
 
 %\begin{lem}
 %\label{lem:minimum_type_implies_summand}
@@ -123,13 +245,15 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 
 %In particular, \cref{lem:minimum_type_implies_summand} implies that a critical set of minimum type can only give birth to new features in the persistence diagram and not kill existing ones, provided that the homology theory being used is additive.
 
+Next, we will analyze how the homology of sublevel sets changes at function values of critical sets of minimum type.
+
 \begin{lem}
 \label{lem:minimum_type_implies_some_birth_and_no_death}
-	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration and let $S$ be a critical set of minimum type with value $t$.
-	Assume that $\H$ is additive and that $\H(F_{\leq \bullet})$ is q-tame and continuous from above.
+	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration and let $S$ be a critical set of minimum type with value $t$.
+	Assume that~$\H$~is additive and that $\H(F_{\leq \bullet})$ is q-tame and continuous from above.
 	\begin{enumerate}
-		\item We have $\alpha(t) \geq \dim \H(S)$ for the number of births at $t$.
-		\item If there are not homotopically critical points with value $t$ outside $S$, then we have $\omega(t) = 0$ for the number of deaths at $t$.
+		\item The number of births at $t$ satisfies $\alpha_d(t) \geq \dim \H_d(S)$.
+		\item If there are no homotopically critical points with value $t$ outside $S$, then the number of deaths at $t$ satisfies $\omega_d(t) = 0$ for all $d$.
 	\end{enumerate}
 \end{lem}
 \begin{proof}
@@ -141,88 +265,117 @@ As an illustration, we will now sketch a proof of \cref{thm:mountain_pass} using
 
 	Using additivity of $\H$ and \cref{lem:birth_death_formulas}, we now obtain
 	\begin{align*}
-		\alpha(t) &= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \lim_{u > t} \H(F_{\leq u}) \big) \\
-			&= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t}) \big) \\
-			&= \dim \coker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t} \setminus S) \oplus \H(S) \big) \\
-			&\geq \dim \H(S),
+		\alpha_d(t) &= \dim \coker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \lim_{u > t} \H_d(F_{\leq u}) \big) \\
+			&= \dim \coker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \H_d(F_{\leq t}) \big) \\
+			&= \dim \coker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \H_d(F_{\leq t} \setminus S) \oplus \H_d(S) \big) \\
+			&\geq \dim \H_d(S),
 	\end{align*}
 	where we have used the assumption that $\H(F_{\leq \bullet})$ is continuous from above for the second equality and the fact that $F_{\leq s} \subseteq (F_{\leq t} \setminus S)$ for all $s < t$ for the final inequality.
 
-	Now, assuming that $S$ is the set of all homotopically critical points with value $t$ implies that the inclusion $F_{\leq s} \to (F_{\leq t} \setminus S)$ is in fact a homotopy equivalence for $s < t$, again following \cite[Remark II.6.3]{Struwe.1988}.\todo{again, needs to be reviewed whether this actually follows from what struwe says}
+	Now, assume that $S$ is the set of all homotopically critical points of $F$ with value~$t$ and consider the restriction of $F$ to $F_{\leq t} \setminus S$, denoted by $G$.
+	The set $F_{\leq t} \setminus S$ is compact because $F_{\leq t}$ is compact and $S$ is open in $F_{\leq t}$, so the sublevel set filtration of $G$ is compact.
+	$G$ is also weakly upper-reducible because the same is true for $F$.
+	Moreover, any homotopically critical point of $G$ is a homotopically critical point of $F$, so our assumption that $S$ is the set of all homotopically critical points with value $t$ of $F$ implies that $t$ is a regular value for $G$.
+	By \cref{lem:sublevel_set_homotopy},  this implies that there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} = G_{\leq s} \hookrightarrow G_{\leq t} = (F_{\leq t} \setminus S)$ is a homotopy equivalence for for all $s \in (t - \epsilon, t]$
 	Hence, again using additivity of $\H$, continuity from above, and \cref{lem:birth_death_formulas}, we obtain that
 	\begin{align*}
-		\omega(t) &= \dim \ker \big( \colim_{s < t} \H(F_{\leq s}) \to \lim_{u > t} \H(F_{\leq u}) \big) \\
-				&= \dim \ker \big( \colim_{s < t} \H(F_{\leq s}) \to \H(F_{\leq t}) \big) \\
-				&= \dim \ker \big( \colim_{s < t} \H(F_{\leq s}) \to \colim_{s < t} H(F_{\leq s}) \oplus \H(S) \big) \\
+		\omega_d(t) &= \dim \ker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \lim_{u > t} \H_d(F_{\leq u}) \big) \\
+				&= \dim \ker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \H_d(F_{\leq t}) \big) \\
+				&= \dim \ker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \colim_{s < t} H_d(F_{\leq s}) \oplus \H_d(S) \big) \\
 				&= 0
 	\end{align*}
 	as claimed.
 \end{proof}
 
-We are now ready to give a proof of the Mountain Pass Lemma.
+As the last preparatory result, we will show that connectedness of $M$ together with the condition on the colimit of the persistent homology of $F$ in the setting of \cref{thm:mountain_pass} imply that the $0$-th essential dimension is trivial for \v{C}ech homology.
+
+\begin{lem}
+\label{lem:essential_cech_dim}
+	Let $F \colon M \to \R$ be a function on a connected non-empty metric space with compact sublevel set filtration such that the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism and $\CH_0(F_{\leq \bullet})$ is q-tame.
+	Then the essential dimension of $\CH_0(F_{\leq \bullet})$ satisfies $\cp_{0} = 1$.
+\end{lem}
+\begin{proof}
+	Since $M$ is connected and non-empty, we have $\dim H_{0}(M) = 1$ for singular homology, and since $M$ is non-empty we have $\dim \CH_0(M) \geq 1$.
+	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so $\dim \CH_0(M) = 1$.
+	Together with our assumption on the colimit, we obtain $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = \dim \CH_0(M) = 1$.
+\end{proof}
+
+\begin{rem}
+%    \todo{should we move the rest of this remark to after \cref{lem:essential_cech_dim}?}
+    Note that $\cp_0 = 1$ does not already follow from just $M$ being connected, i.e., the assumption $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is non-vacuous:
+	For the lower semi-continuous function $F \colon [0,1] \to \R$ defined as $F(0) = 0$ and $F(t) = \frac1t$ for $t > 0$, we have for $t > 0$ that $F_{\leq t} = \{0\} \cup [\frac1t, 1]$.
+	%where $\frac1t$ goes monotonically to 0 as $t \to \infty$.
+	Hence, we get $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = 2$ despite $M$ being contractible and the sublevel sets of $F$ being compact. %\todo{Is $F$ weakly upper-reducible?}
+%	\todo{maybe make it more clear what the function values at the endpoints of the intervals are}
+%	\begin{figure}
+%    \centering
+%    \begin{tikzpicture}[scale = 10]
+%		\clip (-.005,-.005) rectangle (1.1,.501);
+%		\draw[lightgray] (0,0) -- (0,.5);
+%		\draw[lightgray] (0,0) -- (1,0);
+%		\foreach \i in {0,...,10}{
+%			 \draw[line width=.5pt] (1/2^\i, \i/20) -- (2/2^\i, \i/20);
+%		}
+%		\draw[fill] (0,0) circle (0.003);
+%	\end{tikzpicture}
+%    \caption{Caption\todo{Needs a caption}}
+%    \label{fig:step_function}
+%    \end{figure}
+    
+    %The weak upper-reducibility condition does not have an analogue in the assumptions of \cref{thm:mountain_pass}. 
+    %This is interesting insofar as establishing that the Douglas functional satisfies this condition takes up a large part of \cite{Morse.1939}, and Courant \cite{Courant.1941} emphasizes that establishing weak upper-reducibility is one of the key difficulties in the proof of Morse and Tompkins, requiring ``a rather deep explicit analysis of the functional''.
+    
+    %One can check that the example given in \cref{rem:critical_set} also satisfies the conditions that Morse and Tompkins impose for their Mountain Pass Theorem.
+    
+    %Weak upper-reducibility (WUR) is not used in our paper. Is it really unnecessary or do we miss something? 
+
+    %In the functional topology monograph, Morse states that WUR implies that every cap limit is assumed by a homotopically critical point. We do this without WUR in Lemma 5.8, but assume that the persistence module is continuous from above.
+
+    %WUR is not used in rank and span paper. Morse says that this paper is not concerned with critical points. Morse states in the same paper that the map $H(f_{\leq t}) \to lim_{u > t} H(f_{\leq u})$ is injective, but in fact it is also surjective, so that we have continuity from above. Maybe he is unaware that this is a general fact and wants to use WUR to circumvent this.
+
+    %Note that Courant says WUR is key in https://www.pnas.org/doi/pdf/10.1073/pnas.27.1.51 and establishing WUR makes up a large part of the Morse-Tompkins paper, so getting rid of this assumption actually simplifies things quite a bit.
+
+    %WUR also seems to be satisfied in our example that establishes the necessity of modifying the definition of minimum type, so WUR also does not seem to rectify this issue.
+    
+    %Apparently we did indeed miss something! Our argument without WUR relies on an argument by Struwe that seems to be incomplete and only works in general if WUR is also assumed.
+\end{rem}
+
+We are now ready to give a proof of the Mountain Pass Theorem.
 
 \begin{proof}[Proof of \cref{thm:mountain_pass}]
-	We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
-	Assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
-	Since both critical sets are non-empty, we have $\CH_{0}(S_{i}) \neq 0$, and thus the first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{i}) \geq \dim \CH_0(S_{i}) \geq 1$ for $i = 1,2$.
-	This implies that there exists $\epsilon > 0$ with $\cc_{0}^{\epsilon} \geq \calpha_{0}(t_{1}) + \calpha_{0}(t_{2}) \geq 1 + 1 = 2$.
-	However, we assume $\cp_{0} = 1$, so with notation as in the proof of \cref{t:inequalities}, we obtain $\comega_{0}^{\epsilon} = \cc_{0}^{\epsilon} - \cp_{0} \geq 2 - 1 = 1$.
-	Thus, there must be some $t \in \R$ with $\comega_{0}(t) > 0$, so that in particular $\cc_{0}^{\epsilon}(t) > 0$.
-	Next, we apply \cref{lem:endpoint_implies_crit_pt} and obtain that the set $S$ of homotopically critical points at value $t$ is non-empty.
+    First, we observe that $\CH_*(F_{\leq \bullet})$ is q-tame by \cref{t:local connectedness implies q-tameness} because we assume that $F_{\leq \bullet}$ is $\HLC$ for \v{C}ech homology.
+    As a consequence, $\CH_*(F_{\leq \bullet})$ has a well-defined persistence diagram by \cref{t:q-tame modules have barcodes}, and thus we can consider cap numbers, births, deaths, etc.
+    We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
+    The sublevel set filtration of $F_{\leq \bullet}$ is also assumed to be compact, $M$ is assumed to be connected and non-empty, $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is assumed to be an isomorphism, and $F$ is assumed to be weakly upper-reducible, so the previous lemmas are all applicable.
+	
+	Now assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
+	Since both critical sets are non-empty, we have $\CH_{0}(S_{i}) \neq 0$, and thus the first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{i}) \geq \dim \CH_0(S_{i}) \geq 1$ for $i = 1,2$,
+	indicating the existence of at least one feature for each $i = 1,2$ with birth $t_{i}$ and some positive persistence $\epsilon_i > 0$ in the persistence diagram of $\CH_0(F_{\leq \bullet})$.
+	Choosing $0 < \epsilon < \min_i \epsilon_i$, this implies that
+	$\calpha_{0}^{\epsilon}(t_{i}) \geq 1$ for $i = 1,2$,
+	and thus
+	$\cc_{0}^{\epsilon} \geq \calpha_{0}^{\epsilon}(t_{1}) + \calpha_{0}^{\epsilon}(t_{2}) \geq 1 + 1 = 2$.
+	Now, from \cref{lem:essential_cech_dim} we obtain that $\cp_{0} = 1$, which yields $\comega_{0}^{\epsilon} = \cc_{0}^{\epsilon} - \cp_{0} \geq 2 - 1 = 1$.
+	Thus, there must be some $t \in \R$ with $\comega_{0}(t) > 0$, so that we may apply \cref{lem:endpoint_implies_crit_pt} to obtain that the set $S$ of homotopically critical points at value $t$ is non-empty.
 	If $S$ were of minimum type, then we would have $\comega_{0}(t) = 0$ by the second assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death}, contradicting the choice of $t$.
 	Hence, $S$ cannot be of minimum type, which finishes the proof.
 \end{proof}
 
-\todo{should we remark on the fact that the morse inequalities only yield $c_{1}^{\epsilon} \geq 1$, but that this is not enough to conclude existence of something that is not of minimum type? $\omega(t) \geq 1$ is needed}
-
-What remains to be discussed in order to obtain the Unstable Minimal Surface Theorem of Morse and Tompkins (\cref{thm:unstable_minimial_surface}) as a consequence of their Mountain Pass Lemma, is why the Douglas functional $A_{g}$ satisfies the hypothesis of \cref{thm:mountain_pass}.
-We have already mentioned that $A_{g} \colon \Omega_{g} \to \R$ is bounded below and has compact sublevel sets.
-% One can use \v{C}ech homology
-% , which satisfies the assumptions on the homology theory in \cref{thm:mountain_pass} (see \cite{Milnor.1962} for additivity),
-% to obtain a sublevel set persistence module that is continuous from above.
-We can also check that the essential dimension $\check{p}_{0}$ is $1$ using the following lemma, because $\Omega_{g}$ is contractible by \cite[Theorem 4.3]{Morse.1939}.
-
-\begin{lem}
-\label{lem:essential_cech_dim}
-	Let $F \colon M \to \R$ be a function on a non-empty metric space with compact sublevel set filtration and let $\cp_{d}$ be the essential dimensions of its q-tame persistent \v{C}ech homology.
-	If $M$ is contractible, then $\cp_{0} = 1$.
-\end{lem}
-
-\begin{proof}
-	Let $\H$ denote singular homology, let $p_{d}$ denote the essential dimensions of the persistent singular homology of $F_{\leq \bullet}$, and let $\CH$ denote \v{C}ech homology.
-	Since $M$ is contractible, we have $\dim H_{0}(M) = 1$.
-	We also have $p_{d} = \dim \colim_{t \to \infty} H_{d}(F_{\leq t}) = \dim H_{d}(M)$, where the second equality holds because all the sublevel sets of $F$ are compact \cite[Proposition 3.33]{Hatcher.2002}.
-	Now, the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so $\cp_{0} \leq p_{0}$.
-	Moreover, we clearly have $\cp_{0} \geq 1$ because $M$ is non-empty.
-	%Map from some non-empty sublevel set to $M$ has to have at least rank 1 and has ti factor through colimit, so $\cp_{0} = \dim \colim \geq 1$.
-	In total, we obtain $1 \leq \cp_{0} \leq p_{0} = \dim H_{0}(M) = 1$, which proves the claim.
-\end{proof}
-
-The only assumption left to verify is q-tameness.
-
 \subsection{Morse's local connectivity conditions}\label{subsec:historic_hlc}
-%Parts of the framework of functional topology that Morse and Tompkins use is developed by Morse in \cite{Morse.1940} in a very general setting.
-%In particular, he proves inequalities for cap numbers associated to the persistent \v{C}ech homology of the sublevel set filtration, as also considered in \cref{s:inequalities}.
-%From these generalized Morse inequalities, the existence of an unstable minimal surface can easily be deduced in the presence of two distinct critical sets of minimum type.
+In order to complete the proof of the Unstable Minimal Surface Theorem, we explain why the Douglas functional is q-tame for \v{C}ech homology (\cref{prop:douglas_hlc}), and we discuss the issue with Morse's approach to q-tameness in \cite[Theorem 6.3]{Morse.1940}.
 
-%We have seen that these inequalities require q-tameness, so in order to apply them in the minimal surface setting % and deduce their theorem,
-%one needs to prove the \mbox{q-tameness} of the sublevel set filtration of the Douglas functional $A_g$.
-
-
-% What remains to be discussed is why the Douglas functional $A_{g} \colon \Omega_{g} \to \R$ satisfies the assumptions of \cref{thm:mountain_pass} so that the Unstable Minimal Surface Theorem follows as a corollary.
-
-Throughout his work on functional topology, in order to obtain \mbox{q-tameness}, Morse assumed slightly varying forms of local connectivity on the resulting sublevel set filtrations.
-In particular, Morse and Tompkins used the following condition in their applications to minimal surface theory:
+Throughout his work on functional topology, Morse assumed slightly varying forms of local connectivity on the resulting sublevel set filtrations in order to obtain \mbox{q-tameness}.
+In particular, Morse and Tompkins used the following condition from \cite{Morse.1938,Morse.1940} in their application to minimal surface theory:
 \begin{displaycquote}[p.~431]{Morse.1940}
 %\cite[p.~ 25]{Morse.1938}
 	Let $p$ be a point of $M$ at which $F(p)=c$.
 	The space $M$ is said to be \emph{locally $F$-connected} of order $r$ at~$p$ if corresponding to each positive constant $e$ there exists a positive constant $\delta$ such that each singular $r$-sphere on the $\delta$-neighborhood of $p$ and on $F_{c+\delta}$ bounds an $(r+1)$-cell of norm $e$ on $F_{c+e}$.
 \end{displaycquote}
-See also \cite[p.~ 25]{Morse.1938} and \cite[p.~464]{Morse.1939}, but note that the definitions given there contain typographical errors.
-Using similar language to the one used in \cref{s:connectivity}, the property of local $F$-connectedness of all orders is equivalent to the following notion applicable to general topological spaces.
+See also \cite[p.~ 25]{Morse.1938} and \cite[p.~464]{Morse.1939}, but note that the definitions given there contain evident typographical errors.
+Expressed in similar language as \cref{s:connectivity}, the property of local $F$-connectedness of all orders is equivalent to the following notion, applicable to general topological spaces.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected of all orders}, or \emph{weakly $\piLC$}\todo{check whether $\piLC$ is still appropriate}, if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ induces trivial maps on homotopy groups.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected of all orders}, or \emph{weakly $\piLC$}, if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ induces trivial maps on all homotopy groups.
 \end{defi}
 
 Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ is bounded from below and satisfies the assumptions of local $F$-connectivity and compactness of sublevel sets.
@@ -237,14 +390,15 @@ Unfortunately, the above claim does not hold in general, as exemplified by the s
 To elaborate on this, we consider a stronger version of weak local connectedness.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally contractible}, or \emph{weakly $\LC$}\todo{check whether $\LC$ is still appropriate}, if for any $x \in X$, $V$ a neighborhood of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally contractible}, or \emph{weakly $\LC$}, if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
 Clearly, being weakly $\LC$ implies being weakly $\piLC$ and, if the homology $\H$ takes finite dimensional values on one-point spaces, also weakly $\HLC$.
-Observe that \cref{e:counterexample} actually establishes that the filtration given there is weakly $\LC$, so not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions in general.
-In particular, our construction invalidates Morse's claim quoted above because \v{C}ech homology satisfies the assumptions on the homology theory made in \cref{e:counterexample}.
-
-Specifically, using the fact that \v{C}ech homology of compact Hausdorff spaces commutes with inverse limits, it is straightforward to verify that the \v{C}ech homology in degree $d$ of the $d$-dimensional Hawaiian earring is isomorphic to $\prod_{n\in\N}\F$, which is infinite dimensional over $\F$.
+Observe that our discussion in \cref{e:counterexample} actually establishes that the filtration given there is weakly $\LC$, so not even the weak $\LC$ condition is sufficient to ensure the q-tameness of compact sublevel set filtrations that are induced by non-continuous functions in general.
+In particular, our construction invalidates Morse's claim quoted above:
+% because \v{C}ech homology satisfies the assumptions on the homology theory made in \cref{e:counterexample}. %mentioned beofre already
+%
+%Specifically, using the fact that \v{C}ech homology of compact Hausdorff spaces commutes with inverse limits, it is straightforward to verify that the \v{C}ech homology in degree $d$ of the $d$-dimensional Hawaiian earring $\HE$ is isomorphic to $\prod_{n\in\N}\F$, which is infinite dimensional over $\F$.
 %To see that his is the case, one can use the fact that \v{C}ech homology commutes with totally ordered limits for compact Hausdorff spaces \cite[Theorems VIII.3.6 and X.3.1]{Eilenberg.1952} as follows.
 %Define
 %\begin{align*}
@@ -285,39 +439,60 @@ Specifically, using the fact that \v{C}ech homology of compact Hausdorff spaces 
 %	To verify that $f$ has compact sublevel sets we notice that all sublevel sets are either the empty set, the singleton containing the origin, or $\HE$ itself, all compact Hausdorff spaces.
 %
 %	In order to verify that the sublevel set filtration of $f$ is weakly $\LC$, we
-%	consider $x \in \HE$, $V$ a neighborhood of $x$ in $\HE$ and $t > f(x)$.
-%We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+%	consider $x \in \HE$, any neighborhood $V$ of $x$ in $\HE$ and $t > f(x)$.
+%We need to find a neighborhood $U \subseteq V$ of $x$ and $s \in (f(x), t)$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ is homotopic to a constant map.
 %
 %	If $x$ is the origin, we have $f(x) = 0$ and choose $s \in (0, \min\{t, 1\})$.
-%	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\LC$ condition is trivially satisfied.
+%	Then $f_{\leq s} = \{x\}$, so with $U = V$ the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ is the inclusion of $\{x\}$ into $f_{\leq t} \cap V$, which is a constant map, so the weak $\LC$ condition is trivially satisfied.
 %
 %	For $x$ not the origin we have $f(x) = 1$ and choose $s \in (1,t)$ arbitrarily, so that $f_{\leq s} = f_{\leq t} = \HE$.
 %	Note that since $x$ is not the origin, there is a unique $d$-sphere in $\HE$ that contains $x$.
 %	Clearly, we may choose $\delta > 0$ so small that $B_{\delta}(x) = \{y \in \R^{d+1} \mid \Vert x - y \Vert < \delta\} \cap \HE$ is a topological ball contained in this sphere and contained in $V$.
-%	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
+%	The ball $B_\delta(x)$ can be contracted to $\{x\}$ in $V$, so choosing $U = B_{\delta}(x)$, we obtain that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ is homotopic to the constant map with value $x$.
 %
 %	It remains to be shown that $f_{\leq \bullet}$ is not q-tame for $\H$.
 %	This follows directly from our assumption that $\H_{n}(\HE)$ is not finite dimensional for some $n$, as $f_{\leq t}$ is constant with value $\HE$ for $t \geq 1$.
 %\end{proof}
-Moreover, the singular homology of the $d$-dimensional Hawaiian earring is also infinite dimensional, as proven in \cite{Barratt.1962}.
-In summary, we have the following.
+%Moreover, the singular homology of $\HE$ is also infinite dimensional, as proven in \cite{Barratt.1962}.
+%In summary, we have the following.
 
 \begin{cor} \label{c:counterexample}
-	The function $f \colon \HE \to \R$ with value~$0$ at the origin and $1$ elsewhere defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to singular and \v{C}ech homology.
+	The function $f \colon \HE \to \R$ with value~$0$ at the origin and $1$ elsewhere defines a weakly $\LC$ compact sublevel set filtration that is not q-tame with respect to either singular or \v{C}ech homology.
 \end{cor}
 
-The gap we have thus highlighted in the argument of Morse and Tompkins, that the sublevel set filtration of $A_g$ is not necessarily q-tame, can be fixed by applying \cref{t:local connectedness implies q-tameness}.
-This is because the proof given in \cite[p.464]{Morse.1939} for the local connectivity of the sublevel set filtration induced by $A_g$ can actually be seen to establish a stronger property described next.
+This counterexample reveals a gap in the argument of Morse and Tompkins, as the sublevel set filtration of $A_g$ is not actually shown to be q-tame.
+Fortunately, this gap can be readily fixed by applying \cref{t:local connectedness implies q-tameness}.
+This is because the proof given in \cite[Theorem 7.2, p.464]{Morse.1939} for the local connectivity of the sublevel set filtration induced by $A_g$ can actually be seen to establish a stronger property, described next.
 
 \begin{defi}
-	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally contractible} or \emph{$\LC$} if for any $x \in X$, any neighborhood $V$ of $x$ and any pair of indices $f(x) < s < t$ there is a neighborhood $U \subseteq V$ of $x$ such that the map $f_{\leq s} \cap U \to f_{\leq t} \cap V$ is homotopic to a constant map.
+	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{locally contractible} or \emph{$\LC$} if for any $x \in X$, any neighborhood $V$ of $x$ and any pair of indices $f(x) < s < t$ there is a neighborhood $U \subseteq V$ of $x$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ is homotopic to a constant map.
 \end{defi}
 
-Clearly, the filtration being $\LC$ implies that the filtration is also $\HLC$ for \v{C}ech homology with field coefficients, which is the homology theory Morse and Tompkins use.
-Therefore, from \cref{t:local connectedness implies q-tameness} we can conclude that the sublevel set filtration of $A_g$ is indeed \mbox{q-tame} as needed.
-This implies that \cref{thm:mountain_pass} indeed applies to the Douglas functional, and hence the Unstable Minimal Surface Theorem holds.
+\begin{prop}[{\cite[p.464]{Morse.1939}}]
+\label{prop:douglas_hlc}
+    The sublevel set filtration of the Douglas functional $A_g \colon \Omega_g \to \R$ is $\LC$, and in particular $\HLC$ for \v{C}ech homology.
+\end{prop}
+%
+%Using the fact that $\LC$ implies $\HLC$, an application of \cref{t:local connectedness implies q-tameness} yields:
+%\begin{cor}
+%\label{c:douglas_qtame}
+%	The Douglas functional $A_g$ has q-tame persistent \v{C}ech homology.
+%\end{cor}
 
-We have also mentioned that Morse introduced another condition that he also called local $F$-connectivity three years earlier.
+We can now finally prove the Unstable Minimal Surface Theorem.
+
+
+\begin{proof}[Proof of \cref{thm:unstable_minimial_surface}]
+    The Douglas functional $A_g$ is weakly upper-reducible by \cite[Theorem 5.1]{Morse.1939}, its sublevel set filtration is compact according to \cite[p.~448]{Morse.1939}, and as previously mentioned $\Omega_g$ is non-empty by \cite[p.~267-268]{Douglas.1931} because $g$ is rectifiable.
+    Moreover, $\Omega_g$ is contractible and hence connected by \cite[Theorem 4.3]{Morse.1939}.
+    The sublevel set filtration of $A_g$ is also $\HLC$ for \v{C}ech homology according to \cref{prop:douglas_hlc}.
+    Finally, we have $\colim \CH_0((A_g)_{\bullet}) \to \CH_0(\Omega_g)$ is an isomorphism according to \cite[p.~444]{Morse.1939} because $A_g$ satisfies the \emph{regularity at infinity} condition by \cite[Theorem 4.3]{Morse.1939}.
+    In total, \cref{thm:mountain_pass} applies to $A_g$.
+    Since any homotopically critical point of $A_g$ corresponds to a minimal surface spanned by $g$ \cite[Theorem 6.2]{Morse.1939}, this implies the claim. 
+\end{proof}
+
+\begin{rem}
+Morse introduced another condition three years earlier, which he also called local $F$-connectivity.
 It roughly corresponds to being $\piLC$ with a certain added uniformity property.
 In the original it reads:
 \begin{displaycquote}[p.421--422]{Morse.1937}
@@ -327,3 +502,4 @@ In the original it reads:
 Morse also claims in the given reference that this condition is sufficient for q-tameness, but without providing a proof.
 Whether this statement is true or not is not covered by our analysis, because the $\piLC$ and $\HLC$ conditions generally do not imply each other.
 We expect the quoted claim to be true, but do not investigate it further.
+\end{rem}

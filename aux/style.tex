@@ -5,6 +5,8 @@
 \usepackage{adjustbox}
 \usepackage{todo}
 
+\usepackage[T1]{fontenc}
+
 % bibliography
 \usepackage[
     backend=biber,
@@ -13,7 +15,9 @@
     url=false,
     doi=false,
     isbn=false,
-    eprint=false
+    eprint=false,
+    sortcites=true,
+    sorting=nyt
 ]{biblatex}
 
 \addbibresource{aux/bibliography.bib}
@@ -87,6 +91,5 @@
 
 % table of contents
 \setcounter{tocdepth}{1}
-
 
 \hyphenation{Wis-sen-schaf-ten di-men-sio-nal Dia-grams}

@@ -2,44 +2,62 @@
 
 \section{Generalized Morse inequalities} \label{s:inequalities}
 
-In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities that specializes to the usual Morse inequalities in the smooth context, as well as to the version used by Morse and Tompkins to prove their Unstable Minimal Surface Theorem.
+In this section we prove that $q$-tame persistence modules satisfy a general version of Morse inequalities, specializing to the usual Morse inequalities in the smooth context as well as to the version used by Morse and Tompkins to prove their Unstable Minimal Surface Theorem.
 We deduce these general inequalities from the existence of persistence diagrams as reviewed in \cref{t:q-tame modules have barcodes}.
 
-Recall that for a Morse function $f$ on a closed smooth manifold $X$, the usual Morse inequalities state that for any non-negative integer $n$ the following holds:
+First recall that for a Morse function $f$ on a closed smooth manifold $X$, the classical Morse inequalities \cite{Morse.1925} state that for any non-negative integer~$n$ the following inequality holds:
 \begin{equation} \label{e:classical morse inequalities}
 \sum_{d=0}^n \ (-1)^{n-d} \big( c_{d}(f) - \beta_{d}(X) \big) \ \geq \ 0,
 \end{equation}
-where $c(f)$ is the number of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d\th$ Betti number of $X$.
+where $c_d(f)$ is the number of critical points of $f$ with index $d$ and $\beta_{d}(X)$ is the $d\th$ Betti number of $X$.
 
-If no two critical points of $f$ have the same value, the sets of critical points and values are naturally in one-to-one correspondence, which, in turn, are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing in the barcode of the persistent homology of $f_{\leq \bullet}$.
-More precisely, an index $d$ critical point may either kill an existing homology class, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it may give rise to a new homology class, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
+If no two critical points of $f$ have the same value, the critical points are in natural one-to-one correspondence with the critical values, which, in turn, are in one-to-one correspondence with the homological changes in the sublevel set filtration of $f$, i.e., the endpoints of the intervals appearing in the barcode of the persistent homology of $f_{\leq \bullet}$.
+More precisely, an index $d$ critical point either kills an existing homology class, in which case it corresponds to the right endpoint of an interval in the barcode of $H_{d-1}(f_{\leq \bullet})$, or it gives rise to a new homology class, in which case it corresponds to the left endpoint of an interval in the barcode of $H_d(f_{\leq \bullet})$.
 
-The Betti numbers of $X$ may also be expressed in terms of barcodes because they agree with the number of intervals that extend to $+\infty$.
-Thus, the Morse inequalities above can be expressed entirely in terms of the barcode (or persistence diagram) of the persistent homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
+The Betti numbers of $X$ may also be expressed in terms of barcodes, as they agree with the number of intervals that extend to $+\infty$.
+Thus, the above Morse inequalities can be expressed entirely in terms of the barcode (or persistence diagram) of the persistent homology of the sublevel set filtration of the function, which encodes the homological changes in the filtration.
 
 This approach of counting homological changes instead of critical points is also what Morse used in the non-smooth setting of functional topology.
-To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$ but not indefinitely, \cite{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration, which, when the associated persistence module has a barcode and is continuous from above, correspond to the number of bars with length greater than $\epsilon$ in the $d\th$ barcode with left endpoint $t$, plus the number of bars with length greater than $\epsilon$ in the $(d-1)\th$ barcode with right endpoint $t$ (killed by something $d$-dimensional).
-In the compact smooth setting, for sufficiently small $\epsilon$, the $(d, t, \epsilon)$-cap number equals the number of critical points of index $d$ and value $t$.
+To keep track of the number of $d$-dimensional homological events at filtration value $t$ that persist for at least time $\epsilon > 0$, Morse \cite{Morse.1940} defined the $(d, t, \epsilon)$-\emph{cap numbers} of a filtration.
+The definition given by Morse is specific to Vietoris homology and implicitly relies on the fact that the resulting persistence module is continuous from above.
+Expressed in terms of persistence barcodes, the $(d, t, \epsilon)$-cap number correspond to the number of bars in the $d\th$ barcode with left endpoint~$t$ and length greater than $\epsilon$, plus the number of bars in the $(d-1)\th$ barcode with right endpoint~$t$ and length greater than $\epsilon$.
+In the compact smooth setting, for sufficiently small~$\epsilon$, the $(d, t, \epsilon)$-cap number equals the number of critical points of index~$d$ and value~$t$, which either create homology in degree $d$ or destroy homology in degree $(d-1)$.
+In \cite[Corollary~12.3]{Morse.1940}, Morse proves a version of his eponymous inequalities using cap numbers as a replacement for numbers of critical points, with the stated goal of making the inequalities applicable in settings where the function may not be smooth or the number of critical points may not be finite.
 
-Working entirely in the algebraic setting, we will now fix a graded q-tame persistence module $M$.
-Of course, one may think of $M$ as the persistent homology of a q-tame filtration, but $M$ could for example also arise as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
-By \cref{t:q-tame modules have barcodes}, $M$ has a persistence diagram in every degree $d$ with multiplicity function denoted $\m_d \colon \mulDom \to \N$.
+We now take a more general persistence-based approach that allows us to go beyond the setting of Vietoris homology.
+Working entirely in the algebraic setting, we will fix a graded q-tame persistence module $M$.
+Of course, one may think of $M$ as the persistent homology of a q-tame filtration for any choice of homology theory, but $M$ could also arise, for example, as the filtered Floer homology of some Hamiltonian on a symplectic manifold.
+By \cref{t:q-tame modules have barcodes}, $M$ has a persistence diagram in every degree $d$, with multiplicity function denoted $\m_d \colon \mulDom \to \N$.
 In analogy to Morse's definitions, we may define, for an integer $d$ and real numbers $t$ and $\epsilon > 0$, the $(d, t, \epsilon)$-\emph{cap number} of our graded q-tame persistence module $M$ in terms of its persistence diagram as
 \begin{equation*}
 c_{d}^{\epsilon}(t) \ =
-\sum_{\substack{p \in \R \cup \{-\infty\} \\ t - p > \epsilon}} \m_{d-1}(p, t) \ +
-\sum_{\substack{q \in \R \cup \{\infty\} \\ q - t > \epsilon}} \m_d(t, q).
+\alpha_{d}^{\epsilon}(t) + \omega_{d-1}^{\epsilon}(t),
 \end{equation*}
-Note that finiteness of these quantities is ensured by the q-tameness of $M$ and the use of a non-zero $\epsilon$ bounding below the persistence of the considered features.
-To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$.
+where 
+\begin{align*}
+\alpha_{d}^{\epsilon}(t) &= \sum_{\substack{q \in \R \cup \{\infty\} \\ q - t > \epsilon}} \m_d(t, q),
+%\\
+%\intertext{and}
+&
+\omega_{d}^{\epsilon}(t) &= \sum_{\substack{p \in \R \cup \{-\infty\} \\ t - p > \epsilon}} \m_{d}(p, t) 
+\end{align*}
+are the \emph{number of births} and the \emph{number of deaths}, respectively, in degree $d$, at parameter $t$, and with persistence greater than~$\epsilon$.
+We will comment on the connection between our definition and the original one by Morse in \cref{s:caps}.
+Note that finiteness of the quantities above is ensured by the q-tameness of $M$ and the use of a non-zero $\epsilon$ bounding below the persistence of the considered features.
+To see the necessity of this second condition, consider the q-tame persistence module given by the infinite product $\prod_{n \in \N_{> 0}} C([0,1/n))$ whose cap numbers $c^{\epsilon}(0)$ tend to $\infty$ as $\epsilon$ tends to 0.
 
 Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers}
 \[
-c_{d}^{\epsilon} =
-\sum_{t} c_{d}^{\epsilon}(t) \ =
-\sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ q \neq \infty}} \m_{d-1}(p,q) \ +
-\sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ p \neq -\infty}}\m_d(p,q).
+c_{d}^{\epsilon} = \sum_{t \in \R} c_{d}^{\epsilon}(t)  = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon},
 \]
+where
+\begin{align*}
+\alpha_{d}^{\epsilon} &= \sum_{t \in \R} \alpha_{d}^{\epsilon}(t) = \sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ p \neq -\infty}}\m_d(p,q),
+&
+\omega_{d}^{\epsilon} &= \sum_{t \in \R} \omega_{d}^{\epsilon}(t) = \sum_{\substack{(p,q) \in \mulDom \\ q - p > \epsilon \\ q \neq \infty}} \m_{d}(p,q)
+\end{align*}
+are the \emph{total number of births} and the \emph{total number of deaths}, respectively, in degree~$d$ and with persistence greater than~$\epsilon$.
+
 An important setting where all cap numbers are well-defined is when $M$ is the persistent homology of the sublevel set filtration of a bounded function.
 A more general statement can be made using the following notion.
 
@@ -51,7 +69,7 @@ A more general statement can be made using the following notion.
 
 \begin{thm} \label{t:cap numbers well defined}
 	Let $M$ be a q-tame persistence module that is both initially and eventually constant.
-	If $\m$ is the multiplicity function of the persistence diagram of $N$,
+	If $\m$ is the multiplicity function of the persistence diagram of~$M$,
 	then for each $\epsilon > 0$,
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in \mulDom \\ q-p > \epsilon } } \m (p,q) < \infty.
@@ -71,7 +89,7 @@ A more general statement can be made using the following notion.
 	T = \{(p,q) \in \mulDom \mid s \leq p < q \leq u\}.
 	\end{equation*}
 
-	For the first summand, observe that, because $M$ is constant below $s$ and constant above $u$, we have $\m(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
+	For the first summand, observe that since $M$ is constant below $s$ and constant above $u$, we have $\m(p,q) = 0$ whenever one of $-\infty < p < s$ or $q < s$ or $p > u$ or $u < q < \infty$ holds.
 	This implies
 	\begin{equation*}
 	\sum_{ \substack{ (p,q) \in \mulDom \setminus T \\ q-p > \epsilon } } \m (p,q)
@@ -112,12 +130,13 @@ A more general statement can be made using the following notion.
 	Each of the sums $\sum_{(p,q) \in Q \left(x_i, x_i + \frac{\epsilon}{2} \right)} \m(p,q)$ over the quadrants $Q \left(x_i, x_i + \frac{\epsilon}{2} \right)$ is finite since $M$ is q-tame (which is where the name q-tame or \emph{quadrant}-tame comes from, see \cite[Section 3.8]{Chazal.2016a}).
 \end{proof}
 
-Comparing to the usual Morse inequalities, the cap numbers in dimension $d$ act like the number of critical points with index $d$.
-As an analogue to the Betti numbers of the manifold appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$ referred to as \emph{essential dimensions}, which, under the same assumptions as before, can be expressed in the language of persistence diagrams as
+Comparing to the classical Morse inequalities, the cap numbers in dimension $d$ play the role of the number of critical points with index $d$.
+As an analogue to the Betti numbers of the manifold appearing in the usual Morse inequalities, Morse defines quantities $p_{d}$, which we refer to as \emph{essential dimensions}.
+For a graded q-tame persistence module $M$, these can be expressed in the language of persistence diagrams as
 \[
 p_{d} \ = \!\! \sum_{p \in \R \cup \{-\infty\}} \m_d(p,\infty),
 \]
-which is also the dimension of the colimit of the degree $d$ part of $M$.
+which agrees with the dimension of the colimit of the degree $d$ part of $M$.
 
 \begin{thm} \label{t:inequalities}
 	Let $\epsilon > 0$, and let $M$ be a graded q-tame persistence module
@@ -131,33 +150,33 @@ which is also the dimension of the colimit of the degree $d$ part of $M$.
 
 
 \begin{proof}
-The $d$th $\epsilon$-cap number is
-\[c_{d}^{\epsilon} = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon},\] 
-where
-\begin{align*}
-\alpha_{d}^{\epsilon} \ &=
-\sum_{\substack{(p,q) \in \mulDom \\ p\neq\infty, q - p > \epsilon}} \m_d(p, q),
-&
-\omega_{d}^{\epsilon} \ &=
-\sum_{\substack{(p,q) \in \mulDom \\ q\neq-\infty, q - p > \epsilon}} \m_{d}(p, q)
-\end{align*}
-count the multiplicity of left endpoints $p$ and right endpoints $q$, respectively, in elements $(p,q) \in \mulDom$ in the persistence diagram for $M$ that have degree $d$ and persistence $q-p > \epsilon$.
+Recall that the $d$th $\epsilon$-cap number is defined as
+\[c_{d}^{\epsilon} = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon}.\] 
+%where
+%\begin{align*}
+%\alpha_{d}^{\epsilon} \ &=
+%\sum_{\substack{(p,q) \in \mulDom \\ p\neq\infty, q - p > \epsilon}} \m_d(p, q),
+%&
+%\omega_{d}^{\epsilon} \ &=
+%\sum_{\substack{(p,q) \in \mulDom \\ q\neq-\infty, q - p > \epsilon}} \m_{d}(p, q)
+%\end{align*}
+%count the total number of births $p$ and deaths $q$, respectively, over all elements $(p,q) \in \mulDom$ in the persistence diagram for $M$ that have degree $d$ and persistence $q-p > \epsilon$.
 Since we assume $\m_d(-\infty, p) = 0$ for all $p$, we have
 	\begin{equation*}
-	p_{d} \ = \alpha_{d}^{\epsilon} - \omega_{d}^{\epsilon}
+	p_{d} \ = \alpha_{d}^{\epsilon} - \omega_{d}^{\epsilon}.
 	\end{equation*}
-The difference of the two numbers, which appears in the Morse inequalities to be shown, is thus
+The difference of the two numbers is thus
 \[
 c_{d}^{\epsilon} - p_{d} = \omega_{d-1}^{\epsilon} + \omega_{d}^{\epsilon},
 \]
-and their sum is
+and so their sum is
 \[
 \sum_{d=0}^n \ (-1)^{n-d} (c_{d}^{\epsilon} - p_{d}) = \omega_{n}^{\epsilon} \geq\ 0
 \]
 as claimed.
 \end{proof}
 
-In other words, given the assertion that the persistence module $M$ has a persistence diagram, the Morse inequalities simply express the fact that the number of right endpoints in nonnegative.
+In other words, given the assertion that the persistence module $M$ has a persistence diagram, the Morse inequalities simply express the fact that the total number of deaths of features with persistence greater than $\epsilon$ is nonnegative.
 % This observation emphasizes the role of persistence in interpreting fundamental facts in Morse theory.
 This observation illustrates the usefulness of interpreting fundamental facts in Morse theory through the lens of persistence theory.
 
@@ -193,20 +212,19 @@ This observation illustrates the usefulness of interpreting fundamental facts in
 %\end{proof}
 
 As shown in \cref{t:cap numbers well defined}, the finiteness assumptions are satisfied if $M$ is initially and eventually constant.
-Hence, as a special case, the theorem yields generalized Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, including classical Morse functions $f$ on closed smooth manifolds $X$.
-As outlined in our motivation for the definition of cap numbers, in this setting our inequalities \eqref{e:morse inequalities} agree with the classical inequalities \eqref{e:classical morse inequalities}, as $\beta_d(X) = p_d$ and $c_d^{\epsilon} = \# \crit_d(f)$ for $\epsilon > 0$ smaller than the minimal difference between any two critical values of~$f$.
+Hence, as a special case, the theorem yields generalized Morse inequalities for any bounded real-valued function whose sublevel set filtration has q-tame persistent homology, including smooth Morse functions $f$ on closed smooth manifolds $X$.
+As outlined in our motivation for the definition of cap numbers, in this setting our inequalities \eqref{e:morse inequalities} agree with the classical inequalities \eqref{e:classical morse inequalities}, as $\beta_d(X) = p_d$ and $c_d^{\epsilon} = \# \crit_d(f)$ for any $\epsilon > 0$ smaller than the minimum difference between any two critical values of~$f$.
 Morse inequalities for unbounded functions can still be obtained by restricting the function to an arbitrary sublevel set.
+Using \v{C}ech homology and considering bounded q-tame functions, our cap numbers and essential dimensions agree with the corresponding historical notions from \cite{Morse.1940}, so in this case our inequalities \eqref{e:morse inequalities} also agree with the inequalities \cite[Corollary~12.3]{Morse.1940}.
 
-The finiteness conditions of our theorem are also satisfied by the Douglas functional considered by Morse and Tompkins as an application of Morse's theory of functional topology.
-The details in \cite{Morse.1939} are incomplete, with some crucial theorems being stated without proof, and with a citation to a paper in preparation that has never been published under the same name (we suppose that this paper is \cite{Morse.1940}).
-Nevertheless, Morse and Tompkins establish the conditions required for \cref{t:local connectedness implies q-tameness}, from which we can deduce q-tameness and obtain Morse inequalities by \cref{t:inequalities}.
-While Morse's approach is restricted to \v{C}ech homology, and singular homology is explicitly excluded due to a lack of continuity, our approach is more flexible and applies to any setting where persistent homology is q-tame.
-If the persistent homology of the sublevel set filtration is not only q-tame but also continuous from above, our inequalities agree with Morse's historical version from functional topology as presented in \cite[Corollary~12.3]{Morse.1940}.
+To apply our inequalities, one needs q-tameness, and our next goal will be to give topological conditions that ensure q-tameness (\cref{t:local connectedness implies q-tameness}).
+These conditions are in particular satisfied by the Douglas functional (\cref{prop:douglas_hlc}), as shown by Morse and Tompkins in their work on unstable minimal surfaces \cite{Morse.1939}, which we will partly review in \cref{s:surfaces}, and which motivated the developments in \cite{Morse.1940}.
 
 \begin{rem} \label{r:homotopically critial points}
 	In addition to the formulation of the inequalities in terms of cap numbers, Morse also proposed a generalized version of critical points, which he called homotopically critical, and which formalizes the idea of criticality of a point in terms of topological changes in the sublevel set filtration.
-	This notion was employed by Morse and Tompkins in their study of minimal surfaces \cite{Morse.1939}, which we will partly review in \cref{s:surfaces} and for which a thorough historical account may be found in \cite[Section II.6]{Struwe.1988}.
-	The usefulness of this notion might however be limited in many cases of interest.
-	In Floer theory, for example, critical points of the action functional corresponding to a Hamiltonian usually have infinite index and thus do not produce changes in the topology.
-	In this setting, our approach of formulating the inequalities purely in algebraic terms might be more suitable, because while these critical points are not topologically visible, they do correspond to features in the persistence diagram of the filtered Floer homology.
+	This notion was employed in the above mentioned work on minimal surfaces by Morse and Tompkins \cite{Morse.1939}.
+	
+	The usefulness of this notion might however be limited in some cases of interest.
+	In Floer theory, for example, critical points of the action functional corresponding to a Hamiltonian usually do not have a finite index and thus do not lead to a change in the homotopy type of sublevel sets.
+	In this setting, our approach of formulating the inequalities purely in algebraic terms might be more suitable: while these critical points are not topologically visible, they do correspond to features in the persistence diagram of the filtered Floer homology.
 \end{rem}

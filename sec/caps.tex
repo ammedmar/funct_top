@@ -1,0 +1,101 @@
+%!TEX root = ../func_top.tex
+
+\section{Regular values and cap numbers} \label{s:caps}
+We will now discuss the equivalence of our definition of cap numbers and the one used by Morse.
+Futhermore, we provide a proof of \cref{lem:sublevel_set_homotopy} establishing a homotopy equivalence of sublevel sets at a regular value.
+As a starting point, we observe that the basic use of \cref{lem:sublevel_set_homotopy} is to show that if $t$ is an endpoint of a feature in the persistence diagram associated to our function $F$, i.e., if $c(t) > 0$, then there must be a homotopically critical point with value $t$.
+To achieve this, we assume that $F$ is weakly upper-reducible and its sublevel set filtration is compact.
+A very similar statement appears in \cite[Theorem 8.1]{Morse.1938}, which says that if $t$ is a \emph{cap limit}, then there must be a homotopically critical point with value $t$.
+There are two slight differences to our approach: 
+First, in \cite[Theorem 8.1]{Morse.1938} it is assumed that $F$ is not only weakly upper-reducible but upper-reducible.
+Second, $t$ is not required to satisfy $c(t) > 0$, but required to be a \emph{cap limit}, meaning that $\colim_{s: s < t} \CH_*(F_{\leq t}, F_{\leq s}) \neq 0$ \cite[p.~12]{Morse.1938}.
+Regarding the second point, it turns out that the two requirements are equivalent.
+
+\begin{prop}\label{prop:cap_limits}
+	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration.
+	Assume that $\H$ has long exact sequences for pairs of compact spaces, and that $\H_*(F_{\leq \bullet})$ is q-tame and continuous from above.
+	Then $\dim \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) = c_d(t)$ or both quantities are infinite.
+\end{prop}
+\begin{proof}
+	First, note that we have a splitting 
+	\begin{align*}
+	\colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) 
+	&\cong \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_*(F_{\leq t}, F_{\leq s}) \right) \\
+	&\oplus \coker \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right).
+	\end{align*}
+    Computing with the long exact sequences of pairs in homology, we have
+    \begin{align*}
+        \alpha_d(t)
+        &= \dim \coker \left( \colim_{s: s < t} \H_d(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
+        &= \dim \colim_{s: s < t} \coker \left( \H_d(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
+        &= \dim \colim_{s: s < t} \im \left( \H_d(F_{\leq t}) \to \H_d(F_{\leq t}, F_{\leq s}) \right) \\
+        &= \dim \im \left( \H_*(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right), \\
+    \end{align*}
+    and
+    \begin{align*}
+    	\omega_{d-1}(t)
+        &= \dim \ker \left( \colim_{s: s < t} \H_{d-1}(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
+        &= \dim \colim_{s: s < t} \ker \left( \H_{d-1}(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
+        &= \dim \colim_{s: s < t} \coker \left( \H_d(F_{\leq t}) \to \H_d(F_{\leq t}, F_{\leq s}) \right) \\
+        &= \dim \coker \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right), \\
+    \end{align*}
+    where we have in both cases used the fact that taking filtered colimits of vector spaces is exact, and where the first equalities hold in case both sides of the equation are finite because of \cref{lem:birth_death_formulas} and the fact that $\H_*(F_{\leq \bullet})$ is continuous from above.
+	Since $c_d(t) = \alpha_d(t) + \omega_{d-1}(t)$, this finishes the proof.
+\end{proof}
+
+\begin{rem}
+	\cref{prop:cap_limits} only references cap limits, i.e., levels $t$ for which the \emph{cap space} $\colim_{s: s < t} \H_*(F_{\leq t}, F_{\leq s})$ is non-zero.
+	However, Morse not only considers these cap spaces on their own, but he also defines the \emph{span} of a cap, and considers the space of caps with span greater than some $\epsilon > 0$, see for example \cite[Section 11]{Morse.1940}. 
+	Using slight generalizations of the arguments proving \cref{prop:cap_limits,lem:birth_death_formulas}, one can show that the dimensions of these spaces agree with $c^{\epsilon}(t)$.
+	We already mentioned this when talking about Morse inequalities, which Morse originally formulated for dimensions of such cap spaces.	
+\end{rem}
+
+Note that the assumptions of \cref{prop:cap_limits} are in particular satisfied for \v{C}ech homology with field coefficients and a function $F$ whose sublevel set filtration is $\HLC$ with respect to this homology theory.
+Regarding the first difference we mentioned between our approach and the one from \cite[Theorem 8.1]{Morse.1938} with respect to upper-reducibility, we will now sketch that this is not an issue.
+That is, we will give an outline of the arguments leading up to \cite[Theorem 8.1]{Morse.1938} invoking only weak upper-reducibility.
+As mentioned previously, similar considerations can be found in \cite[Remark II.6.3]{Struwe.1988}.
+\begin{proof}[Proof of \cref{lem:sublevel_set_homotopy}]
+	Let $t \in \R$ be a regular value of $F$.
+	For each $p \in F_{\leq t}$ we can find a number $\delta_{p} > 0$ and a continuous map $\varphi_{p} \colon B_{\delta_{p}}(p) \times [0,1] \to M$, where $B_{\delta_{p}}(p)$ is the open metric ball around $p$ in $F_{\leq t}$ with radius $\delta_{p}$, such that 
+	\begin{enumerate}
+		\item $\varphi_{p}(\cdot,0) = \operatorname{id}$,
+		\item for all $V \subseteq B_{\delta_{p}}(p)$ compact there exists $\epsilon(p,V) > 0$ with 
+		\begin{enumerate}
+			%\item $F(\varphi_{p}(x,r))$ is non-increasing in $r$ for all $x \in B_{\delta_{p}}(p)$, and
+			\item $\varphi_{p}(V \cap F_{\leq s}\times [0,1]) \subseteq F_{\leq s}$ for all $s \in (t - \epsilon(p,V), t]$, and
+			\item $\varphi(V,1) \subseteq F_{\leq t - \epsilon(p,V)}$.
+		\end{enumerate}
+	\end{enumerate}
+	For $p$ with $F(p) = t$ the existence of such $\delta_{p}$ and $\varphi_{p}$ is guaranteed by the assumption that $t$ is a regular value and hence $p$ is homotopically regular,
+	and for $p$ with $F(p) < t$ it is guaranteed by the assumption that $F$ is weakly upper-reducible.
+	Because $F_{\leq t}$ is compact, we can now choose finitely many points $p_{1}, \dots, p_{n}$ such that $F_{\leq t}$ is covered by $( B_{\frac{\delta_{p_{i}}}{3}}(p_{i}))_{i}$, and we set 
+	\[
+		\epsilon \defeq \max_{i = 1,\dots,n} \epsilon \left( p_{i}, \overline{B}_{\frac{\delta_{p_{i}}}{3}}(p_{i}) \right).
+	\]
+	We extend the corresponding homotopies $\varphi_{p_{i}}$ from $B_{\delta_{p_{i}}}(p_{i})$ to all of $F_{\leq t}$, not changing them on $B_{\frac{\delta_{p_{i}}}{3}}(p_{i})$, and being the identity on $F_{\leq t} \setminus B_{\delta_{p_{i}}}(p_{i})$:
+	Let $\psi \colon [0,1] \to [0,1]$ be the continous map given by 
+	\[
+		\psi(x) = 
+		\begin{cases}
+			1  & \text{if } x \in [0,\frac{1}{3}), \\
+			-3x + 2 & \text{if } x \in [\frac{1}{3}, \frac{2}{3}), \\
+			0 & \text{if } x \in [\frac{2}{3},1].
+		\end{cases}
+	\]
+	We define $\tilde{\varphi}_{i} \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ by 
+	\[
+		\tilde{\varphi}_{i}(x,r) = 
+		\begin{cases}
+			\varphi_{p_{i}} \left( x, \psi \left( \frac{d(x,p_{i})}{\delta_{p_{i}}} \right) \cdot r \right)  & \text{if } x \in B_{\delta_{p_{i}}}(p_{i}), \\
+			x & \text{otherwise}.
+		\end{cases}
+	\]
+	Finally, we define $\varphi \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ as the concatenation of the maps $\tilde{\varphi}_{i}$, i.e., $\varphi(x,0) = x$ and $\varphi(x,r) = \varphi_{i} \left( x, n \cdot r - i \right)$ for $r \in \left( \frac{i}{n}, \frac{i+1}{n} \right]$.
+	From the properties of the maps $\varphi_{p_{i}}$ chosen in the beginning and the construction of the maps $\tilde{\varphi}_{i}$, we obtain that 
+	\begin{enumerate}
+		\item $\varphi(\cdot, 0) = \operatorname{id}$, 
+		\item $\varphi(F_{\leq s} \times [0,1]) \subseteq F_{\leq s}$ for all $s \in (t - \epsilon, t]$, and 
+		\item $\varphi(F_{\leq t}, 1) \subseteq F_{\leq t - \epsilon}$.
+	\end{enumerate}
+	This shows that, indeed, the inclusions $F_{\leq s} \hookrightarrow F_{\leq t}$ are homotopy equivalences for $s \in (t - \epsilon, t]$, with homotopy inverses given by $\varphi$.
+\end{proof}
