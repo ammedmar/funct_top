@@ -49,8 +49,8 @@ Note that, in particular, an isolated local minimum constitutes a critical set o
 
 \begin{defi}[{{\cite[p.~445]{Morse.1939}}}]
 \label{def:upper_reducible}
-    Let $F \colon M \to \R$ be a function on a metric space. 
-    We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on every compact subset $V \subseteq U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ as in \cref{def:critical_set}.
+	Let $F \colon M \to \R$ be a function on a metric space.
+	We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on every compact subset $V \subseteq U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ as in \cref{def:critical_set}.
 \end{defi}
 
 In \cite[p.~36]{Morse.1938}, the stronger notion of \emph{upper-reducibility}, without the prefix \emph{weakly}, is defined analogously to \cref{def:upper_reducible} with the slight difference that the existence of a displacement function is not only demanded for compact $V \subseteq U \cap F_{\geq c - \eta}$, but for all compact $V \subseteq U$.
@@ -84,21 +84,21 @@ We provide more detailed comments regarding the differences between these assump
 \end{rem}
 
 \begin{rem}\label{rem:mountain_pass_assumptions}
-    In \cite[Corollary 7.1]{Morse.1939}, the assumptions that Morse and Tompkins use for $F$ and $M$ are that the sublevel set filtration is compact,  weakly upper-reducible, ``regular at infinity'', and that $M$ is ``locally $F$-connected''.
-    Compactness is also required for our version, as is weak upper-reducibility. 
-    Local $F$-connectedness is replaced by the $\HLC$ condition.
-    (This point will be discussed in more detail in \cref{subsec:historic_hlc}).
-    Regularity at infinity roughly corresponds to our assumption that $M$ is connected and the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism (see \cite[p.~444]{Morse.1939} and our proof of \cref{thm:unstable_minimial_surface}).
-    This assumption may also replaced by the assumption that $\cp_0 = 1$, which we deduce from our assumptions in \cref{lem:essential_cech_dim}.
+	In \cite[Corollary 7.1]{Morse.1939}, the assumptions that Morse and Tompkins use for $F$ and $M$ are that the sublevel set filtration is compact,  weakly upper-reducible, ``regular at infinity'', and that $M$ is ``locally $F$-connected''.
+	Compactness is also required for our version, as is weak upper-reducibility.
+	Local $F$-connectedness is replaced by the $\HLC$ condition.
+	(This point will be discussed in more detail in \cref{subsec:historic_hlc}).
+	Regularity at infinity roughly corresponds to our assumption that $M$ is connected and the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism (see \cite[p.~444]{Morse.1939} and our proof of \cref{thm:unstable_minimial_surface}).
+	This assumption may also replaced by the assumption that $\cp_0 = 1$, which we deduce from our assumptions in \cref{lem:essential_cech_dim}.
 \end{rem}
 
 \begin{rem}\label{rem:mountain_pass_conclusion}
-    The precise statement of \cite[Corollary 7.1]{Morse.1939} postulates the existence of a homotopic critical point such that every critical set containing it has a positive first \emph{type number}.
-    This corresponds to our statement in so far as the existence of a critical set not of minimum type implies that there are $\epsilon$ and $t$ such that $c_{1}^{\epsilon}(t) > 0$ (see \cref{lem:endpoint_implies_crit_pt} and the proof of \cref{thm:mountain_pass}).
-    Note, however, that the existence of a positive cap number $c_{1}^{\epsilon}(t) > 0$ does not conversely imply the existence of a critical set not of minimum type:
-    Consider the parabola $P = \{(x,x^2) \in \R^2 \mid x \in \R\}$, let $M = S^1 \times P$ and let $F \colon M \to \R$ be the Morse--Bott function given by the projection to the second coordinate in $P$.
-    There is a single critical set $C = S^1 \times \{(0,0)\}$, which is of minimum type, but we still have $c_{1}^{\epsilon}(0) > 0$ for any $\epsilon > 0$ if $H$ is a homology theory such that $H_1(C) \neq 0$, e.g.\ singular or \v{C}ech homology.
-    To establish the existence of a critical set not of minimum type in the proof of \cref{thm:mountain_pass}, we will show that not only $c_{1}^{\epsilon}(t) > 0$, but that we indeed have $\omega_1^{\epsilon}(t) > 0$, i.e., that the positive cap number is created by the death of a feature.
+	The precise statement of \cite[Corollary 7.1]{Morse.1939} postulates the existence of a homotopic critical point such that every critical set containing it has a positive first \emph{type number}.
+	This corresponds to our statement in so far as the existence of a critical set not of minimum type implies that there are $\epsilon$ and $t$ such that $c_{1}^{\epsilon}(t) > 0$ (see \cref{lem:endpoint_implies_crit_pt} and the proof of \cref{thm:mountain_pass}).
+	Note, however, that the existence of a positive cap number $c_{1}^{\epsilon}(t) > 0$ does not conversely imply the existence of a critical set not of minimum type:
+	Consider the parabola $P = \{(x,x^2) \in \R^2 \mid x \in \R\}$, let $M = S^1 \times P$ and let $F \colon M \to \R$ be the Morse--Bott function given by the projection to the second coordinate in $P$.
+	There is a single critical set $C = S^1 \times \{(0,0)\}$, which is of minimum type, but we still have $c_{1}^{\epsilon}(0) > 0$ for any $\epsilon > 0$ if $H$ is a homology theory such that $H_1(C) \neq 0$, e.g.\ singular or \v{C}ech homology.
+	To establish the existence of a critical set not of minimum type in the proof of \cref{thm:mountain_pass}, we will show that not only $c_{1}^{\epsilon}(t) > 0$, but that we indeed have $\omega_1^{\epsilon}(t) > 0$, i.e., that the positive cap number is created by the death of a feature.
 \end{rem}
 
 \begin{rem}
@@ -142,23 +142,23 @@ As a first step, we will give general formulas for \emph{numbers of births} $\al
 	or both quantities are infinite.
 \end{lem}
 \begin{proof}
-    The internal colimits $\colim_{s < t} M_{s}$ and limits $\lim_{u > t} M_{u}$ are invariant under weak isomorphisms by \cite[Lemmas 3.5 and 3.6]{Schmahl.2021}, and the same is true for the numbers of births and deaths $\alpha(t)$ and $\omega(t)$ because they are defined through persistence diagrams, which themselves are invariant under weak isomorphisms.
+	The internal colimits $\colim_{s < t} M_{s}$ and limits $\lim_{u > t} M_{u}$ are invariant under weak isomorphisms by \cite[Lemmas 3.5 and 3.6]{Schmahl.2021}, and the same is true for the numbers of births and deaths $\alpha(t)$ and $\omega(t)$ because they are defined through persistence diagrams, which themselves are invariant under weak isomorphisms.
 	Hence, using the fact that the inclusion $\rad M \hookrightarrow M$ is a weak isomorphism, we conclude that none of the quantities appearing in the statement change if we replace $M$ by its radical.
 	This radical admits a barcode decomposition and the claims follow from an explicit computation on the corresponding barcode module $M' = \bigoplus_{\lambda \in \Lambda} C(I_\lambda)$:
-	
-	First, note that we have 
+
+	First, note that we have
 	\[
-	    \dim \lim_{u > t} M'_{u} 
-	    = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} \leq t,\ \sup I_{\lambda} > t \right\} 
-	    %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} = t,\ \sup I_{\lambda} > t\}
-	    %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
+		 \dim \lim_{u > t} M'_{u}
+		 = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} \leq t,\ \sup I_{\lambda} > t \right\}
+		 %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} = t,\ \sup I_{\lambda} > t\}
+		 %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
 	\]
 	if one side of the equation is finite, and we also have
 	\[
-	    \dim \colim_{s < t} M'_{s} 
-	    = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} \geq t \right\}, 
-	    %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} = t\}
-	    %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
+		 \dim \colim_{s < t} M'_{s}
+		 = \sharp \left\{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} \geq t \right\},
+		 %= \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} = t\}
+		 %+ \sharp \{ \lambda \in \Lambda \mid \inf I_{\lambda} < t,\ \sup I_{\lambda} > t\}
 	\]
 	as well as
 	\[
@@ -199,7 +199,7 @@ As a special case, this yields the following corollary.
 \end{cor}
 
 We now return to the setting of functions $F$ on metric spaces and prove some more lemmas.
-To emphasize which persistence-theoretic notions are relevant, we will work with a general homology theory $\H$ such that $\H(F_{\leq \bullet})$ has certain properties, stated in the lemmas. 
+To emphasize which persistence-theoretic notions are relevant, we will work with a general homology theory $\H$ such that $\H(F_{\leq \bullet})$ has certain properties, stated in the lemmas.
 In all cases, \v{C}ech homology as used in \cref{thm:mountain_pass} satisfies the necessary conditions.
 We start with a first result stating that, as in the case of smooth Morse theory, the homotopy type of sublevel sets does not change leading up to regular values.
 
@@ -321,13 +321,13 @@ As the last preparatory result, we will show that connectedness of $M$ together 
 %    \caption{Caption\todo{Needs a caption}}
 %    \label{fig:step_function}
 %    \end{figure}
-    
-    %The weak upper-reducibility condition does not have an analogue in the assumptions of \cref{thm:mountain_pass}. 
+
+    %The weak upper-reducibility condition does not have an analogue in the assumptions of \cref{thm:mountain_pass}.
     %This is interesting insofar as establishing that the Douglas functional satisfies this condition takes up a large part of \cite{Morse.1939}, and Courant \cite{Courant.1941} emphasizes that establishing weak upper-reducibility is one of the key difficulties in the proof of Morse and Tompkins, requiring ``a rather deep explicit analysis of the functional''.
-    
+
     %One can check that the example given in \cref{rem:critical_set} also satisfies the conditions that Morse and Tompkins impose for their Mountain Pass Theorem.
-    
-    %Weak upper-reducibility (WUR) is not used in our paper. Is it really unnecessary or do we miss something? 
+
+    %Weak upper-reducibility (WUR) is not used in our paper. Is it really unnecessary or do we miss something?
 
     %In the functional topology monograph, Morse states that WUR implies that every cap limit is assumed by a homotopically critical point. We do this without WUR in Lemma 5.8, but assume that the persistence module is continuous from above.
 
@@ -336,7 +336,7 @@ As the last preparatory result, we will show that connectedness of $M$ together 
     %Note that Courant says WUR is key in https://www.pnas.org/doi/pdf/10.1073/pnas.27.1.51 and establishing WUR makes up a large part of the Morse-Tompkins paper, so getting rid of this assumption actually simplifies things quite a bit.
 
     %WUR also seems to be satisfied in our example that establishes the necessity of modifying the definition of minimum type, so WUR also does not seem to rectify this issue.
-    
+
     %Apparently we did indeed miss something! Our argument without WUR relies on an argument by Struwe that seems to be incomplete and only works in general if WUR is also assumed.
 \end{rem}
 
@@ -347,7 +347,7 @@ We are now ready to give a proof of the Mountain Pass Theorem.
     As a consequence, $\CH_*(F_{\leq \bullet})$ has a well-defined persistence diagram by \cref{t:q-tame modules have barcodes}, and thus we can consider cap numbers, births, deaths, etc.
     We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
     The sublevel set filtration of $F_{\leq \bullet}$ is also assumed to be compact, $M$ is assumed to be connected and non-empty, $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is assumed to be an isomorphism, and $F$ is assumed to be weakly upper-reducible, so the previous lemmas are all applicable.
-	
+
 	Now assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
 	Since both critical sets are non-empty, we have $\CH_{0}(S_{i}) \neq 0$, and thus the first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{i}) \geq \dim \CH_0(S_{i}) \geq 1$ for $i = 1,2$,
 	indicating the existence of at least one feature for each $i = 1,2$ with birth $t_{i}$ and some positive persistence $\epsilon_i > 0$ in the persistence diagram of $\CH_0(F_{\leq \bullet})$.
@@ -488,7 +488,7 @@ We can now finally prove the Unstable Minimal Surface Theorem.
     The sublevel set filtration of $A_g$ is also $\HLC$ for \v{C}ech homology according to \cref{prop:douglas_hlc}.
     Finally, we have $\colim \CH_0((A_g)_{\bullet}) \to \CH_0(\Omega_g)$ is an isomorphism according to \cite[p.~444]{Morse.1939} because $A_g$ satisfies the \emph{regularity at infinity} condition by \cite[Theorem 4.3]{Morse.1939}.
     In total, \cref{thm:mountain_pass} applies to $A_g$.
-    Since any homotopically critical point of $A_g$ corresponds to a minimal surface spanned by $g$ \cite[Theorem 6.2]{Morse.1939}, this implies the claim. 
+    Since any homotopically critical point of $A_g$ corresponds to a minimal surface spanned by $g$ \cite[Theorem 6.2]{Morse.1939}, this implies the claim.
 \end{proof}
 
 \begin{rem}

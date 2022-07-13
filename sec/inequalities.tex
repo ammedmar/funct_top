@@ -33,13 +33,13 @@ In analogy to Morse's definitions, we may define, for an integer $d$ and real nu
 c_{d}^{\epsilon}(t) \ =
 \alpha_{d}^{\epsilon}(t) + \omega_{d-1}^{\epsilon}(t),
 \end{equation*}
-where 
+where
 \begin{align*}
 \alpha_{d}^{\epsilon}(t) &= \sum_{\substack{q \in \R \cup \{\infty\} \\ q - t > \epsilon}} \m_d(t, q),
 %\\
 %\intertext{and}
 &
-\omega_{d}^{\epsilon}(t) &= \sum_{\substack{p \in \R \cup \{-\infty\} \\ t - p > \epsilon}} \m_{d}(p, t) 
+\omega_{d}^{\epsilon}(t) &= \sum_{\substack{p \in \R \cup \{-\infty\} \\ t - p > \epsilon}} \m_{d}(p, t)
 \end{align*}
 are the \emph{number of births} and the \emph{number of deaths}, respectively, in degree $d$, at parameter $t$, and with persistence greater than~$\epsilon$.
 We will comment on the connection between our definition and the original one by Morse in \cref{s:caps}.
@@ -48,7 +48,7 @@ To see the necessity of this second condition, consider the q-tame persistence m
 
 Whenever the sums below are well-defined, we also consider the \emph{$(d,\epsilon)$-cap numbers}
 \[
-c_{d}^{\epsilon} = \sum_{t \in \R} c_{d}^{\epsilon}(t)  = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon},
+c_{d}^{\epsilon} = \sum_{t \in \R} c_{d}^{\epsilon}(t) = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon},
 \]
 where
 \begin{align*}
@@ -151,7 +151,7 @@ which agrees with the dimension of the colimit of the degree $d$ part of $M$.
 
 \begin{proof}
 Recall that the $d$th $\epsilon$-cap number is defined as
-\[c_{d}^{\epsilon} = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon}.\] 
+\[c_{d}^{\epsilon} = \alpha_{d}^{\epsilon} + \omega_{d-1}^{\epsilon}.\]
 %where
 %\begin{align*}
 %\alpha_{d}^{\epsilon} \ &=
@@ -223,7 +223,7 @@ These conditions are in particular satisfied by the Douglas functional (\cref{pr
 \begin{rem} \label{r:homotopically critial points}
 	In addition to the formulation of the inequalities in terms of cap numbers, Morse also proposed a generalized version of critical points, which he called homotopically critical, and which formalizes the idea of criticality of a point in terms of topological changes in the sublevel set filtration.
 	This notion was employed in the above mentioned work on minimal surfaces by Morse and Tompkins \cite{Morse.1939}.
-	
+
 	The usefulness of this notion might however be limited in some cases of interest.
 	In Floer theory, for example, critical points of the action functional corresponding to a Hamiltonian usually do not have a finite index and thus do not lead to a change in the homotopy type of sublevel sets.
 	In this setting, our approach of formulating the inequalities purely in algebraic terms might be more suitable: while these critical points are not topologically visible, they do correspond to features in the persistence diagram of the filtered Floer homology.
