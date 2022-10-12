@@ -13,14 +13,14 @@ Regarding the second point, it turns out that the two requirements are equivalen
 
 \begin{prop}\label{prop:cap_limits}
 	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration and fix $t \in \R$.
-	Assume that $\H$ has long exact sequences for pairs of compact spaces, and that $\H_*(F_{\leq \bullet})$ is q-tame and continuous from above.
+	Assume that $\H$ has long exact sequences for pairs of compact spaces, and that $\H_d(F_{\leq \bullet})$ is q-tame and continuous from above.
 	Then $\dim \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) = c_d(t)$ or both quantities are infinite.
 \end{prop}
 \begin{proof}
 	First, note that we have a splitting
 	\begin{align*}
 	\colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s})
-	&\cong \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_*(F_{\leq t}, F_{\leq s}) \right) \\
+	&\cong \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_(F_{\leq t}, F_{\leq s}) \right) \\
 	&\oplus \coker \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right).
 	\end{align*}
 	Computing with the long exact sequences of pairs in homology, we have
@@ -29,7 +29,7 @@ Regarding the second point, it turns out that the two requirements are equivalen
 		&= \dim \coker \left( \colim_{s: s < t} \H_d(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
 		&= \dim \colim_{s: s < t} \coker \left( \H_d(F_{\leq s} \hookrightarrow F_{\leq t}) \right) \\
 		&= \dim \colim_{s: s < t} \im \left( \H_d(F_{\leq t}) \to \H_d(F_{\leq t}, F_{\leq s}) \right) \\
-		&= \dim \im \left( \H_*(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right), \\
+		&= \dim \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right), \\
 	\end{align*}
 	and
 	\begin{align*}
@@ -68,7 +68,7 @@ As mentioned previously, similar considerations can be found in \cite[Remark II.
 	\end{enumerate}
 	For $p$ with $F(p) < t$ the existence of such $\delta_{p}$ and $\varphi_{p}$ is guaranteed by the assumption that $F$ is weakly upper-reducible.
 	For $p$ with $F(p) = t$ it follows from the assumption that $t$ is a regular value and hence $p$ is homotopically regular, by the following argument.
-	
+
 	If $p$ is homotopically regular, there exists a neighborhood $U$ of $p$ in $F_{\leq t}$ and a continuous map $\varphi \colon U \times [0,1] \to M$ such that $\varphi(\cdot,0) = \operatorname{id}_{U}$, $\varphi(p,1) \neq p$, and such that on every compact set $V \subseteq U$ there exists a displacement function for $\varphi$ and~$F$.
 	It is clear that $\varphi(V \cap F_{\leq s} \times [0,1]) \subseteq F_{\leq s}$ for all $s \leq t$ and $V \subseteq U$ compact since there exists a displacement function and hence the values of $F$ can not increase along trajectories of $\varphi$.
 	It remains to be checked that we can shrink $U$ enough such that for all compact $V \subseteq U$ there is $\epsilon(p,V)$ with $\varphi(V,1) \subseteq F_{\leq t - \epsilon(p,V)}$.
@@ -81,7 +81,7 @@ As mentioned previously, similar considerations can be found in \cite[Remark II.
 	Since $K$ is compact, $\varphi$ is continuous, $\delta$ is continuous, and $\varphi(\cdot,1)$ has no fixed points in $K$, the function $x \mapsto \delta(d(x,\varphi(x,1)))$ attains a minimum $\epsilon > 0$ on $K$.
 	We get $F(x) - t \geq F(x) - F(\varphi(x,1)) \geq \epsilon > 0$ for all $x \in K$, which contradicts the fact that $F(q_{n}) \to t$ for $n \to \infty$.
 	This proves the claim.
-	
+
 	Because $F_{\leq t}$ is compact, we can now choose finitely many points $p_{1}, \dots, p_{n}$ such that $F_{\leq t}$ is covered by $( B_{\frac{\delta_{p_{i}}}{3}}(p_{i}))_{i}$, and we set
 	\[
 		\epsilon \defeq \max_{i = 1,\dots,n} \epsilon \left( p_{i}, \overline{B}_{\frac{\delta_{p_{i}}}{3}}(p_{i}) \right).

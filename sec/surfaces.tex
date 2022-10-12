@@ -211,7 +211,7 @@ In all cases, \v{C}ech homology as used in \cref{thm:mountain_pass} satisfies th
 We start with a first result stating that, as in the case of smooth Morse theory, the homotopy type of sublevel sets does not change leading up to regular values.
 
 \begin{lem}\label{lem:sublevel_set_homotopy}
-	Let $F \colon M \to \R$ be a weakly upper-reducible function a metric space with compact sublevel set filtration.
+	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration.
 	If $t \in \R$ is a regular value of $F$, then there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
 \end{lem}
 
@@ -283,7 +283,7 @@ Next, we will analyze how the homology of sublevel sets changes at function valu
 	The set $F_{\leq t} \setminus S$ is compact because $F_{\leq t}$ is compact and $S$ is open in $F_{\leq t}$, so the sublevel set filtration of $G$ is compact.
 	$G$ is also weakly upper-reducible because the same is true for $F$.
 	Moreover, any homotopically critical point of $G$ is a homotopically critical point of $F$, so our assumption that $S$ is the set of all homotopically critical points with value $t$ of $F$ implies that $t$ is a regular value for $G$.
-	By \cref{lem:sublevel_set_homotopy},  this implies that there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} = G_{\leq s} \hookrightarrow G_{\leq t} = (F_{\leq t} \setminus S)$ is a homotopy equivalence for for all $s \in (t - \epsilon, t]$
+	By \cref{lem:sublevel_set_homotopy},  this implies that there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} = G_{\leq s} \hookrightarrow G_{\leq t} = (F_{\leq t} \setminus S)$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$
 	Hence, again using additivity of $\H$, continuity from above, and \cref{lem:birth_death_formulas}, we obtain that
 	\begin{align*}
 		\omega_d(t) &= \dim \ker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \lim_{u > t} \H_d(F_{\leq u}) \big) \\
@@ -304,7 +304,7 @@ As the last preparatory result, we will show that connectedness of $M$ together 
 \begin{proof}
 	Since $M$ is connected and non-empty, we have $\dim H_{0}(M) = 1$ for singular homology, and since $M$ is non-empty we have $\dim \CH_0(M) \geq 1$.
 	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so the morphism $H_{0}(F_{\leq \bullet}) \to \CH_{0}(F_{\leq \bullet})$ is epi.
-	Taking direct limits of vector spaces is exact, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi. 
+	Taking direct limits of vector spaces is exact, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi.
 	We assume $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ to be an isomorphism, so the composition $\colim H_0(F_{\leq \bullet}) \to \CH_0(M)$ is still epi.
 	But this map factors through $H_{0}(M)$, which has dimension 1, so we get $\dim \CH_0(M) = 1$.
 	Together with our assumption on the colimit, we obtain $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = \dim \CH_0(M) = 1$.
