@@ -29,12 +29,12 @@ As alluded to in \cref{r:homotopically critial points}, Morse and Tompkins consi
 \begin{defi}[{{\cite[Definition II.6.1-II.6.2]{Struwe.1988}, \cite[p.~445, 466]{Morse.1939}}}]
 \label{def:critical_set}
 	Consider a real-valued function $F$ on a metric space $(M,d)$.
-	A point $p \in M$ is called \emph{homotopically regular} if there exists a neighborhood $U$ of $p$ in $F_{\leq F(p)}$ and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(p,1) \neq p$, such that for every compact subset $V \subseteq U$ there exists a continuous \emph{displacement function} $\delta \colon \R_{\geq 0} \to \R_{\geq 0}$ with
-	$\delta(e) = 0$ if and only if $e = 0$, and
+	A point $p \in M$ is called \emph{homotopically regular} if there exists a neighborhood $U$ of $p$ in $F_{\leq F(p)}$ and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(p,1) \neq p$, such that for every compact subset $V \subseteq U$ there exists a function $\delta \colon \R_{> 0} \to \R_{> 0}$ with
 	\[
-	F(\varphi(x,s)) - F(\varphi(x,t)) \geq \delta(d(\varphi(x,s),\varphi(x,t)))
+	F(\varphi(x,s)) - F(\varphi(x,t)) > \delta(e)
 	\]
-	for all $x \in V$ and $0 \leq s \leq t \leq 1$.
+	for all $x \in V$, $e > 0$, and $0 \leq s \leq t \leq 1$ such that $d(\varphi(x,s),\varphi(x,t)) > e$.
+	Such a function $\delta$ is called a \emph{displacement function} for the functions $F$ and $\varphi$ on the set $V$.
 % 	\begin{itemize}
 % 		\item $\delta(e) = 0$ if and only if $e = 0$, and
 % 		\item $F(\varphi(x,s)) - F(\varphi(x,t)) > \delta(d(\varphi(x,s),\varphi(x,t)))$ for all $x \in V$ and $0 \leq s \leq t \leq 1$.
@@ -50,10 +50,11 @@ Note that, in particular, an isolated local minimum constitutes a critical set o
 \begin{defi}[{{\cite[p.~445]{Morse.1939}}}]
 \label{def:upper_reducible}
 	Let $F \colon M \to \R$ be a function on a metric space.
-	We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$ and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on every compact subset $V \subseteq U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ as in \cref{def:critical_set}.
+	We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$, $\varphi((U \cap F_{\leq c-\eta}) \times [0,1]) \subseteq F_{\leq c-\eta}$, and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on %every compact subset $V \subseteq 
+	$U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ and $F$ as in \cref{def:critical_set}.
 \end{defi}
 
-In \cite[p.~36]{Morse.1938}, the stronger notion of \emph{upper-reducibility}, without the prefix \emph{weakly}, is defined analogously to \cref{def:upper_reducible} with the slight difference that the existence of a displacement function is not only demanded for compact $V \subseteq U \cap F_{\geq c - \eta}$, but for all compact $V \subseteq U$.
+In \cite[p.~36]{Morse.1938}, the stronger notion of \emph{upper-reducibility}, without the prefix \emph{weakly}, is defined analogously to \cref{def:upper_reducible} with the slight difference that the existence of a displacement function is not only demanded for the neighborhoods $U \cap F_{\geq c - \eta}$, but for all neighborhoods $U \subseteq M$.
 
 Morse and Tompkins state the following Mountain Pass Theorem under slightly different assumptions, and with a slightly different conclusion.
 
@@ -69,7 +70,7 @@ Morse and Tompkins state the following Mountain Pass Theorem under slightly diff
 \label{thm:mountain_pass}
 	Let $F \colon M \to \R$ be a weakly upper-reducible function on a non-empty connected metric space with compact sublevel set filtration.
 	Assume that the natural map $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is an isomorphism, and that the sublevel set filtration of $F$ is $\HLC$ with respect to \v Cech homology.
-	If $M$ contains two distinct critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.
+	If $M$ contains two disjoint critical sets of $F$ of minimum type, then it also contains a critical set not of minimum type.
 \end{thm}
 
 It is worth noting, however, that the details in \cite{Morse.1939} are incomplete, with some crucial theorems such as \cite[Theorems 7.3 and 7.4, Corollary 7.1]{Morse.1939} being stated without proof, and with a citation to a paper in preparation that has never been published under the given name (we suppose that this paper is \cite{Morse.1940}).
@@ -79,12 +80,12 @@ Still, our assumptions can be established for the Douglas functional from the re
 We provide more detailed comments regarding the differences between these assumptions in \cref{rem:critical_set,rem:mountain_pass_assumptions,subsec:historic_hlc}, and regarding the differences in the conclusions of the Mountain Pass Theorem in \cref{rem:mountain_pass_conclusion}.
 
 \begin{rem}\label{rem:critical_set}
-    Our \cref{def:critical_set} of homotopically regular point differs slightly from that of \citet[p.~30]{Morse.1938} and \citet[p.~444--445]{Morse.1939} as their displacement functions are not explicitly assumed to be continuous.
-    As used in the proof of \cref{lem:sublevel_set_homotopy}, we require this property to establish that a homotopically regular point with value $t$ admits a neighborhood $U$ and a homotopy $\varphi$ as in \cref{def:critical_set} such that for any compact $V \subseteq U$ there is $\epsilon > 0$ with $\varphi(V, 1) \subseteq F_{\leq t - \epsilon}$.
-    That such neighborhoods exist is claimed by Morse in the proof of \cite[Lemma~8.1]{Morse.1938}, where continuity of the displacement functions is not mentioned explicitly.
-    It is not clear to us whether the claim actually holds without continuity, or whether the assumption of continuity was made implicitly.
-    Regardless, all displacement functions considered by \citet{Morse.1939} and used for the purposes of this work are indeed continuous.
-
+    %Our \cref{def:critical_set} of homotopically regular point differs slightly from that of \citet[p.~30]{Morse.1938} and \citet[p.~444--445]{Morse.1939} as their displacement functions are not explicitly assumed to be continuous.
+    %As used in the proof of \cref{thm:sublevel_set_homotopy}, we require this property to establish that a homotopically regular point with value $t$ admits a neighborhood $U$ and a homotopy $\varphi$ as in \cref{def:critical_set} such that for any compact $V \subseteq U$ there is $\epsilon > 0$ with $\varphi(V, 1) \subseteq F_{\leq t - \epsilon}$.
+    %That such neighborhoods exist is claimed by Morse in the proof of \cite[Lemma~8.1]{Morse.1938}, where continuity of the displacement functions is not mentioned explicitly.
+    %It is not clear to us whether the claim actually holds without continuity, or whether the assumption of continuity was made implicitly.
+    %Regardless, all displacement functions considered by \citet{Morse.1939} and used for the purposes of this work are indeed continuous.
+    %
 	Our \cref{def:critical_set} of a critical set $S$ of \emph{minimum type} also differs slightly from that of Morse and Tompkins \cite[p.~466]{Morse.1939}, who do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
 	Without this additional assumption, however, \cref{thm:mountain_pass} does not hold, as shown by the example $F \colon [0,1] \to \R$ with $F(0) = F(1) = 0$ and $F(t) = 1$ for $0 < t < 1$:
 	$F$ has the four critical sets $\{0\}$, $\{1\}$, $\{0\} \cup \{1\}$ and $(0,1)$, which all satisfy the minimum type condition if the neighborhood $N$ need not contain their closure, but then there is no critical set that is not of minimum type.
@@ -123,7 +124,7 @@ a \emph{minimal surface} -- a surface with vanishing mean curvature -- and using
 
 \begin{thm}[{Unstable Minimal Surface Theorem \cite[p.~472]{Morse.1939}}]
 \label{thm:unstable_minimial_surface}
-	If the space~$\Omega_g$ contains two minimal surfaces contained in distinct critical sets of minimum type of the functional $A_g$, then it also contains an \emph{unstable} minimal surface, i.e., a minimal surface contained in a critical set that is not of minimum type.
+	If the space~$\Omega_g$ contains two minimal surfaces contained in disjoint critical sets of minimum type of the functional $A_g$, then it also contains an \emph{unstable} minimal surface, i.e., a minimal surface contained in a critical set that is not of minimum type.
 \end{thm}
 
 In \cite[Section 8]{Morse.1939}, Morse and Tompkins provide an example of a curve $g$ for which $\Omega_{g}$ indeed contains two distinct critical sets of minimum type, so that $g$ then also spans an unstable minimal surface.
@@ -210,13 +211,13 @@ To emphasize which persistence-theoretic notions are relevant, we will work with
 In all cases, \v{C}ech homology as used in \cref{thm:mountain_pass} satisfies the necessary conditions.
 We start with a first result stating that, as in the case of smooth Morse theory, the homotopy type of sublevel sets does not change leading up to regular values.
 
-\begin{lem}\label{lem:sublevel_set_homotopy}
+\begin{thm}\label{thm:sublevel_set_homotopy}
 	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration.
 	If $t \in \R$ is a regular value of $F$, then there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
-\end{lem}
+\end{thm}
 
-%\cref{lem:sublevel_set_homotopy} can be shown analogously to the argument in \cite[Remark II.6.3]{Struwe.1988}, where level sets of $F$ are assumed to be compact, but $F$ is not assumed to be weakly upper-reducible.
-A weaker version of \cref{lem:sublevel_set_homotopy} is stated in \cite[Lemma 8.1]{Morse.1938}, under the slightly stronger assumption of upper-reducibility.
+%\cref{thm:sublevel_set_homotopy} can be shown analogously to the argument in \cite[Remark II.6.3]{Struwe.1988}, where level sets of $F$ are assumed to be compact, but $F$ is not assumed to be weakly upper-reducible.
+A weaker version of \cref{thm:sublevel_set_homotopy} is stated in \cite[Lemma 8.1]{Morse.1938}, under the slightly stronger assumption of upper-reducibility.
 In \cite{Morse.1939}, Morse and Tompkins introduce and use \emph{weak} upper-reducibility, noting that the results and arguments from \cite[Sections 7 and 8]{Morse.1938} still apply.
 For convenience, we revisit the arguments using this setting in \cref{s:caps}, loosely following the exposition by Struwe \cite[Remark II.6.3]{Struwe.1988}.
 
@@ -228,10 +229,10 @@ Note that the definitions of cap numbers used by Morse is phrased in terms of re
 \label{lem:endpoint_implies_crit_pt}
 	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration.
 	Assume that $\H(F_{\leq \bullet})$ is q-tame and continuous from above, and consider $t \in \R$ and its birth and death numbers $\alpha_d(t)$ and $\omega_{d-1}(t)$.
-	If $\alpha_d(t) > 0$ or $\omega_{d-1}(t) > 0$ for some degree $d$, then $t$ is a critical value of $F$.
+	If $\alpha_d(t) > 0$ or $\omega_{d-1}(t) > 0$ for some degree $d$, then $t$ is a critical value of~$F$.
 \end{lem}
 \begin{proof}
-	Following \cref{lem:sublevel_set_homotopy}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
+	Following \cref{thm:sublevel_set_homotopy}, we know that if $t$ is a regular value, there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$.
 	Thus, $\H(F_{\leq \bullet})$ is continuous from below at every regular value.
 	However, we assume $\H(F_{\leq \bullet})$ to be also continuous from above at every value, and in particular at regular values.
 	Hence, \cref{cor:regular_value_no_endpoint} implies that $\alpha_d(t) = \omega_{d-1}(t) = 0$ for all $d$ whenever $t$ is regular, which proves the claim.
@@ -281,9 +282,11 @@ Next, we will analyze how the homology of sublevel sets changes at function valu
 
 	Now, assume that $S$ is the set of all homotopically critical points of $F$ with value~$t$ and consider the restriction of $F$ to $F_{\leq t} \setminus S$, denoted by $G$.
 	The set $F_{\leq t} \setminus S$ is compact because $F_{\leq t}$ is compact and $S$ is open in $F_{\leq t}$, so the sublevel set filtration of $G$ is compact.
-	$G$ is also weakly upper-reducible because the same is true for $F$.
-	Moreover, any homotopically critical point of $G$ is a homotopically critical point of $F$, so our assumption that $S$ is the set of all homotopically critical points with value $t$ of $F$ implies that $t$ is a regular value for $G$.
-	By \cref{lem:sublevel_set_homotopy},  this implies that there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} = G_{\leq s} \hookrightarrow G_{\leq t} = (F_{\leq t} \setminus S)$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$
+	$G$ is also weakly upper-reducible because the same is true for $F$: 
+	For points $p \in F_{\leq t} \setminus S$ and $c > F(p)$ with $c > t$ one can choose $\eta > 0$ such that $c-\eta > t$, choose $U \subseteq G_{\leq c} = F_{\leq t} \setminus S$ as an arbitrary neighborhood, and take $\varphi$ to be the homotopy on $U$ such that $\varphi(\cdot,s)$ is the identity for all $s \in [0,1]$.
+	For $c \leq t$, one can choose $\eta > 0$, a neighborhood $U \subseteq F_{\leq c}$, and a homotopy $\varphi$ so that they satisfy the weak upper-reducibility conditions for $F$ and then obtain the corresponding data for $G$ by intersecting $U$ with $F_{\leq t} \setminus S$ and restricting $\varphi$ to this neighborhood of $p$ in $G_{\leq c}$.
+	In addition to the weak upper-reducibility, any homotopically critical point of $G$ is a homotopically critical point of $F$, so our assumption that $S$ is the set of all homotopically critical points with value $t$ of $F$ implies that $t$ is a regular value for $G$.
+	By \cref{thm:sublevel_set_homotopy},  this implies that there exists $\epsilon > 0$ such that the inclusion $F_{\leq s} = G_{\leq s} \hookrightarrow G_{\leq t} = (F_{\leq t} \setminus S)$ is a homotopy equivalence for all $s \in (t - \epsilon, t]$
 	Hence, again using additivity of $\H$, continuity from above, and \cref{lem:birth_death_formulas}, we obtain that
 	\begin{align*}
 		\omega_d(t) &= \dim \ker \big( \colim_{s < t} \H_d(F_{\leq s}) \to \lim_{u > t} \H_d(F_{\leq u}) \big) \\
@@ -303,16 +306,17 @@ As the last preparatory result, we will show that connectedness of $M$ together 
 \end{lem}
 \begin{proof}
 	Since $M$ is connected and non-empty, we have $\dim H_{0}(M) = 1$ for singular homology, and since $M$ is non-empty we have $\dim \CH_0(M) \geq 1$.
-	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so the morphism $H_{0}(F_{\leq \bullet}) \to \CH_{0}(F_{\leq \bullet})$ is epi.
-	Taking direct limits of vector spaces is exact, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi.
+	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so the map $H_{0}(F_{\leq t}) \to \CH(F_{\leq t})$ is surjective for all $t$.
+	Hence, the morphism $H_{0}(F_{\leq \bullet}) \to \CH_{0}(F_{\leq \bullet})$ of persistence modules is epi.
+	Taking colimits preserves epis, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi. 
 	We assume $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ to be an isomorphism, so the composition $\colim H_0(F_{\leq \bullet}) \to \CH_0(M)$ is still epi.
 	But this map factors through $H_{0}(M)$, which has dimension 1, so we get $\dim \CH_0(M) = 1$.
-	Together with our assumption on the colimit, we obtain $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = \dim \CH_0(M) = 1$.
+	Together with our assumption that $\colim \CH_{0}(F_{\leq \bullet}) \cong \CH_{0}(M)$, we obtain $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = \dim \CH_0(M) = 1$.
 \end{proof}
 
 \begin{rem}
 %    \todo{should we move the rest of this remark to after \cref{lem:essential_cech_dim}?}
-    Note that $\cp_0 = 1$ does not already follow from just $M$ being connected, i.e., the assumption $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is non-vacuous:
+    Note that $\cp_0 = 1$ does not already follow from just $M$ being connected, i.e., the assumption that $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ be an isomorphism is non-vacuous:
 	For the lower semi-continuous function $F \colon [0,1] \to \R$ defined as $F(0) = 0$ and $F(t) = \frac1t$ for $t > 0$, we have for $t > 0$ that $F_{\leq t} = \{0\} \cup [\frac1t, 1]$.
 	%where $\frac1t$ goes monotonically to 0 as $t \to \infty$.
 	Hence, we get $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = 2$ despite $M$ being contractible and the sublevel sets of $F$ being compact. %\todo{Is $F$ weakly upper-reducible?}
@@ -358,15 +362,20 @@ We are now ready to give a proof of the Mountain Pass Theorem.
     We write $\cc_d$, $\calpha_d$, $\comega_d$, and $\cp_d$ for the cap numbers, births, deaths, and essential dimensions of $\CH_d(F_{\leq \bullet})$, respectively.
     The sublevel set filtration of $F_{\leq \bullet}$ is also assumed to be compact, $M$ is assumed to be connected and non-empty, $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ is assumed to be an isomorphism, and $F$ is assumed to be weakly upper-reducible, so the previous lemmas are all applicable.
 
-	Now assume that $F$ has two distinct critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
+	Now assume that $F$ has two disjoint critical sets $S_{1}$ and $S_{2}$ of minimum type with values $t_{1}$ and $t_{2}$, respectively.
+	First, consider the case where $t_{1} \neq t_{2}$.
 	Since both critical sets are non-empty, we have $\CH_{0}(S_{i}) \neq 0$, and thus the first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{i}) \geq \dim \CH_0(S_{i}) \geq 1$ for $i = 1,2$,
 	indicating the existence of at least one feature for each $i = 1,2$ with birth $t_{i}$ and some positive persistence $\epsilon_i > 0$ in the persistence diagram of $\CH_0(F_{\leq \bullet})$.
 	Choosing $0 < \epsilon < \min_i \epsilon_i$, this implies that
 	$\calpha_{0}^{\epsilon}(t_{i}) \geq 1$ for $i = 1,2$,
 	and thus
 	$\cc_{0}^{\epsilon} \geq \calpha_{0}^{\epsilon}(t_{1}) + \calpha_{0}^{\epsilon}(t_{2}) \geq 1 + 1 = 2$.
+	In the case where $t_{0} \defeq t_{1} = t_{2}$, the union $S = S_{1} \cup S_{2}$ is still a critical set of minimum type.
+	The first assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death} implies $\calpha_{0}(t_{0}) \geq \dim \CH_0(S) = \dim \CH_{0}(S_{1}) + \dim \CH_{0}(S_{2}) \geq 2$.
+	Similar to before, we may thus choose $\epsilon > 0$ such that $\cc_{0}^{\epsilon} \geq \calpha_{0}^{\epsilon}(t_{0}) \geq 2$.
+	Hence, in both cases we obtain $\cc_{0}^{\epsilon} \geq 2$.
 	Now, from \cref{lem:essential_cech_dim} we obtain that $\cp_{0} = 1$, which yields $\comega_{0}^{\epsilon} = \cc_{0}^{\epsilon} - \cp_{0} \geq 2 - 1 = 1$.
-	Thus, there must be some $t \in \R$ with $\comega_{0}(t) \geq \comega^{\epsilon}_{0})(t) > 0$, so that we may apply \cref{lem:endpoint_implies_crit_pt} to obtain that the set $S$ of homotopically critical points at value $t$ is non-empty.
+	Thus, there must be some $t \in \R$ with $\comega_{0}(t) \geq \comega^{\epsilon}_{0}(t) > 0$, so that we may apply \cref{lem:endpoint_implies_crit_pt} to obtain that the set $S$ of homotopically critical points at value $t$ is non-empty.
 	If $S$ were of minimum type, then we would have $\comega_{0}(t) = 0$ by the second assertion of \cref{lem:minimum_type_implies_some_birth_and_no_death}, contradicting the choice of $t$.
 	Hence, $S$ cannot be of minimum type, which finishes the proof.
 \end{proof}
@@ -388,7 +397,8 @@ Expressed in similar language as \cref{defi:LHS}, the property of local $F$-conn
 	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected of all orders}, or \emph{weakly $\piLC$}, if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ induces trivial maps on all homotopy groups.
 \end{defi}
 
-Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ is bounded from below and satisfies the assumptions of local $F$-connectivity and compactness of sublevel sets.
+Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ %is bounded from below and 
+satisfies the assumptions of local $F$-connectivity and compactness of sublevel sets.
 %, and a further condition called $F$-regularity, which is trivially satisfied if the domain of $F$ is compact.
 In the original (where the function is assumed to take values in $[0,1)$) the claim reads:
 \begin{displaycquote}[Theorem 6.3, p.~432]{Morse.1940}

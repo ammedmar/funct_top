@@ -12,7 +12,7 @@ Second, $t$ is not required to satisfy $c(t) > 0$, but required to be a \emph{ca
 Regarding the second point, it turns out that the two requirements are equivalent.
 
 \begin{prop}\label{prop:cap_limits}
-	Let $F \colon M \to \R$ be a weakly upper-reducible function on a metric space with compact sublevel set filtration and fix $t \in \R$.
+	Let $F \colon M \to \R$ be a function on a metric space with compact sublevel set filtration and fix $t \in \R$.
 	Assume that $\H$ has long exact sequences for pairs of compact spaces, and that $\H_d(F_{\leq \bullet})$ is q-tame and continuous from above.
 	Then $\dim \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) = c_d(t)$ or both quantities are infinite.
 \end{prop}
@@ -20,7 +20,7 @@ Regarding the second point, it turns out that the two requirements are equivalen
 	First, note that we have a splitting
 	\begin{align*}
 	\colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s})
-	&\cong \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_(F_{\leq t}, F_{\leq s}) \right) \\
+	&\cong \im \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right) \\
 	&\oplus \coker \left( \H_d(F_{\leq t}) \to \colim_{s: s < t} \H_d(F_{\leq t}, F_{\leq s}) \right).
 	\end{align*}
 	Computing with the long exact sequences of pairs in homology, we have
@@ -44,26 +44,28 @@ Regarding the second point, it turns out that the two requirements are equivalen
 \end{proof}
 
 \begin{rem}
+	Note that the assumptions of \cref{prop:cap_limits} are in particular satisfied for \v{C}ech homology with field coefficients and a function $F$ whose sublevel set filtration is $\HLC$ with respect to this homology theory.
+
 	\cref{prop:cap_limits} only references cap limits, i.e., levels $t$ for which the \emph{cap space} $\colim_{s: s < t} \H_{d}(F_{\leq t}, F_{\leq s})$ is non-zero.
 	However, Morse not only considers these cap spaces on their own, but he also defines the \emph{span} of a cap, and considers the space of caps with span greater than some $\epsilon > 0$, see for example \cite[Section 11]{Morse.1940}.
 	Using slight generalizations of the arguments proving \cref{prop:cap_limits,lem:birth_death_formulas}, one can show that the dimensions of these spaces agree with $c_{d}^{\epsilon}(t)$.
 	We already mentioned this when talking about Morse inequalities, which Morse originally formulated for dimensions of such cap spaces.
 \end{rem}
 
-Note that the assumptions of \cref{prop:cap_limits} are in particular satisfied for \v{C}ech homology with field coefficients and a function $F$ whose sublevel set filtration is $\HLC$ with respect to this homology theory.
-Regarding the first difference we mentioned between our approach and the one from \cite[Theorem 8.1]{Morse.1938} with respect to upper-reducibility, we will now show that this is not an issue.
-That is, we will give an outline of the arguments leading up to \cite[Theorem 8.1]{Morse.1938} invoking only weak upper-reducibility.
-As mentioned previously, similar considerations can be found in \cite[Remark II.6.3]{Struwe.1988}.
+We now discuss the difference between our approach and the one from \cite[Theorem 8.1]{Morse.1938} concerning the assumption of upper-reducibility.
+We will show that our weakened assumptions are sufficient for the conclusion, giving an outline of the arguments leading up to \cite[Theorem 8.1]{Morse.1938} invoking only weak upper-reducibility.
+As mentioned previously, similar considerations can be found in \cite[Remark II.6.3]{Struwe.1988} (although the role of weak upper-reducibility is not addressed there). 
 \begin{proof}[Proof of \cref{lem:sublevel_set_homotopy}]
 	Let $t \in \R$ be a regular value of $F$.
 	For each $p \in F_{\leq t}$ we can find a number $\delta_{p} > 0$ and a continuous map $\varphi_{p} \colon B_{\delta_{p}}(p) \times [0,1] \to M$, where $B_{\delta_{p}}(p)$ is the open metric ball around $p$ in $F_{\leq t}$ with radius $\delta_{p}$, such that
-	\begin{enumerate}
-		\item $\varphi_{p}(\cdot,0) = \operatorname{id}$,
-		\item for all compact $V \subseteq B_{\delta_{p}}(p)$ there exists $\epsilon(p,V) > 0$ with
-		\begin{enumerate}
+	\begin{enumerate}[label={(\arabic*)}]
+		\item \label{item:id} $\varphi_{p}(\cdot,0) = \operatorname{id}$,
+		\item \label{item:epsilon} for all compact $V \subseteq B_{\delta_{p}}(p)$ there exists $\epsilon(p,V) > 0$ with
+		\begin{enumerate}[label={(\alph*)}]
 			%\item $F(\varphi_{p}(x,r))$ is non-increasing in $r$ for all $x \in B_{\delta_{p}}(p)$, and
-			\item $\varphi_{p}(V \cap F_{\leq s}\times [0,1]) \subseteq F_{\leq s}$ for all $s \in (t - \epsilon(p,V), t]$, and
-			\item $\varphi(V,1) \subseteq F_{\leq t - \epsilon(p,V)}$.
+			\item \label{item:s_below_s} $\varphi_{p}(V \cap F_{\leq s}\times [0,1]) \subseteq F_{\leq s}$ for all $s \in [t - \epsilon(p,V), t]$,
+			\item \label{item:contracting} $\varphi_{p}(V,1) \subseteq F_{\leq t - \epsilon(p,V)}$, and
+			\item \label{item:displacement} there exists a displacement function for $\varphi_{p}$ and $F$ on $V \cap F_{\geq t - \epsilon(p,V)}$.
 		\end{enumerate}
 	\end{enumerate}
 	For $p$ with $F(p) < t$ the existence of such $\delta_{p}$ and $\varphi_{p}$ is guaranteed by the assumption that $F$ is weakly upper-reducible.
@@ -73,21 +75,22 @@ As mentioned previously, similar considerations can be found in \cite[Remark II.
 	It is clear that $\varphi(V \cap F_{\leq s} \times [0,1]) \subseteq F_{\leq s}$ for all $s \leq t$ and $V \subseteq U$ compact since there exists a displacement function and hence the values of $F$ can not increase along trajectories of $\varphi$.
 	It remains to be checked that we can shrink $U$ enough such that for all compact $V \subseteq U$ there is $\epsilon(p,V)$ with $\varphi(V,1) \subseteq F_{\leq t - \epsilon(p,V)}$.
 	Assume for a contradiction that for all neighborhoods $W \subseteq U$ there exists a compact $V \subseteq W$ such that for all $\epsilon > 0$ there is some $q \in V$ with $t \geq F(q) \geq F(\varphi(q,1)) > t - \epsilon$, where we note that $F(q) \geq F(\varphi(q,1))$ is a consequence of the existence of a displacement function on~$V$.
-	It follows that there exists a sequence $(q_{n})_{n}$ in $F_{\leq t}$ with $F(q_{n}) \to t$ and $q_{n} \to p$ for $n \to \infty$.
+	It follows that there exists a sequence $(q_{n})_{n}$ in $F_{\leq t}$ with $F(q_{n}) \to t$, $F(\varphi(q_{n},1)) \to t$, and $q_{n} \to p$ for $n \to \infty$.
 	Since $\varphi$ is continuous we have that $\varphi(q_{n},1)$ converges to $\varphi(p,1)$, which is different from $p$ by the choice of $\varphi$, so there can be no infinite subsequence of $(q_{n})_{n}$ consisting of fixed points for $\varphi(\cdot,1)$.
 	Without loss of generality, we can thus assume that $\varphi(q_{n},1) \neq q_{n}$ for all $n$.
 	Now consider the compact set $K = \{q_{n} \mid n \in \N \} \cup \{p\}$.
 	By assumption, we can choose a continuous displacement function $\delta$ on $K$.
-	Since $K$ is compact, $\varphi$ is continuous, $\delta$ is continuous, and $\varphi(\cdot,1)$ has no fixed points in $K$, the function $x \mapsto \delta(d(x,\varphi(x,1)))$ attains a minimum $\epsilon > 0$ on $K$.
-	We get $F(x) - t \geq F(x) - F(\varphi(x,1)) \geq \epsilon > 0$ for all $x \in K$, which contradicts the fact that $F(q_{n}) \to t$ for $n \to \infty$.
+	Since $K$ is compact, $\varphi$ is continuous, %$\delta$ is continuous, 
+	and $\varphi(\cdot,1)$ has no fixed points in $K$, the function $x \mapsto %\delta(
+	d(x,\varphi(x,1))
+	%)
+	$ attains a minimum $\epsilon > 0$ on $K$. 
+	We get $t - F(\varphi(x,1)) \geq F(x) - F(\varphi(x,1)) > \delta(\frac{\epsilon}{2}) > 0$ for all $x \in K$, which contradicts the fact that $F(\varphi(q_{n},1)) \to t$ for $n \to \infty$.
 	This proves the claim.
 
-	Because $F_{\leq t}$ is compact, we can now choose finitely many points $p_{1}, \dots, p_{n}$ such that $F_{\leq t}$ is covered by $( B_{\frac{\delta_{p_{i}}}{3}}(p_{i}))_{i}$, and we set
-	\[
-		\epsilon \defeq \max_{i = 1,\dots,n} \epsilon \left( p_{i}, \overline{B}_{\frac{\delta_{p_{i}}}{3}}(p_{i}) \right).
-	\]
-	We extend the corresponding homotopies $\varphi_{p_{i}}$ from $B_{\delta_{p_{i}}}(p_{i})$ to all of $F_{\leq t}$, not changing them on $B_{\frac{\delta_{p_{i}}}{3}}(p_{i})$, and being the identity on $F_{\leq t} \setminus B_{\delta_{p_{i}}}(p_{i})$:
-	Let $\psi \colon [0,1] \to [0,1]$ be the continous map given by
+
+	Now, for any $p \in F_{\leq t}$, we extend the homotopy $\varphi_{p}$ from $B_{\delta_{p}}(p)$ to all of $F_{\leq t}$, not changing them on $B_{\frac{\delta_{p}}{3}}(p)$, and being the identity on $F_{\leq t} \setminus B_{\delta_{p}}(p)$:
+	Let $\psi \colon [0,1] \to [0,1]$ be the continuous map given by
 	\[
 		\psi(x) =
 		\begin{cases}
@@ -96,20 +99,162 @@ As mentioned previously, similar considerations can be found in \cite[Remark II.
 			0 & \text{if } x \in [\frac{2}{3},1].
 		\end{cases}
 	\]
-	We define $\tilde{\varphi}_{i} \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ by
+	We define $\tilde{\varphi}_{p} \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ by
 	\[
-		\tilde{\varphi}_{i}(x,r) =
+		\tilde{\varphi}_{p}(x,r) =
 		\begin{cases}
-			\varphi_{p_{i}} \left( x, \psi \left( \frac{d(x,p_{i})}{\delta_{p_{i}}} \right) \cdot r \right)  & \text{if } x \in B_{\delta_{p_{i}}}(p_{i}), \\
-			x & \text{otherwise}.
+			\varphi_{p} \left( x, \psi \left( \frac{d(x,p)}{\delta_{p}} \right) \cdot r \right)  & \text{if } x \in B_{\delta_{p}}(p), \\
+			x & \text{otherwise},
 		\end{cases}
 	\]
-	Finally, we define $\varphi \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ as the concatenation of the maps $\tilde{\varphi}_{i}$, i.e., $\varphi(x,0) = x$ and $\varphi(x,r) = \varphi_{i} \left( x, n \cdot r - i \right)$ for $r \in \left( \frac{i}{n}, \frac{i+1}{n} \right]$.
-	From the properties of the maps $\varphi_{p_{i}}$ chosen in the beginning and the construction of the maps $\tilde{\varphi}_{i}$, we obtain that
-	\begin{enumerate}
+	which is continuous since $\psi(1) = 0$.
+	
+	Because $F_{\leq t}$ is compact, we can now choose finitely many points $p_{1}, \dots, p_{n}$ such that $F_{\leq t}$ is covered by $( B_{\nicefrac{\delta_{p_{i}}}{6}}(p_{i}))_{i}$.
+	For these points $p_{i}$, we modify the homotopies $\tilde{\varphi}_{i} \defeq \tilde{\varphi}_{p_{i}}$ to obtain homotopies $\hat{\varphi}_{i} \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ such that 
+	\begin{enumerate}[label={(\arabic*')}]
+		\item \label{item:id'} $\hat{\varphi}_{i}(\cdot,0) = \operatorname{id}$,
+		\item \label{item:epsilon'} there exists $\epsilon_{i} > 0$ such that
+		\begin{enumerate}[label={(\alph*)}, ref={(\arabic{enumi}'\alph*)}]
+			\item \label{item:s_below_s'} $\hat{\varphi}_{i}(F_{\leq s} \times [0,1]) \subseteq F_{\leq s}$ for all $s \in [t - \epsilon_{i}, t]$, 
+			\item \label{item:contracting'} $\hat{\varphi}_{i}(B_{\nicefrac{\delta_{p_{i}}}{3}}(p_{i}), 1) \subseteq F_{\leq t - \epsilon_{i}}$, and
+		\end{enumerate}
+		\item \label{item:small_change} $d(\hat{\varphi}_{i}(x, 0), \hat{\varphi}_{i}(x,1)) < \hat{\delta}$,
+			where we define 
+			\[
+				\hat{\delta} \defeq \frac{1}{6n} \min_{i} \delta_{p_{i}}.
+			\]
+	\end{enumerate}
+	Note that $\tilde{\varphi}_{i}$ already has \cref{item:id',item:epsilon'} as a consequence of $\varphi_{p_{i}}$ having \cref{item:id,item:epsilon}, but $\tilde{\varphi}_{i}$ need not have \cref{item:small_change}.
+	To construct $\hat{\varphi}_{i}$, we use the theory of $\mu$-curves from \cite{Morse.1936}: 
+	By \cite{Morse.1936}, for any continuous path $\eta \colon [0,1] \to F_{\leq t}$ there exists $\mu(\eta) > 0$ and a continuous reparametrization of $\eta$, denoted by $q(\eta) = \eta \circ \chi(\eta) \colon [0, \mu(\eta)] \to F_{\leq t}$ for some order-preserving homeomorphism $\chi(\eta) \colon [0, \mu(\eta)] \to [0,1]$, such that the resulting maps $(\eta,s) \mapsto q(\eta)(s)$ and $\eta \mapsto \mu(\eta)$ are continuous with respect to the Fr\'echet distance on the space of paths and $s$ varying in $[0, \mu(\eta)]$. 
+	Moreover, for any $\eta$ and any $s \in [0, \mu(\eta)]$, it holds that
+	\begin{equation}\label{eq:mu_param}
+		\frac{1}{2}\diam\{q(\eta)(r) \mid 0 \leq r \leq s\} \leq s \leq \diam\{q(\eta)(r) \mid 0 \leq r \leq s\}.
+	\end{equation}
+	Now, for $p \in F_{\leq t}$, let $\eta_{i}(p)$ be the path given by $\tilde{\varphi}_{i}(p,\cdot)$. 
+	Since $\tilde{\varphi}_{i}$ is continuous and $F_{\leq t}$ is a compact metric space and in particular locally compact Hausdorff, the map $\eta_{i}$ is continuous with respect to the compact open topology on the space of paths, which in this case is equal to the metric topology induced by the supremum distance.
+	The supremum distance is an upper bound for the Fr\'echet distance, so $\eta_{i}$ is also continuous with respect to this distance.
+	In total, this allows us to define a continuous map $\hat{\varphi}_{i} \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ given by 
+	\[
+	\hat{\varphi}_{i}(p,s) = q(\eta_{i}(p))(\overline{\mu}_{i}(p)\cdot s),
+	\] 
+	where 
+	\[
+	\overline{\mu}_{i}(p) \defeq \min \left\{ \mu(\eta_{i}(p)), \frac{\hat{\delta}}{2} \right\}.
+	\]
+	It is clear that $\hat{\varphi}_{i}$ has \cref{item:id',item:s_below_s'} because, by construction, for all $p$ the curve $\hat{\varphi}_{i}(p,\cdot)$ is a reparametrization of the  curve $\tilde{\varphi}_{i}(p,\cdot)$ restricted to some interval $[0,a_p]$ with $a_p >0$.
+	
+	To see that $\hat{\varphi}_{i}$ has \cref{item:contracting'}, we start by partitioning $B_{\nicefrac{\delta_{p_{i}}}{3}}(p_{i})$ into two disjoint subsets $B_{i}$ and $B'_{i}$,
+	 where $B_{i}$ consists of those points $p$ for which $\overline{\mu}_{i}(p) = \mu(\eta_{i}(p))$.
+	 This implies that $\hat{\varphi}_{i}(p,1) = \tilde{\varphi}_{i}(p,1)$ for all $p \in B_{i}$.
+	Thus, because $\tilde{\varphi}_{i}$ has \cref{item:contracting'}, this implies 
+	$\hat{\varphi}_{i}(B_{i}, 1) \subseteq F_{\leq t - \epsilon_i}$ for some sufficiently small $\epsilon_i > 0$.
+	It remains to verify that there exists $\epsilon_{i} > 0$ for which $\hat{\varphi}_{i}(B'_{i},1) \subseteq F_{\leq t-\epsilon_{i}}$.
+	%Now, for $p \in B'_{i}$, we have $\overline{\mu}_{i}(p) < \mu(\eta_{i}(p))$.
+%	Assume that 
+%	
+%	If $p \in F_{\leq t-\epsilon_{i}}$.
+%	
+%	
+	If $\epsilon_{i}$ is chosen according to \cref{item:s_below_s'} for $\hat{\varphi}_{i}$, then we get \[\hat{\varphi}_{i}(B'_{i} \cap F_{\leq t-\epsilon_{i}},1) \subseteq F_{\leq t-\epsilon_{i}}.\]
+	Thus, it remains to check that there exists $\epsilon_{i} > 0$ for which \[\hat{\varphi}_{i}(B'_{i} \cap F_{> t-\epsilon_{i}},1) \subseteq F_{\leq t-\epsilon_{i}}.\]
+	The closure $A_{i}$ of $B'_{i} \cap F_{> t-\epsilon_{i}}$ in $F_{\leq t}$ is a compact subset of $B_{\delta_{p_{i}}}(p_{i})$, so by \cref{item:displacement} we get a displacement function $\rho_{i}$ on $A_{i}$ for $F$ and $\varphi_{p_{i}}$.
+	Note that $\rho_{i}$ is also a displacement function for $\tilde{\varphi}_{i}$ on $A_{i} \subset \overline{B}_{\nicefrac{\delta_{p}}{3}}(p_i)$, where $\tilde{\varphi}_{i} = \varphi_{p_{i}}$.
+	
+	By definition of $A_i$ and $B'_{i}$, any point $p \in A_i$ satisfies 
+	$\mu(\eta_{i}(p)) \geq \frac{\hat{\delta}}{2}$.
+	Invoking
+	\cref{eq:mu_param} with $s = \frac{\hat{\delta}}{2}$ yields 
+	\[
+	\diam\{q(\eta_{i}(p))(r) \mid 0 \leq r \leq \frac{\hat{\delta}}{2}\} \geq \frac{\hat{\delta}}{2}.
+	\]
+	Unraveling the definitions $q(\eta) = \eta \circ \chi(\eta)$
+	and letting $a_p = \chi(\eta_{i}(p))(\frac{\hat{\delta}}{2})$
+	yields
+	\[
+	\diam\{\eta_{i}(p)(s) \mid 0 \leq s \leq a_p\} \geq \frac{\hat{\delta}}{2}.
+	\]
+%
+%	By compactness, the diameter is attained by two parameters $r_1<r_2$.
+%	Let $s_1= \chi(\eta_{i}(p))(r_1)$, $s_2=\chi(\eta_{i}(p))(r_2)$ denote the corresponding parameters for the curve $\eta_{i}(p)$, so that
+%	$q(\eta_{i}(p))(r_1) = \eta_{i}(p)(s_1)$ and $q(\eta_{i}(p))(r_2) = \eta_{i}(p)(s_2)$.
+%
+	By compactness, the diameter is attained by two parameters $s_1<s_2$.
+%	We thus have
+%	$d(\eta_{i}(p)(s_1), \eta_{i}(p)(s_2)) \geq \frac{\hat{\delta}}{2}$.
+	Unraveling the definition $\eta_{i}(p)=\tilde{\varphi}_{i}(p,\cdot)$,
+	we thus have
+	\[
+	d(\tilde{\varphi}_{i}(p,s_1), \tilde{\varphi}_{i}(p,s_2) \geq \frac{\hat{\delta}}{2}.\]
+	By definition of displacement function, 
+	\[F(\tilde{\varphi}_{i}(p,s_1)) - F(\tilde{\varphi}_{i}(p,s_2)) > \rho_{i}(\nicefrac{\hat{\delta}}{2}).\]
+	Moreover, by \cref{item:s_below_s'} we have
+	\[
+	t \geq F(\tilde{\varphi}_{i}(p,s_1)).  
+	\]
+	Together, this yields
+	\[F(\tilde{\varphi}_{i}(p,s_2)) < t - \rho_{i}(\nicefrac{\hat{\delta}}{2}).\]
+	Choosing $r_2$ such that $\chi(\eta_{i}(p))(r_2)= s_2$,
+	we have
+	\[\tilde{\varphi}_{i}(p,s_2) =
+	\hat{\varphi}_{i}(p,r_2\frac{2}{\hat{\delta}}).
+	\]
+	The existence of the displacement function $\rho_i$ implies that $F \circ \hat{\varphi}_i(p,\cdot) \colon [0,1] \to \R$ is monotonically decreasing for $p \in A_i$, and thus 
+	\[F(\hat{\varphi}_{i}(p,1)) < t - \rho_{i}(\nicefrac{\hat{\delta}}{2}).\]
+	Choosing $\epsilon_i < \rho_{i}(\nicefrac{\hat{\delta}}{2})$ thus ensures that $\hat{\varphi}_{i}(B'_{i} \cap F_{> t-\epsilon_{i}},1) \subseteq F_{\leq t-\epsilon_{i}}$.
+	We conclude that $\hat{\varphi}_{i}$ has \cref{item:contracting'}.
+	
+	
+%	Want:
+%	$d(\hat{\varphi}_{i}(x, 0), \hat{\varphi}_{i}(x,1)) < \hat{\delta}$
+%	Have:
+%		\begin{equation}\label{eq:mu_param}
+%		\frac{1}{2}\diam\{q(\eta)(r) \mid 0 \leq r \leq s\} \leq s \leq \diam\{q(\eta)(r) \mid 0 \leq r \leq s\}.
+%	\end{equation}
+	
+	To show \cref{item:small_change}, we observe that
+	\begin{align*}
+	d(\hat{\varphi}_{i}(x, 0), \hat{\varphi}_{i}(x,1)) &\leq
+	\diam\{q(\eta_{i}(p))(r) \mid 0 \leq r \leq \overline{\mu}_{i}(p)\} \\
+	&
+	\leq 2 \overline{\mu}_{i}(p)%\\
+	%&
+	\leq\hat{\delta},
+	\end{align*}
+	where the second inequality follows from \cref{eq:mu_param} and the third inequality from the definition of $\overline{\mu}_{i}$.
+	
+	%\hat{\varphi}_{i}(p,s) = q(\eta_{i}(p))(\overline{\mu}_{i}(p)\cdot s)
+	
+	Finally, we define $\varphi \colon F_{\leq t} \times [0,1] \to F_{\leq t}$ as the concatenation of the maps $\hat{\varphi}_{i}$, i.e., $\varphi(x,0) = x$ and
+	\[\varphi(x,r) = \hat{\varphi}_{i} \left( \hat{\varphi}_{i-1} \left( \dots \hat{\varphi}_{2} \left( \hat{\varphi}_{1} \left( x, 1 \right), 1 \right) \dots, 1 \right), n \cdot r - i + 1\right)\] for $r \in \left( \frac{i-1}{n}, \frac{i}{n} \right]$.
+	From $\hat{\varphi}_{i}$ having \cref{item:id',item:epsilon',item:small_change}, setting $\epsilon = \min_{i} \epsilon_{i}$, we obtain that $\varphi$ satisfies
+	\begin{enumerate}[label={(\arabic*'')}]
 		\item $\varphi(\cdot, 0) = \operatorname{id}$,
 		\item $\varphi(F_{\leq s} \times [0,1]) \subseteq F_{\leq s}$ for all $s \in (t - \epsilon, t]$, and
 		\item $\varphi(F_{\leq t}, 1) \subseteq F_{\leq t - \epsilon}$.
 	\end{enumerate}
+	The first two properties are immediate from the corresponding properties of $\hat{\varphi}_{i}$.
+	To show \cref{item:small_change}, 
+	let $p \in F_{\leq t}$ and let $i$ be such that 
+	$p \in B_{\nicefrac{\delta_{p_{i}}}{6}}(p_{i})$.
+	
+	We first show that $\varphi(p, \nicefrac i n) \in F_{\leq t - \epsilon}$.
+	We have 
+	\[
+	\varphi(p, \nicefrac i n) = \hat{\varphi}_{i} \left( \hat{\varphi}_{i-1} \left( \dots \hat{\varphi}_{2} \left( \hat{\varphi}_{1} \left( p, 1 \right), 1 \right) \dots, 1 \right), 1\right).\]
+	Since $\hat{\varphi}_{i}$ has \cref{item:contracting'}, it suffices to show that \[x:=\hat{\varphi}_{i-1} \left( \dots \hat{\varphi}_{2} \left( \hat{\varphi}_{1} \left( p, 1 \right), 1 \right) \dots, 1 \right) \in B_{\nicefrac{\delta_{p_{i}}}{3}}(p_{i}).\]
+	To see this, note that $d(p_i, p) < \nicefrac{\delta_{p_{i}}}{6}$ and $d(x,p) < (i-1)\hat{\delta} \leq (i-1) \frac 1 {6n} \delta_{p_{i}} < \nicefrac{\delta_{p_{i}}}{6}$.
+	By the triangle inequality, we now have $d(x, p_i) < \nicefrac{\delta_{p_{i}}}{3}$ as claimed.
+	
+	It remains to show that the point $p$ does not leave the sublevel set at the end of the homotopy, $\varphi(p, 1) \in F_{\leq t - \epsilon}$.
+	To see this, note that			
+		\[
+	\varphi(p, 1) = 
+	%
+	\hat{\varphi}_{n} \left( \hat{\varphi}_{n-1} \left( \dots
+	\hat{\varphi}_{i+1} \left(
+	%
+	\varphi(p, \nicefrac i n) , 1 \right)\dots, 1\right), 1 \right).\]
+	Recall that the point $\varphi(p, \nicefrac i n)$ lies in the sublevel set $F_{\leq t - \epsilon}$, and each of the homotopies $\hat{\varphi}_{i+1}, \dots, \hat{\varphi}_n$ preserves the sublevel set according to \cref{item:s_below_s'} and our choice of $\epsilon = \min_{i} \epsilon_{i}$.
 	This shows that, indeed, for $s \in (t - \epsilon, t]$ the inclusion $F_{\leq s} \hookrightarrow F_{\leq t}$ is a homotopy equivalence, with homotopy inverse given by $\varphi$.
 \end{proof}
