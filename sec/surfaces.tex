@@ -50,7 +50,7 @@ Note that, in particular, an isolated local minimum constitutes a critical set o
 \begin{defi}[{{\cite[p.~445]{Morse.1939}}}]
 \label{def:upper_reducible}
 	Let $F \colon M \to \R$ be a function on a metric space.
-	We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$, $\varphi((U \cap F_{\leq c-\eta}) \times [0,1]) \subseteq F_{\leq c-\eta}$, and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on %every compact subset $V \subseteq 
+	We say that $F$ is \emph{weakly upper-reducible} if for all $p \in M$ and all $c > F(p)$ there exists a neighborhood $U$ of $p$ in $F_{\leq c}$, a positive constant $\eta > 0$, and a continuous map $\varphi \colon U \times [0,1] \to M$, which satisfies $\varphi(\cdot, 0) = \operatorname{id}_U$, $\varphi((U \cap F_{\leq c-\eta}) \times [0,1]) \subseteq F_{\leq c-\eta}$, and $\varphi(U,1) \subseteq F_{\leq c-\eta}$, such that on %every compact subset $V \subseteq
 	$U \cap F_{\geq c - \eta}$ there exists a displacement function for $\varphi$ and $F$ as in \cref{def:critical_set}.
 \end{defi}
 
@@ -86,7 +86,7 @@ We provide more detailed comments regarding the differences between these assump
     %It is not clear to us whether the claim actually holds without continuity, or whether the assumption of continuity was made implicitly.
     %Regardless, all displacement functions considered by \citet{Morse.1939} and used for the purposes of this work are indeed continuous.
     %
-	Our \cref{def:critical_set} of a critical set $S$ of \emph{minimum type} also differs slightly from that of Morse and Tompkins \cite[p.~466]{Morse.1939}, who do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
+	Our \cref{def:critical_set} of a critical set $S$ of \emph{minimum type} differs slightly from that of Morse and Tompkins \cite[p.~466]{Morse.1939}, who do not require the neighborhood $N$ of $S$ on which the function values exceed those on $S$ to contain the closure of $S$.
 	Without this additional assumption, however, \cref{thm:mountain_pass} does not hold, as shown by the example $F \colon [0,1] \to \R$ with $F(0) = F(1) = 0$ and $F(t) = 1$ for $0 < t < 1$:
 	$F$ has the four critical sets $\{0\}$, $\{1\}$, $\{0\} \cup \{1\}$ and $(0,1)$, which all satisfy the minimum type condition if the neighborhood $N$ need not contain their closure, but then there is no critical set that is not of minimum type.
 \end{rem}
@@ -282,7 +282,7 @@ Next, we will analyze how the homology of sublevel sets changes at function valu
 
 	Now, assume that $S$ is the set of all homotopically critical points of $F$ with value~$t$ and consider the restriction of $F$ to $F_{\leq t} \setminus S$, denoted by $G$.
 	The set $F_{\leq t} \setminus S$ is compact because $F_{\leq t}$ is compact and $S$ is open in $F_{\leq t}$, so the sublevel set filtration of $G$ is compact.
-	$G$ is also weakly upper-reducible because the same is true for $F$: 
+	$G$ is also weakly upper-reducible because the same is true for $F$:
 	For points $p \in F_{\leq t} \setminus S$ and $c > F(p)$ with $c > t$ one can choose $\eta > 0$ such that $c-\eta > t$, choose $U \subseteq G_{\leq c} = F_{\leq t} \setminus S$ as an arbitrary neighborhood, and take $\varphi$ to be the homotopy on $U$ such that $\varphi(\cdot,s)$ is the identity for all $s \in [0,1]$.
 	For $c \leq t$, one can choose $\eta > 0$, a neighborhood $U \subseteq F_{\leq c}$, and a homotopy $\varphi$ so that they satisfy the weak upper-reducibility conditions for $F$ and then obtain the corresponding data for $G$ by intersecting $U$ with $F_{\leq t} \setminus S$ and restricting $\varphi$ to this neighborhood of $p$ in $G_{\leq c}$.
 	In addition to the weak upper-reducibility, any homotopically critical point of $G$ is a homotopically critical point of $F$, so our assumption that $S$ is the set of all homotopically critical points with value $t$ of $F$ implies that $t$ is a regular value for $G$.
@@ -306,9 +306,9 @@ As the last preparatory result, we will show that connectedness of $M$ together 
 \end{lem}
 \begin{proof}
 	Since $M$ is connected and non-empty, we have $\dim H_{0}(M) = 1$ for singular homology, and since $M$ is non-empty we have $\dim \CH_0(M) \geq 1$.
-	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so the map $H_{0}(F_{\leq t}) \to \CH(F_{\leq t})$ is surjective for all $t$.
+	Now the natural map from singular to \v{C}ech homology is always surjective for compact metric spaces in dimension 0 \cite{Eda.2000}, so the map $H_{0}(F_{\leq t}) \to \CH_0(F_{\leq t})$ is surjective for all $t$.
 	Hence, the morphism $H_{0}(F_{\leq \bullet}) \to \CH_{0}(F_{\leq \bullet})$ of persistence modules is epi.
-	Taking colimits preserves epis, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi. 
+	Taking colimits preserves epis, so the natural map $\colim H_{0}(F_{\leq \bullet}) \to \colim \CH_{0}(F_{\leq \bullet})$ is still epi.
 	We assume $\colim \CH_0(F_{\leq \bullet}) \to \CH_0(M)$ to be an isomorphism, so the composition $\colim H_0(F_{\leq \bullet}) \to \CH_0(M)$ is still epi.
 	But this map factors through $H_{0}(M)$, which has dimension 1, so we get $\dim \CH_0(M) = 1$.
 	Together with our assumption that $\colim \CH_{0}(F_{\leq \bullet}) \cong \CH_{0}(M)$, we obtain $\cp_0 = \dim \colim \CH_0(F_{\leq \bullet}) = \dim \CH_0(M) = 1$.
@@ -397,7 +397,7 @@ Expressed in similar language as \cref{defi:LHS}, the property of local $F$-conn
 	The sublevel set filtration of a function $f \colon X \to \R$ is said to be \emph{weakly locally connected of all orders}, or \emph{weakly $\piLC$}, if for any $x \in X$, any neighborhood $V$ of $x$, and any index $t > f(x)$, there is an index $s$ with $f(x) < s < t$ and a neighborhood $U$ of $x$ with $U \subseteq V$ such that the inclusion $f_{\leq s} \cap U \hookrightarrow f_{\leq t} \cap V$ induces trivial maps on all homotopy groups.
 \end{defi}
 
-Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ %is bounded from below and 
+Morse then goes on to claim that the persistent \v{C}ech homology of this sublevel set filtration is q-tame, provided that $F$ %is bounded from below and
 satisfies the assumptions of local $F$-connectivity and compactness of sublevel sets.
 %, and a further condition called $F$-regularity, which is trivially satisfied if the domain of $F$ is compact.
 In the original (where the function is assumed to take values in $[0,1)$) the claim reads:
