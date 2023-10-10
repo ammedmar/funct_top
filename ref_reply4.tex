@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{csquotes}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\cc}{\check{c}}
+
+\title{Author's fourth reply to the referee report of \\ \textsc{
+		``PERSISTENT HOMOLOGY FOR FUNCTIONALS''
+	}
+}
+\author{Bauer \and Medina-Mardones \and Schmahl}
+\begin{document}
+	\maketitle
+	We want to thank the referee for once again reading our revised article very carefully and for taking the time to give us very helpful and detailed commentary throughout the review process going far beyond the usual scope of referee's reports.
+ 
+	\section{First point}
+	It was simply an oversight on our part to not include this condition. We have added it to the definition and also briefly expanded on why the restriction $G$ of $F$ in the proof of Lemma 5.13 is weakly upper-reducible if $F$ is.
+	\section{Second point}
+	The Eda--Kawamura result can indeed not be applied directly to the space $M$ since $M$ need not be compact. We have adapted the proof by applying the Eda--Kawamura result to each sublevel set of $F$ before passing to the colimits, which is still sufficient to reach our desired conclusion.
+	\section{Third point}
+	We have extended the proof of Lemma 5.11 (now Theorem 5.11) to fill the gaps left in Morse's work and make his line of reasoning using a ``related homotopy'' explicit. We promoted the statement to the status of a theorem, since the proof is quite extensive, and the statement itself is of general interest for Morse theory. 
+	\section{List of typos, minor remarks and suggestions.}
+	\begin{enumerate}
+		\item Mentioning boundedness from below was indeed superfluous on page 26 because it follows from compactness of sublevel sets, we have removed the mention of the boundedness property.
+		\item Changed as suggested.
+		\item Changed as suggested.
+		\item It should have indeed said ``disjoint'' instead of ``distinct''. We have also corrected this in the statement of Theorems 5.3 and 5.8.
+		\item As suggested, we have distinguished the two cases where either $t_{1} \neq t_{2}$ or $t_{1} = t_{2}$.
+		\item Changed as suggested.
+		\item Weak upper-reducibility was indeed not needed here, we have removed the assumption.
+		\item Changed as suggested.
+		\item The mentioned part of the proof was indeed not quite accurate. We have implemented the suggested fix, where $q_{n}$ can be chosen such that $F(\varphi(q_{n},1)) \to t$ because of the assumption $t \geq F(\varphi(q,1)) > t - \epsilon$ that is supposed to lead to a contradiction.
+		\item We changed the bounds of the interval accordingly.
+		\item Changed as suggested.
+		\item The entire argument has been rewritten, so some of the relevant quantities have changed. In particular, the cover by balls of radius $\delta/3$ has been changed to balls of radius $\delta/6$.
+		\item Changed as suggested.
+	\end{enumerate}
+
+	\section{Other changes}
+	\begin{enumerate}
+		\item We have slightly changed the definition of displacement function in Definition 5.1. Before, we were paraphrasing the version by Struwe, but now we are more closely following the version by Morse--Tompkins, which requires a certain monotonicity. This actually makes the continuity assumption for displacement functions unnecessary. We have thus also removed the continuity assumption and have correspondingly removed the explanation for why we add this assumption from Remark 5.4. We have also correspondingly modified the end of the second paragraph of the proof of Lemma 5.11, where continuity of the displacement function has previously been used.
+		\item We have changed the part of the proof of Lemma 5.11 where homotopies are extended from balls to the whole sublevel set insofar that we now describe the extension process before choosing a cover by finitely many balls. This removes the additional index $i$ in the description of the extension process, which improves readability.
+	\end{enumerate}
+\end{document}
